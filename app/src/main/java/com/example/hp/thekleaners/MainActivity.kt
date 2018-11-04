@@ -1,9 +1,9 @@
 package com.example.hp.thekleaners
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import com.example.hp.thekleaners.fragments.LanguageHomePage
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,12 +11,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        mChooseLanguage.setOnClickListener { onClickListener() }
+        loadFragment()
+
     }
 
-    private fun onClickListener(){
-        val intent = Intent(this, LanguageChoose::class.java)
-        startActivity(intent)
+    private fun loadFragment() {
+        supportFragmentManager.beginTransaction().replace(R.id.mFrameContainer, LanguageHomePage())
+                .addToBackStack(null).commit()
     }
 
 }

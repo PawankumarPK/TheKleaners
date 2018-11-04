@@ -5,67 +5,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageView
+    <FrameLayout
+        android:id="@+id/mFrameContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/mRelativeLayout"
-        android:src="@drawable/recycle_waste" />
-
-    <RelativeLayout
-        android:id="@+id/mRelativeLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
-
-        <TextView
-            android:id="@+id/mTextview1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="Choose the language you love"
-            android:textColor="#1e1d1d"
-            android:textSize="23sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/mTextView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mTextview1"
-            android:layout_centerHorizontal="true"
-            android:text="to take our services in"
-            android:textColor="#1e1d1d"
-            android:textSize="23sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/mTextView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mTextView2"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="10dp"
-            android:text=" चुनिये अपनी मनपसंद भाषा"
-            android:textColor="#1e1d1d"
-            android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/mChooseLanguage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mTextView3"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="20dp"
-            android:layout_marginEnd="60dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginRight="60dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/color_gradient"
-            android:drawableEnd="@drawable/right_arrow"
-            android:drawableRight="@drawable/right_arrow"
-            android:text="Choose Language"
-            android:textColor="#fff" />
-    </RelativeLayout>
-
+        android:layout_height="match_parent" />
 </RelativeLayout>
