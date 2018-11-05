@@ -11,13 +11,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        loadFragment()
+        showFragementHome()
 
     }
 
-    private fun loadFragment() {
+    private fun showFragementHome() {
         supportFragmentManager.beginTransaction().replace(R.id.mFrameContainer, LanguageHomePage())
-                .addToBackStack(null).commit()
+                .commit()
     }
-
 }
