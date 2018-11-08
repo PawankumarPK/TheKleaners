@@ -1,16 +1,18 @@
 package com.example.hp.thekleaners.activities
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
+import android.support.design.widget.Snackbar
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.example.hp.thekleaners.R
+import com.example.hp.thekleaners.fragments.SignIn
 import kotlinx.android.synthetic.main.activity_navigation_drawer.*
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
+import kotlinx.android.synthetic.main.nav_header_navigation_drawer.*
 
 class NavigationDrawer : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -23,6 +25,7 @@ class NavigationDrawer : AppCompatActivity(), NavigationView.OnNavigationItemSel
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
         }
+        mLinearLayout.setOnClickListener { signInListener() }
 
         val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
@@ -81,5 +84,10 @@ class NavigationDrawer : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    private fun signInListener(){
+        supportFragmentManager.beginTransaction().replace(R.id.mFrameContainer,SignIn())
+                .addToBackStack(null).commit()
     }
 }

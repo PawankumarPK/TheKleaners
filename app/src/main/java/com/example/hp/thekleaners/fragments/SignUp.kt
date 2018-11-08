@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.hp.thekleaners.R
 
-class Home : BaseFragment() {
+class SignUp : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_home,container,false)
+        return inflater.inflate(R.layout.fragment_sign_up,container,false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
