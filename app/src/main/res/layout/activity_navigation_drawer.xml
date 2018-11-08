@@ -11,7 +11,9 @@
     <include
         layout="@layout/app_bar_navigation_drawer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
+
+
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"

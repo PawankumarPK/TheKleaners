@@ -8,4 +8,7 @@
     tools:context=".activities.NavigationDrawer"
     tools:showIn="@layout/app_bar_navigation_drawer">
 
+
+
+
 </android.support.constraint.ConstraintLayout>

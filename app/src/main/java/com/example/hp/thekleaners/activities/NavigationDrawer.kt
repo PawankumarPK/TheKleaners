@@ -8,11 +8,14 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.LinearLayout
+import android.widget.Toast
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.fragments.SignIn
 import kotlinx.android.synthetic.main.activity_navigation_drawer.*
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
-import kotlinx.android.synthetic.main.nav_header_navigation_drawer.*
+
 
 class NavigationDrawer : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -25,7 +28,14 @@ class NavigationDrawer : AppCompatActivity(), NavigationView.OnNavigationItemSel
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
         }
-        mLinearLayout.setOnClickListener { signInListener() }
+        val navigationView = findViewById<View>(R.id.nav_view) as NavigationView
+        val headerview = navigationView.getHeaderView(0)
+        val header = headerview.findViewById(R.id.mLinearLayout) as LinearLayout
+
+        header.setOnClickListener {
+            Toast.makeText(this, "clicked", Toast.LENGTH_SHORT).show()
+            signInListener()
+        }
 
         val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
@@ -34,6 +44,8 @@ class NavigationDrawer : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
         nav_view.setNavigationItemSelectedListener(this)
     }
+
+    //  LinearLayout header = (LinearLayout) headerview.findViewById(R.id.header);
 
     override fun onBackPressed() {
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
@@ -65,29 +77,19 @@ class NavigationDrawer : AppCompatActivity(), NavigationView.OnNavigationItemSel
             R.id.nav_camera -> {
                 // Handle the camera action
             }
-            R.id.nav_gallery -> {
-
-            }
-            R.id.nav_slideshow -> {
-
-            }
-            R.id.nav_manage -> {
-
-            }
-            R.id.nav_share -> {
-
-            }
-            R.id.nav_send -> {
-
-            }
+            R.id.nav_gallery -> { }
+            R.id.nav_slideshow -> { }
+            R.id.nav_manage -> { }
+            R.id.nav_share -> { }
+            R.id.nav_send -> { }
         }
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
 
-    private fun signInListener(){
-        supportFragmentManager.beginTransaction().replace(R.id.mFrameContainer,SignIn())
+    private fun signInListener() {
+        supportFragmentManager.beginTransaction().replace(R.id.containerView, SignIn())
                 .addToBackStack(null).commit()
     }
 }
