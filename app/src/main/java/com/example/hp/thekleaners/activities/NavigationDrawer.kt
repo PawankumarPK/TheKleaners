@@ -13,7 +13,7 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.Toast
 import com.example.hp.thekleaners.R
-import com.example.hp.thekleaners.fragments.SignIn
+import com.example.hp.thekleaners.fragments.*
 import kotlinx.android.synthetic.main.activity_navigation_drawer.*
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 
@@ -75,13 +75,10 @@ class NavigationDrawer : AppCompatActivity(), NavigationView.OnNavigationItemSel
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
-            R.id.nav_camera -> {
-                // Handle the camera action
-            }
-            R.id.mHome -> { }
-            R.id.mLanguage -> { }
-            R.id.mServices -> { }
-            R.id.mHelp -> { }
+            R.id.mHome -> { replaceFragment(Home())}
+            R.id.mLanguage -> {Language() }
+            R.id.mServices -> { Services()}
+            R.id.mHelp -> {Help() }
             R.id.mShare -> { }
         }
 
