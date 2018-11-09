@@ -3,7 +3,6 @@ package com.example.hp.thekleaners.activities
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.design.widget.Snackbar
-import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
@@ -46,8 +45,6 @@ class NavigationDrawer : AppCompatActivity(), NavigationView.OnNavigationItemSel
         nav_view.setNavigationItemSelectedListener(this)
     }
 
-    //  LinearLayout header = (LinearLayout) headerview.findViewById(R.id.header);
-
     override fun onBackPressed() {
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
             drawer_layout.closeDrawer(GravityCompat.START)
@@ -57,15 +54,11 @@ class NavigationDrawer : AppCompatActivity(), NavigationView.OnNavigationItemSel
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.navigation_drawer, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         when (item.itemId) {
             R.id.action_settings -> return true
             else -> return super.onOptionsItemSelected(item)
@@ -75,26 +68,37 @@ class NavigationDrawer : AppCompatActivity(), NavigationView.OnNavigationItemSel
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
-            R.id.mHome -> { replaceFragment(Home())}
-            R.id.mLanguage -> {Language() }
-            R.id.mServices -> { Services()}
-            R.id.mHelp -> {Help() }
-            R.id.mShare -> { }
+            R.id.mHome -> {
+                supportFragmentManager.beginTransaction().replace(R.id.containerView, Home()).commit()
+            }
+            R.id.mLanguage -> {
+                supportFragmentManager.beginTransaction().replace(R.id.containerView, Language()).commit()
+            }
+            R.id.mServices -> {
+                supportFragmentManager.beginTransaction().replace(R.id.containerView, Services()).commit()
+            }
+            R.id.mHelp -> {
+                supportFragmentManager.beginTransaction().replace(R.id.containerView, Help()).commit()
+            }
+            R.id.mShare -> {
+            }
         }
-
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
 
-    private fun replaceFragment(fragment: Fragment) {
+    /*private fun replaceFragment(fragment: Fragment) {
         if (supportFragmentManager.findFragmentById(R.id.containerView).tag != "FragmentMain")
             supportFragmentManager.beginTransaction().addToBackStack(null).replace(R.id.containerView, fragment).commit()
         else
             supportFragmentManager.beginTransaction().replace(R.id.containerView, fragment).commit()
     }
-
-    private fun signInListener() {
+*/
+    private fun signInListener():Boolean {
         supportFragmentManager.beginTransaction().replace(R.id.containerView, SignIn())
                 .addToBackStack(null).commit()
+
+        drawer_layout.closeDrawer(GravityCompat.START)
+        return true
     }
 }
