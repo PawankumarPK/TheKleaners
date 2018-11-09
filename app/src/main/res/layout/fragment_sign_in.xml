@@ -55,24 +55,26 @@
         android:textStyle="bold" />
 
     <RelativeLayout
+        android:id="@+id/mRelativeLayoutSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/mForgetPassword">
+        android:layout_below="@+id/mForgetPassword"
+        android:gravity="center">
 
         <TextView
             android:id="@+id/mDontHavePassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:layout_marginTop="40dp"
             android:text="Don't have an account?"
+            android:layout_centerVertical="true"
             android:textSize="15sp" />
 
         <TextView
             android:id="@+id/mSignUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/mDontHavePassword"
             android:text="  Sign Up"
             android:textColor="#5FAB34"

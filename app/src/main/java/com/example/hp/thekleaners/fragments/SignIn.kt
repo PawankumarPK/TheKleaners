@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.hp.thekleaners.R
+import kotlinx.android.synthetic.main.fragment_sign_in.*
 
 class SignIn: BaseFragment() {
 
@@ -15,5 +16,12 @@ class SignIn: BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        mRelativeLayoutSignUp.setOnClickListener { signUpFunction() }
+    }
+
+    private fun signUpFunction(){
+        fragmentManager!!.beginTransaction().replace(R.id.containerView, SignUp())
+                .addToBackStack(null).commit()
+
     }
 }
