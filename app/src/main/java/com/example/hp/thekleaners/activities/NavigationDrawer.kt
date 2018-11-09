@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.activity_navigation_drawer.*
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 
 
-class NavigationDrawer : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
