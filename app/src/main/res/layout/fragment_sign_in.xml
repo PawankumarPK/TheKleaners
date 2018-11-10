@@ -8,6 +8,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <TextView
+            android:id="@+id/mSignIn_title_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:textSize="22sp"
+            android:text="Sign In"/>
 
     </android.support.v7.widget.Toolbar>
 

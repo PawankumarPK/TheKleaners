@@ -19,7 +19,8 @@ class SignIn : BaseNavigationFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mainActivity = activity as NavigationDrawer
-        mainActivity.title_name.text = resources.getString(R.string.signIn)
+       // toolbar.visibility = View.INVISIBLE
+        mainActivity.mSignIn_title_name.text = resources.getString(R.string.signIn)
         mRelativeLayoutSignUp.setOnClickListener { signUpFunction() }
 
     }
