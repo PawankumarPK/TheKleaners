@@ -5,22 +5,26 @@
 
 
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/mHome"
-            android:icon="@drawable/ic_home"
-            android:title="Home" />
-        <item
-            android:id="@+id/mLanguage"
-            android:icon="@drawable/ic_language"
-            android:title="Language" />
+
         <item
             android:id="@+id/mServices"
             android:icon="@drawable/ic_service"
             android:title="Services" />
+
+        <item
+            android:id="@+id/mLanguage"
+            android:icon="@drawable/ic_language"
+            android:title="Language" />
+
+        <item
+            android:id="@+id/mHome"
+            android:icon="@drawable/ic_home"
+            android:title="Payment" />
+
         <item
             android:id="@+id/mHelp"
             android:icon="@drawable/ic_help"
-            android:title="Help ?" />
+            android:title="About Us" />
     </group>
 
     <item android:title="">

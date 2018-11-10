@@ -1,5 +1,6 @@
 package com.example.hp.thekleaners.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,11 +22,16 @@ class SignUp : BaseNavigationFragment() {
         mainActivity.toolbar.visibility = View.GONE
         mainActivity.title_name.text = resources.getString(R.string.signUp)
         mRelativeLayoutSignUp.setOnClickListener { signInFunction() }
-        mSignUpBackArrow.setOnClickListener { fragmentManager!!.popBackStack() }
+        mSignUpBackArrow.setOnClickListener { signUpBackPress() }
     }
 
     private fun signInFunction() {
         fragmentManager!!.beginTransaction().replace(R.id.containerView, SignIn())
                 .addToBackStack(null).commit()
+    }
+
+    private fun signUpBackPress() {
+        val intent = Intent(context,NavigationDrawer::class.java)
+        startActivity(intent)
     }
 }

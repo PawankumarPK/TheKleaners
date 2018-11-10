@@ -22,7 +22,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sign In"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:textColor="#1b1a1a"/>
 
     </android.support.v7.widget.Toolbar>
 
@@ -65,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/mSignIn"
             android:layout_centerInParent="true"
-            android:text="FORGET PASSWORD"
+            android:text="FORGOT PASSWORD"
             android:textColor="#5FAB34"
             android:textStyle="bold" />
 
@@ -73,6 +74,7 @@
             android:id="@+id/mRelativeLayoutSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:layout_below="@+id/mForgetPassword"
             android:gravity="center">
 
