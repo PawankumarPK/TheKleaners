@@ -2,10 +2,8 @@ package com.example.hp.thekleaners.activities
 
 import android.os.Bundle
 import android.support.design.widget.NavigationView
-import android.support.design.widget.Snackbar
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
-import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -24,18 +22,11 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         setContentView(R.layout.activity_navigation_drawer)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
         val navigationView = findViewById<View>(R.id.nav_view) as NavigationView
         val headerview = navigationView.getHeaderView(0)
         val header = headerview.findViewById(R.id.mLinearLayout) as LinearLayout
 
-        header.setOnClickListener {
-            Toast.makeText(this, "clicked", Toast.LENGTH_SHORT).show()
-            signInListener()
-        }
+        header.setOnClickListener { signInListener() }
 
         val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
@@ -94,7 +85,7 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
             supportFragmentManager.beginTransaction().replace(R.id.containerView, fragment).commit()
     }
 */
-    private fun signInListener():Boolean {
+    private fun signInListener(): Boolean {
         supportFragmentManager.beginTransaction().replace(R.id.containerView, SignIn())
                 .addToBackStack(null).commit()
 

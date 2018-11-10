@@ -5,91 +5,98 @@
     android:background="#fff">
 
     <android.support.v7.widget.Toolbar
+        android:id="@+id/mSignInToolbar"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:id="@+id/mSignInToolbar">
+        android:layout_height="?actionBarSize">
 
         <ImageView
+            android:id="@+id/mSignInBackArrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/left_arrow"
-            android:contentDescription="@null"
+            android:layout_marginEnd="13dp"
             android:layout_marginRight="13dp"
-            android:layout_marginEnd="13dp" />
+            android:contentDescription="@null"
+            android:src="@drawable/left_arrow" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sign In"
-            android:textSize="22sp"/>
-
+            android:textSize="22sp" />
 
     </android.support.v7.widget.Toolbar>
 
-    <EditText
-        android:id="@+id/mEmailAddress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:hint="Email Address"
-        android:inputType="textEmailAddress"
-        android:layout_below="@+id/mSignInToolbar"/>
-
-    <EditText
-        android:id="@+id/mPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/mEmailAddress"
-        android:layout_margin="20dp"
-        android:hint="Password"
-        android:inputType="textPassword" />
-
-    <Button
-        android:id="@+id/mSignIn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/mPassword"
-        android:layout_margin="20dp"
-        android:background="@drawable/color_gradient"
-        android:text="Sign In"
-        android:textColor="#fff" />
-
-    <TextView
-        android:id="@+id/mForgetPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/mSignIn"
-        android:layout_centerInParent="true"
-        android:text="FORGET PASSWORD"
-        android:textColor="#5FAB34"
-        android:textStyle="bold" />
-
     <RelativeLayout
-        android:id="@+id/mRelativeLayoutSignUp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/mForgetPassword"
-        android:gravity="center">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/mSignInToolbar"
+        android:layout_marginTop="20dp">
+
+        <EditText
+            android:id="@+id/mEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:hint="Email Address"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/mPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mEmailAddress"
+            android:layout_margin="20dp"
+            android:hint="Password"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/mSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mPassword"
+            android:layout_margin="20dp"
+            android:background="@drawable/color_gradient"
+            android:text="Sign In"
+            android:textColor="#fff" />
 
         <TextView
-            android:id="@+id/mDontHavePassword"
+            android:id="@+id/mForgetPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="40dp"
-            android:text="Don't have an account?"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/mSignUp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/mDontHavePassword"
-            android:text="  Sign Up"
+            android:layout_below="@+id/mSignIn"
+            android:layout_centerInParent="true"
+            android:text="FORGET PASSWORD"
             android:textColor="#5FAB34"
             android:textStyle="bold" />
 
+        <RelativeLayout
+            android:id="@+id/mRelativeLayoutSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mForgetPassword"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/mDontHavePassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="40dp"
+                android:text="Don't have an account?"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/mSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/mDontHavePassword"
+                android:text="  Sign Up"
+                android:textColor="#5FAB34"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
 
     </RelativeLayout>
 </RelativeLayout>

@@ -3,74 +3,105 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.SignUp"
-    android:background="#fff">
+    android:background="#fff"
+    tools:context=".fragments.SignUp">
 
-    <EditText
-        android:id="@+id/mEmailAddress"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/mSignUpToolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/mToolbar"
-        android:layout_margin="20dp"
-        android:hint="Full Name"
-        android:inputType="textEmailAddress" />
+        android:layout_height="?actionBarSize">
 
-    <EditText
-        android:id="@+id/mPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/mEmailAddress"
-        android:layout_margin="20dp"
-        android:hint="Email Address"
-        android:inputType="textPassword" />
+        <ImageView
+            android:id="@+id/mSignUpBackArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="13dp"
+            android:layout_marginRight="13dp"
+            android:contentDescription="@null"
+            android:src="@drawable/left_arrow" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign Up"
+            android:textSize="22sp"
+            android:textColor="#1b1a1a"/>
 
-    <EditText
-        android:id="@+id/mSetPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/mPassword"
-        android:layout_margin="20dp"
-        android:hint="Set Password"
-        android:inputType="textPassword" />
+    </android.support.v7.widget.Toolbar>
 
-
-    <Button
-        android:id="@+id/mSignIn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/mSetPassword"
-        android:layout_margin="20dp"
-        android:background="@drawable/color_gradient"
-        android:text="Sign Up"
-        android:textColor="#fff" />
 
     <RelativeLayout
-        android:id="@+id/mRelativeLayoutSignUp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_below="@+id/mSignIn">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/mSignUpToolbar"
+        android:layout_marginTop="20dp">
 
-        <TextView
-            android:id="@+id/mDontHavePassword"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/mEmailAddress"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:layout_centerVertical="true"
-            android:text="Already have a account?"
-            android:textSize="15sp" />
+            android:layout_margin="20dp"
+            android:hint="Full Name"
+            android:inputType="textEmailAddress" />
 
-        <TextView
-            android:id="@+id/mSignUp"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/mPassword"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/mDontHavePassword"
-            android:text="  Sign In"
-            android:textColor="#5FAB34"
-            android:textStyle="bold" />
+            android:layout_below="@+id/mEmailAddress"
+            android:layout_margin="20dp"
+            android:hint="Email Address"
+            android:inputType="textPassword" />
 
 
+        <EditText
+            android:id="@+id/mSetPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mPassword"
+            android:layout_margin="20dp"
+            android:hint="Set Password"
+            android:inputType="textPassword" />
+
+
+        <Button
+            android:id="@+id/mSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mSetPassword"
+            android:layout_margin="20dp"
+            android:background="@drawable/color_gradient"
+            android:text="Sign Up"
+            android:textColor="#fff" />
+
+        <RelativeLayout
+            android:id="@+id/mRelativeLayoutSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mSignIn"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/mDontHavePassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="40dp"
+                android:text="Already have a account?"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/mSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/mDontHavePassword"
+                android:text="  Sign In"
+                android:textColor="#5FAB34"
+                android:textStyle="bold"
+                android:layout_toEndOf="@+id/mDontHavePassword" />
+
+
+        </RelativeLayout>
     </RelativeLayout>
 </RelativeLayout>

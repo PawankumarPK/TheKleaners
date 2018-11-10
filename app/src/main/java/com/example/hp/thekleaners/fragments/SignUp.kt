@@ -17,9 +17,11 @@ class SignUp : BaseNavigationFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-          mainActivity = activity as NavigationDrawer
-          mainActivity.title_name.text = resources.getString(R.string.signUp)
-          mRelativeLayoutSignUp.setOnClickListener { signInFunction() }
+        mainActivity = activity as NavigationDrawer
+        mainActivity.toolbar.visibility = View.GONE
+        mainActivity.title_name.text = resources.getString(R.string.signUp)
+        mRelativeLayoutSignUp.setOnClickListener { signInFunction() }
+        mSignUpBackArrow.setOnClickListener { fragmentManager!!.popBackStack() }
     }
 
     private fun signInFunction() {
