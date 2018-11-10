@@ -24,7 +24,7 @@
                     android:layout_height="wrap_content"
                     android:text="TheKleaners"
                     android:fontFamily="sans-serif-condensed"
-                    android:textColor="#000"
+                    android:textColor="#252323"
                     android:textSize="22sp"
                     android:textStyle="bold" />
             </LinearLayout>

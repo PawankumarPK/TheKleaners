@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
+import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_sign_up.*
 
 class SignUp : BaseNavigationFragment() {

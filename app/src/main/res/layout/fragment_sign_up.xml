@@ -3,30 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.SignUp">
-
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/mToolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="13dp"
-            android:src="@drawable/left_arrow"
-            android:contentDescription="@null"
-            android:layout_marginEnd="13dp" />
-
-        <TextView
-            android:id="@+id/title_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sign Up"
-            android:textSize="22sp" />
-
-    </android.support.v7.widget.Toolbar>
+    tools:context=".fragments.SignUp"
+    android:background="#fff">
 
     <EditText
         android:id="@+id/mEmailAddress"
