@@ -95,7 +95,8 @@
                 android:layout_toRightOf="@+id/mDontHavePassword"
                 android:text="  Sign Up"
                 android:textColor="#5FAB34"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_toEndOf="@+id/mDontHavePassword" />
 
 
         </RelativeLayout>
