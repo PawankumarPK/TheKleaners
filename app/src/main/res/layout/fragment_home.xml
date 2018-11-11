@@ -1,15 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="20dp" />
 
-    </android.support.v4.view.ViewPager>
-</RelativeLayout>
+
+        <TextView
+            android:id="@+id/mWhyChoose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/viewPager"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Why choose The Kleaners?"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/mForStarters"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mWhyChoose"
+            android:gravity="center"
+            android:text="For Starters, we have an amazing"
+            android:textColor="#31790d"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/mNintyNine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mForStarters"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:text="99.9%"
+            android:textColor="#31790d"
+            android:textSize="78sp" />
+
+        <TextView
+            android:id="@+id/mPickup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mNintyNine"
+            android:gravity="center"
+            android:text="pickup accuracy"
+            android:textColor="#31790d"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/mDescIndia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mPickup"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:text="@string/descIndia"
+            android:textColor="#2b2828"
+            android:textSize="13sp" />
+
+
+        <TextView
+            android:id="@+id/mProvidingTheIndustry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mDescIndia"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:text="@string/providingIndustry"
+            android:textSize="18sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mProvidingTheIndustry"
+            android:background="#ccc">
+
+        <ImageView
+            android:id="@+id/mHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@null"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/home_indusrty" />
+
+
+        <TextView
+            android:id="@+id/mResidence"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mHome"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:text="FOR YOUR RESIDENCE"
+            android:textColor="#0f2b01"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/mResidenceDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mResidence"
+            android:layout_margin="20dp"
+            android:text="@string/residenceDesc"
+            android:textSize="14sp" />
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mResidenceDesc"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/color_gradient"
+            android:text="RESIDENTIAL SOLUTION"
+            android:textColor="#fff" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="#31790d">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="There's more to our"
+                android:textColor="#fff"
+                android:textSize="25sp"
+                android:layout_centerInParent="true"
+                android:fontFamily="sans-serif-smallcaps"
+                android:textStyle="bold"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/offers"/>
+
+    </RelativeLayout>
+
+
+</ScrollView>
