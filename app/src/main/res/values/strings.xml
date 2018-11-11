@@ -10,4 +10,10 @@
     <string name="providingIndustry">Providing the industry-leading solution you need</string>
     <string name="residenceDesc">Finding the right residential waste and recycling solution provider is an important decision. At TheKleaners, we reward the decision by providing a wide range of exceptional services and products.</string>
     <string name="offers">The Kleaners offers peace of mind</string>
+    <string name="offersDesc">Our reliable services protect the environment while allowing your home or business to run like clockwork.</string>
+    <string name="onlineToolsDesc">Payment scheduling, picking service and more</string>
+    <string name="allAvailable">- all available at your fingertips</string>
+
+    <string name="notSatisfied">Not satisfied with one of our services? Let us know and</string>
+    <string name="makeRight">we\'ll make it right</string>
 </resources>
