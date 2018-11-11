@@ -8,7 +8,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.LinearLayout
-import android.widget.Toast
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.fragments.*
 import kotlinx.android.synthetic.main.activity_navigation_drawer.*
@@ -22,6 +21,7 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         setContentView(R.layout.activity_navigation_drawer)
         setSupportActionBar(toolbar)
         toolbar.visibility = View.VISIBLE
+        homeFragment()
 
         val navigationView = findViewById<View>(R.id.nav_view) as NavigationView
         val headerview = navigationView.getHeaderView(0)
@@ -92,5 +92,9 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
+    }
+    private fun homeFragment(){
+        supportFragmentManager.beginTransaction().replace(R.id.containerView, Home())
+                .commit()
     }
 }
