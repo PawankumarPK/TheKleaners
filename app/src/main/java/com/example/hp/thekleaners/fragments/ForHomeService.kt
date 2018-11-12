@@ -4,25 +4,29 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.hp.thekleaners.Adapters.ViewPagerAdapter
+import com.example.hp.thekleaners.Adapters.ViewPagerHomeService
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
+import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
+import kotlinx.android.synthetic.main.fragment_for_home_service.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import java.util.*
 
-class Home : BaseNavigationFragment() {
+class ForHomeService : BaseNavigationFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        return inflater.inflate(R.layout.fragment_for_home_service, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mainActivity = activity as NavigationDrawer
+        mainActivity.toolbar.visibility = View.GONE
+        //mainActivity.title_name.text = resources.getString(R.string.signIn)
 
-        mResidentialSolution.setOnClickListener { mResidentialSolutionFunction() }
-        val viewPagerAdapter = ViewPagerAdapter(mainActivity)
-        viewPager.adapter = viewPagerAdapter
+
+        val viewPagerAdapter = ViewPagerHomeService(mainActivity)
+        homeServiceViewPager.adapter = viewPagerAdapter
 
         val timer = Timer()
         timer.scheduleAtFixedRate(MyTimerTask(), 2000, 4000)
@@ -34,20 +38,17 @@ class Home : BaseNavigationFragment() {
 
             mainActivity.runOnUiThread(java.lang.Runnable {
 
-                if (viewPager == null) {
+                if (homeServiceViewPager == null) {
                     return@Runnable
                 }
 
                 when {
-                    viewPager.currentItem == 0 -> viewPager.currentItem = 1
-                    viewPager.currentItem == 1 -> viewPager.currentItem = 2
-                    else -> viewPager.currentItem = 0
+                    homeServiceViewPager.currentItem == 0 -> homeServiceViewPager.currentItem = 1
+                    homeServiceViewPager.currentItem == 1 -> homeServiceViewPager.currentItem = 2
+                    else -> homeServiceViewPager.currentItem = 0
                 }
             })
         }
-    }
 
-    private fun mResidentialSolutionFunction() {
-        fragmentManager!!.beginTransaction().replace(R.id.containerView, ForHomeService()).addToBackStack(null).commit()
     }
 }
