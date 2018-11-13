@@ -58,6 +58,23 @@ class ForHomeService : BaseNavigationFragment() {
     }
 
     private fun mLinearLayoutRecycleByMailFunction(){
-        fragmentManager!!.beginTransaction().replace(R.id.containerView, Recyclable_by_mail()).addToBackStack(null).commit()
+        fragmentManager!!.beginTransaction().replace(R.id.containerView, RecyclableByMail()).addToBackStack(null).commit()
+    }
+    private fun mLinearLayoutCubsidePickupFunction(){
+        fragmentManager!!.beginTransaction().replace(R.id.containerView, CurbsidePickup()).addToBackStack(null).commit()
+
+    }
+    private fun mLinearLayoutMedicalFunctin(){
+        fragmentManager!!.beginTransaction().replace(R.id.containerView, MedicalWaste()).addToBackStack(null).commit()
+
+    }
+    private fun mLinearLayoutRecyclingServiceFunction(){
+        fragmentManager!!.beginTransaction().replace(R.id.containerView, RecyclingService()).addToBackStack(null).commit()
+
+    }
+
+    private fun mLinearLayoutOtherServicesFunction(){
+        fragmentManager!!.beginTransaction().replace(R.id.containerView, CurbsidePickup()).addToBackStack(null).commit()
+
     }
 }

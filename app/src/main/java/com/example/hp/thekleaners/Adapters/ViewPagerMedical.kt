@@ -9,9 +9,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import com.example.hp.thekleaners.R
 
-class ViewPagerRecycleByMailService(val context: Context) : PagerAdapter() {
+class ViewPagerMedical(val context: Context) : PagerAdapter() {
     private var layoutInflater: LayoutInflater? = null
-    private val images = arrayOf<Int>(R.drawable.led, R.drawable.battery, R.drawable.canes)
+    private val images = arrayOf<Int>(R.drawable.syringes, R.drawable.syringes_2, R.drawable.lancate)
 
     override fun getCount(): Int {
         return images.size

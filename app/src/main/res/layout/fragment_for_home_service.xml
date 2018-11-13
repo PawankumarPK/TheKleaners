@@ -85,6 +85,7 @@
                 app:cardElevation="3dp">
 
                 <LinearLayout
+                    android:id="@+id/mLinearLayoutCubsidePickup"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:orientation="horizontal"
@@ -210,6 +211,7 @@
                 app:cardElevation="3dp">
 
                 <LinearLayout
+                    android:id="@+id/mLinearLayoutMedical"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:orientation="horizontal"
@@ -272,6 +274,7 @@
                 app:cardElevation="3dp">
 
                 <LinearLayout
+                    android:id="@+id/mLinearLayoutRecyclingService"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:orientation="horizontal"
@@ -336,6 +339,7 @@
                 app:cardElevation="3dp">
 
                 <LinearLayout
+                    android:id="@+id/mLinearLayoutOtherServices"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:orientation="horizontal"

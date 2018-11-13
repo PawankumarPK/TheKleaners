@@ -9,9 +9,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import com.example.hp.thekleaners.R
 
-class ViewPagerRecycleByMailService(val context: Context) : PagerAdapter() {
+class ViewPagerCubsidePickupService(val context: Context) : PagerAdapter() {
     private var layoutInflater: LayoutInflater? = null
-    private val images = arrayOf<Int>(R.drawable.led, R.drawable.battery, R.drawable.canes)
+    private val images = arrayOf<Int>(R.drawable.organic, R.drawable.food_waste, R.drawable.food_waste_2)
 
     override fun getCount(): Int {
         return images.size

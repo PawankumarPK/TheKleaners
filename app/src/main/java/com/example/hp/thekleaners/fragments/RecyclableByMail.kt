@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_recyclable_by_mail.*
 import java.util.*
 
-class Recyclable_by_mail : BaseNavigationFragment() {
+class RecyclableByMail : BaseNavigationFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_recyclable_by_mail, container, false)
@@ -22,7 +22,7 @@ class Recyclable_by_mail : BaseNavigationFragment() {
         super.onViewCreated(view, savedInstanceState)
         mainActivity = activity as NavigationDrawer
         mainActivity.toolbar.visibility = View.GONE
-        mRecycleByMailServiceBackArrow.setOnClickListener { mRecycleByMailServiceBackArrowFunction()}
+        mRecycleByMailServiceBackArrow.setOnClickListener { mRecycleByMailServiceBackArrowFunction() }
         //mainActivity.title_name.text = resources.getString(R.string.signIn)
 
 
@@ -54,7 +54,7 @@ class Recyclable_by_mail : BaseNavigationFragment() {
     }
 
     private fun mRecycleByMailServiceBackArrowFunction() {
-        fragmentManager!!.beginTransaction().replace(R.id.containerView, Home()).addToBackStack(null).commit()
+        fragmentManager!!.beginTransaction().replace(R.id.containerView, ForHomeService()).addToBackStack(null).commit()
     }
 
 
