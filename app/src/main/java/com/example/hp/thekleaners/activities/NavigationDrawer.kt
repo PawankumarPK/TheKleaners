@@ -67,7 +67,7 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
                 supportFragmentManager.beginTransaction().replace(R.id.containerView, Language()).commit()
             }
             R.id.mServices -> {
-                supportFragmentManager.beginTransaction().replace(R.id.containerView, Services()).commit()
+                supportFragmentManager.beginTransaction().replace(R.id.containerView, ForHomeService()).commit()
             }
             R.id.mHelp -> {
                 supportFragmentManager.beginTransaction().replace(R.id.containerView, Help()).commit()
