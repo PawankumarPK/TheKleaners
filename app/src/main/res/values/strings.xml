@@ -21,6 +21,9 @@
     <string name="medicalWaste">Syringes and Lancets </string>
     <string name="otherServices">Landfill &amp; Facilities</string>
     <string name="recyclingService">Rigid Plastics/Bottles Metals</string>
+    <string name="recycleByMailDesc">Every day you do little things to help the environment like turning off
+     the light and recycling aluminium cans,paper products and plastic. Did you know that you can also recycle batteries
+    ,compact fluorescent bulb and cartridge? And that you can recycle all these materials without leaving your house.</string>
 </resources>
 
 
