@@ -9,7 +9,6 @@ import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_for_home_service.*
-import kotlinx.android.synthetic.main.fragment_home.*
 import java.util.*
 
 class ForHomeService : BaseNavigationFragment() {
@@ -22,6 +21,7 @@ class ForHomeService : BaseNavigationFragment() {
         super.onViewCreated(view, savedInstanceState)
         mainActivity = activity as NavigationDrawer
         mainActivity.toolbar.visibility = View.GONE
+        mHomeServiceBackArrow.setOnClickListener { mHomeServiceBackArrowFunction() }
         //mainActivity.title_name.text = resources.getString(R.string.signIn)
 
 
@@ -50,5 +50,9 @@ class ForHomeService : BaseNavigationFragment() {
             })
         }
 
+    }
+
+    private fun mHomeServiceBackArrowFunction() {
+        fragmentManager!!.beginTransaction().replace(R.id.containerView, Home()).addToBackStack(null).commit()
     }
 }
