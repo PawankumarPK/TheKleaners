@@ -39,7 +39,7 @@
             android:layout_height="250dp"
             android:layout_below="@+id/mToolbarMail"
             android:layout_centerInParent="true"
-            android:background="#000" />
+            android:background="#fff" />
 
         <TextView
             android:layout_width="match_parent"

@@ -41,8 +41,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:src="@drawable/ic_home"
-                    android:contentDescription="@null"/>
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_home" />
 
 
                 <TextView
@@ -79,8 +79,8 @@
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:background="#fff"
                 android:layout_marginTop="10dp"
+                android:background="#fff"
                 app:cardCornerRadius="3dp"
                 app:cardElevation="3dp">
 
@@ -114,8 +114,8 @@
                             android:fontFamily="sans-serif-condensed"
                             android:text="Curbside Pickup"
                             android:textColor="#5FAB34"
-                            android:textStyle="bold"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -140,12 +140,13 @@
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:background="#fff"
                 android:layout_marginTop="10dp"
+                android:background="#fff"
                 app:cardCornerRadius="3dp"
                 app:cardElevation="3dp">
 
                 <LinearLayout
+                    android:id="@+id/mLinearLayoutRecycleByMail"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:orientation="horizontal"
@@ -175,14 +176,14 @@
                             android:fontFamily="sans-serif-condensed"
                             android:text="Recycle by Mail"
                             android:textColor="#5FAB34"
-                            android:textStyle="bold"
-                            android:textSize="16sp" />
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_margin="5dp"
                             android:layout_gravity="center_horizontal"
+                            android:layout_margin="5dp"
                             android:text="@string/recycleByMail"
                             android:textSize="10sp" />
 
@@ -203,8 +204,8 @@
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:background="#fff"
                 android:layout_marginTop="10dp"
+                android:background="#fff"
                 app:cardCornerRadius="3dp"
                 app:cardElevation="3dp">
 
@@ -238,15 +239,15 @@
                             android:fontFamily="sans-serif-condensed"
                             android:text="Medical Waste"
                             android:textColor="#5FAB34"
-                            android:textStyle="bold"
-                            android:textSize="16sp" />
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal"
                             android:layout_margin="5dp"
                             android:text="@string/medicalWaste"
-                            android:layout_gravity="center_horizontal"
                             android:textSize="10sp" />
 
                     </LinearLayout>
@@ -265,8 +266,8 @@
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:background="#fff"
                 android:layout_marginTop="10dp"
+                android:background="#fff"
                 app:cardCornerRadius="3dp"
                 app:cardElevation="3dp">
 
@@ -300,15 +301,15 @@
                             android:fontFamily="sans-serif-condensed"
                             android:text="Recycling Service"
                             android:textColor="#5FAB34"
-                            android:textStyle="bold"
-                            android:textSize="16sp" />
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal"
                             android:layout_margin="5dp"
                             android:text="@string/recyclingService"
-                            android:layout_gravity="center_horizontal"
                             android:textSize="10sp" />
 
                     </LinearLayout>
@@ -325,13 +326,12 @@
             </android.support.v7.widget.CardView>
 
 
-
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:background="#fff"
-                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="#fff"
                 app:cardCornerRadius="3dp"
                 app:cardElevation="3dp">
 
@@ -365,15 +365,15 @@
                             android:fontFamily="sans-serif-condensed"
                             android:text="Other Services"
                             android:textColor="#5FAB34"
-                            android:textStyle="bold"
-                            android:textSize="16sp" />
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal"
                             android:layout_margin="5dp"
                             android:text="@string/otherServices"
-                            android:layout_gravity="center_horizontal"
                             android:textSize="10sp" />
 
                     </LinearLayout>

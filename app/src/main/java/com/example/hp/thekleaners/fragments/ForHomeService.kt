@@ -22,6 +22,7 @@ class ForHomeService : BaseNavigationFragment() {
         mainActivity = activity as NavigationDrawer
         mainActivity.toolbar.visibility = View.GONE
         mHomeServiceBackArrow.setOnClickListener { mHomeServiceBackArrowFunction() }
+        mLinearLayoutRecycleByMail.setOnClickListener { mLinearLayoutRecycleByMailFunction() }
         //mainActivity.title_name.text = resources.getString(R.string.signIn)
 
 
@@ -54,5 +55,9 @@ class ForHomeService : BaseNavigationFragment() {
 
     private fun mHomeServiceBackArrowFunction() {
         fragmentManager!!.beginTransaction().replace(R.id.containerView, Home()).addToBackStack(null).commit()
+    }
+
+    private fun mLinearLayoutRecycleByMailFunction(){
+        fragmentManager!!.beginTransaction().replace(R.id.containerView, Recyclable_by_mail()).addToBackStack(null).commit()
     }
 }
