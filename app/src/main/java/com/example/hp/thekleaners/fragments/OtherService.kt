@@ -4,18 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.hp.thekleaners.Adapters.ViewPagerRecyclingService
+import com.example.hp.thekleaners.Adapters.ViewPagerOtherService
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
-import kotlinx.android.synthetic.main.fragment_recycling_service.*
+import kotlinx.android.synthetic.main.fragment_other_service.*
 import java.util.*
 
-class RecyclingService : BaseNavigationFragment() {
+class OtherService : BaseNavigationFragment()  {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_recycling_service, container, false)
+        return inflater.inflate(R.layout.fragment_other_service, container, false)
     }
 
 
@@ -23,12 +23,12 @@ class RecyclingService : BaseNavigationFragment() {
         super.onViewCreated(view, savedInstanceState)
         mainActivity = activity as NavigationDrawer
         mainActivity.toolbar.visibility = View.GONE
-        mRecyclingBackArrow.setOnClickListener { mRecycleByMailServiceBackArrowFunction() }
+        mOtherServiceBackArrow.setOnClickListener { mRecycleByMailServiceBackArrowFunction() }
         //mainActivity.title_name.text = resources.getString(R.string.signIn)
 
 
-        val viewPagerAdapter = ViewPagerRecyclingService(mainActivity)
-        recyclingViewPager.adapter = viewPagerAdapter
+        val viewPagerAdapter = ViewPagerOtherService(mainActivity)
+        otherServiceViewPager.adapter = viewPagerAdapter
 
         val timer = Timer()
         timer.scheduleAtFixedRate(MyTimerTask(), 2000, 4000)
@@ -40,14 +40,14 @@ class RecyclingService : BaseNavigationFragment() {
 
             mainActivity.runOnUiThread(java.lang.Runnable {
 
-                if (recyclingViewPager == null) {
+                if (otherServiceViewPager== null) {
                     return@Runnable
                 }
 
                 when {
-                    recyclingViewPager.currentItem == 0 -> recyclingViewPager.currentItem = 1
-                    recyclingViewPager.currentItem == 1 -> recyclingViewPager.currentItem = 2
-                    else -> recyclingViewPager.currentItem = 0
+                    otherServiceViewPager.currentItem == 0 -> otherServiceViewPager.currentItem = 1
+                    otherServiceViewPager.currentItem == 1 -> otherServiceViewPager.currentItem = 2
+                    else -> otherServiceViewPager.currentItem = 0
                 }
             })
         }

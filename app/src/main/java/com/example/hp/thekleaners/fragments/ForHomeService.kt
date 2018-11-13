@@ -23,7 +23,10 @@ class ForHomeService : BaseNavigationFragment() {
         mainActivity.toolbar.visibility = View.GONE
         mHomeServiceBackArrow.setOnClickListener { mHomeServiceBackArrowFunction() }
         mLinearLayoutRecycleByMail.setOnClickListener { mLinearLayoutRecycleByMailFunction() }
-        //mainActivity.title_name.text = resources.getString(R.string.signIn)
+        mLinearLayoutCubsidePickup.setOnClickListener { mLinearLayoutCubsidePickupFunction() }
+        mLinearLayoutMedical.setOnClickListener { mLinearLayoutMedicalFunction() }
+        mLinearLayoutRecyclingService.setOnClickListener { mLinearLayoutRecyclingServiceFunction() }
+        mLinearLayoutOtherServices.setOnClickListener { mLinearLayoutOtherServicesFunction() }
 
 
         val viewPagerAdapter = ViewPagerHomeService(mainActivity)
@@ -57,24 +60,27 @@ class ForHomeService : BaseNavigationFragment() {
         fragmentManager!!.beginTransaction().replace(R.id.containerView, Home()).addToBackStack(null).commit()
     }
 
-    private fun mLinearLayoutRecycleByMailFunction(){
+    private fun mLinearLayoutRecycleByMailFunction() {
         fragmentManager!!.beginTransaction().replace(R.id.containerView, RecyclableByMail()).addToBackStack(null).commit()
     }
-    private fun mLinearLayoutCubsidePickupFunction(){
+
+    private fun mLinearLayoutCubsidePickupFunction() {
         fragmentManager!!.beginTransaction().replace(R.id.containerView, CurbsidePickup()).addToBackStack(null).commit()
 
     }
-    private fun mLinearLayoutMedicalFunctin(){
+
+    private fun mLinearLayoutMedicalFunction() {
         fragmentManager!!.beginTransaction().replace(R.id.containerView, MedicalWaste()).addToBackStack(null).commit()
 
     }
-    private fun mLinearLayoutRecyclingServiceFunction(){
+
+    private fun mLinearLayoutRecyclingServiceFunction() {
         fragmentManager!!.beginTransaction().replace(R.id.containerView, RecyclingService()).addToBackStack(null).commit()
 
     }
 
-    private fun mLinearLayoutOtherServicesFunction(){
-        fragmentManager!!.beginTransaction().replace(R.id.containerView, CurbsidePickup()).addToBackStack(null).commit()
+    private fun mLinearLayoutOtherServicesFunction() {
+        fragmentManager!!.beginTransaction().replace(R.id.containerView, OtherService()).addToBackStack(null).commit()
 
     }
 }
