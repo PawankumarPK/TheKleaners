@@ -11,7 +11,7 @@ import com.example.hp.thekleaners.R
 
 class ViewPagerOtherService(val context: Context) : PagerAdapter() {
     private var layoutInflater: LayoutInflater? = null
-    private val images = arrayOf<Int>(R.drawable.landfill, R.drawable.landfill_2, R.drawable.landfill_3)
+    private val images = arrayOf<Int>(R.drawable.construction_1, R.drawable.construction2, R.drawable.construction_3)
 
     override fun getCount(): Int {
         return images.size

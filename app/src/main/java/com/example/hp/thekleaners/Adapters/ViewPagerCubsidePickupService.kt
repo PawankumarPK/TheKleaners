@@ -11,7 +11,7 @@ import com.example.hp.thekleaners.R
 
 class ViewPagerCubsidePickupService(val context: Context) : PagerAdapter() {
     private var layoutInflater: LayoutInflater? = null
-    private val images = arrayOf<Int>(R.drawable.organic, R.drawable.food_waste, R.drawable.food_waste_2)
+    private val images = arrayOf<Int>(R.drawable.organic, R.drawable.food_waste, R.drawable.waste_food)
 
     override fun getCount(): Int {
         return images.size
