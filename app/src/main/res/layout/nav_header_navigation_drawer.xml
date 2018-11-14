@@ -1,39 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/mLinearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:orientation="horizontal"
+        android:layout_height="160dp"
+        android:background="#367118"
         android:clickable="true"
         android:focusable="true">
 
         <ImageView
+            android:id="@+id/mImageViewUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/user_profile"
             android:contentDescription="@null"
-            android:layout_marginStart="5dp" />
+            android:src="@drawable/user_profile" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_below="@+id/mImageViewUser">
 
             <TextView
+                android:id="@+id/mSignInTheKleaner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:text="Sign in to TheKleaners"
-                android:textColor="#000"
+                android:textColor="#fff"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -41,28 +43,27 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/mSignInTheKleaner"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
                 android:text="Where hygiene matters"
-                android:textColor="#000"
+                android:textColor="#fff"
                 android:textSize="10sp" />
-
-        </LinearLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:contentDescription="@null"
-                android:src="@drawable/black_right_arrow" />
+                android:src="@drawable/right_arrow" />
+
 
         </RelativeLayout>
-    </LinearLayout>
 
 
-</LinearLayout>
+    </RelativeLayout>
+
+
+</RelativeLayout>

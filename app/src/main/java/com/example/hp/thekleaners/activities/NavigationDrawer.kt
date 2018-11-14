@@ -8,6 +8,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.fragments.*
 import kotlinx.android.synthetic.main.activity_navigation_drawer.*
@@ -25,7 +26,7 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
 
         val navigationView = findViewById<View>(R.id.nav_view) as NavigationView
         val headerview = navigationView.getHeaderView(0)
-        val header = headerview.findViewById(R.id.mLinearLayout) as LinearLayout
+        val header = headerview.findViewById(R.id.mLinearLayout) as RelativeLayout
 
         header.setOnClickListener { signInListener() }
 
@@ -93,7 +94,8 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
-    private fun homeFragment(){
+
+    private fun homeFragment() {
         supportFragmentManager.beginTransaction().replace(R.id.containerView, Home())
                 .commit()
     }

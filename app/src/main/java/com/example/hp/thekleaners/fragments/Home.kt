@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import com.example.hp.thekleaners.Adapters.ViewPagerAdapter
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
+import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import java.util.*
 
@@ -19,6 +20,7 @@ class Home : BaseNavigationFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mainActivity = activity as NavigationDrawer
+        mainActivity.toolbar.visibility = View.VISIBLE
 
         mResidentialSolution.setOnClickListener { mResidentialSolutionFunction() }
         val viewPagerAdapter = ViewPagerAdapter(mainActivity)
