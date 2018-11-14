@@ -42,13 +42,37 @@
             android:background="#fff" />
 
         <TextView
+            android:id="@+id/mMedicalDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/recycleByMailDesc"
             android:layout_below="@+id/medicalWasteViewPager"
-            android:textSize="16sp"
+            android:layout_margin="15dp"
             android:fontFamily="sans-serif-condensed"
-            android:layout_margin="15dp"/>
+            android:text="@string/medicalDesc"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/mMedicalWasteColl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mMedicalDesc"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/medicalWasteCollectionSer"
+            android:textColor="#000"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mMedicalWasteColl"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/medicalItems"
+            android:textSize="12sp"
+            android:layout_marginBottom="20dp"/>
     </RelativeLayout>
 
 </ScrollView>

@@ -26,10 +26,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
                 android:text="Recycling Service"
                 android:textColor="#1b1a1a"
-                android:textSize="18sp"
-                android:layout_marginStart="15dp" />
+                android:textSize="18sp" />
 
         </android.support.v7.widget.Toolbar>
 
@@ -43,13 +43,165 @@
             android:background="#fff" />
 
         <TextView
+            android:id="@+id/mDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/recycleByMailDesc"
             android:layout_below="@+id/recyclingViewPager"
-            android:textSize="16sp"
+            android:layout_margin="15dp"
             android:fontFamily="sans-serif-condensed"
-            android:layout_margin="15dp"/>
+            android:text="@string/recyclingServiceDesc"
+            android:textSize="16sp" />
+
+       <!-- <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/mDesc"/>
+-->
+
+        <TextView
+            android:id="@+id/mMetals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mDesc"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/metals"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/mMetalDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mMetals"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/metalsDesc"
+            android:textSize="12sp" />
+
+
+        <TextView
+            android:id="@+id/mMetalAcceptable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mMetalDesc"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/metalAcceptedItem"
+            android:textColor="#000"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/mMetalItems"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mMetalAcceptable"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/metalItems"
+            android:textSize="12sp" />
+
+
+        <TextView
+            android:id="@+id/mPaper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mMetalItems"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/paper"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/mPaperDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mPaper"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/paperDesc"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/mPaperAcceptedItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mPaperDesc"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textColor="#000"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/paperAcceptedItem"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/mPapercardboardItems"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mPaperAcceptedItem"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/papercardboardItems"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/mGlass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mPapercardboardItems"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/glass"
+            android:layout_marginTop="10dp"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/mGlassDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mGlass"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/glassDesc"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/mGlassesAcceptedItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mGlassDesc"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#000"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/glassesAcceptedItem"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/mGlassItems"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mGlassesAcceptedItem"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/glassItems"
+            android:textSize="12sp" />
     </RelativeLayout>
 
 </ScrollView>

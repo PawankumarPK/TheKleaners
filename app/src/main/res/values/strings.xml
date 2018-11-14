@@ -21,11 +21,81 @@
     <string name="medicalWaste">Syringes and Lancets </string>
     <string name="otherServices">Landfill &amp; Facilities</string>
     <string name="recyclingService">Rigid Plastics/Bottles Metals</string>
-    <string name="recycleByMailDesc">Every day you do little things to help the environment like turning off
-     the light and recycling aluminium cans,paper products and plastic. Did you know that you can also recycle batteries
-    ,compact fluorescent bulb and cartridge? And that you can recycle all these materials without leaving your house.</string>
-</resources>
 
+    <string name="recycleByMailDesc">Battery and lightbulb recycling can seem complicated on the surface. Our Recycle-By-Mail
+    program provide simple, safe ways to recycle.</string>
+
+    <string name="medicalDesc">Disposing of medical waste properly is a huge concern for all communities,large and small.
+    For simple,convenient product to help you safely dcaispose of used syringes and lancets. Trust TheKleaners.</string>
+    <string name="medicalWasteCollectionSer">If you prefer disposal option only, we can help:</string>
+    <string name="medicalItems">\n
+        -Medical waste\n
+        -Biohazardous waste\n
+        -Pharmaceutical waste\n
+        -Pathological waste\n
+        -Chemotherapy waste\n
+        -Non-hazardous pharmaceutical waste\n
+        -Hazardous waste
+
+    </string>
+
+    <string name="curbsideDesc">These items include waste pickup yard &amp; food, organic waste and more. The at Your Door
+        Special collection program can easily collect these items at your home.</string>
+    <string name="acceptableItemFood">Acceptable items for Food &amp; Organic Waste Recycling can include: </string>
+    <string name="itemsFood">\n
+        -Fruits and vegetables\n
+        -Meat,poultry,seafood(bones and shells)\n
+        -Bakery items and ingredient\n
+        -Eggs and paper egg cartons\n
+        -Plants,cut flower, potting soil\n
+        -Coffee grounds, filters, tea bags\n
+        -Paper product(napkin,paper towels)\n
+        -Ice cream,yogurt,cottage cheese
+    </string>
+
+    <string name="recyclingServiceDesc"> Plastics are effectively being recycled at a rate of 2.4 billion pounds per
+    year in INDIA. Doing so helps conserve fossil resources and saves landfill space. Plastic bottles are shred
+    into flakes used for filling in sleeping bags, fleece jacket, carpet and insulation, while jugs and tubs and
+    readily recyclable into new laundry detergent bottles, pens, picnic tables, fencing, and recycling containers.</string>
+    <string name="metals">Metals:</string>
+    <string name="metalsDesc">Approximately half of all soda cans,food cans and other aluminum products are recycled
+    each year in the INDIA. The environmental and economic impact of these actions are enormous.</string>
+    <string name="metalAcceptedItem">Generally accepted items include:</string>
+    <string name="metalItems">\n
+        -Tin cans\n
+        -Aluminum cans\n
+        -Steel cans\n
+    </string>
+    <string name="paper">Paper/Cardboard</string>
+    <string name="paperDesc">Paper products make up 71 million tons of the muncipal waste stream of INDIA Of thet amount
+    ,upwards of 63 percent(45 million tons) is recycled annually.</string>
+    <string name="paperAcceptedItem">Generally accepted items include:</string>
+    <string name="papercardboardItems">\n
+        -Office paper\n
+        -Magazines\n
+        -Flattened cardboard\n
+        -Newspaper\n
+        -Phonebooks\n
+        -Flattened cereal boxes\n
+        -Junk mail\n
+        -Paperboard\n
+        -Flattened snack boxes
+    </string>
+    <string name="glass">Glass</string>
+    <string name="glassDesc">Glass make up a large component of household due to its weight and density. Every
+    metric ton of glass recycled save nearly 700 pounds of carbon dioxide from being released into the atmosphere.</string>
+    <string name="glassesAcceptedItem">Generally accepted items include:</string>
+    <string name="glassItems">\n
+        -Food container and jars\n
+        -Soft drinks and beer bottles\n
+        -Wine and liquor bottles\n
+    </string>
+
+    <string name="otherService">Construction waste is any material on a jobsite from leftover rebar to roofing
+    shingles. These materials, and any others used, require special handling to properly dispose of them.
+    If it's used in building, manufacture, or anything in between, TheKleaners is here to help you find
+    the best way to dispose of it.</string>
+</resources>
 
 
     <!--Recycling Pickup Waste Pickup Yard &amp; Food and Organic Waste Pickup Bulk Waste Pickup

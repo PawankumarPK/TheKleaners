@@ -45,7 +45,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/recycleByMailDesc"
+            android:text="@string/otherService"
             android:layout_below="@+id/otherServiceViewPager"
             android:textSize="16sp"
             android:fontFamily="sans-serif-condensed"
