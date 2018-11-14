@@ -1,16 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff">
+    android:background="#fff"
+    tools:context=".fragments.SignUp">
+
+    <ProgressBar
+        android:id="@+id/reg_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="invisible" />
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/mSignInToolbar"
+        android:id="@+id/mSignUpToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/mSignInBackArrow"
+            android:id="@+id/mSignUpBackArrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="13dp"
@@ -21,20 +31,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign In"
+            android:text="Sign Up"
             android:textSize="22sp"
             android:textColor="#1b1a1a"/>
 
     </android.support.v7.widget.Toolbar>
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/mSignInToolbar"
+        android:layout_below="@+id/mSignUpToolbar"
         android:layout_marginTop="20dp">
 
         <EditText
-            android:id="@+id/mEmailAddress"
+            android:id="@+id/reg_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
@@ -42,40 +53,40 @@
             android:inputType="textEmailAddress" />
 
         <EditText
-            android:id="@+id/mPassword"
+            android:id="@+id/reg_pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/mEmailAddress"
+            android:layout_below="@+id/reg_email"
             android:layout_margin="20dp"
             android:hint="Password"
             android:inputType="textPassword" />
 
-        <Button
-            android:id="@+id/mSignIn"
+
+        <EditText
+            android:id="@+id/reg_confirm_pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/mPassword"
+            android:layout_below="@+id/reg_pass"
+            android:layout_margin="20dp"
+            android:hint="Confirm Password"
+            android:inputType="textPassword" />
+
+
+        <Button
+            android:id="@+id/reg_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/reg_confirm_pass"
             android:layout_margin="20dp"
             android:background="@drawable/color_gradient"
-            android:text="Sign In"
+            android:text="Sign Up"
             android:textColor="#fff" />
-
-        <TextView
-            android:id="@+id/mForgetPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mSignIn"
-            android:layout_centerInParent="true"
-            android:text="FORGOT PASSWORD"
-            android:textColor="#5FAB34"
-            android:textStyle="bold" />
 
         <RelativeLayout
             android:id="@+id/mRelativeLayoutSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_below="@+id/mForgetPassword"
+            android:layout_below="@+id/reg_btn"
             android:gravity="center">
 
             <TextView
@@ -84,22 +95,21 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginTop="40dp"
-                android:text="Don't have an account?"
+                android:text="Already have a account?"
                 android:textSize="15sp" />
 
-            <TextView
-                android:id="@+id/mSignUp"
+            <Button
+                android:id="@+id/reg_login_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/mDontHavePassword"
-                android:text="  Sign Up"
+                android:text="  Sign In"
                 android:textColor="#5FAB34"
                 android:textStyle="bold"
                 android:layout_toEndOf="@+id/mDontHavePassword" />
 
 
         </RelativeLayout>
-
     </RelativeLayout>
 </RelativeLayout>
