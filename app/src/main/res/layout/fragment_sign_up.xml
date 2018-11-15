@@ -6,10 +6,18 @@
     android:background="#fff"
     tools:context=".fragments.SignUp">
 
+    <ProgressBar
+        android:id="@+id/reg_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="invisible" />
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/mSignUpToolbar"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/mSignUpBackArrow"
@@ -37,38 +45,38 @@
         android:layout_marginTop="20dp">
 
         <EditText
-            android:id="@+id/mEmailAddress"
+            android:id="@+id/reg_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:hint="Full Name"
+            android:hint="Email Address"
             android:inputType="textEmailAddress" />
 
         <EditText
-            android:id="@+id/mPassword"
+            android:id="@+id/reg_pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/mEmailAddress"
+            android:layout_below="@+id/reg_email"
             android:layout_margin="20dp"
-            android:hint="Email Address"
+            android:hint="Password"
             android:inputType="textPassword" />
 
 
         <EditText
-            android:id="@+id/mSetPassword"
+            android:id="@+id/reg_confirm_pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/mPassword"
+            android:layout_below="@+id/reg_pass"
             android:layout_margin="20dp"
-            android:hint="Set Password"
+            android:hint="Confirm Password"
             android:inputType="textPassword" />
 
 
         <Button
-            android:id="@+id/mSignIn"
+            android:id="@+id/reg_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/mSetPassword"
+            android:layout_below="@+id/reg_confirm_pass"
             android:layout_margin="20dp"
             android:background="@drawable/color_gradient"
             android:text="Sign Up"
@@ -78,7 +86,7 @@
             android:id="@+id/mRelativeLayoutSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/mSignIn"
+            android:layout_below="@+id/reg_btn"
             android:gravity="center">
 
             <TextView
@@ -91,7 +99,7 @@
                 android:textSize="15sp" />
 
             <TextView
-                android:id="@+id/mSignUp"
+                android:id="@+id/reg_login_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"

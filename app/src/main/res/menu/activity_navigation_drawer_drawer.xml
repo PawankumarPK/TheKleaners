@@ -17,12 +17,12 @@
             android:title="Language" />
 
         <item
-            android:id="@+id/mHome"
+            android:id="@+id/mPayment"
             android:icon="@drawable/ic_payment"
             android:title="Payment" />
 
         <item
-            android:id="@+id/mHelp"
+            android:id="@+id/mAboutUs"
             android:icon="@drawable/ic_help"
             android:title="About Us" />
     </group>

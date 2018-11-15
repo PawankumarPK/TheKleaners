@@ -61,8 +61,8 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
-            R.id.mHome -> {
-                supportFragmentManager.beginTransaction().replace(R.id.containerView, Home()).commit()
+            R.id.mPayment -> {
+                supportFragmentManager.beginTransaction().replace(R.id.containerView, Payment()).commit()
             }
             R.id.mLanguage -> {
                 supportFragmentManager.beginTransaction().replace(R.id.containerView, Language()).commit()
@@ -70,7 +70,7 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
             R.id.mServices -> {
                 supportFragmentManager.beginTransaction().replace(R.id.containerView, ForHomeService()).commit()
             }
-            R.id.mHelp -> {
+            R.id.mAboutUs -> {
                 supportFragmentManager.beginTransaction().replace(R.id.containerView, Help()).commit()
             }
             R.id.mShare -> {
