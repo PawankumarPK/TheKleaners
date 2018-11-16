@@ -12,28 +12,33 @@ import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
 import com.example.hp.thekleaners.Dto.EmailSendDto
 import com.example.hp.thekleaners.R
+import com.example.hp.thekleaners.activities.NavigationDrawer
 import com.example.hp.thekleaners.databinding.FragmentFeedbackBinding
-import java.util.regex.Pattern
+import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
+import kotlinx.android.synthetic.main.fragment_feedback.*
 
-class Feedback : BaseNavigationFragment()  {
+class Feedback : BaseNavigationFragment() {
 
 
     private val emailSendDto = EmailSendDto()
-    private val EMAIL_REGEX = "^[\\w-+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$"
-    private lateinit var binding : FragmentFeedbackBinding
+    // private val EMAIL_REGEX = "^[\\w-+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$"
+    private lateinit var binding: FragmentFeedbackBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_feedback, container, false)
         binding.emailDto = emailSendDto
+        mainActivity = activity as NavigationDrawer
+        mainActivity.toolbar.visibility = View.GONE
+        mainActivity.title_name.text = resources.getString(R.string.feedback)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initListener()
+        mFeedbackBackArrow.setOnClickListener { signInBackPress() }
 
     }
 
@@ -45,12 +50,12 @@ class Feedback : BaseNavigationFragment()  {
     private fun submitDetails() {
         if (!checkNullFields())
             return
-        if (!checkValidField())
+        /*if (!checkValidField())
             return
-
+*/
         val emailIntent = Intent(Intent.ACTION_SEND)
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Feedback From : ${resources.getString(R.string.app_name)}")
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf("technocom.help@gmail.com"))
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf("pk9910765616@gmail.com"))
         emailIntent.putExtra(Intent.EXTRA_TEXT, emailData())
         emailIntent.type = "text/plain"
         val matches = context!!.packageManager.queryIntentActivities(emailIntent, 0)
@@ -75,22 +80,22 @@ class Feedback : BaseNavigationFragment()  {
 
 
     private fun emailData(): String {
-        return "\nFull Name : ${emailSendDto.fullNameDto}\nEmail : ${emailSendDto.emailIDDto}\n" +"Feedback : ${emailSendDto.appTitleDto}"
+        return "\nFull Name : ${emailSendDto.fullNameDto}\nMobile No. : ${emailSendDto.emailIDDto}\n" + "Feedback : ${emailSendDto.appTitleDto}"
     }
 
-    private fun checkValidField(): Boolean {
-        val isValid: Boolean
-        val p = Pattern.compile(EMAIL_REGEX)
-        val m = p.matcher(emailSendDto.emailIDDto)
+    /* private fun checkValidField(): Boolean {
+         val isValid: Boolean
+         val p = Pattern.compile(EMAIL_REGEX)
+         val m = p.matcher(emailSendDto.emailIDDto)
 
-        isValid = m.find()
-        if (!isValid) {
-            Toast.makeText(context, "Invalid Email", Toast.LENGTH_LONG).show()
-            return isValid
-        }
+         isValid = m.find()
+         if (!isValid) {
+             Toast.makeText(context, "Invalid Email", Toast.LENGTH_LONG).show()
+             return isValid
+         }
 
-        return isValid
-    }
+         return isValid
+     }*/
 
     /*private fun toastLong(value: String) {
         toastLong(value)
@@ -111,7 +116,7 @@ class Feedback : BaseNavigationFragment()  {
         clearError()
         return when {
             emailSendDto.fullNameDto == "" -> showError(binding.fullName, "Name Empty")
-            emailSendDto.emailIDDto == "" -> showError(binding.emailAddress, "Email Empty")
+            emailSendDto.emailIDDto == "" -> showError(binding.emailAddress, "Mobile No. Empty")
         // emailSendDto.websiteUrlDto == "" -> showError(binding.website, "Website Empty")
             emailSendDto.appTitleDto == "" -> showError(binding.mFeedback, "Feedback Empty")
             else -> true
@@ -133,4 +138,8 @@ class Feedback : BaseNavigationFragment()  {
         binding.mFeedback.error = null
     }
 
+    private fun signInBackPress() {
+        val intent = Intent(context, NavigationDrawer::class.java)
+        startActivity(intent)
+    }
 }
