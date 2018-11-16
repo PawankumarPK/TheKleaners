@@ -32,8 +32,7 @@ class SignUp : BaseNavigationFragment() {
 
         mRelativeLayoutSignUp.setOnClickListener { signInFunction() }
 
-
-        mAuth = FirebaseAuth.getInstance()
+          mAuth = FirebaseAuth.getInstance()
         reg_login_btn.setOnClickListener {
             fragmentManager!!.beginTransaction().replace(R.id.containerView, SignIn())
                     .addToBackStack(null).commit()
@@ -74,13 +73,13 @@ class SignUp : BaseNavigationFragment() {
         }
     }
 
-    override fun onStart() {
+    override fun onStart( ) {
         super.onStart()
 
         val currentUser = mAuth.currentUser
         if (currentUser != null) {
 
-            sendToMain()
+            //sendToMain()
 
         }
 
@@ -89,6 +88,7 @@ class SignUp : BaseNavigationFragment() {
     private fun sendToMain() {
         fragmentManager!!.beginTransaction().replace(R.id.containerView, Home())
                 .addToBackStack(null).commit()
+        Toast.makeText(context, "Registration Successfully.", Toast.LENGTH_LONG).show()
     }
 
     private fun signInFunction() {
@@ -96,8 +96,8 @@ class SignUp : BaseNavigationFragment() {
                 .addToBackStack(null).commit()
     }
 
-    private fun signUpBackPress() {
-        val intent = Intent(context, NavigationDrawer::class.java)
-        startActivity(intent)
+        private fun signUpBackPress() {
+            val intent = Intent(context, NavigationDrawer::class.java)
+            startActivity(intent)
+        }
     }
-}

@@ -34,7 +34,7 @@ class SignIn : BaseNavigationFragment() {
 
         mSignInBackArrow.setOnClickListener { signInBackPress() }
 
-        mRelativeLayoutSignUp.setOnClickListener { ForSignUp()}
+        mRelativeLayoutSignUp.setOnClickListener { ForSignUp() }
 
 
         login_btn.setOnClickListener {
@@ -66,6 +66,7 @@ class SignIn : BaseNavigationFragment() {
     private fun sendToMain() {
         fragmentManager!!.beginTransaction().replace(R.id.containerView, Home())
                 .addToBackStack(null).commit()
+        Toast.makeText(context, "Login Successfully", Toast.LENGTH_LONG).show()
     }
 
     private fun signInBackPress() {
@@ -73,13 +74,7 @@ class SignIn : BaseNavigationFragment() {
         startActivity(intent)
     }
 
-    private fun signUpFunction() {
-       /* fragmentManager!!.beginTransaction().replace(R.id.containerView, SignUp())
-                .addToBackStack(null).commit()
-*/
-    }
-
-    private fun ForSignUp(){
-        fragmentManager!!.beginTransaction().replace(R.id.containerView,SignUp()).addToBackStack(null).commit()
+    private fun ForSignUp() {
+        fragmentManager!!.beginTransaction().replace(R.id.containerView, SignUp()).addToBackStack(null).commit()
     }
 }
