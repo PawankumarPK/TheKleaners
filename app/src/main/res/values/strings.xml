@@ -96,6 +96,8 @@
     shingles. These materials, and any others used, require special handling to properly dispose of them.
     If it's used in building, manufacture, or anything in between, TheKleaners is here to help you find
     the best way to dispose of it.</string>
+
+    <string name="forgotPassDesc">Enter your email address and we will send you a link to reset your password</string>
 </resources>
 
 

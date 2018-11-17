@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.example.hp.thekleaners.ForgotPassword
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import com.google.android.gms.tasks.OnCompleteListener
@@ -32,9 +33,11 @@ class SignIn : BaseNavigationFragment() {
         mainActivity.toolbar.visibility = View.GONE
         mainActivity.title_name.text = resources.getString(R.string.signIn)
 
+        mForgetPassword.setOnClickListener { forgotPassword()  }
+
         mSignInBackArrow.setOnClickListener { signInBackPress() }
 
-        mRelativeLayoutSignUp.setOnClickListener { ForSignUp() }
+        mRelativeLayoutSignUp.setOnClickListener { forSignUp()}
 
 
         login_btn.setOnClickListener {
@@ -74,7 +77,10 @@ class SignIn : BaseNavigationFragment() {
         startActivity(intent)
     }
 
-    private fun ForSignUp() {
+    private fun forSignUp() {
         fragmentManager!!.beginTransaction().replace(R.id.containerView, SignUp()).addToBackStack(null).commit()
+    }
+    private fun forgotPassword() {
+        fragmentManager!!.beginTransaction().replace(R.id.containerView, ResetPassword()).addToBackStack(null).commit()
     }
 }

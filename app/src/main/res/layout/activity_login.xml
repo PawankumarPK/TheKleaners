@@ -72,7 +72,7 @@
             android:id="@+id/mForgetPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/mSignIn"
+            android:layout_below="@+id/login_btn"
             android:layout_centerInParent="true"
             android:text="FORGOT PASSWORD"
             android:textColor="#5FAB34"
@@ -107,7 +107,7 @@
                 android:textStyle="bold" />
 
 
-        </RelativeLayout>
 
+        </RelativeLayout>
     </RelativeLayout>
 </RelativeLayout>
