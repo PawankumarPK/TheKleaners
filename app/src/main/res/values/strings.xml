@@ -98,6 +98,11 @@
     the best way to dispose of it.</string>
 
     <string name="forgotPassDesc">Enter your email address and we will send you a link to reset your password</string>
+
+    <string name="areyousureyouwanttoexit">Are you sure you want to exit</string>
+    <string name="exit">Exit</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>
 
 

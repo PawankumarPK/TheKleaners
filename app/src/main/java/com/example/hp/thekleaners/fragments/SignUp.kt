@@ -28,6 +28,7 @@ class SignUp : BaseNavigationFragment() {
         mainActivity = activity as NavigationDrawer
         mainActivity.toolbar.visibility = View.GONE
         mainActivity.title_name.text = resources.getString(R.string.signUp)
+        (activity as NavigationDrawer).setDrawerLocked(true)
         mSignUpBackArrow.setOnClickListener { signUpBackPress() }
 
         mRelativeLayoutSignUp.setOnClickListener { signInFunction() }

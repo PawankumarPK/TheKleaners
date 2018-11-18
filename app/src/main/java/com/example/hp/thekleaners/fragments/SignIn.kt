@@ -32,6 +32,7 @@ class SignIn : BaseNavigationFragment() {
         mainActivity = activity as NavigationDrawer
         mainActivity.toolbar.visibility = View.GONE
         mainActivity.title_name.text = resources.getString(R.string.signIn)
+        (activity as NavigationDrawer).setDrawerLocked(true)
 
         mForgetPassword.setOnClickListener { forgotPassword()  }
 
@@ -82,5 +83,10 @@ class SignIn : BaseNavigationFragment() {
     }
     private fun forgotPassword() {
         fragmentManager!!.beginTransaction().replace(R.id.containerView, ResetPassword()).addToBackStack(null).commit()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        (activity as NavigationDrawer).setDrawerLocked(false)
     }
 }

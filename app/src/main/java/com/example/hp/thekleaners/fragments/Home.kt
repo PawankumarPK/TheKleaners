@@ -22,6 +22,7 @@ class Home : BaseNavigationFragment() {
         mainActivity = activity as NavigationDrawer
         mainActivity.toolbar.visibility = View.VISIBLE
 
+
         mResidentialSolution.setOnClickListener { mResidentialSolutionFunction() }
         val viewPagerAdapter = ViewPagerAdapter(mainActivity)
         viewPager.adapter = viewPagerAdapter
@@ -52,4 +53,6 @@ class Home : BaseNavigationFragment() {
     private fun mResidentialSolutionFunction() {
         fragmentManager!!.beginTransaction().replace(R.id.containerView, ForHomeService()).addToBackStack(null).commit()
     }
+
+
 }

@@ -23,6 +23,7 @@ class OtherService : BaseNavigationFragment()  {
         super.onViewCreated(view, savedInstanceState)
         mainActivity = activity as NavigationDrawer
         mainActivity.toolbar.visibility = View.GONE
+        (activity as NavigationDrawer).setDrawerLocked(true)
         mOtherServiceBackArrow.setOnClickListener { mRecycleByMailServiceBackArrowFunction() }
         //mainActivity.title_name.text = resources.getString(R.string.signIn)
 

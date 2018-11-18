@@ -13,9 +13,20 @@ import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.fragments.*
 import kotlinx.android.synthetic.main.activity_navigation_drawer.*
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
+import android.support.v4.widget.DrawerLayout
 
 
-class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+
+class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelectedListener,DrawerLocker {
+    override fun setDrawerLocked(enabled: Boolean) {
+        if(enabled){
+            drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+        }else{
+            drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+        }
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,15 +50,18 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
     }
 
     override fun onBackPressed() {
-        val fragment = supportFragmentManager.findFragmentById(R.id.containerView)
-        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
-            drawer_layout.closeDrawer(GravityCompat.START)
-        } else if (fragment is Home)
-            super.onBackPressed()
-        else
-            supportFragmentManager.beginTransaction().addToBackStack(null).replace(R.id.containerView, Home()).commit()
+        val drawer = findViewById<View>(R.id.drawer_layout) as DrawerLayout
+        val backstack = supportFragmentManager.backStackEntryCount
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START)
+        } else if (backstack > 0) {
+            for (i in 0 until backstack) {
+                supportFragmentManager.popBackStackImmediate()
+            }
+        } else {
+            this.finish()
+        }
     }
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.navigation_drawer, menu)
         return true
@@ -99,7 +113,7 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
     }
 
     private fun homeFragment() {
-        supportFragmentManager.beginTransaction().replace(R.id.containerView, Home())
+        supportFragmentManager.beginTransaction().replace(R.id.containerView, Home()).addToBackStack(null)
                 .commit()
     }
 

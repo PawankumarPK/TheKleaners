@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:largeHeap="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Razorpay">
+        <activity android:name=".activities.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,7 +32,7 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".ForgotPassword" />
-        <activity android:name=".activities.SplashScreen"></activity>
+        <activity android:name=".Razorpay"></activity>
 
 
         <meta-data
