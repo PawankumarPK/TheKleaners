@@ -39,11 +39,13 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
     }
 
     override fun onBackPressed() {
+        val fragment = supportFragmentManager.findFragmentById(R.id.containerView)
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
             drawer_layout.closeDrawer(GravityCompat.START)
-        } else {
+        } else if (fragment is Home)
             super.onBackPressed()
-        }
+        else
+            supportFragmentManager.beginTransaction().addToBackStack(null).replace(R.id.containerView, Home()).commit()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -100,4 +102,5 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         supportFragmentManager.beginTransaction().replace(R.id.containerView, Home())
                 .commit()
     }
+
 }
