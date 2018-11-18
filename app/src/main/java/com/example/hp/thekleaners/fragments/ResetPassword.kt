@@ -1,5 +1,6 @@
 package com.example.hp.thekleaners.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.hp.thekleaners.R
+import com.example.hp.thekleaners.activities.NavigationDrawer
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_reset_password.*
 
@@ -22,6 +24,8 @@ class ResetPassword : BaseNavigationFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mAuth = FirebaseAuth.getInstance()
+
+        mForgotPasswordBackArrow.setOnClickListener { forgotBackPress() }
 
         mSendLinkForReset.setOnClickListener {
             val userEmail = mEnterRegisterEmailAdd.text.toString()
@@ -40,5 +44,12 @@ class ResetPassword : BaseNavigationFragment() {
             }
         }
 
+
+
     }
+    private fun forgotBackPress() {
+        val intent = Intent(context, NavigationDrawer::class.java)
+        startActivity(intent)
+    }
+
 }
