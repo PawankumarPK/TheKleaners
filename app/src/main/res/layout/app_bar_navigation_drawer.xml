@@ -36,22 +36,22 @@
 
     <android.support.design.widget.TabLayout
         android:background="@color/colorPrimary"
-        app:tabSelectedTextColor="#ffffff"
-        app:tabIndicatorColor="#FFFFFF"
+        app:tabSelectedTextColor="#73B73E"
+        app:tabIndicatorColor="#4C9926"
         app:tabIndicatorHeight="3dp"
         android:layout_below="@+id/toolbar"
-        app:tabTextColor="#FFFFFF"
+        app:tabTextColor="#4C9926"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabMode="fixed"
         app:tabGravity="fill"
-        android:id="@+id/tbl_pages"/>
+        android:id="@+id/tabLayout"/>
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/vp_pages"
+        android:id="@+id/mViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/tbl_pages">
+        android:layout_below="@+id/tabLayout">
     </android.support.v4.view.ViewPager>
 
     <FrameLayout

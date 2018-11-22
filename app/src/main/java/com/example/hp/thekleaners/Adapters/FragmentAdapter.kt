@@ -7,7 +7,7 @@ import com.example.hp.thekleaners.fragments.Home
 import com.example.hp.thekleaners.fragments.Services
 
 
-internal class FragmentAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+ class FragmentAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment? {
         when (position) {

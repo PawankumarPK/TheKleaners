@@ -21,8 +21,8 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/toolbar_logo"
-                android:contentDescription="@null"/>
+                android:contentDescription="@null"
+                android:src="@drawable/toolbar_logo" />
 
             <TextView
                 android:id="@+id/title_name"
@@ -38,25 +38,25 @@
     </android.support.v7.widget.Toolbar>
 
     <android.support.design.widget.TabLayout
-        android:background="@color/colorPrimary"
-        app:tabSelectedTextColor="#000"
-        app:tabIndicatorColor="#000"
-        app:tabIndicatorHeight="3dp"
-        android:layout_below="@+id/toolbar"
-        app:tabTextColor="#000"
+        android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabMode="fixed"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorPrimary"
         app:tabGravity="fill"
-        android:id="@+id/tbl_pages"/>
+        app:tabIndicatorColor="#73B73E"
+        app:tabIndicatorHeight="3dp"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="#4C9926"
+        app:tabTextAppearance="@style/tabLayoutTitles"
+        app:tabTextColor="#000" />
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/vp_pages"
+        android:id="@+id/mViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/tbl_pages">
-    </android.support.v4.view.ViewPager>
-
+        android:layout_below="@+id/tabLayout" />
 
 
     <FrameLayout

@@ -2,9 +2,7 @@ package com.example.hp.thekleaners.activities
 
 import android.os.Bundle
 import android.support.design.widget.NavigationView
-import android.support.design.widget.TabLayout
 import android.support.v4.view.GravityCompat
-import android.support.v4.view.ViewPager
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.view.Menu
@@ -17,10 +15,12 @@ import com.example.hp.thekleaners.fragments.*
 import kotlinx.android.synthetic.main.activity_navigation_drawer.*
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 
-
 class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelectedListener, DrawerLocker {
-    override fun setDrawerLocked(enabled: Boolean) {
-        if (enabled) {
+
+   // private val tabIcons = intArrayOf(R.drawable.ic_home, R.drawable.ic_commercial)
+
+    override fun setDrawerLocked(shouldLock: Boolean) {
+        if (shouldLock) {
             drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
         } else {
             drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
@@ -32,6 +32,7 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_navigation_drawer)
         setSupportActionBar(toolbar)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         toolbar.visibility = View.VISIBLE
        // homeFragment()
 
@@ -39,12 +40,10 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         val headerview = navigationView.getHeaderView(0)
         val header = headerview.findViewById(R.id.mLinearLayout) as RelativeLayout
 
-        //val vp_pages = findViewById<View>(R.id.vp_pages) as ViewPager
         val pagerAdapter = FragmentAdapter(supportFragmentManager)
-        vp_pages.adapter = pagerAdapter
-
-        //val tbl_pages = findViewById<View>(R.id.tbl_pages) as TabLayout
-        tbl_pages.setupWithViewPager(vp_pages)
+        mViewPager.adapter = pagerAdapter
+        tabLayout.setupWithViewPager(mViewPager)
+       /// setupTabIcons()
 
         header.setOnClickListener { signInListener() }
 
@@ -56,6 +55,11 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         nav_view.setNavigationItemSelectedListener(this)
     }
 
+    /*private fun setupTabIcons() {
+        tabLayout.getTabAt(0)!!.setIcon(tabIcons[0])
+        tabLayout.getTabAt(1)!!.setIcon(tabIcons[1])
+    }
+*/
     override fun onBackPressed() {
         val drawer = findViewById<View>(R.id.drawer_layout) as DrawerLayout
         val backstack = supportFragmentManager.backStackEntryCount
