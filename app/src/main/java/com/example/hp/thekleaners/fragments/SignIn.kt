@@ -90,4 +90,3 @@ class SignIn : BaseNavigationFragment() {
         (activity as NavigationDrawer).setDrawerLocked(false)
     }
 }
-///kgjfghfhchfjjk
