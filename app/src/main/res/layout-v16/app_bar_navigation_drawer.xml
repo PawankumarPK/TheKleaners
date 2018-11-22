@@ -37,6 +37,27 @@
         </LinearLayout>
     </android.support.v7.widget.Toolbar>
 
+    <android.support.design.widget.TabLayout
+        android:background="@color/colorPrimary"
+        app:tabSelectedTextColor="#000"
+        app:tabIndicatorColor="#000"
+        app:tabIndicatorHeight="3dp"
+        android:layout_below="@+id/toolbar"
+        app:tabTextColor="#000"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabMode="fixed"
+        app:tabGravity="fill"
+        android:id="@+id/tbl_pages"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_pages"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tbl_pages">
+    </android.support.v4.view.ViewPager>
+
+
 
     <FrameLayout
         android:id="@+id/containerView"

@@ -2,28 +2,28 @@ package com.example.hp.thekleaners.activities
 
 import android.os.Bundle
 import android.support.design.widget.NavigationView
+import android.support.design.widget.TabLayout
 import android.support.v4.view.GravityCompat
+import android.support.v4.view.ViewPager
+import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.LinearLayout
 import android.widget.RelativeLayout
+import com.example.hp.thekleaners.Adapters.FragmentAdapter
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.fragments.*
 import kotlinx.android.synthetic.main.activity_navigation_drawer.*
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
-import android.support.v4.widget.DrawerLayout
 
 
-
-
-class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelectedListener,DrawerLocker {
+class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelectedListener, DrawerLocker {
     override fun setDrawerLocked(enabled: Boolean) {
-        if(enabled){
-            drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-        }else{
-            drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+        if (enabled) {
+            drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+        } else {
+            drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
         }
 
     }
@@ -33,11 +33,18 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         setContentView(R.layout.activity_navigation_drawer)
         setSupportActionBar(toolbar)
         toolbar.visibility = View.VISIBLE
-        homeFragment()
+       // homeFragment()
 
         val navigationView = findViewById<View>(R.id.nav_view) as NavigationView
         val headerview = navigationView.getHeaderView(0)
         val header = headerview.findViewById(R.id.mLinearLayout) as RelativeLayout
+
+        //val vp_pages = findViewById<View>(R.id.vp_pages) as ViewPager
+        val pagerAdapter = FragmentAdapter(supportFragmentManager)
+        vp_pages.adapter = pagerAdapter
+
+        //val tbl_pages = findViewById<View>(R.id.tbl_pages) as TabLayout
+        tbl_pages.setupWithViewPager(vp_pages)
 
         header.setOnClickListener { signInListener() }
 
@@ -62,6 +69,7 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
             this.finish()
         }
     }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.navigation_drawer, menu)
         return true
@@ -112,9 +120,9 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         return true
     }
 
-    private fun homeFragment() {
+   /* private fun homeFragment() {
         supportFragmentManager.beginTransaction().replace(R.id.containerView, Home()).addToBackStack(null)
                 .commit()
-    }
+    }*/
 
 }
