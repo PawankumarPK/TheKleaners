@@ -1,47 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff">
+    android:background="#fff"
+    android:orientation="vertical">
 
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
-        app:elevation="4dp">
+        android:layout_height="wrap_content"
+        android:id="@+id/mAppbar">
 
-        <LinearLayout
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:elevation="4dp"
+            app:layout_scrollFlags="scroll|enterAlways|snap">
 
-            <ImageView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:contentDescription="@null"
-                android:src="@drawable/toolbar_logo" />
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/title_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed"
-                android:text="TheKleaners"
-                android:textColor="#000"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                android:visibility="invisible" />
-        </LinearLayout>
-    </android.support.v7.widget.Toolbar>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@null"
+                    android:src="@drawable/toolbar_logo" />
+
+                <TextView
+                    android:id="@+id/title_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="TheKleaners"
+                    android:textColor="#000"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:visibility="invisible" />
+            </LinearLayout>
+        </android.support.v7.widget.Toolbar>
+
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbar"
+        android:layout_below="@+id/mAppbar"
         android:layout_marginTop="10dp"
         android:background="@color/colorPrimary"
         app:tabGravity="fill"
@@ -52,17 +59,20 @@
         app:tabTextAppearance="@style/tabLayoutTitles"
         app:tabTextColor="#000" />
 
+    </android.support.design.widget.AppBarLayout>
+
+
     <android.support.v4.view.ViewPager
         android:id="@+id/mViewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/tabLayout" />
-
+        android:layout_height="match_parent" />
 
     <FrameLayout
         android:id="@+id/containerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar" />
+        android:layout_height="match_parent" />
 
-</RelativeLayout>
+
+
+
+</android.support.design.widget.CoordinatorLayout>
