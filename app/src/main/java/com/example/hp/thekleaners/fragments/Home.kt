@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.hp.thekleaners.Adapters.ViewPagerAdapter
+import com.example.hp.thekleaners.Adapters.ViewPagerCarWash
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
@@ -22,13 +23,18 @@ class Home : BaseNavigationFragment() {
         mainActivity = activity as NavigationDrawer
         mainActivity.toolbar.visibility = View.VISIBLE
 
-
-        mResidentialSolution.setOnClickListener { mResidentialSolutionFunction() }
         val viewPagerAdapter = ViewPagerAdapter(mainActivity)
         viewPager.adapter = viewPagerAdapter
 
+
+        val carWashViewPagerAdapter = ViewPagerCarWash(mainActivity)
+        mCarWash_viewPager.adapter = carWashViewPagerAdapter
+
         val timer = Timer()
         timer.scheduleAtFixedRate(MyTimerTask(), 2000, 4000)
+
+        val cartimer = Timer()
+        cartimer .scheduleAtFixedRate(MyCarTimerTask(), 2000, 4000)
     }
 
     inner class MyTimerTask : TimerTask() {
@@ -48,11 +54,29 @@ class Home : BaseNavigationFragment() {
                 }
             })
         }
+
+
+
+
     }
 
-    private fun mResidentialSolutionFunction() {
-        fragmentManager!!.beginTransaction().replace(R.id.containerView, ForHomeService()).addToBackStack(null).commit()
-    }
+    inner class MyCarTimerTask : TimerTask() {
 
+        override fun run() {
+
+            mainActivity.runOnUiThread(java.lang.Runnable {
+
+                if (mCarWash_viewPager == null) {
+                    return@Runnable
+                }
+
+                when {
+                    mCarWash_viewPager.currentItem == 0 -> mCarWash_viewPager.currentItem = 1
+                    mCarWash_viewPager.currentItem == 1 -> mCarWash_viewPager.currentItem = 2
+                    else -> mCarWash_viewPager.currentItem = 0
+                }
+            })
+        }
+    }
 
 }

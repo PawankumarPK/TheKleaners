@@ -103,6 +103,11 @@
     <string name="exit">Exit</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+
+    <string name="carWashDesc">Car wash service at your doorstep!</string>
+    <string name="aboutCarService">Have a weekend plans ever been wrecked due to critical last-minute
+    trip to car wash, followed by needless delay with unreasonable excuses? Well, with the doorstep
+    introduce by TheKleaners. Periodic check-up are as important to your car, as duty-free breaks.</string>
 </resources>
 
 
