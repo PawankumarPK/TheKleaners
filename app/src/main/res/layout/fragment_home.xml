@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -18,254 +18,86 @@
             android:layout_marginTop="20dp" />
 
 
-        <TextView
-            android:id="@+id/mWhyChoose"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
             android:layout_below="@+id/viewPager"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:fontFamily="sans-serif-condensed"
-            android:text="Why choose The Kleaners?"
-            android:textSize="25sp" />
+            android:layout_margin="5dp"
+            app:cardBackgroundColor="@color/colorAccent"
+            app:cardCornerRadius="5dp">
 
-        <TextView
-            android:id="@+id/mForStarters"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mWhyChoose"
-            android:gravity="center"
-            android:text="For Starters, we have an amazing"
-            android:textColor="#31790d"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/mNintyNine"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mForStarters"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="10dp"
-            android:fontFamily="serif"
-            android:gravity="center"
-            android:text="99.9%"
-            android:textColor="#31790d"
-            android:textSize="78sp" />
-
-        <TextView
-            android:id="@+id/mPickup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mNintyNine"
-            android:gravity="center"
-            android:text="pickup accuracy"
-            android:textColor="#31790d"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/mDescIndia"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mPickup"
-            android:layout_margin="8dp"
-            android:gravity="center"
-            android:text="@string/descIndia"
-            android:textColor="#2b2828"
-            android:textSize="13sp" />
-
-
-        <TextView
-            android:id="@+id/mProvidingTheIndustry"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mDescIndia"
-            android:layout_margin="20dp"
-            android:gravity="center"
-            android:text="@string/providingIndustry"
-            android:textSize="18sp" />
-
-        <RelativeLayout
-            android:id="@+id/mRelativeLayoutIndusty"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mProvidingTheIndustry"
-            android:background="#ccc">
-
-            <ImageView
-                android:id="@+id/mHome"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="15dp"
-                android:contentDescription="@null"
-                android:src="@drawable/home_indusrty" />
-
-
-            <TextView
-                android:id="@+id/mResidence"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/mHome"
-                android:layout_marginTop="8dp"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="FOR YOUR RESIDENCE"
-                android:textColor="#0f2b01"
-                android:textSize="18sp" />
+                android:layout_height="300dp"
+                android:layout_margin="5dp"
+                android:background="#fff"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/mResidenceDesc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/mResidence"
-                android:layout_margin="20dp"
-                android:text="@string/residenceDesc"
-                android:textSize="14sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="10">
 
-            <Button
-                android:id="@+id/mResidentialSolution"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/mResidenceDesc"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="20dp"
-                android:background="@drawable/color_gradient"
-                android:text="RESIDENTIAL SOLUTION"
-                android:textColor="#fff" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/mRelativeLayoutThereMore"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_below="@+id/mRelativeLayoutIndusty"
-            android:layout_marginTop="20sp"
-            android:background="#31790d">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:fontFamily="sans-serif-smallcaps"
-                android:text="There's more to our"
-                android:textColor="#fff"
-                android:textSize="25sp"
-                android:textStyle="bold" />
-
-        </RelativeLayout>
-
-        <TextView
-            android:id="@+id/mKleanerOffer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mRelativeLayoutThereMore"
-            android:layout_centerHorizontal="true"
-            android:fontFamily="casual"
-            android:text="@string/offers"
-            android:textColor="#000"
-            android:layout_marginTop="20dp"
-            android:textSize="17sp"
-            app:fontFamily="@font/benchnine_light" />
-
-        <TextView
-            android:id="@+id/mKleanerOfferDesc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mKleanerOffer"
-            android:layout_margin="22dp"
-            android:fontFamily="@font/antic_didone"
-            android:text="@string/offersDesc" />
-
-        <ImageView
-            android:id="@+id/mMonitor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mKleanerOfferDesc"
-            android:layout_centerHorizontal="true"
-            android:contentDescription="@null"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/monitor_tablet_mobile" />
-
-        <TextView
-            android:id="@+id/mConvienientTools"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mMonitor"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="25dp"
-            android:text="Convenient Online Tools"
-            android:textColor="#255c0a"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/mPaymentSch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mConvienientTools"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:text="@string/onlineToolsDesc"
-            android:textSize="10sp" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:src="@drawable/ic_waste_bin" />
 
 
-        <TextView
-            android:id="@+id/mAllAvailable"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mPaymentSch"
-            android:layout_centerHorizontal="true"
-            android:text="@string/allAvailable"
-            android:textSize="10sp" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:src="@drawable/ic_recycle" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="10">
 
 
-        <ImageView
-            android:id="@+id/mAward"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mAllAvailable"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:contentDescription="@null"
-            android:src="@drawable/trophy" />
-
-        <TextView
-            android:id="@+id/mIndustryLeading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mAward"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
-            android:text="Industry Leading Service Guarantee"
-            android:textColor="#255c0a"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/mNotSatisfied"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mIndustryLeading"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:text="@string/notSatisfied"
-            android:textSize="10sp" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:src="@drawable/ic_hospital" />
 
 
-        <TextView
-            android:id="@+id/mMakeRight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mNotSatisfied"
-            android:layout_centerHorizontal="true"
-            android:text="@string/makeRight"
-            android:textSize="10sp" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:src="@drawable/ic_trash" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_below="@+id/mMakeRight"/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="10">
+
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:src="@drawable/ic_waste_wheel_bin" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
 
     </RelativeLayout>
 
 
-</ScrollView>
+</android.support.v4.widget.NestedScrollView>

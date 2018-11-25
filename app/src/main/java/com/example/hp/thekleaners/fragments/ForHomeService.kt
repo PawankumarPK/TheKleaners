@@ -22,6 +22,7 @@ class ForHomeService : BaseNavigationFragment() {
         mainActivity = activity as NavigationDrawer
         mainActivity.toolbar.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
+        mainActivity.tabLayout.visibility = View.GONE
         mHomeServiceBackArrow.setOnClickListener { mHomeServiceBackArrowFunction() }
         mLinearLayoutRecycleByMail.setOnClickListener { mLinearLayoutRecycleByMailFunction() }
         mLinearLayoutCubsidePickup.setOnClickListener { mLinearLayoutCubsidePickupFunction() }
