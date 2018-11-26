@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.hp.thekleaners.Adapters.ViewPagerAdapter
 import com.example.hp.thekleaners.Adapters.ViewPagerCarWash
+import com.example.hp.thekleaners.Adapters.ViewPagerOtherService
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
@@ -30,11 +31,20 @@ class Home : BaseNavigationFragment() {
         val carWashViewPagerAdapter = ViewPagerCarWash(mainActivity)
         mCarWash_viewPager.adapter = carWashViewPagerAdapter
 
+
+        val othersViewPagerAdapter = ViewPagerOtherService(mainActivity)
+        mOthers_viewPager.adapter = othersViewPagerAdapter
+
+
         val timer = Timer()
         timer.scheduleAtFixedRate(MyTimerTask(), 2000, 4000)
 
         val cartimer = Timer()
-        cartimer .scheduleAtFixedRate(MyCarTimerTask(), 2000, 4000)
+        cartimer.scheduleAtFixedRate(MyCarTimerTask(), 2000, 4000)
+
+
+        val othertimer = Timer()
+        othertimer.scheduleAtFixedRate(MyOtherTimerTask(), 2000, 4000)
     }
 
     inner class MyTimerTask : TimerTask() {
@@ -56,8 +66,6 @@ class Home : BaseNavigationFragment() {
         }
 
 
-
-
     }
 
     inner class MyCarTimerTask : TimerTask() {
@@ -74,6 +82,24 @@ class Home : BaseNavigationFragment() {
                     mCarWash_viewPager.currentItem == 0 -> mCarWash_viewPager.currentItem = 1
                     mCarWash_viewPager.currentItem == 1 -> mCarWash_viewPager.currentItem = 2
                     else -> mCarWash_viewPager.currentItem = 0
+                }
+            })
+        }
+    }
+    inner class MyOtherTimerTask : TimerTask() {
+
+        override fun run() {
+
+            mainActivity.runOnUiThread(java.lang.Runnable {
+
+                if (mOthers_viewPager == null) {
+                    return@Runnable
+                }
+
+                when {
+                    mOthers_viewPager.currentItem == 0 -> mOthers_viewPager.currentItem = 1
+                    mOthers_viewPager.currentItem == 1 -> mOthers_viewPager.currentItem = 2
+                    else -> mOthers_viewPager.currentItem = 0
                 }
             })
         }
