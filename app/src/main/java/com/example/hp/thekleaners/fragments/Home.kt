@@ -45,6 +45,12 @@ class Home : BaseNavigationFragment() {
 
         val othertimer = Timer()
         othertimer.scheduleAtFixedRate(MyOtherTimerTask(), 2000, 4000)
+
+        mCurbsidePickup.setOnClickListener { mCurbsidePickupFunction() }
+        mRecycleByMailService.setOnClickListener { mRecycleByMailServiceFunction() }
+        mMedical.setOnClickListener { mMedicalFunction() }
+        mRecycling.setOnClickListener { mRecyclingFunction() }
+
     }
 
     inner class MyTimerTask : TimerTask() {
@@ -105,4 +111,22 @@ class Home : BaseNavigationFragment() {
         }
     }
 
+    private fun mCurbsidePickupFunction(){
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView,CurbsidePickup()).commit()
+    }
+
+
+    private fun mRecycleByMailServiceFunction(){
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView,RecyclableByMail()).commit()
+    }
+
+
+    private fun mMedicalFunction(){
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView,MedicalWaste()).commit()
+    }
+
+
+    private fun mRecyclingFunction(){
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView,RecyclingService()).commit()
+    }
 }

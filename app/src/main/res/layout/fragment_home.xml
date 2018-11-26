@@ -10,7 +10,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        tools:ignore="UseCompoundDrawables"
+        android:background="#fff">
 
 
         <android.support.v4.view.ViewPager
@@ -55,14 +57,17 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="30dp"
                     android:layout_weight="10"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
 
                     <LinearLayout
+                        android:id="@+id/mCurbsidePickup"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="5"
                         android:gravity="center"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        tools:ignore="UseCompoundDrawables">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -80,6 +85,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/mRecycleByMailService"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="5"
@@ -117,6 +123,7 @@
                     android:orientation="horizontal">
 
                     <LinearLayout
+                        android:id="@+id/mMedical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="7"
@@ -139,11 +146,13 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/mRecycling"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:gravity="center"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        tools:ignore="UseCompoundDrawables">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -313,6 +322,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_below="@+id/mOthersAbout"
@@ -326,12 +336,142 @@
 
         </android.support.v7.widget.CardView>
 
+
+        <RelativeLayout
+            android:id="@+id/mRelativeLayoutThereMore"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_below="@+id/mOthersCardView"
+            android:layout_marginTop="20sp"
+            android:background="#31790d">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="There's more to our"
+                android:textColor="#fff"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/mKleanerOffer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mRelativeLayoutThereMore"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="casual"
+            android:text="@string/offers"
+            android:textColor="#000"
+            android:layout_marginTop="20dp"
+            android:textSize="17sp"
+            app:fontFamily="@font/benchnine_light" />
+
+        <TextView
+            android:id="@+id/mKleanerOfferDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mKleanerOffer"
+            android:layout_margin="22dp"
+            android:fontFamily="@font/antic_didone"
+            android:text="@string/offersDesc" />
+
+        <ImageView
+            android:id="@+id/mMonitor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mKleanerOfferDesc"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@null"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/monitor_tablet_mobile" />
+
+        <TextView
+            android:id="@+id/mConvienientTools"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mMonitor"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:text="Convenient Online Tools"
+            android:textColor="#255c0a"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/mPaymentSch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mConvienientTools"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/onlineToolsDesc"
+            android:textSize="10sp" />
+
+
+        <TextView
+            android:id="@+id/mAllAvailable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mPaymentSch"
+            android:layout_centerHorizontal="true"
+            android:text="@string/allAvailable"
+            android:textSize="10sp" />
+
+
+        <ImageView
+            android:id="@+id/mAward"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mAllAvailable"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@null"
+            android:src="@drawable/trophy" />
+
+        <TextView
+            android:id="@+id/mIndustryLeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mAward"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="Industry Leading Service Guarantee"
+            android:textColor="#255c0a"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/mNotSatisfied"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mIndustryLeading"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/notSatisfied"
+            android:textSize="10sp" />
+
+
+        <TextView
+            android:id="@+id/mMakeRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mNotSatisfied"
+            android:layout_centerHorizontal="true"
+            android:text="@string/makeRight"
+            android:textSize="10sp"
+            tools:ignore="SmallSp" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_below="@+id/mOthersCardView"/>
+            android:layout_below="@+id/mMakeRight"/>
 
     </RelativeLayout>
+
+
+
 
 
 </android.support.v4.widget.NestedScrollView>
