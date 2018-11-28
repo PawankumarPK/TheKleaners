@@ -24,7 +24,7 @@ class SplashScreen : AppCompatActivity() {
             override fun run() {
                 try {
                     Thread.sleep(3000)
-                    val intent = Intent(applicationContext, MainActivity::class.java)
+                    val intent = Intent(applicationContext, NavigationDrawer::class.java)
                     startActivity(intent)
                     finish()
                 } catch (e: InterruptedException) {

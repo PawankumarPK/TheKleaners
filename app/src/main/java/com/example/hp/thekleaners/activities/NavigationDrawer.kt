@@ -17,9 +17,7 @@ import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import android.view.ViewGroup
 import android.support.design.widget.AppBarLayout
 import android.support.design.widget.CoordinatorLayout
-
-
-
+import android.support.v7.app.AlertDialog
 
 
 class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelectedListener, DrawerLocker {
@@ -42,7 +40,6 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         toolbar.visibility = View.VISIBLE
         belowlayout()
-       // homeFragment()
 
         val navigationView = findViewById<View>(R.id.nav_view) as NavigationView
         val headerview = navigationView.getHeaderView(0)
@@ -69,17 +66,21 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
     }
 */
     override fun onBackPressed() {
-        val drawer = findViewById<View>(R.id.drawer_layout) as DrawerLayout
-        val backstack = supportFragmentManager.backStackEntryCount
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START)
-        } else if (backstack > 0) {
-            for (i in 0 until backstack) {
-                supportFragmentManager.popBackStackImmediate()
-            }
-        } else {
-            this.finish()
+
+        if (drawer_layout.isDrawerOpen(nav_view)) {
+            drawer_layout.closeDrawer(GravityCompat.START)
+            return
         }
+        if (supportFragmentManager.backStackEntryCount == 0)
+            exitApp(false)
+        else
+            super.onBackPressed()
+    }
+
+    private fun exitApp(exit: Boolean) {
+        AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_alert).setTitle(resources.getString(R.string.exit))
+                .setMessage(resources.getString(R.string.areyousureyouwanttoexit))
+                .setPositiveButton(resources.getString(R.string.yes), { _, _ -> if (exit) finish() else super.onBackPressed() }).setNegativeButton(resources.getString(R.string.no), null).show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -138,9 +139,4 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         containerView.requestLayout()
     }
 
-   /* private fun homeFragment() {
-        supportFragmentManager.beginTransaction().replace(R.id.containerView, Home()).addToBackStack(null)
-                .commit()
-    }*/
-//hjgjgjkgkhkg
 }

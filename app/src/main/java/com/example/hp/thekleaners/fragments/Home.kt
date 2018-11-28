@@ -10,8 +10,6 @@ import com.example.hp.thekleaners.activities.NavigationDrawer
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import java.util.*
-import android.widget.RelativeLayout
-
 
 
 class Home : BaseNavigationFragment() {

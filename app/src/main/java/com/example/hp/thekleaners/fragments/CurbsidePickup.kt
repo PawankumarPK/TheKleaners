@@ -57,8 +57,10 @@ class CurbsidePickup : BaseNavigationFragment() {
 
     }
 
+
     private fun mRecycleByMailServiceBackArrowFunction() {
         val intent = Intent(context,NavigationDrawer::class.java)
         startActivity(intent)
+
     }
 }
