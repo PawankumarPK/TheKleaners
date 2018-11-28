@@ -24,6 +24,7 @@ class MedicalWaste : BaseNavigationFragment()  {
         mainActivity.toolbar.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
         mMedicalBackArrow.setOnClickListener { mRecycleByMailServiceBackArrowFunction() }
+        mainActivity.tabLayout.visibility = View.GONE
         //mainActivity.title_name.text = resources.getString(R.string.signIn)
 
 
@@ -55,6 +56,6 @@ class MedicalWaste : BaseNavigationFragment()  {
     }
 
     private fun mRecycleByMailServiceBackArrowFunction() {
-        fragmentManager!!.beginTransaction().replace(R.id.containerView, ForHomeService()).addToBackStack(null).commit()
+        fragmentManager!!.beginTransaction().replace(R.id.containerView, Home()).addToBackStack(null).commit()
     }
 }
