@@ -1,5 +1,6 @@
 package com.example.hp.thekleaners.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -25,6 +26,7 @@ class CurbsidePickup : BaseNavigationFragment() {
         (activity as NavigationDrawer).setDrawerLocked(true)
         mCurbsidePickupBackArrow.setOnClickListener { mRecycleByMailServiceBackArrowFunction() }
         mainActivity.tabLayout.visibility = View.GONE
+
         //mainActivity.title_name.text = resources.getString(R.string.signIn)
 
 
@@ -56,6 +58,7 @@ class CurbsidePickup : BaseNavigationFragment() {
     }
 
     private fun mRecycleByMailServiceBackArrowFunction() {
-        fragmentManager!!.beginTransaction().replace(R.id.containerView, Home()).addToBackStack(null).commit()
+        val intent = Intent(context,NavigationDrawer::class.java)
+        startActivity(intent)
     }
 }

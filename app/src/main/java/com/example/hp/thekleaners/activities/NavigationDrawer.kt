@@ -14,6 +14,13 @@ import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.fragments.*
 import kotlinx.android.synthetic.main.activity_navigation_drawer.*
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
+import android.view.ViewGroup
+import android.support.design.widget.AppBarLayout
+import android.support.design.widget.CoordinatorLayout
+
+
+
+
 
 class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelectedListener, DrawerLocker {
 
@@ -34,6 +41,7 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         toolbar.visibility = View.VISIBLE
+        belowlayout()
        // homeFragment()
 
         val navigationView = findViewById<View>(R.id.nav_view) as NavigationView
@@ -122,6 +130,12 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    private fun belowlayout(){
+        val params = containerView.layoutParams as CoordinatorLayout.LayoutParams
+        params.behavior = AppBarLayout.ScrollingViewBehavior()
+        containerView.requestLayout()
     }
 
    /* private fun homeFragment() {

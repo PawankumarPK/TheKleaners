@@ -1,5 +1,6 @@
 package com.example.hp.thekleaners.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -56,7 +57,8 @@ class RecyclableByMail : BaseNavigationFragment() {
     }
 
     private fun mRecycleByMailServiceBackArrowFunction() {
-        fragmentManager!!.beginTransaction().replace(R.id.containerView, Home()).addToBackStack(null).commit()
+        val intent = Intent(context,NavigationDrawer::class.java)
+        startActivity(intent)
     }
 
 
