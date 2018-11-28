@@ -182,6 +182,8 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/color_gradient"
                     android:text="Continue To Our Daily Service"
+                    android:drawableEnd="@drawable/right_arrow"
+                    android:drawableRight="@drawable/right_arrow"
                     android:textAllCaps="false"
                     android:textColor="#fff" />
 
@@ -256,6 +258,8 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/color_button_gradient"
                     android:text="Continue To Our Car Wash Service"
+                    android:drawableEnd="@drawable/right_arrow"
+                    android:drawableRight="@drawable/right_arrow"
                     android:textAllCaps="false"
                     android:textColor="#fff" />
 
@@ -331,6 +335,8 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/color_button_other_gradient"
                     android:text="Check Our Other Service"
+                    android:drawableEnd="@drawable/right_arrow"
+                    android:drawableRight="@drawable/right_arrow"
                     android:textAllCaps="false"
                     android:textColor="#fff" />
 
