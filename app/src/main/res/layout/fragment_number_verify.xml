@@ -107,7 +107,7 @@
             android:id="@+id/emailAddress"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Mobile No."
+            android:hint="Mobile No"
             android:inputType="number"
             android:textSize="15sp" />
     </android.support.design.widget.TextInputLayout>
