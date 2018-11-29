@@ -82,6 +82,6 @@ class Home : BaseNavigationFragment() {
 
 
     private fun mContinueDailyServiceFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, Number_verify()).commit()
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, NumberVerify()).commit()
     }
 }

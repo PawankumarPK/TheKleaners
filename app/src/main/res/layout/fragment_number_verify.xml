@@ -11,6 +11,7 @@
         android:background="@color/colorAccent">
 
         <ImageView
+            android:id="@+id/mMobileVerBackButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
@@ -107,7 +108,7 @@
             android:id="@+id/emailAddress"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Mobile No"
+            android:hint="Mobile No."
             android:inputType="number"
             android:textSize="15sp" />
     </android.support.design.widget.TextInputLayout>
