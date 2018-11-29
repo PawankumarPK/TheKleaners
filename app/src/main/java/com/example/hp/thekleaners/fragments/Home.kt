@@ -24,7 +24,7 @@ class Home : BaseNavigationFragment() {
         mainActivity.toolbar.visibility = View.VISIBLE
         mainActivity.tabLayout.visibility = View.VISIBLE
         (activity as NavigationDrawer).setDrawerLocked(false)
-
+        mContinueDailyService.setOnClickListener { mContinueDailyServiceFunction() }
 
         val viewPagerAdapter = ViewPagerAdapter(mainActivity)
         viewPager.adapter = viewPagerAdapter
@@ -78,5 +78,10 @@ class Home : BaseNavigationFragment() {
 
     private fun mRecyclingFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, RecyclingService()).commit()
+    }
+
+
+    private fun mContinueDailyServiceFunction() {
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, Number_verify()).commit()
     }
 }
