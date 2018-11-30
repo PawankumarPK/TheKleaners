@@ -340,12 +340,8 @@
                 android:drawableEnd="@drawable/right_arrow"
                 android:drawableRight="@drawable/right_arrow"
                 android:text="Continue"
-                android:textColor="#fff" />
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="20dp" />
+                android:textColor="#fff"
+                android:layout_marginBottom="20dp"/>
 
         </LinearLayout>
 

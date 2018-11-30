@@ -16,8 +16,8 @@
         <ImageView
             android:id="@+id/demoImage"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:src="@drawable/img_5"
+            android:layout_height="100dp"
+            android:src="@drawable/img_3"
             android:contentDescription="@null"/>
 
         <android.support.v7.widget.CardView
@@ -51,11 +51,11 @@
                <ImageView
                    android:id="@+id/mDailyServiceImageView"
                    android:layout_width="match_parent"
-                   android:layout_height="200dp"
-                   android:src="@drawable/img_3"
+                   android:layout_height="180dp"
+                   android:src="@drawable/img_5"
                    android:contentDescription="@null"/>
 
-                <TextView
+               <!-- <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Your Committed Partner"
@@ -63,16 +63,39 @@
                     android:fontFamily="sans-serif-condensed"
                     android:layout_gravity="center"
                     android:textColor="#173605"/>
+-->
+                <TextView
+                    android:id="@+id/mForStarters"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="For Starters, we have an amazing"
+                    android:textColor="#31790d"
+                    android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/mNintyNine"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/yourCommittedPartDesc"
-                    android:textColor="#262424"
-                    android:layout_margin="10dp"/>
-
+                    android:layout_margin="10dp"
+                    android:fontFamily="serif"
+                    android:layout_gravity="center"
+                    android:text="99.9%"
+                    android:textColor="#31790d"
+                    android:textSize="48sp" />
 
                 <TextView
+                    android:id="@+id/mPickup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/mNintyNine"
+                    android:gravity="center"
+                    android:text="pickup accuracy"
+                    android:textColor="#31790d"
+                    android:textSize="16sp" />
+
+
+               <!-- <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/leadingProvider"
@@ -80,7 +103,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_gravity="center"
                     android:textColor="#262424"/>
-
+-->
 
 
                 <Button
@@ -233,7 +256,7 @@
                     android:layout_below="@+id/mOtherDesc"
                     android:layout_margin="10dp"
                     android:text="@string/otherService"
-                    android:textColor="#547630" />
+                    android:textColor="#1e1d1d" />
 
                 <Button
                     android:id="@+id/mOthersButton"

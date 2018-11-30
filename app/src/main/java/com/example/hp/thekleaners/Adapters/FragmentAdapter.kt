@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import com.example.hp.thekleaners.fragments.Home
-import com.example.hp.thekleaners.fragments.Services
+import com.example.hp.thekleaners.fragments.CommercialServices
 
 
  class FragmentAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
@@ -12,7 +12,7 @@ import com.example.hp.thekleaners.fragments.Services
     override fun getItem(position: Int): Fragment? {
         when (position) {
             0 -> return Home()
-            1 -> return Services()
+            1 -> return CommercialServices()
         }
         return null
     }
