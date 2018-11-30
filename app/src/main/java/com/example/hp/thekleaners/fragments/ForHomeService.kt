@@ -28,35 +28,11 @@ class ForHomeService : BaseNavigationFragment() {
         mLinearLayoutCubsidePickup.setOnClickListener { mLinearLayoutCubsidePickupFunction() }
         mLinearLayoutMedical.setOnClickListener { mLinearLayoutMedicalFunction() }
         mLinearLayoutRecyclingService.setOnClickListener { mLinearLayoutRecyclingServiceFunction() }
-        mLinearLayoutOtherServices.setOnClickListener { mLinearLayoutOtherServicesFunction() }
+        mForHomeContinue.setOnClickListener { mForHomeContinueFunction()}
 
 
-        val viewPagerAdapter = ViewPagerHomeService(mainActivity)
-        homeServiceViewPager.adapter = viewPagerAdapter
-
-        val timer = Timer()
-        timer.scheduleAtFixedRate(MyTimerTask(), 2000, 4000)
     }
 
-    inner class MyTimerTask : TimerTask() {
-
-        override fun run() {
-
-            mainActivity.runOnUiThread(java.lang.Runnable {
-
-                if (homeServiceViewPager == null) {
-                    return@Runnable
-                }
-
-                when {
-                    homeServiceViewPager.currentItem == 0 -> homeServiceViewPager.currentItem = 1
-                    homeServiceViewPager.currentItem == 1 -> homeServiceViewPager.currentItem = 2
-                    else -> homeServiceViewPager.currentItem = 0
-                }
-            })
-        }
-
-    }
 
     private fun mHomeServiceBackArrowFunction() {
         fragmentManager!!.beginTransaction().replace(R.id.containerView, Home()).addToBackStack(null).commit()
@@ -81,8 +57,8 @@ class ForHomeService : BaseNavigationFragment() {
 
     }
 
-    private fun mLinearLayoutOtherServicesFunction() {
-        fragmentManager!!.beginTransaction().replace(R.id.containerView, OtherService()).addToBackStack(null).commit()
+    private fun mForHomeContinueFunction() {
+        fragmentManager!!.beginTransaction().replace(R.id.containerView, NumberVerify()).addToBackStack(null).commit()
 
     }
 }

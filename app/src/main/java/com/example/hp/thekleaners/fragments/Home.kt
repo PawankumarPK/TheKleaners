@@ -33,11 +33,11 @@ class Home : BaseNavigationFragment() {
         timer.scheduleAtFixedRate(MyTimerTask(), 2000, 4000)
 
 
-        mCurbsidePickup.setOnClickListener { mCurbsidePickupFunction() }
+      /*  mCurbsidePickup.setOnClickListener { mCurbsidePickupFunction() }
         mRecycleByMailService.setOnClickListener { mRecycleByMailServiceFunction() }
         mMedical.setOnClickListener { mMedicalFunction() }
         mRecycling.setOnClickListener { mRecyclingFunction() }
-
+*/
     }
 
     inner class MyTimerTask : TimerTask() {
@@ -61,7 +61,7 @@ class Home : BaseNavigationFragment() {
 
     }
 
-    private fun mCurbsidePickupFunction() {
+    /*private fun mCurbsidePickupFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, CurbsidePickup()).commit()
     }
 
@@ -79,9 +79,9 @@ class Home : BaseNavigationFragment() {
     private fun mRecyclingFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, RecyclingService()).commit()
     }
-
+*/
 
     private fun mContinueDailyServiceFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, NumberVerify()).commit()
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, ForHomeService()).commit()
     }
 }

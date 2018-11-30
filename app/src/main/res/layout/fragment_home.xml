@@ -13,20 +13,19 @@
         android:background="#fff"
         tools:ignore="UseCompoundDrawables">
 
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/viewPager"
+        <ImageView
+            android:id="@+id/demoImage"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginBottom="20dp" />
-
+            android:layout_height="200dp"
+            android:src="@drawable/img_5"
+            android:contentDescription="@null"/>
 
         <android.support.v7.widget.CardView
             android:id="@+id/mCardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/viewPager"
             android:layout_margin="5dp"
+            android:layout_below="@+id/demoImage"
             app:cardBackgroundColor="@color/colorAccent"
             app:cardCornerRadius="5dp">
 
@@ -49,131 +48,39 @@
                 android:background="#fff"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+               <ImageView
+                   android:id="@+id/mDailyServiceImageView"
+                   android:layout_width="match_parent"
+                   android:layout_height="200dp"
+                   android:src="@drawable/img_3"
+                   android:contentDescription="@null"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="Your Committed Partner"
+                    android:textSize="22sp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_gravity="center"
+                    android:textColor="#173605"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/yourCommittedPartDesc"
+                    android:textColor="#262424"
+                    android:layout_margin="10dp"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/leadingProvider"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_weight="10"
-                    android:baselineAligned="false"
-                    android:orientation="horizontal">
+                    android:layout_gravity="center"
+                    android:textColor="#262424"/>
 
-                    <LinearLayout
-                        android:id="@+id/mCurbsidePickup"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="5"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        tools:ignore="UseCompoundDrawables">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_waste_bin"
-                            android:contentDescription="@null"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="Curbside Pickup"
-                            android:textColor="#292828"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/mRecycleByMailService"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="5"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_recycle"
-                            android:contentDescription="@null"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="Recycle by Mail"
-                            android:textColor="#292828"
-                            android:textSize="16sp" />
-
-
-                    </LinearLayout>
-
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="40dp"
-                    android:layout_weight="10"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:id="@+id/mMedical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="7"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_hospital"
-                            android:contentDescription="@null"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="Medical Waste"
-                            android:textColor="#292828"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/mRecycling"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        tools:ignore="UseCompoundDrawables">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_trash"
-                            android:contentDescription="@null"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="Recycling Service"
-                            android:textColor="#292828"
-                            android:textSize="16sp" />
-
-
-                    </LinearLayout>
-
-                </LinearLayout>
 
 
                 <Button
@@ -350,6 +257,7 @@
         </android.support.v7.widget.CardView>
 
 
+
         <RelativeLayout
             android:id="@+id/mRelativeLayoutThereMore"
             android:layout_width="match_parent"
@@ -476,12 +384,22 @@
             android:textSize="10sp"
             tools:ignore="SmallSp" />
 
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@+id/mMakeRight"/>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_below="@+id/mMakeRight" />
+            android:layout_below="@+id/viewPager" />
+
 
     </RelativeLayout>
+
+
+
 
 
 </android.support.v4.widget.NestedScrollView>
