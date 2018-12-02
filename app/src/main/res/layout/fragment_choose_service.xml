@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/mSelectServiceToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/mSignInBackArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="13dp"
+                android:layout_marginRight="13dp"
+                android:contentDescription="@null"
+                android:src="@drawable/left_arrow" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Services"
+                android:textColor="#1b1a1a"
+                android:textSize="22sp" />
+
+        </android.support.v7.widget.Toolbar>
+
+        <RelativeLayout
+            android:id="@+id/mForResidentialBlock"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/mSelectServiceToolbar">
+
+            <TextView
+                android:id="@+id/mForResidential"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:text="For Residential" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_toEndOf="@+id/mForResidential"
+                android:layout_toRightOf="@+id/mForResidential"
+                android:background="#363232" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/mForDailyService"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mForResidentialBlock">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                app:cardElevation="3dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="Daily Service"
+                    android:textColor="#3d791b"
+                    android:textSize="18sp"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="serif"/>
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|end"
+                    android:contentDescription="@null"
+                    android:src="@drawable/right_arrow_black" />
+
+
+            </android.support.v7.widget.CardView>
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/mForCarCleaning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mForDailyService">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                app:cardElevation="3dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="Car Cleaning Service"
+                    android:textColor="#3d791b"
+                    android:textSize="18sp"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="serif" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|end"
+                    android:contentDescription="@null"
+                    android:src="@drawable/right_arrow_black" />
+
+            </android.support.v7.widget.CardView>
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/mRelativeLayoutOtherService"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mForCarCleaning">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_margin="10dp"
+                app:cardElevation="3dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="Other Service"
+                    android:textColor="#3d791b"
+                    android:textSize="18sp"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="serif"/>
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|end"
+                    android:contentDescription="@null"
+                    android:src="@drawable/right_arrow_black" />
+
+
+            </android.support.v7.widget.CardView>
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/mForCommercialBlock"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/mRelativeLayoutOtherService">
+
+            <TextView
+                android:id="@+id/mForCommercial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:text="For Commercial" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_toEndOf="@+id/mForCommercial"
+                android:layout_toRightOf="@+id/mForCommercial"
+                android:background="#363232" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/mForMedicalService"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mForCommercialBlock">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                app:cardElevation="3dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="Medical Service"
+                    android:textColor="#3d791b"
+                    android:textSize="18sp"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="serif"/>
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|end"
+                    android:contentDescription="@null"
+                    android:src="@drawable/right_arrow_black" />
+
+
+            </android.support.v7.widget.CardView>
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/mForParties"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mForMedicalService">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                app:cardElevation="3dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="Curbside/Parties Service"
+                    android:textColor="#3d791b"
+                    android:textSize="18sp"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="serif"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|end"
+                    android:contentDescription="@null"
+                    android:src="@drawable/right_arrow_black" />
+
+            </android.support.v7.widget.CardView>
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mForParties">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_margin="10dp"
+                app:cardElevation="3dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="Construction Service"
+                    android:textColor="#3d791b"
+                    android:textSize="18sp"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="serif" />
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|end"
+                    android:contentDescription="@null"
+                    android:src="@drawable/right_arrow_black" />
+
+
+            </android.support.v7.widget.CardView>
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>

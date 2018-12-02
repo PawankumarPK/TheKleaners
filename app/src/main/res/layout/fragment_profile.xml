@@ -27,8 +27,8 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="20dp"
             android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
             android:layout_toEndOf="@+id/mProfileBackArrow"
             android:layout_toRightOf="@+id/mProfileBackArrow"
             android:text="My Account"
@@ -45,8 +45,8 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="10dp"
             android:layout_marginStart="15dp"
-            android:text="LOGOUT"
             android:layout_marginTop="20dp"
+            android:text="LOGOUT"
             android:textColor="#fff"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -145,14 +145,8 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/mParentRelativeLayout">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="10dp"
-            android:background="#ccc" />
-
         <RelativeLayout
-            android:id="@+id/mRelativeLayout2"
+            android:id="@+id/mRelativeLayoutMyAddress"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="10dp">
@@ -175,9 +169,10 @@
                 android:layout_marginStart="20dp"
                 android:layout_toEndOf="@+id/mAddressIcon"
                 android:layout_toRightOf="@+id/mAddressIcon"
-                android:text="My Addresses"
-                android:textColor="#000"
-                android:textSize="18sp" />
+                android:fontFamily="sans-serif-condensed"
+                android:text="My Address"
+                android:textColor="#302d2d"
+                android:textSize="16sp" />
 
         </RelativeLayout>
 
@@ -185,12 +180,12 @@
             android:id="@+id/mView1"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_below="@+id/mRelativeLayout2"
+            android:layout_below="@+id/mRelativeLayoutMyAddress"
             android:background="#ccc" />
 
 
         <RelativeLayout
-            android:id="@+id/mRelativeLayout3"
+            android:id="@+id/mRelativeLayoutMyService"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_below="@+id/mView1"
@@ -214,16 +209,17 @@
                 android:layout_marginStart="20dp"
                 android:layout_toEndOf="@+id/mServicesIcon"
                 android:layout_toRightOf="@+id/mServicesIcon"
+                android:fontFamily="sans-serif-condensed"
                 android:text="My Services"
-                android:textColor="#000"
-                android:textSize="18sp" />
+                android:textColor="#302d2d"
+                android:textSize="16sp" />
 
         </RelativeLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_below="@+id/mRelativeLayout3"
+            android:layout_below="@+id/mRelativeLayoutMyService"
             android:background="#ccc" />
     </RelativeLayout>
 
