@@ -9,7 +9,7 @@ import com.example.hp.thekleaners.R
 class CommercialServices : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_services,container,false)
+        return inflater.inflate(R.layout.fragment_commercial_services,container,false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

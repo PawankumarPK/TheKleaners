@@ -21,7 +21,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Saved Address"
+            android:text="Saved Services"
             android:textColor="#1b1a1a"
             android:textSize="22sp" />
 
@@ -35,7 +35,7 @@
         android:contentDescription="@null"/>
 
     <Button
-        android:id="@+id/mSavedNewAddress"
+        android:id="@+id/mSavedNewService"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -45,7 +45,7 @@
         android:background="@drawable/color_gradient"
         android:drawableEnd="@drawable/right_arrow"
         android:drawableRight="@drawable/right_arrow"
-        android:text="Add new address"
+        android:text="Add new services"
         android:textColor="#fff" />
 
 
