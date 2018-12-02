@@ -1,10 +1,13 @@
 package com.example.hp.thekleaners.activities
 
 import android.os.Bundle
+import android.support.design.widget.AppBarLayout
+import android.support.design.widget.CoordinatorLayout
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
+import android.support.v7.app.AlertDialog
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -14,15 +17,12 @@ import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.fragments.*
 import kotlinx.android.synthetic.main.activity_navigation_drawer.*
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
-import android.view.ViewGroup
-import android.support.design.widget.AppBarLayout
-import android.support.design.widget.CoordinatorLayout
-import android.support.v7.app.AlertDialog
 
 
 class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelectedListener, DrawerLocker {
 
-   // private val tabIcons = intArrayOf(R.drawable.ic_home, R.drawable.ic_commercial)
+    // private val tabIcons = intArrayOf(R.drawable.ic_home, R.drawable.ic_commercial)
+
 
     override fun setDrawerLocked(shouldLock: Boolean) {
         if (shouldLock) {
@@ -48,7 +48,7 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         val pagerAdapter = FragmentAdapter(supportFragmentManager)
         mViewPager.adapter = pagerAdapter
         tabLayout.setupWithViewPager(mViewPager)
-       /// setupTabIcons()
+        /// setupTabIcons()
 
         header.setOnClickListener { signInListener() }
 
@@ -133,7 +133,7 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         return true
     }
 
-    private fun belowlayout(){
+    private fun belowlayout() {
         val params = containerView.layoutParams as CoordinatorLayout.LayoutParams
         params.behavior = AppBarLayout.ScrollingViewBehavior()
         containerView.requestLayout()

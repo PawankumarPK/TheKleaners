@@ -7,12 +7,13 @@ import android.view.ViewGroup
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
+import kotlinx.android.synthetic.main.fragment_pricing_guide.*
 import kotlinx.android.synthetic.main.fragment_saved_new_services.*
 
 class PricingGuide : BaseNavigationFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_saved_new_services, container, false)
+        return inflater.inflate(R.layout.fragment_pricing_guide, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -23,13 +24,13 @@ class PricingGuide : BaseNavigationFragment() {
         mainActivity.title_name.text = resources.getString(R.string.signIn)
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
-        mSavedNewService.setOnClickListener { mSavedNewServiceFunction() }
+        mProceedNext.setOnClickListener { mProceedNextFunction() }
 
 
     }
 
-    private fun mSavedNewServiceFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, ChooseServices()).commit()
+    private fun mProceedNextFunction() {
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, DateAndTime()).commit()
     }
 
 }
