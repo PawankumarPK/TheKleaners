@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.hp.thekleaners.ForgotPassword
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import com.google.android.gms.tasks.OnCompleteListener
@@ -16,7 +15,7 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_sign_in.*
 
-class SignIn : BaseNavigationFragment() {
+class NotUseSignIn : BaseNavigationFragment() {
 
     private lateinit var mAuth: FirebaseAuth
 
@@ -80,7 +79,7 @@ class SignIn : BaseNavigationFragment() {
     }
 
     private fun forSignUp() {
-        fragmentManager!!.beginTransaction().replace(R.id.containerView, SignUp()).addToBackStack(null).commit()
+        fragmentManager!!.beginTransaction().replace(R.id.containerView, NotUseSignUp()).addToBackStack(null).commit()
     }
     private fun forgotPassword() {
         fragmentManager!!.beginTransaction().replace(R.id.containerView, ResetPassword()).addToBackStack(null).commit()

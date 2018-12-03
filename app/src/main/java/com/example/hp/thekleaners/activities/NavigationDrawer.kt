@@ -126,7 +126,7 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
     }
 */
     private fun signInListener(): Boolean {
-        supportFragmentManager.beginTransaction().replace(R.id.containerView, SignIn())
+        supportFragmentManager.beginTransaction().replace(R.id.containerView, NotUseSignIn())
                 .addToBackStack(null).commit()
 
         drawer_layout.closeDrawer(GravityCompat.START)

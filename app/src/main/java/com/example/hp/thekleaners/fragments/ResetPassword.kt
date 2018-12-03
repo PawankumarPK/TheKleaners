@@ -35,7 +35,7 @@ class ResetPassword : BaseNavigationFragment() {
                 mAuth.sendPasswordResetEmail(userEmail).addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         Toast.makeText(context, "Please check your email account ", Toast.LENGTH_SHORT).show()
-                        fragmentManager!!.beginTransaction().replace(R.id.containerView, SignIn()).addToBackStack(null).commit()
+                        fragmentManager!!.beginTransaction().replace(R.id.containerView, NotUseSignIn()).addToBackStack(null).commit()
                     } else {
                         val message = task.exception!!.message
                         Toast.makeText(context, "Error Occurred: $message", Toast.LENGTH_SHORT).show()

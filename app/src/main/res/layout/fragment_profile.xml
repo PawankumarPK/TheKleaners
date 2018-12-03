@@ -36,6 +36,7 @@
             android:textSize="18sp" />
 
         <TextView
+            android:id="@+id/mLogout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -61,12 +62,14 @@
         android:background="@drawable/color_black">
 
         <ImageView
+            android:id="@+id/mEditProfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_margin="10dp"
+            android:contentDescription="@null"
             android:src="@drawable/ic_edit" />
 
         <RelativeLayout

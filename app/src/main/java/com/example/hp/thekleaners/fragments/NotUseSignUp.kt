@@ -15,7 +15,7 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_sign_up.*
 
-class SignUp : BaseNavigationFragment() {
+class NotUseSignUp : BaseNavigationFragment() {
 
     private lateinit var mAuth: FirebaseAuth
 
@@ -35,7 +35,7 @@ class SignUp : BaseNavigationFragment() {
 
           mAuth = FirebaseAuth.getInstance()
         reg_login_btn.setOnClickListener {
-            fragmentManager!!.beginTransaction().replace(R.id.containerView, SignIn())
+            fragmentManager!!.beginTransaction().replace(R.id.containerView, NotUseSignIn())
                     .addToBackStack(null).commit()
         }
 
@@ -93,7 +93,7 @@ class SignUp : BaseNavigationFragment() {
     }
 
     private fun signInFunction() {
-        fragmentManager!!.beginTransaction().replace(R.id.containerView, SignIn())
+        fragmentManager!!.beginTransaction().replace(R.id.containerView, NotUseSignIn())
                 .addToBackStack(null).commit()
     }
 

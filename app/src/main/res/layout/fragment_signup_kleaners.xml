@@ -126,4 +126,36 @@
         android:text="Sign Up"
         android:textColor="#fff" />
 
+
+    <RelativeLayout
+        android:id="@+id/mRelativeLayoutSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mContinueSignUp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/mDontHavePassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="40dp"
+            android:text="Already have a account?"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/mForSignInClick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/mDontHavePassword"
+            android:layout_toRightOf="@+id/mDontHavePassword"
+            android:text="  Sign In"
+            android:textColor="#5FAB34"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+
+
 </RelativeLayout>

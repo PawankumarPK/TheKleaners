@@ -4,12 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.hp.thekleaners.Adapters.ViewPagerHomeService
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_for_home_service.*
-import java.util.*
 
 class ForHomeService : BaseNavigationFragment() {
 
@@ -58,7 +56,7 @@ class ForHomeService : BaseNavigationFragment() {
     }
 
     private fun mForHomeContinueFunction() {
-        fragmentManager!!.beginTransaction().replace(R.id.containerView, NumberVerify()).addToBackStack(null).commit()
+        fragmentManager!!.beginTransaction().replace(R.id.containerView, SignUpKleaners()).addToBackStack(null).commit()
 
     }
 }

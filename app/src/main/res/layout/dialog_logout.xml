@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
-                android:text="Thank You!"
+                android:text="Confirmation"
                 android:textColor="#fff"
                 android:textSize="20sp" />
 
@@ -49,21 +49,40 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:gravity="center_horizontal"
-                android:text="You are now a new member"
+                android:text="Are you sure you want to LOGOUT"
                 android:textColor="#232222"
                 android:textSize="13sp"
                 android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/mContinueDialog"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:background="@drawable/color_dialog_gradient"
-                android:text="Continue!"
-                android:textColor="#fff" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="10">
+
+                <Button
+                    android:id="@+id/mCancelDialog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@drawable/color_dialog_gradient"
+                    android:text="Cancel"
+                    android:layout_weight="5"
+                    android:layout_margin="5dp"
+                    android:textAllCaps="false"
+                    android:textColor="#fff" />
+
+                <Button
+                    android:id="@+id/mLogoutDialog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_weight="5"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/color_dialog_gradient"
+                    android:text="Yes,Logout"
+                    android:textAllCaps="false"
+                    android:textColor="#fff" />
+
+            </LinearLayout>
 
         </LinearLayout>
     </LinearLayout>
