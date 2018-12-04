@@ -9,6 +9,7 @@ import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
@@ -31,13 +32,12 @@ class Profile : BaseNavigationFragment() {
         super.onViewCreated(view, savedInstanceState)
         mainActivity = activity as NavigationDrawer
         mainActivity.toolbar.visibility = View.GONE
-        mainActivity.title_name.text = resources.getString(R.string.signIn)
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
         metrics = DisplayMetrics()
         mainActivity.window.decorView.getWindowVisibleDisplayFrame(displayRectangle)
         width = (displayRectangle.width() * 0.9f).toInt()
-        //mainActivity.windowManager.defaultDisplay.getMetrics(metrics)
+        mainActivity.windowManager.defaultDisplay.getMetrics(metrics)
         dialog = Dialog(mainActivity)
         mRelativeLayoutMyAddress.setOnClickListener { mRelativeLayoutMyAddressFunction() }
         mRelativeLayoutMyService.setOnClickListener { mRelativeLayoutMyServiceFunction() }
@@ -68,11 +68,11 @@ class Profile : BaseNavigationFragment() {
 
     @SuppressLint("InflateParams")
     private fun logoutDialog() {
-        val layout = LayoutInflater.from(mainActivity).inflate(R.layout.dialog_logout, null)
+        val layout = LayoutInflater.from(mainActivity).inflate(R.layout.dialog_logout, null,false)
         layout.minimumWidth = width
         dialog.setContentView(layout)
-        dialog.mLogoutDialog.setOnClickListener { mDialogLogoutFunction() }
-        dialog.mCancelDialog.setOnClickListener { dialog.dismiss() }
+       // dialog.mLogoutDialog.setOnClickListener { mDialogLogoutFunction() }
+       // dialog.mCancelDialog.setOnClickListener { dialog.dismiss() }
         dialog.setCanceledOnTouchOutside(false)
         dialog.show()
 

@@ -63,5 +63,4 @@ class DateAndTime : BaseNavigationFragment() {
         dialog.dismiss()
     }
 
-
 }
