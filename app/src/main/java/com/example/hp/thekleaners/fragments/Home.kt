@@ -32,6 +32,9 @@ class Home : BaseNavigationFragment() {
         val timer = Timer()
         timer.scheduleAtFixedRate(MyTimerTask(), 2000, 4000)
 
+        mCarWashButton.setOnClickListener { mCarWashButtonServiceFunction() }
+        mOthersButton.setOnClickListener {  mCarWashButtonServiceFunction()  }
+
 
       /*  mCurbsidePickup.setOnClickListener { mCurbsidePickupFunction() }
         mRecycleByMailService.setOnClickListener { mRecycleByMailServiceFunction() }
@@ -61,27 +64,11 @@ class Home : BaseNavigationFragment() {
 
     }
 
-    /*private fun mCurbsidePickupFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, CurbsidePickup()).commit()
-    }
-
-
-    private fun mRecycleByMailServiceFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, RecyclableByMail()).commit()
-    }
-
-
-    private fun mMedicalFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, MedicalWaste()).commit()
-    }
-
-
-    private fun mRecyclingFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, RecyclingService()).commit()
-    }
-*/
 
     private fun mContinueDailyServiceFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, ForHomeService()).commit()
+    }
+    private fun mCarWashButtonServiceFunction() {
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, UpcomingServices()).commit()
     }
 }

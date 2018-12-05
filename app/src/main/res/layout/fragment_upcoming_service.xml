@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4cf93">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f4cf93">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFF1B4"
+        android:id="@+id/mRelativeLayout">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="400dp"
+        android:src="@drawable/potato3"
+        android:contentDescription="@null"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mRelativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/mRelativeLayout"
+        android:background="#f4cf93">
+
+        <TextView
+            android:id="@+id/mPotato"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="POTATO"
+            android:textSize="50sp"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textColor="#FFF1B4"/>
+
+        <TextView
+            android:id="@+id/mServicesDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mPotato"
+            android:text="@string/upcomingService"
+            android:textSize="30sp"
+            android:layout_margin="20dp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_horizontal"/>
+
+        <Button
+            android:id="@+id/mUpcomingButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="potato home"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/mServicesDesc"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/potato_color_gradient"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed" />
+
+    </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>
