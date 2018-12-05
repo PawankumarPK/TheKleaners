@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -16,7 +17,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:src="@drawable/ic_checkmark" />
+            android:src="@drawable/ic_checkmark"
+            android:contentDescription="@null"/>
 
         <TextView
             android:id="@+id/chooseAction"
@@ -58,7 +60,8 @@
             android:text="Cancel"
             android:textAllCaps="false"
             android:textColor="#fff"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="ButtonStyle,NestedWeights" />
 
         <Button
             android:id="@+id/mLogoutDialog"
@@ -70,7 +73,8 @@
             android:text="Yes,Logout"
             android:textAllCaps="false"
             android:textColor="#fff"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="ButtonStyle" />
 
     </LinearLayout>
 
