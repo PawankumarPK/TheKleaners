@@ -1,6 +1,7 @@
 package com.example.hp.thekleaners.fragments
 
 import android.os.Bundle
+import android.support.v4.view.ViewCompat.setNestedScrollingEnabled
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

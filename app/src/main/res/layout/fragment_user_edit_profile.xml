@@ -25,6 +25,21 @@
                 android:contentDescription="@null"
                 android:src="@drawable/ic_close" />
 
+            <TextView
+                android:id="@+id/mMyAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/mEditProfileBackArrow"
+                android:layout_toRightOf="@+id/mEditProfileBackArrow"
+                android:text="Edit Details"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -84,7 +99,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/mView"
-            android:layout_margin="5dp">
+            android:layout_margin="10dp">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/mFirstNameTextInput"
@@ -100,7 +115,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/mFullName"
-            android:layout_margin="5dp">
+            android:layout_margin="10dp">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/mEmailAddressTextInput"
@@ -117,7 +132,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/mEmailAddress"
-            android:layout_margin="5dp">
+            android:layout_margin="10dp">
 
             <android.support.design.widget.TextInputEditText
                 android:id="@+id/mMobileNumberTextInput"
@@ -134,9 +149,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_below="@+id/mMobileNumber"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_margin="10dp"
             android:background="@drawable/color_gradient"
             android:text="Submit"
             android:textColor="#fff" />

@@ -2,6 +2,7 @@ package com.example.hp.thekleaners.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.v4.view.ViewCompat.setNestedScrollingEnabled
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,6 +22,7 @@ class SignInKleaners : BaseNavigationFragment() {
         mainActivity = activity as NavigationDrawer
         mainActivity.toolbar.visibility = View.GONE
         mainActivity.tabLayout.visibility = View.GONE
+        setNestedScrollingEnabled(mNestedScrollView,false)
         (activity as NavigationDrawer).setDrawerLocked(true)
         mForSignUpClick.setOnClickListener { mForSignUpClickFunction() }
         mContinueSignIn.setOnClickListener { mContinueSignInFunction() }

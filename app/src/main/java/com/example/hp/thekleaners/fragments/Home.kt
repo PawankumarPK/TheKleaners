@@ -26,6 +26,7 @@ class Home : BaseNavigationFragment() {
         (activity as NavigationDrawer).setDrawerLocked(false)
         mContinueDailyService.setOnClickListener { mContinueDailyServiceFunction() }
 
+
         val viewPagerAdapter = ViewPagerAdapter(mainActivity)
         viewPager.adapter = viewPagerAdapter
 
