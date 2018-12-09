@@ -18,5 +18,5 @@ class MainActivity : AppCompatActivity() {
     private fun showFragementHome() {
         supportFragmentManager.beginTransaction().replace(R.id.mFrameContainer, LanguageHomePage())
                 .commit()
-    }
+    }///mainactivityy
 }
