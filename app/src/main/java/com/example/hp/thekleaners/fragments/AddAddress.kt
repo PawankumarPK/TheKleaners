@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
+import kotlinx.android.synthetic.main.fragment_add_address.*
 
 class AddAddress : BaseNavigationFragment() {
 
@@ -18,9 +19,14 @@ class AddAddress : BaseNavigationFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mainActivity = activity as NavigationDrawer
-        mainActivity.toolbar.visibility = View.GONE
+       // mainActivity.toolbar.visibility = View.GONE
         mainActivity.title_name.text = resources.getString(R.string.signIn)
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
+        mContinueAddAdress.setOnClickListener { mContinueAddAdressFunction() }
+    }
+
+    private fun mContinueAddAdressFunction() {
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedAddress()).commit()
     }
 }

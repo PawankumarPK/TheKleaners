@@ -1,161 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff">
 
     <RelativeLayout
-        android:id="@+id/mRelativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@color/colorAccent">
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/mMobileVerBackButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:src="@drawable/ic_white_left_arrow"
-            android:contentDescription="@null"/>
+        <RelativeLayout
+            android:id="@+id/mRelativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/colorAccent">
 
+            <ImageView
+                android:id="@+id/mMobileVerBackButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_white_left_arrow" />
+
+            <TextView
+                android:id="@+id/mTextview1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:text="Your number is safe"
+                android:textColor="#fff"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mTextview1"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:text="with us"
+                android:textColor="#fff"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="10dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_mobile" />
+
+        </RelativeLayout>
+
+        <!-- <TextView
+             android:id="@+id/mTextView2"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_below="@+id/mRelativeLayout"
+             android:layout_centerVertical="true"
+             android:text="Mobile No."
+             android:textColor="#000"
+             android:layout_marginStart="20dp"
+             android:textSize="17sp"
+             android:layout_marginTop="10dp"
+             android:layout_marginLeft="20dp" />
+     -->
         <TextView
-            android:id="@+id/mTextview1"
+            android:id="@+id/mTextView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/mRelativeLayout"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
             android:layout_marginStart="20dp"
-            android:text="Your number is safe"
-            android:textColor="#fff"
-            android:textSize="16sp" />
+            android:layout_marginTop="45dp"
+            android:text="IN +91"
+            android:textColor="#000"
+            android:textSize="15sp" />
 
+        <!--<View
+            android:id="@+id/mView"
+            android:layout_width="1dp"
+            android:layout_height="30dp"
+            android:background="#000"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_below="@+id/mTextView2"
+            android:layout_toRightOf="@+id/mTextView3"
+            android:layout_toEndOf="@+id/mTextView3" />
+    -->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mTextview1"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
-            android:text="with us"
-            android:textColor="#fff"
-            android:textSize="16sp"
-            android:layout_marginStart="20dp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_margin="10dp"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_mobile" />
-
-    </RelativeLayout>
-
-   <!-- <TextView
-        android:id="@+id/mTextView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/mRelativeLayout"
-        android:layout_centerVertical="true"
-        android:text="Mobile No."
-        android:textColor="#000"
-        android:layout_marginStart="20dp"
-        android:textSize="17sp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp" />
--->
-    <TextView
-        android:id="@+id/mTextView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/mRelativeLayout"
-        android:layout_centerVertical="true"
-        android:text="IN +91"
-        android:textColor="#000"
-        android:layout_marginStart="20dp"
-        android:textSize="15sp"
-        android:layout_marginTop="45dp"
-        android:layout_marginLeft="20dp" />
-
-    <!--<View
-        android:id="@+id/mView"
-        android:layout_width="1dp"
-        android:layout_height="30dp"
-        android:background="#000"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_below="@+id/mTextView2"
-        android:layout_toRightOf="@+id/mTextView3"
-        android:layout_toEndOf="@+id/mTextView3" />
--->
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/mRelativeLayout"
-        android:layout_toRightOf="@+id/mTextView3"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginRight="20dp"
-        android:layout_toEndOf="@+id/mTextView3"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="20dp">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/emailAddress"
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Mobile No."
-            android:inputType="number"
-            android:textSize="15sp" />
-    </android.support.design.widget.TextInputLayout>
-
-    <Button
-        android:id="@+id/mContinueSignUp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/mTextView3"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/color_gradient"
-        android:text="Sign Up"
-        android:textColor="#fff" />
-
-
-    <RelativeLayout
-        android:id="@+id/mRelativeLayoutSignUp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/mContinueSignUp"
-        android:gravity="center">
-
-        <TextView
-            android:id="@+id/mDontHavePassword"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
+            android:layout_below="@+id/mRelativeLayout"
+            android:layout_marginEnd="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="22dp"
+            android:layout_toEndOf="@+id/mTextView3"
+            android:layout_toRightOf="@+id/mTextView3">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/emailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Mobile No."
+                android:inputType="number"
+                android:textSize="15sp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/mContinueSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mTextView3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_marginTop="40dp"
-            android:text="Already have a account?"
-            android:textSize="15sp" />
+            android:background="@drawable/color_gradient"
+            android:text="Sign Up"
+            android:textColor="#fff" />
 
-        <TextView
-            android:id="@+id/mForSignInClick"
-            android:layout_width="wrap_content"
+
+        <RelativeLayout
+            android:id="@+id/mRelativeLayoutSignUp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toEndOf="@+id/mDontHavePassword"
-            android:layout_toRightOf="@+id/mDontHavePassword"
-            android:text="  Sign In"
-            android:textColor="#5FAB34"
-            android:textStyle="bold" />
+            android:layout_below="@+id/mContinueSignUp"
+            android:gravity="center">
 
+            <TextView
+                android:id="@+id/mDontHavePassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="40dp"
+                android:text="Already have a account?"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/mForSignInClick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/mDontHavePassword"
+                android:layout_toRightOf="@+id/mDontHavePassword"
+                android:text="  Sign In"
+                android:textColor="#5FAB34"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
 
     </RelativeLayout>
-
-
-</RelativeLayout>
+</ScrollView>
