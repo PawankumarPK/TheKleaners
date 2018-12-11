@@ -9,12 +9,15 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <RelativeLayout
+
+        <LinearLayout
+            android:id="@+id/mLinearLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <android.support.v7.widget.Toolbar
-                android:id="@+id/mAddAddressToolbar"
+                android:id="@+id/mSelectServiceToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -25,7 +28,7 @@
                     android:layout_marginEnd="13dp"
                     android:layout_marginRight="13dp"
                     android:contentDescription="@null"
-                    android:src="@drawable/ic_close_green" />
+                    android:src="@drawable/left_arrow" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -36,20 +39,12 @@
 
             </android.support.v7.widget.Toolbar>
 
-        </RelativeLayout>
-
-        <LinearLayout
-            android:id="@+id/mLinearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
 
             <RadioGroup
                 android:id="@+id/mRadioGroupName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:orientation="horizontal">
 
 

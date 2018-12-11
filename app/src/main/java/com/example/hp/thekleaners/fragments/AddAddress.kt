@@ -19,8 +19,7 @@ class AddAddress : BaseNavigationFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mainActivity = activity as NavigationDrawer
-       // mainActivity.toolbar.visibility = View.GONE
-        mainActivity.title_name.text = resources.getString(R.string.signIn)
+        mainActivity.toolbar.visibility = View.VISIBLE
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
         mContinueAddAdress.setOnClickListener { mContinueAddAdressFunction() }
