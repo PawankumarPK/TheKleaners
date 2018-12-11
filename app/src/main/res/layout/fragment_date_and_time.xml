@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:text="Date"
                 android:textColor="#1b1a1a"
-                android:textSize="22sp" />
+                android:textSize="20sp" />
 
         </android.support.v7.widget.Toolbar>
 
@@ -36,7 +36,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/mDateToolbar" />
+            android:layout_below="@+id/mDateToolbar"
+            android:layout_marginBottom="40dp"/>
 
         <Button
             android:id="@+id/mSavedNewAddress"
