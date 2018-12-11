@@ -58,8 +58,7 @@ class RecyclingService : BaseNavigationFragment() {
     }
 
     private fun mRecycleByMailServiceBackArrowFunction() {
-        val intent = Intent(context,NavigationDrawer::class.java)
-        startActivity(intent)
+        fragmentManager!!.beginTransaction().replace(R.id.containerView, ForHomeService()).addToBackStack(null).commit()
     }
 
 

@@ -19,14 +19,19 @@ class SignUpPassword : BaseNavigationFragment()  {
         super.onViewCreated(view, savedInstanceState)
 
         mainActivity = activity as NavigationDrawer
-       // mainActivity.toolbar.visibility = View.GONE
+        mainActivity.toolbar.visibility = View.VISIBLE
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
         mDone.setOnClickListener { mDoneFunction() }
+        mPasswordBackArrow.setOnClickListener { mPasswordBackArrowFunction() }
     }
 
     private fun mDoneFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, Profile()).commit()
     }
+    private fun mPasswordBackArrowFunction(){
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SignUpKleaners()).commit()
+    }
+
 
 }

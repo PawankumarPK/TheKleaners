@@ -32,8 +32,7 @@ class DateAndTime : BaseNavigationFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mainActivity = activity as NavigationDrawer
-       // mainActivity.toolbar.visibility = View.GONE
-        mainActivity.tabLayout.visibility = View.VISIBLE
+        mainActivity.toolbar.visibility = View.VISIBLE
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
         metrics = DisplayMetrics()
@@ -43,6 +42,7 @@ class DateAndTime : BaseNavigationFragment() {
         dialog = Dialog(mainActivity)
         mSavedNewAddress.setOnClickListener { thankuDialog() }
         // mSavedNewService.setOnClickListener { mSavedNewServiceFunction() }
+        mDateBackArrow.setOnClickListener { mDateBackArrowFunction() }
 
     }
 
@@ -61,6 +61,11 @@ class DateAndTime : BaseNavigationFragment() {
 
     private fun mDialogContinueFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedServices()).commit()
+        dialog.dismiss()
+    }
+
+    private fun mDateBackArrowFunction() {
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, PricingGuide()).commit()
         dialog.dismiss()
     }
 

@@ -19,11 +19,11 @@ class SavedAddress : BaseNavigationFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mainActivity = activity as NavigationDrawer
-        mainActivity.toolbar.visibility = View.GONE
-        mainActivity.title_name.text = resources.getString(R.string.signIn)
+        mainActivity.toolbar.visibility = View.VISIBLE
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
         mSavedNewAddress.setOnClickListener { mSavedNewAddressFunction() }
+        mSavedNewAddressBackArrow.setOnClickListener { mSavedNewAddressBackArrowFunction() }
 
 
     }
@@ -32,4 +32,8 @@ class SavedAddress : BaseNavigationFragment() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, AddAddress()).commit()
     }
 
+
+    private fun mSavedNewAddressBackArrowFunction() {
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, Profile()).commit()
+    }
 }

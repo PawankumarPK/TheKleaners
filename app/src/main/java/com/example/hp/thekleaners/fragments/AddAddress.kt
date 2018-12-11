@@ -23,9 +23,14 @@ class AddAddress : BaseNavigationFragment() {
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
         mContinueAddAdress.setOnClickListener { mContinueAddAdressFunction() }
+        mAddAddressBackArrow.setOnClickListener { mAddAddressBackArrowFunction() }
     }
 
     private fun mContinueAddAdressFunction() {
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedAddress()).commit()
+    }
+
+    private fun mAddAddressBackArrowFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedAddress()).commit()
     }
 }

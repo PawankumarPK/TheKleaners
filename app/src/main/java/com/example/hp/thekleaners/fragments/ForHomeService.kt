@@ -1,7 +1,7 @@
 package com.example.hp.thekleaners.fragments
 
+import android.content.Intent
 import android.os.Bundle
-import android.support.v4.view.ViewCompat.setNestedScrollingEnabled
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +19,7 @@ class ForHomeService : BaseNavigationFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mainActivity = activity as NavigationDrawer
-        //mainActivity.toolbar.visibility = View.GONE
+        mainActivity.toolbar.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
         mainActivity.tabLayout.visibility = View.GONE
         mHomeServiceBackArrow.setOnClickListener { mHomeServiceBackArrowFunction() }
@@ -27,14 +27,15 @@ class ForHomeService : BaseNavigationFragment() {
         mLinearLayoutCubsidePickup.setOnClickListener { mLinearLayoutCubsidePickupFunction() }
         mLinearLayoutMedical.setOnClickListener { mLinearLayoutMedicalFunction() }
         mLinearLayoutRecyclingService.setOnClickListener { mLinearLayoutRecyclingServiceFunction() }
-        mForHomeContinue.setOnClickListener { mForHomeContinueFunction()}
+        mForHomeContinue.setOnClickListener { mForHomeContinueFunction() }
 
 
     }
 
 
     private fun mHomeServiceBackArrowFunction() {
-        fragmentManager!!.beginTransaction().replace(R.id.containerView, Home()).addToBackStack(null).commit()
+        val intent = Intent(context, NavigationDrawer::class.java)
+        startActivity(intent)
     }
 
     private fun mLinearLayoutRecycleByMailFunction() {

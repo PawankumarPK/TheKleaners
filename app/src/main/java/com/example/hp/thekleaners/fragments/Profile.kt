@@ -30,7 +30,7 @@ class Profile : BaseNavigationFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mainActivity = activity as NavigationDrawer
-       // mainActivity.toolbar.visibility = View.GONE
+        mainActivity.toolbar.visibility = View.VISIBLE
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
         metrics = DisplayMetrics()
@@ -42,12 +42,18 @@ class Profile : BaseNavigationFragment() {
         mRelativeLayoutMyService.setOnClickListener { mRelativeLayoutMyServiceFunction() }
         mEditProfile.setOnClickListener { mEditProfileFunction() }
         mLogout.setOnClickListener { logoutDialog() }
-
+        mProfileBackArrow.setOnClickListener { mProfileBackArrowFunction()  }
 
     }
 
     private fun mRelativeLayoutMyAddressFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedAddress()).commit()
+    }
+
+
+    private fun mProfileBackArrowFunction() {
+        val intent = Intent(context, NavigationDrawer::class.java)
+        startActivity(intent)
     }
 
     private fun mRelativeLayoutMyServiceFunction() {
@@ -63,7 +69,6 @@ class Profile : BaseNavigationFragment() {
         startActivity(intent)
         dialog.dismiss()
     }
-
 
     @SuppressLint("InflateParams")
     private fun logoutDialog() {

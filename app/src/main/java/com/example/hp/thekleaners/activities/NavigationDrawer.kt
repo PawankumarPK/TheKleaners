@@ -71,10 +71,9 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
             drawer_layout.closeDrawer(GravityCompat.START)
             return
         }
-        if (supportFragmentManager.backStackEntryCount == 0)
-            exitApp(false)
         else
             super.onBackPressed()
+      //  moveTaskToBack(true);
     }
 
     private fun exitApp(exit: Boolean) {
@@ -100,10 +99,10 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.mPayment -> {
-                supportFragmentManager.beginTransaction().replace(R.id.containerView, Payment()).commit()
+                supportFragmentManager.beginTransaction().replace(R.id.containerView, Payment()).addToBackStack(null).commit()
             }
             R.id.mLanguage -> {
-                supportFragmentManager.beginTransaction().replace(R.id.containerView, Language()).commit()
+                supportFragmentManager.beginTransaction().replace(R.id.containerView, Language()).addToBackStack(null).commit()
             }
             R.id.mServices -> {
                 supportFragmentManager.beginTransaction().replace(R.id.containerView, ForHomeService()).commit()

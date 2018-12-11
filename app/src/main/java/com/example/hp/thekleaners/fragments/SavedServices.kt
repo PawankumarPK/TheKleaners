@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
-import kotlinx.android.synthetic.main.fragment_saved_address.*
 import kotlinx.android.synthetic.main.fragment_saved_new_services.*
 
 class SavedServices: BaseNavigationFragment() {
@@ -25,12 +24,18 @@ class SavedServices: BaseNavigationFragment() {
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
         mSavedNewService.setOnClickListener { mSavedNewServiceFunction() }
+        mSavedServiceBackArrow.setOnClickListener { mSavedServiceBackArrowFunction() }
 
 
     }
 
     private fun mSavedNewServiceFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, ChooseServices()).commit()
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SelectServices()).commit()
+    }
+
+
+    private fun mSavedServiceBackArrowFunction() {
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, Profile()).commit()
     }
 
 }

@@ -25,12 +25,17 @@ class PricingGuide : BaseNavigationFragment() {
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
         mProceedNext.setOnClickListener { mProceedNextFunction() }
+        mPricingGuideBackArrow.setOnClickListener { mPricingGuideBackArrow() }
 
 
     }
 
     private fun mProceedNextFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, DateAndTime()).commit()
+    }
+
+    private fun mPricingGuideBackArrow() {
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SelectServices()).commit()
     }
 
 }

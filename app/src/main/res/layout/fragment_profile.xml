@@ -8,61 +8,59 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <RelativeLayout
-            android:id="@+id/mRelativeLayoutToolbar"
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/mToolBarProfile"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@drawable/color_black">
+            android:layout_height="wrap_content"
+            android:background="@drawable/color_gradient">
 
-            <ImageView
-                android:id="@+id/mProfileBackArrow"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:contentDescription="@null"
-                android:src="@drawable/ic_close" />
+                android:weightSum="10">
 
-            <TextView
-                android:id="@+id/mMyAccount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/mProfileBackArrow"
-                android:layout_toRightOf="@+id/mProfileBackArrow"
-                android:text="My Account"
-                android:textColor="#fff"
-                android:textSize="18sp" />
+                <ImageView
+                    android:id="@+id/mProfileBackArrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_close" />
 
-            <TextView
-                android:id="@+id/mLogout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="10dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="20dp"
-                android:text="LOGOUT"
-                android:textColor="#fff"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/mMyAccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="9"
+                    android:text="My Account"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#fff"
+                    android:textSize="18sp" />
 
-        </RelativeLayout>
+                <TextView
+                    android:id="@+id/mLogout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="LOGOUT"
+                    android:textColor="#fff"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.Toolbar>
 
         <RelativeLayout
             android:id="@+id/mParentRelativeLayout"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_below="@+id/mRelativeLayoutToolbar"
+            android:layout_below="@+id/mToolBarProfile"
             android:background="@drawable/color_black">
 
             <ImageView

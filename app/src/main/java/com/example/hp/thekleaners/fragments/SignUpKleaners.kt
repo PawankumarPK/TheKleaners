@@ -19,7 +19,7 @@ class SignUpKleaners : BaseNavigationFragment()  {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mainActivity = activity as NavigationDrawer
-       // mainActivity.toolbar.visibility = View.GONE
+        mainActivity.toolbar.visibility = View.VISIBLE
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
         mContinueSignUp.setOnClickListener { mContinueSignUpFunction()  }
