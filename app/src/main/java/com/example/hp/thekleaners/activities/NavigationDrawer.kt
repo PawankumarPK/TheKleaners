@@ -71,14 +71,13 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         if (drawer_layout.isDrawerOpen(nav_view)) {
             drawer_layout.closeDrawer(GravityCompat.START)
             return
-        }
-        else {
-            super.onBackPressed()
-            setDrawerLocked(false)
-            tabLayout.visibility = View.VISIBLE
-        }
-      //  moveTaskToBack(true);
+        } else (fragmentManager.backStackEntryCount == 0)
+        fragmentManager.popBackStack()
+        tabLayout.visibility = View.VISIBLE
+        setDrawerLocked(false)
+        super.onBackPressed()
     }
+
 
     private fun exitApp(exit: Boolean) {
         AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_alert).setTitle(resources.getString(R.string.exit))

@@ -33,26 +33,17 @@ class Home : BaseNavigationFragment() {
         timer.scheduleAtFixedRate(MyTimerTask(), 2000, 4000)
 
         mCarWashButton.setOnClickListener { mCarWashButtonServiceFunction() }
-        mOthersButton.setOnClickListener {  mCarWashButtonServiceFunction()  }
+        mOthersButton.setOnClickListener { mCarWashButtonServiceFunction() }
 
-
-      /*  mCurbsidePickup.setOnClickListener { mCurbsidePickupFunction() }
-        mRecycleByMailService.setOnClickListener { mRecycleByMailServiceFunction() }
-        mMedical.setOnClickListener { mMedicalFunction() }
-        mRecycling.setOnClickListener { mRecyclingFunction() }
-*/
     }
 
     inner class MyTimerTask : TimerTask() {
 
         override fun run() {
-
             mainActivity.runOnUiThread(java.lang.Runnable {
-
                 if (viewPager == null) {
                     return@Runnable
                 }
-
                 when {
                     viewPager.currentItem == 0 -> viewPager.currentItem = 1
                     viewPager.currentItem == 1 -> viewPager.currentItem = 2
@@ -60,15 +51,15 @@ class Home : BaseNavigationFragment() {
                 }
             })
         }
-
-
     }
-
 
     private fun mContinueDailyServiceFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, ForHomeService()).commit()
     }
+
     private fun mCarWashButtonServiceFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, UpcomingServices()).commit()
     }
+
 }
+

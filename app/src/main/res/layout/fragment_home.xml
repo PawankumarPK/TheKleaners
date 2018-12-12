@@ -90,9 +90,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:gravity="center"
+                    android:layout_marginRight="0dp"
                     android:text="pickup accuracy"
                     android:textColor="#31790d"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:layout_marginEnd="15dp" />
 
 
                 <!-- <TextView
