@@ -21,22 +21,12 @@ import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 
 class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelectedListener, DrawerLocker {
 
-    // private val tabIcons = intArrayOf(R.drawable.ic_home, R.drawable.ic_commercial)
-
-
-    override fun setDrawerLocked(shouldLock: Boolean) {
-        if (shouldLock) {
-            drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
-        } else {
-            drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
-        }
-
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_navigation_drawer)
         setSupportActionBar(toolbar)
+        tabLayout.visibility = View.VISIBLE
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         toolbar.visibility = View.VISIBLE
         belowlayout()
@@ -48,6 +38,7 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         val pagerAdapter = FragmentAdapter(supportFragmentManager)
         mViewPager.adapter = pagerAdapter
         tabLayout.setupWithViewPager(mViewPager)
+
         /// setupTabIcons()
 
         header.setOnClickListener { signInListener() }
@@ -65,14 +56,27 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         tabLayout.getTabAt(1)!!.setIcon(tabIcons[1])
     }
 */
+
+    override fun setDrawerLocked(shouldLock: Boolean) {
+        if (shouldLock) {
+            drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+        } else {
+            drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+        }
+
+    }
+
     override fun onBackPressed() {
 
         if (drawer_layout.isDrawerOpen(nav_view)) {
             drawer_layout.closeDrawer(GravityCompat.START)
             return
         }
-        else
+        else {
             super.onBackPressed()
+            setDrawerLocked(false)
+            tabLayout.visibility = View.VISIBLE
+        }
       //  moveTaskToBack(true);
     }
 

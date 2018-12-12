@@ -13,7 +13,7 @@
             android:id="@+id/mToolBarProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/color_gradient">
+            android:background="@drawable/color_gradient_toolbar">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -34,9 +34,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     android:layout_weight="9"
                     android:text="My Account"
-                    android:layout_marginLeft="10dp"
                     android:textColor="#fff"
                     android:textSize="18sp" />
 
@@ -61,7 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_below="@+id/mToolBarProfile"
-            android:background="@drawable/color_black">
+            android:background="@drawable/color_gradient_toolbar">
 
             <ImageView
                 android:id="@+id/mEditProfile"

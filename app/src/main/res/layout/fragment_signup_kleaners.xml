@@ -12,7 +12,7 @@
             android:id="@+id/mToolBarProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/color_gradient">
+            android:background="@drawable/color_gradient_toolbar">
 
             <ImageView
                 android:id="@+id/mMobileVerBackButton"
@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/mToolBarProfile"
-            android:background="@drawable/color_gradient">
+            android:background="@drawable/color_gradient_toolbar">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -74,7 +74,7 @@
         <RelativeLayout
             android:id="@+id/mRelativeLayout2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:layout_marginTop="20dp"
             android:layout_below="@+id/mRelativeLayout1">
 
@@ -82,8 +82,9 @@
                 android:id="@+id/mTextView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_marginLeft="20dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="11dp"
                 android:layout_marginStart="20dp"
                 android:text="IN +91"
                 android:textColor="#000"
@@ -95,6 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
                 android:layout_marginLeft="5dp"
+                android:layout_alignParentBottom="true"
                 android:layout_marginRight="20dp"
                 android:layout_marginStart="5dp"
                 android:layout_toEndOf="@+id/mTextView3"
