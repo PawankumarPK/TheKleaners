@@ -28,7 +28,7 @@ class ForHomeService : BaseNavigationFragment() {
         mLinearLayoutMedical.setOnClickListener { mLinearLayoutMedicalFunction() }
         mLinearLayoutRecyclingService.setOnClickListener { mLinearLayoutRecyclingServiceFunction() }
         mForHomeContinue.setOnClickListener { mForHomeContinueFunction() }
-
+//n
 
     }
 
