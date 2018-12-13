@@ -9,11 +9,11 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:largeHeap="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.SplashScreen">
+        <activity android:name=".AuthActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,12 +33,12 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".ForgotPassword" />
-        <activity android:name=".Razorpay"></activity>
-
 
         <meta-data
             android:name="com.razorpay.ApiKey"
             android:value="rzp_live_ILgsfZCZoFIKMb" />
+
+        <activity android:name=".activities.SplashScreen"/>
     </application>
 
 </manifest>

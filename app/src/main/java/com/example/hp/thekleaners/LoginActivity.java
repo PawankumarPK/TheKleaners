@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText loginEmailText;
+   /* private EditText loginEmailText;
     private EditText loginPassText;
     private Button loginBtn;
     private TextView loginRegBtn;
@@ -28,14 +28,14 @@ public class LoginActivity extends AppCompatActivity {
 
     private ProgressBar loginProgress;
     private TextView fogotPassword;
-
+*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mAuth = FirebaseAuth.getInstance();
+       /* mAuth = FirebaseAuth.getInstance();
 
         loginEmailText = findViewById(R.id.reg_email);
         loginPassText = findViewById(R.id.reg_confirm_pass);
@@ -111,6 +111,7 @@ public class LoginActivity extends AppCompatActivity {
         finish();
 
     }
-
+*/
+    }
 }
 
