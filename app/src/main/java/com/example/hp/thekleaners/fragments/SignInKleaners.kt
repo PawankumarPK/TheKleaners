@@ -24,7 +24,7 @@ class SignInKleaners : BaseNavigationFragment() {
         mainActivity.tabLayout.visibility = View.GONE
         setNestedScrollingEnabled(mNestedScrollView,false)
         (activity as NavigationDrawer).setDrawerLocked(true)
-        mForSignUpClick.setOnClickListener { mForSignUpClickFunction() }
+      //  mForSignUpClick.setOnClickListener { mForSignUpClickFunction() }
         mContinueSignIn.setOnClickListener { mContinueSignInFunction() }
         mSignInBackButton.setOnClickListener { mMobileVerBackButtonFunction() }
     }
@@ -36,10 +36,10 @@ class SignInKleaners : BaseNavigationFragment() {
 
     }
 
-    private fun mForSignUpClickFunction() {
+  /*  private fun mForSignUpClickFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SignUpKleaners()).commit()
     }
-
+*/
 
     private fun mContinueSignInFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, Profile()).commit()

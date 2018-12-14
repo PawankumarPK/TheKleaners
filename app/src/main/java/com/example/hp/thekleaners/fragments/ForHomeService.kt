@@ -58,7 +58,8 @@ class ForHomeService : BaseNavigationFragment() {
     }
 
     private fun mForHomeContinueFunction() {
-        fragmentManager!!.beginTransaction().replace(R.id.containerView, SignUpKleaners()).addToBackStack(null).commit()
+        val intent = Intent(context, SignUpKleaners::class.java)
+        startActivity(intent)
 
     }
 }

@@ -15,11 +15,16 @@ import android.widget.RelativeLayout
 import com.example.hp.thekleaners.Adapters.FragmentAdapter
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.fragments.*
+import com.google.firebase.auth.PhoneAuthProvider
 import kotlinx.android.synthetic.main.activity_navigation_drawer.*
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 
 
 class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelectedListener, DrawerLocker {
+
+    companion object {
+        lateinit var mCallbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +35,8 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         toolbar.visibility = View.VISIBLE
         belowlayout()
+
+
 
         val navigationView = findViewById<View>(R.id.nav_view) as NavigationView
         val headerview = navigationView.getHeaderView(0)

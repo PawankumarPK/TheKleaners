@@ -1,45 +1,92 @@
 package com.example.hp.thekleaners.fragments
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
+import android.support.v7.app.AppCompatActivity
 import android.view.View
-import android.view.ViewGroup
 import com.example.hp.thekleaners.R
-import com.example.hp.thekleaners.activities.NavigationDrawer
-import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
+import com.example.hp.thekleaners.activities.BaseActivity
+import com.google.firebase.FirebaseException
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.PhoneAuthCredential
+import com.google.firebase.auth.PhoneAuthProvider
 import kotlinx.android.synthetic.main.fragment_signup_kleaners.*
+import java.util.concurrent.TimeUnit
 
-class SignUpKleaners : BaseNavigationFragment()  {
+class SignUpKleaners : BaseActivity() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_signup_kleaners,container,false)
+    private var mCallbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks? = null
+
+    private var mAuth: FirebaseAuth? = null
+    private var mVerificationId: String? = null
+    private var mResendToken: PhoneAuthProvider.ForceResendingToken? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.fragment_signup_kleaners)
+
+        mAuth = FirebaseAuth.getInstance()
+
+        sendBtn.setOnClickListener {
+            phoneProgress!!.visibility = View.VISIBLE
+            phoneEditText!!.isEnabled = false
+            sendBtn.isEnabled = false
+
+            val phoneNumber = phoneEditText.text.toString()
+
+            PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                    phoneNumber,
+                    60,
+                    TimeUnit.SECONDS,
+                    this@SignUpKleaners,
+                    mCallbacks!!
+            )
+        }
+
+        mCallbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+            override fun onVerificationCompleted(phoneAuthCredential: PhoneAuthCredential) {
+
+                signInWithPhoneAuthCredential(phoneAuthCredential)
+
+            }
+
+            override fun onVerificationFailed(e: FirebaseException) {
+
+                errorText.text = "There is some error in verification.."
+                errorText.visibility = View.VISIBLE
+            }
+
+            override fun onCodeSent(verificationId: String?, token: PhoneAuthProvider.ForceResendingToken?) {
+
+                mVerificationId = verificationId
+                mResendToken = token
+
+                phoneProgress.visibility = View.INVISIBLE
+                //  mCodeBar!!.visibility = View.VISIBLE
+
+                sendBtn.text = "Verify Code"
+            }
+        }
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        mainActivity = activity as NavigationDrawer
-        mainActivity.toolbar.visibility = View.VISIBLE
-        mainActivity.tabLayout.visibility = View.GONE
-        (activity as NavigationDrawer).setDrawerLocked(true)
-        mContinueSignUp.setOnClickListener { mContinueSignUpFunction()  }
-        mMobileVerBackButton.setOnClickListener { mMobileVerBackButtonFunction()  }
-        mForSignInClick.setOnClickListener { mForSignInClickFunction() }
-    }
+    private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
 
+        mAuth!!.signInWithCredential(credential)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        val user = task.result.user
 
-    private fun mMobileVerBackButtonFunction() {
-        val intent = Intent(context,NavigationDrawer::class.java)
-        startActivity(intent)
+                        supportFragmentManager.beginTransaction().replace(R.id.containerView, SignUpPassword()).commit()
 
-    }
-    private fun mContinueSignUpFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SignUpPassword()).commit()
-    }
+                    } else {
 
+                        errorText!!.text = "There is some error in loggin in.."
+                        errorText!!.visibility = View.VISIBLE
 
-    private fun mForSignInClickFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SignInKleaners()).commit()
+                        if (task.exception is FirebaseAuthInvalidCredentialsException) {
+
+                        }
+                    }
+                }
     }
 }
-

@@ -4,9 +4,11 @@
     android:layout_height="match_parent"
     android:background="#fff">
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/mToolBarProfile"
@@ -33,28 +35,28 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
-                android:orientation="vertical"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/mTextview1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginStart="20dp"
-                android:text="Your number is safe"
-                android:textColor="#fff"
-                android:textSize="16sp" />
+                <TextView
+                    android:id="@+id/mTextview1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
+                    android:text="Your number is safe"
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginStart="20dp"
-                android:text="with us"
-                android:textColor="#fff"
-                android:textSize="16sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
+                    android:text="with us"
+                    android:textColor="#fff"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -71,20 +73,31 @@
         </RelativeLayout>
 
 
+        <ProgressBar
+            android:id="@+id/phoneProgress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mRelativeLayout1"
+            android:indeterminate="true"
+            android:visibility="invisible" />
+
+
         <RelativeLayout
             android:id="@+id/mRelativeLayout2"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:layout_marginTop="20dp"
-            android:layout_below="@+id/mRelativeLayout1">
+            android:layout_below="@+id/mRelativeLayout1"
+            android:layout_marginTop="20dp">
+
 
             <TextView
                 android:id="@+id/mTextView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="11dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginStart="20dp"
                 android:text="IN +91"
                 android:textColor="#000"
@@ -94,16 +107,16 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
                 android:layout_marginEnd="20dp"
                 android:layout_marginLeft="5dp"
-                android:layout_alignParentBottom="true"
                 android:layout_marginRight="20dp"
                 android:layout_marginStart="5dp"
                 android:layout_toEndOf="@+id/mTextView3"
                 android:layout_toRightOf="@+id/mTextView3">
 
                 <android.support.design.widget.TextInputEditText
-                    android:id="@+id/emailAddress"
+                    android:id="@+id/phoneEditText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="Mobile No."
@@ -114,7 +127,7 @@
         </RelativeLayout>
 
         <Button
-            android:id="@+id/mContinueSignUp"
+            android:id="@+id/sendBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/mRelativeLayout2"
@@ -131,7 +144,7 @@
             android:id="@+id/mRelativeLayoutSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/mContinueSignUp"
+            android:layout_below="@+id/sendBtn"
             android:gravity="center">
 
             <TextView
@@ -156,5 +169,18 @@
 
 
         </RelativeLayout>
+
+        <TextView
+            android:id="@+id/errorText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mRelativeLayoutSignUp"
+            android:layout_margin="50dp"
+            android:gravity="center_horizontal"
+            android:text="There was some error"
+            android:textColor="#fd0303"
+            android:textSize="16sp"
+            android:visibility="invisible" />
+
     </RelativeLayout>
 </ScrollView>
