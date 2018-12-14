@@ -5,8 +5,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
+import com.example.hp.thekleaners.activities.SignUpKleaners
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_for_home_service.*
 
@@ -31,7 +33,6 @@ class ForHomeService : BaseNavigationFragment() {
 //n
 
     }
-
 
     private fun mHomeServiceBackArrowFunction() {
         val intent = Intent(context, NavigationDrawer::class.java)

@@ -9,13 +9,13 @@ import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.hp.thekleaners.BaseClasses.HomeBaseFragment
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
-import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.dialog_logout.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 
-class Profile : BaseNavigationFragment() {
+class Profile : HomeBaseFragment() {
 
     private val displayRectangle = Rect()
     private var width = 0
@@ -29,20 +29,17 @@ class Profile : BaseNavigationFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mainActivity = activity as NavigationDrawer
-        mainActivity.toolbar.visibility = View.VISIBLE
-        mainActivity.tabLayout.visibility = View.GONE
-        (activity as NavigationDrawer).setDrawerLocked(true)
+
         metrics = DisplayMetrics()
-        mainActivity.window.decorView.getWindowVisibleDisplayFrame(displayRectangle)
+        homeActivity.window.decorView.getWindowVisibleDisplayFrame(displayRectangle)
         width = (displayRectangle.width() * 0.9f).toInt()
-        mainActivity.windowManager.defaultDisplay.getMetrics(metrics)
-        dialog = Dialog(mainActivity)
+        homeActivity.windowManager.defaultDisplay.getMetrics(metrics)
+        dialog = Dialog(homeActivity)
         mRelativeLayoutMyAddress.setOnClickListener { mRelativeLayoutMyAddressFunction() }
         mRelativeLayoutMyService.setOnClickListener { mRelativeLayoutMyServiceFunction() }
         mEditProfile.setOnClickListener { mEditProfileFunction() }
         mLogout.setOnClickListener { logoutDialog() }
-        mProfileBackArrow.setOnClickListener { mProfileBackArrowFunction()  }
+        mProfileBackArrow.setOnClickListener { mProfileBackArrowFunction() }
 
     }
 
@@ -72,7 +69,7 @@ class Profile : BaseNavigationFragment() {
 
     @SuppressLint("InflateParams")
     private fun logoutDialog() {
-        val layout = LayoutInflater.from(mainActivity).inflate(R.layout.dialog_logout, null, false)
+        val layout = LayoutInflater.from(homeActivity).inflate(R.layout.dialog_logout, null, false)
         layout.minimumWidth = width
         dialog.setContentView(layout)
         dialog.mLogoutDialog.setOnClickListener { mDialogLogoutFunction() }

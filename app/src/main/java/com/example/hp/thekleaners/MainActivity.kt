@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showFragementHome() {
-        supportFragmentManager.beginTransaction().replace(R.id.mFrameContainer, SignUpPassword())
-                .commit()
+       /* supportFragmentManager.beginTransaction().replace(R.id.mFrameContainer, SignUpPassword())
+                .commit()*/
     }
 }

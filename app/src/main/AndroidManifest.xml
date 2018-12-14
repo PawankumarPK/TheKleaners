@@ -33,8 +33,11 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".ForgotPassword" />
-        <activity android:name=".AuthActivity"/>
-        <activity android:name=".fragments.SignUpKleaners"/>
+        <activity android:name=".AuthActivity" />
+        <activity
+            android:name=".activities.SignUpKleaners"
+            android:noHistory="false" />
+
 
     </application>
 

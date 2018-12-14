@@ -1,4 +1,4 @@
-package com.example.hp.thekleaners.fragments
+package com.example.hp.thekleaners.BaseClasses
 
 
 import android.os.Bundle

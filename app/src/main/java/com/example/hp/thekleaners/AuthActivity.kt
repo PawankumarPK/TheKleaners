@@ -103,7 +103,7 @@ class AuthActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         val user = task.result.user
 
-                        supportFragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SignUpPassword()).commit()
+                     //   supportFragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SignUpPassword()).commit()
                         finish()
 
                     } else {

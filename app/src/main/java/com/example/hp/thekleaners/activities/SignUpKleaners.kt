@@ -1,10 +1,12 @@
-package com.example.hp.thekleaners.fragments
+package com.example.hp.thekleaners.activities
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.View
+import com.example.hp.thekleaners.BaseClasses.BaseActivity
 import com.example.hp.thekleaners.R
-import com.example.hp.thekleaners.activities.BaseActivity
+import com.example.hp.thekleaners.fragments.ForHomeService
+import com.example.hp.thekleaners.fragments.SignInKleaners
+import com.example.hp.thekleaners.fragments.SignUpPassword
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
@@ -12,11 +14,13 @@ import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 import kotlinx.android.synthetic.main.fragment_signup_kleaners.*
 import java.util.concurrent.TimeUnit
+import android.content.Intent
+
+
 
 class SignUpKleaners : BaseActivity() {
 
     private var mCallbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks? = null
-
     private var mAuth: FirebaseAuth? = null
     private var mVerificationId: String? = null
     private var mResendToken: PhoneAuthProvider.ForceResendingToken? = null
@@ -27,27 +31,29 @@ class SignUpKleaners : BaseActivity() {
 
         mAuth = FirebaseAuth.getInstance()
 
-        sendBtn.setOnClickListener {
-            phoneProgress!!.visibility = View.VISIBLE
-            phoneEditText!!.isEnabled = false
-            sendBtn.isEnabled = false
+        mMobileVerBackButton.setOnClickListener { mMobileVerBackButtonFunction() }
+        mForSignInClick.setOnClickListener { mForSignInClickFunction() }
+        sendBtn.setOnClickListener { sendBtnFunction() }
+    }
 
-            val phoneNumber = phoneEditText.text.toString()
+    private fun sendBtnFunction() {
+        phoneProgress!!.visibility = View.VISIBLE
+        phoneEditText!!.isEnabled = false
+        sendBtn.isEnabled = false
 
-            PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                    phoneNumber,
-                    60,
-                    TimeUnit.SECONDS,
-                    this@SignUpKleaners,
-                    mCallbacks!!
-            )
-        }
+        val phoneNumber = phoneEditText.text.toString()
+
+        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                phoneNumber,
+                60,
+                TimeUnit.SECONDS,
+                this@SignUpKleaners,
+                mCallbacks!!)
 
         mCallbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             override fun onVerificationCompleted(phoneAuthCredential: PhoneAuthCredential) {
 
                 signInWithPhoneAuthCredential(phoneAuthCredential)
-
             }
 
             override fun onVerificationFailed(e: FirebaseException) {
@@ -76,7 +82,7 @@ class SignUpKleaners : BaseActivity() {
                     if (task.isSuccessful) {
                         val user = task.result.user
 
-                        supportFragmentManager.beginTransaction().replace(R.id.containerView, SignUpPassword()).commit()
+                        supportFragmentManager.beginTransaction().replace(R.id.mDemoFrameContainer, SignUpPassword()).commit()
 
                     } else {
 
@@ -89,4 +95,22 @@ class SignUpKleaners : BaseActivity() {
                     }
                 }
     }
+
+    private fun mMobileVerBackButtonFunction() {
+        supportFragmentManager.beginTransaction().replace(R.id.mDemoFrameContainer, ForHomeService()).commit()
+    }
+
+    private fun mForSignInClickFunction() {
+        supportFragmentManager.beginTransaction().replace(R.id.mDemoFrameContainer, SignInKleaners()).commit()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val i = Intent(this@SignUpKleaners, NavigationDrawer::class.java)
+        i.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+        startActivity(i)
+        finish()
+    }
+
+
 }
