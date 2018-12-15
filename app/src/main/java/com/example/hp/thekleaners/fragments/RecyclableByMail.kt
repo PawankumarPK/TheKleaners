@@ -1,18 +1,21 @@
 package com.example.hp.thekleaners.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.hp.thekleaners.Adapters.ViewPagerRecycleByMailService
 import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
+import com.example.hp.thekleaners.BaseClasses.ForHomeServiceBaseFragment
 import com.example.hp.thekleaners.R
+import com.example.hp.thekleaners.activities.ForHomeService
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_recyclable_by_mail.*
 import java.util.*
 
-class RecyclableByMail : BaseNavigationFragment() {
+class RecyclableByMail : ForHomeServiceBaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_recyclable_by_mail, container, false)
@@ -21,17 +24,10 @@ class RecyclableByMail : BaseNavigationFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mainActivity = activity as NavigationDrawer
-        mainActivity.toolbar.visibility = View.GONE
-        (activity as NavigationDrawer).setDrawerLocked(true)
+
         mRecycleByMailServiceBackArrow.setOnClickListener { mRecycleByMailServiceBackArrowFunction() }
-        mainActivity.tabLayout.visibility = View.GONE
-        //mainActivity.title_name.text = resources.getString(R.string.signIn)
-
-
-        val viewPagerAdapter = ViewPagerRecycleByMailService(mainActivity)
+        val viewPagerAdapter = ViewPagerRecycleByMailService(homeServiceActivity)
         recycleByMailServiceViewPager.adapter = viewPagerAdapter
-
         val timer = Timer()
         timer.scheduleAtFixedRate(MyTimerTask(), 2000, 4000)
     }
@@ -40,7 +36,7 @@ class RecyclableByMail : BaseNavigationFragment() {
 
         override fun run() {
 
-            mainActivity.runOnUiThread(java.lang.Runnable {
+            homeServiceActivity.runOnUiThread(java.lang.Runnable {
 
                 if (recycleByMailServiceViewPager == null) {
                     return@Runnable
@@ -57,7 +53,8 @@ class RecyclableByMail : BaseNavigationFragment() {
     }
 
     private fun mRecycleByMailServiceBackArrowFunction() {
-        fragmentManager!!.beginTransaction().replace(R.id.containerView, ForHomeService()).addToBackStack(null).commit()
+        val intent = Intent(context, ForHomeService::class.java)
+        startActivity(intent)
     }
 
 

@@ -1,5 +1,6 @@
 package com.example.hp.thekleaners.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import com.example.hp.thekleaners.Adapters.ViewPagerAdapter
 import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
+import com.example.hp.thekleaners.activities.ForHomeService
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -55,7 +57,8 @@ class Home : BaseNavigationFragment() {
     }
 
     private fun mContinueDailyServiceFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, ForHomeService()).commit()
+        val intent = Intent(context, ForHomeService::class.java)
+        startActivity(intent)
     }
 
     private fun mCarWashButtonServiceFunction() {

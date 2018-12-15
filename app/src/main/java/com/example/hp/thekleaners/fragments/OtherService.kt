@@ -1,18 +1,21 @@
 package com.example.hp.thekleaners.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.hp.thekleaners.Adapters.ViewPagerOtherService
 import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
+import com.example.hp.thekleaners.BaseClasses.ForHomeServiceBaseFragment
 import com.example.hp.thekleaners.R
+import com.example.hp.thekleaners.activities.ForHomeService
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_other_service.*
 import java.util.*
 
-class OtherService : BaseNavigationFragment()  {
+class OtherService : ForHomeServiceBaseFragment()  {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -22,14 +25,10 @@ class OtherService : BaseNavigationFragment()  {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mainActivity = activity as NavigationDrawer
-        mainActivity.toolbar.visibility = View.GONE
-        (activity as NavigationDrawer).setDrawerLocked(true)
+
         mOtherServiceBackArrow.setOnClickListener { mRecycleByMailServiceBackArrowFunction() }
-        //mainActivity.title_name.text = resources.getString(R.string.signIn)
 
-
-        val viewPagerAdapter = ViewPagerOtherService(mainActivity)
+        val viewPagerAdapter = ViewPagerOtherService(homeServiceActivity)
         otherServiceViewPager.adapter = viewPagerAdapter
 
         val timer = Timer()
@@ -40,7 +39,7 @@ class OtherService : BaseNavigationFragment()  {
 
         override fun run() {
 
-            mainActivity.runOnUiThread(java.lang.Runnable {
+            homeServiceActivity.runOnUiThread(java.lang.Runnable {
 
                 if (otherServiceViewPager== null) {
                     return@Runnable
@@ -57,7 +56,8 @@ class OtherService : BaseNavigationFragment()  {
     }
 
     private fun mRecycleByMailServiceBackArrowFunction() {
-        fragmentManager!!.beginTransaction().replace(R.id.containerView, ForHomeService()).addToBackStack(null).commit()
+        val intent = Intent(context, ForHomeService::class.java)
+        startActivity(intent)
     }
 
 

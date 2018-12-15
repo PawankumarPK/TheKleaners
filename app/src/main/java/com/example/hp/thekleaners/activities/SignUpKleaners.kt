@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import com.example.hp.thekleaners.BaseClasses.BaseActivity
 import com.example.hp.thekleaners.R
-import com.example.hp.thekleaners.fragments.ForHomeService
 import com.example.hp.thekleaners.fragments.SignInKleaners
 import com.example.hp.thekleaners.fragments.SignUpPassword
 import com.google.firebase.FirebaseException
@@ -82,7 +81,7 @@ class SignUpKleaners : BaseActivity() {
                     if (task.isSuccessful) {
                         val user = task.result.user
 
-                        supportFragmentManager.beginTransaction().replace(R.id.mDemoFrameContainer, SignUpPassword()).commit()
+                        supportFragmentManager.beginTransaction().replace(R.id.mSignUpFrameContainer, SignUpPassword()).commit()
 
                     } else {
 
@@ -97,16 +96,17 @@ class SignUpKleaners : BaseActivity() {
     }
 
     private fun mMobileVerBackButtonFunction() {
-        supportFragmentManager.beginTransaction().replace(R.id.mDemoFrameContainer, ForHomeService()).commit()
+        val intent = Intent(this, ForHomeService::class.java)
+        startActivity(intent)
     }
 
     private fun mForSignInClickFunction() {
-        supportFragmentManager.beginTransaction().replace(R.id.mDemoFrameContainer, SignInKleaners()).commit()
+        supportFragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.mSignUpFrameContainer, SignInKleaners()).commit()
     }
 
     override fun onBackPressed() {
         super.onBackPressed()
-        val i = Intent(this@SignUpKleaners, NavigationDrawer::class.java)
+        val i = Intent(this@SignUpKleaners, ForHomeService::class.java)
         i.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(i)
         finish()

@@ -1,18 +1,21 @@
 package com.example.hp.thekleaners.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.hp.thekleaners.Adapters.ViewPagerRecyclingService
 import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
+import com.example.hp.thekleaners.BaseClasses.ForHomeServiceBaseFragment
 import com.example.hp.thekleaners.R
+import com.example.hp.thekleaners.activities.ForHomeService
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_recycling_service.*
 import java.util.*
 
-class RecyclingService : BaseNavigationFragment() {
+class RecyclingService : ForHomeServiceBaseFragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -22,15 +25,10 @@ class RecyclingService : BaseNavigationFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mainActivity = activity as NavigationDrawer
-        mainActivity.toolbar.visibility = View.GONE
-        (activity as NavigationDrawer).setDrawerLocked(true)
+
         mRecyclingBackArrow.setOnClickListener { mRecycleByMailServiceBackArrowFunction() }
-        mainActivity.tabLayout.visibility = View.GONE
-        //mainActivity.title_name.text = resources.getString(R.string.signIn)
 
-
-        val viewPagerAdapter = ViewPagerRecyclingService(mainActivity)
+        val viewPagerAdapter = ViewPagerRecyclingService(homeServiceActivity)
         recyclingViewPager.adapter = viewPagerAdapter
 
         val timer = Timer()
@@ -41,7 +39,7 @@ class RecyclingService : BaseNavigationFragment() {
 
         override fun run() {
 
-            mainActivity.runOnUiThread(java.lang.Runnable {
+            homeServiceActivity.runOnUiThread(java.lang.Runnable {
 
                 if (recyclingViewPager == null) {
                     return@Runnable
@@ -58,7 +56,8 @@ class RecyclingService : BaseNavigationFragment() {
     }
 
     private fun mRecycleByMailServiceBackArrowFunction() {
-        fragmentManager!!.beginTransaction().replace(R.id.containerView, ForHomeService()).addToBackStack(null).commit()
+        val intent = Intent(context, ForHomeService::class.java)
+        startActivity(intent)
     }
 
 

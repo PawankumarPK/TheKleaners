@@ -115,9 +115,9 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
             R.id.mLanguage -> {
                 supportFragmentManager.beginTransaction().replace(R.id.containerView, Language()).addToBackStack(null).commit()
             }
-            R.id.mServices -> {
+          /*  R.id.mServices -> {
                 supportFragmentManager.beginTransaction().replace(R.id.containerView, ForHomeService()).commit()
-            }
+            }*/
             R.id.mAboutUs -> {
                 supportFragmentManager.beginTransaction().replace(R.id.containerView, Help()).commit()
             }

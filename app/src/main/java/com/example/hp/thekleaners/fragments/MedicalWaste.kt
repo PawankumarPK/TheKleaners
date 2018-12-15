@@ -1,18 +1,18 @@
 package com.example.hp.thekleaners.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.hp.thekleaners.Adapters.ViewPagerMedical
-import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
+import com.example.hp.thekleaners.BaseClasses.ForHomeServiceBaseFragment
 import com.example.hp.thekleaners.R
-import com.example.hp.thekleaners.activities.NavigationDrawer
-import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
+import com.example.hp.thekleaners.activities.ForHomeService
 import kotlinx.android.synthetic.main.fragment_medical.*
 import java.util.*
 
-class MedicalWaste : BaseNavigationFragment()  {
+class MedicalWaste : ForHomeServiceBaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_medical, container, false)
@@ -21,15 +21,9 @@ class MedicalWaste : BaseNavigationFragment()  {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mainActivity = activity as NavigationDrawer
-        mainActivity.toolbar.visibility = View.GONE
-        (activity as NavigationDrawer).setDrawerLocked(true)
+
         mMedicalBackArrow.setOnClickListener { mRecycleByMailServiceBackArrowFunction() }
-        mainActivity.tabLayout.visibility = View.GONE
-        //mainActivity.title_name.text = resources.getString(R.string.signIn)
-
-
-        val viewPagerAdapter = ViewPagerMedical(mainActivity)
+        val viewPagerAdapter = ViewPagerMedical(homeServiceActivity)
         medicalWasteViewPager.adapter = viewPagerAdapter
 
         val timer = Timer()
@@ -40,7 +34,7 @@ class MedicalWaste : BaseNavigationFragment()  {
 
         override fun run() {
 
-            mainActivity.runOnUiThread(java.lang.Runnable {
+            homeServiceActivity.runOnUiThread(java.lang.Runnable {
 
                 if (medicalWasteViewPager == null) {
                     return@Runnable
@@ -57,6 +51,7 @@ class MedicalWaste : BaseNavigationFragment()  {
     }
 
     private fun mRecycleByMailServiceBackArrowFunction() {
-        fragmentManager!!.beginTransaction().replace(R.id.containerView, ForHomeService()).addToBackStack(null).commit()
+        val intent = Intent(context, ForHomeService::class.java)
+        startActivity(intent)
     }
 }

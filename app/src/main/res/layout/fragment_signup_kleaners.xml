@@ -183,10 +183,11 @@
             android:visibility="invisible" />
 
 
-        <FrameLayout
-            android:id="@+id/mDemoFrameContainer"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
     </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/mSignUpFrameContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </RelativeLayout>
