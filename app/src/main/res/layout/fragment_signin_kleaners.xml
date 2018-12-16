@@ -114,6 +114,7 @@
                     android:id="@+id/emailAddress"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:digits="12"
                     android:hint="Mobile No."
                     android:inputType="number"
                     android:textSize="15sp" />

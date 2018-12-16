@@ -116,9 +116,10 @@
                 android:layout_toRightOf="@+id/mTextView3">
 
                 <android.support.design.widget.TextInputEditText
-                    android:id="@+id/phoneEditText"
+                    android:id="@+id/editTextPhone"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:maxLength="12"
                     android:hint="Mobile No."
                     android:inputType="number"
                     android:textSize="15sp" />
@@ -127,7 +128,7 @@
         </RelativeLayout>
 
         <Button
-            android:id="@+id/sendBtn"
+            android:id="@+id/buttonContinue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/mRelativeLayout2"

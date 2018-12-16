@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
@@ -44,32 +41,39 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"
-            android:text="May I ask your phone number?"
+            android:text="Wait for the code I sent You"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@color/colorAccent" />
 
-        <EditText
-            android:id="@+id/editTextPhone"
-            android:layout_width="match_parent"
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/textView"
-            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true" />
+
+        <EditText
+            android:id="@+id/editTextCode"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/progressbar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
             android:digits="0123456789"
-            android:drawableLeft="@drawable/ic_close_green"
             android:drawablePadding="10dp"
-            android:hint="enter your mobile number"
+            android:hint="enter verification code"
             android:inputType="phone"
             android:maxLength="10" />
 
         <Button
-            android:id="@+id/buttonContinue"
+            android:id="@+id/buttonSignIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/editTextPhone"
+            android:layout_below="@id/editTextCode"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
             android:background="@color/colorAccent"
-            android:text="Continue"
+            android:text="Sign In"
             android:textAllCaps="false"
             android:textColor="#cdd8f1" />
 
