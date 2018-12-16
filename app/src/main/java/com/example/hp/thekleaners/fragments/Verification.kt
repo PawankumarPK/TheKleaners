@@ -2,11 +2,9 @@ package com.example.hp.thekleaners.fragments
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import com.example.hp.thekleaners.BaseClasses.HomeBaseFragment
+import com.example.hp.thekleaners.BaseClasses.BaseActivity
 import com.example.hp.thekleaners.MainActivity
 import com.example.hp.thekleaners.R
 import com.google.android.gms.tasks.TaskExecutors
@@ -16,39 +14,21 @@ import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 import kotlinx.android.synthetic.main.fragment_verification.*
 import java.util.concurrent.TimeUnit
-import android.content.Intent.getIntent
-import android.net.Uri
-import android.content.Intent.getIntent
-import android.content.Intent.getIntent
 
-
-
-
-
-
-class Verification : HomeBaseFragment() {
+class Verification : BaseActivity() {
 
     private var verificationId: String? = null
     private var mAuth: FirebaseAuth? = null
 
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_verification, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-
-
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.fragment_verification)
 
         buttonSignIn.setOnClickListener(View.OnClickListener {
-            val code = editTextCode.getText().toString().trim()
+            val code = editTextCode.text.toString().trim()
 
-
-            if (code.isEmpty() || code.length < 6) {
-                editTextCode.error = "Enter code..."
+            if (code.isEmpty() || code.length < 6 ) {
+                editTextCode.error = "Enter valid code..."
                 editTextCode.requestFocus()
                 return@OnClickListener
             }
@@ -58,11 +38,7 @@ class Verification : HomeBaseFragment() {
 
         mAuth = FirebaseAuth.getInstance()
 
-
-
-
-                //  val uri = activity!!.intent.data.toString()
-        val phonenumber = getIntent("phonenumber").toString()
+        val phonenumber = intent.getStringExtra("phonenumber")
         sendVerificationCode(phonenumber)
 
     }
@@ -77,12 +53,12 @@ class Verification : HomeBaseFragment() {
         mAuth!!.signInWithCredential(credential).addOnCompleteListener({ task ->
             if (task.isSuccessful) {
 
-                val intent = Intent(context, MainActivity::class.java)
+                supportFragmentManager.beginTransaction().addToBackStack(null).replace(R.id.mSignUpFrameContainer, Profile()).commit()
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)
 
             } else {
-                Toast.makeText(context, task.exception!!.message, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@Verification, task.exception!!.message, Toast.LENGTH_SHORT).show()
             }
         })
     }
@@ -117,7 +93,7 @@ class Verification : HomeBaseFragment() {
 
         override fun onVerificationFailed(e: FirebaseException) {
 
-            Toast.makeText(context, e.message, Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@Verification, e.message, Toast.LENGTH_SHORT).show()
         }
     }
 }
