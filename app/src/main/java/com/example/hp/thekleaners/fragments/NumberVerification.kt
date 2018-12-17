@@ -5,34 +5,34 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.example.hp.thekleaners.BaseClasses.BaseActivity
-import com.example.hp.thekleaners.MainActivity
 import com.example.hp.thekleaners.R
+import com.example.hp.thekleaners.activities.SignUpKleaners
 import com.google.android.gms.tasks.TaskExecutors
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
-import kotlinx.android.synthetic.main.fragment_verification.*
+import kotlinx.android.synthetic.main.fragment_number_verification.*
+
 import java.util.concurrent.TimeUnit
 
-class Verification : BaseActivity() {
+class NumberVerification : BaseActivity() {
 
     private var verificationId: String? = null
     private var mAuth: FirebaseAuth? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_verification)
+        setContentView(R.layout.fragment_number_verification)
 
+        mNumberVerficationBackArrow.setOnClickListener { mPasswordBackArrowFunction() }
         buttonSignIn.setOnClickListener(View.OnClickListener {
             val code = editTextCode.text.toString().trim()
-
-            if (code.isEmpty() || code.length < 6 ) {
+            if (code.isEmpty() || code.length < 6) {
                 editTextCode.error = "Enter valid code..."
                 editTextCode.requestFocus()
                 return@OnClickListener
             }
-
             verifyCode(code)
         })
 
@@ -40,6 +40,17 @@ class Verification : BaseActivity() {
 
         val phonenumber = intent.getStringExtra("phonenumber")
         sendVerificationCode(phonenumber)
+        mGetBundleData.text = phonenumber
+
+    }
+
+    private fun sendNumberToProfile(){
+        val bundle = Bundle()
+       bundle.putString("phonenumber",mGetBundleData.toString())
+        val myFragment = Profile()
+        myFragment.arguments = bundle
+       // pUserName.setText("")
+
 
     }
 
@@ -53,12 +64,12 @@ class Verification : BaseActivity() {
         mAuth!!.signInWithCredential(credential).addOnCompleteListener({ task ->
             if (task.isSuccessful) {
 
+                sendNumberToProfile()
                 supportFragmentManager.beginTransaction().addToBackStack(null).replace(R.id.mSignUpFrameContainer, Profile()).commit()
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(intent)
+                Toast.makeText(this@NumberVerification, "Successfully Verification", Toast.LENGTH_SHORT).show()
 
             } else {
-                Toast.makeText(this@Verification, task.exception!!.message, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@NumberVerification, "Something went wrong", Toast.LENGTH_SHORT).show()
             }
         })
     }
@@ -93,8 +104,13 @@ class Verification : BaseActivity() {
 
         override fun onVerificationFailed(e: FirebaseException) {
 
-            Toast.makeText(this@Verification, e.message, Toast.LENGTH_SHORT).show()
+          //  Toast.makeText(this@NumberVerification, "Failed", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun mPasswordBackArrowFunction() {
+        val intent = Intent(this@NumberVerification, SignUpKleaners::class.java)
+        startActivity(intent)
     }
 }
 

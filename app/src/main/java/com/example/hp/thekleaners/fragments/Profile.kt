@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import com.example.hp.thekleaners.BaseClasses.HomeBaseFragment
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.dialog_logout.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 
@@ -41,6 +42,9 @@ class Profile : HomeBaseFragment() {
         mLogout.setOnClickListener { logoutDialog() }
         mProfileBackArrow.setOnClickListener { mProfileBackArrowFunction() }
 
+        val name = this.arguments!!.getString("phonenumber").toString()
+        mUserNumber.text = name
+
     }
 
     private fun mRelativeLayoutMyAddressFunction() {
@@ -62,6 +66,7 @@ class Profile : HomeBaseFragment() {
     }
 
     private fun mDialogLogoutFunction() {
+        FirebaseAuth.getInstance().signOut()
         val intent = Intent(context, NavigationDrawer::class.java)
         startActivity(intent)
         dialog.dismiss()
@@ -72,7 +77,7 @@ class Profile : HomeBaseFragment() {
         val layout = LayoutInflater.from(homeActivity).inflate(R.layout.dialog_logout, null, false)
         layout.minimumWidth = width
         dialog.setContentView(layout)
-        dialog.mLogoutDialog.setOnClickListener { mDialogLogoutFunction() }
+        dialog.buttonLogout.setOnClickListener { mDialogLogoutFunction() }
         dialog.mCancelDialog.setOnClickListener { dialog.dismiss() }
         dialog.setCanceledOnTouchOutside(false)
         dialog.show()

@@ -131,7 +131,7 @@
                 android:layout_below="@+id/mUsername"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="7dp"
-                android:text="9910765616"
+                android:text=""
                 android:textColor="#fff"
                 android:textSize="13sp" />
 

@@ -37,7 +37,7 @@
         <activity android:name=".activities.SignUpKleaners" />
         <activity android:name=".activities.ForHomeService" />
         <activity android:name=".VerifiyPhoneActivity"></activity>
-        <activity android:name=".fragments.Verification"></activity>
+        <activity android:name=".fragments.NumberVerification"></activity>
 
     </application>
 

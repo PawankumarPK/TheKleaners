@@ -114,6 +114,8 @@
 
     <string name="leadingProvider">We are also leading of integrated environmental solution in INDIA.</string>
     <string name="upcomingService">We are really excited about the upcoming service.</string>
+
+    <string name="verificationDesc">It will detected automatically ,but if it is not detected you can put it below manually as well </string>
 </resources>
 
 
