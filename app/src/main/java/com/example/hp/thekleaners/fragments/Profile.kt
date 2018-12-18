@@ -6,20 +6,17 @@ import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
 import android.util.DisplayMetrics
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import com.example.hp.thekleaners.BaseClasses.ForHomeServiceBaseFragment
-import com.example.hp.thekleaners.BaseClasses.HomeBaseFragment
+import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.dialog_logout.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 
-class Profile : ForHomeServiceBaseFragment() {
+class Profile : BaseNavigationFragment() {
 
 
     private val displayRectangle = Rect()
@@ -39,10 +36,10 @@ class Profile : ForHomeServiceBaseFragment() {
         //var date = findViewById<View>(R.id.mUserNumber) as EditText
 
         metrics = DisplayMetrics()
-        homeServiceActivity.window.decorView.getWindowVisibleDisplayFrame(displayRectangle)
+        mainActivity.window.decorView.getWindowVisibleDisplayFrame(displayRectangle)
         width = (displayRectangle.width() * 0.9f).toInt()
-        homeServiceActivity.windowManager.defaultDisplay.getMetrics(metrics)
-        dialog = Dialog(homeServiceActivity)
+        mainActivity.windowManager.defaultDisplay.getMetrics(metrics)
+        dialog = Dialog(mainActivity)
         mRelativeLayoutMyAddress.setOnClickListener { mRelativeLayoutMyAddressFunction() }
         mRelativeLayoutMyService.setOnClickListener { mRelativeLayoutMyServiceFunction() }
         mEditProfile.setOnClickListener { mEditProfileFunction() }
@@ -56,7 +53,7 @@ class Profile : ForHomeServiceBaseFragment() {
 
 
     private fun mProfileBackArrowFunction() {
-        val intent = Intent(context, NavigationDrawer::class.java)
+        val intent = Intent(mainActivity, NavigationDrawer::class.java)
         startActivity(intent)
     }
 
@@ -65,19 +62,19 @@ class Profile : ForHomeServiceBaseFragment() {
     }
 
     private fun mEditProfileFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, UserEditProfile()).commit()
+        // fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, UserEditProfile()).commit()
     }
 
     private fun mDialogLogoutFunction() {
         FirebaseAuth.getInstance().signOut()
-        val intent = Intent(context, NavigationDrawer::class.java)
+        val intent = Intent(mainActivity, NavigationDrawer::class.java)
         startActivity(intent)
         dialog.dismiss()
     }
 
     @SuppressLint("InflateParams")
     private fun logoutDialog() {
-        val layout = LayoutInflater.from(homeServiceActivity).inflate(R.layout.dialog_logout, null, false)
+        val layout = LayoutInflater.from(mainActivity).inflate(R.layout.dialog_logout, null, false)
         layout.minimumWidth = width
         dialog.setContentView(layout)
         dialog.buttonLogout.setOnClickListener { mDialogLogoutFunction() }

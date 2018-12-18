@@ -6,13 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.hp.thekleaners.Adapters.ViewPagerMedical
-import com.example.hp.thekleaners.BaseClasses.ForHomeServiceBaseFragment
+import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.ForHomeService
 import kotlinx.android.synthetic.main.fragment_medical.*
 import java.util.*
 
-class MedicalWaste : ForHomeServiceBaseFragment() {
+class MedicalWaste : BaseNavigationFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_medical, container, false)
@@ -23,7 +23,7 @@ class MedicalWaste : ForHomeServiceBaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mMedicalBackArrow.setOnClickListener { mRecycleByMailServiceBackArrowFunction() }
-        val viewPagerAdapter = ViewPagerMedical(homeServiceActivity)
+        val viewPagerAdapter = ViewPagerMedical(mainActivity)
         medicalWasteViewPager.adapter = viewPagerAdapter
 
         val timer = Timer()
@@ -34,7 +34,7 @@ class MedicalWaste : ForHomeServiceBaseFragment() {
 
         override fun run() {
 
-            homeServiceActivity.runOnUiThread(java.lang.Runnable {
+            mainActivity.runOnUiThread(java.lang.Runnable {
 
                 if (medicalWasteViewPager == null) {
                     return@Runnable

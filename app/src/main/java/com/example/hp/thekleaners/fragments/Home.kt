@@ -57,8 +57,7 @@ class Home : BaseNavigationFragment() {
     }
 
     private fun mContinueDailyServiceFunction() {
-        val intent = Intent(context, ForHomeService::class.java)
-        startActivity(intent)
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, ForHomeService()).commit()
     }
 
     private fun mCarWashButtonServiceFunction() {

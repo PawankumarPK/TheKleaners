@@ -1,25 +1,24 @@
 package com.example.hp.thekleaners.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.hp.thekleaners.BaseClasses.BaseActivity
-import com.example.hp.thekleaners.BaseClasses.ForHomeServiceBaseFragment
+import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
-import com.example.hp.thekleaners.activities.SignUpKleaners
+import com.example.hp.thekleaners.activities.NavigationDrawer
 import com.google.android.gms.tasks.TaskExecutors
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
+import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_number_verification.*
 
 import java.util.concurrent.TimeUnit
 
-class NumberVerification : ForHomeServiceBaseFragment() {
+class NumberVerification : BaseNavigationFragment() {
 
     private var verificationId: String? = null
     private var mAuth: FirebaseAuth? = null
@@ -32,6 +31,11 @@ class NumberVerification : ForHomeServiceBaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        mainActivity = activity as NavigationDrawer
+        mainActivity.toolbar.visibility = View.VISIBLE
+        //mainActivity.title_name.text = resources.getString(R.string.signIn)
+        mainActivity.tabLayout.visibility = View.GONE
+        (activity as NavigationDrawer).setDrawerLocked(true)
       //  mNumberVerficationBackArrow.setOnClickListener { mPasswordBackArrowFunction() }
         buttonSignIn.setOnClickListener(View.OnClickListener {
             val code = editTextCode.text.toString().trim()
@@ -47,7 +51,6 @@ class NumberVerification : ForHomeServiceBaseFragment() {
 
         val phonenumber = this.arguments!!.getString("phonenumber").toString()
         sendVerificationCode(phonenumber)
-        mGetBundleData.text = phonenumber
 
     }
 

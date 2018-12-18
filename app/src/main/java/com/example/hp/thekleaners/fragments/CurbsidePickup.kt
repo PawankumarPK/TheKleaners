@@ -7,15 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.hp.thekleaners.Adapters.ViewPagerCubsidePickupService
 import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
-import com.example.hp.thekleaners.BaseClasses.ForHomeServiceBaseFragment
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.ForHomeService
-import com.example.hp.thekleaners.activities.NavigationDrawer
-import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_curbside_pickup.*
 import java.util.*
 
-class CurbsidePickup : ForHomeServiceBaseFragment() {
+class CurbsidePickup : BaseNavigationFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_curbside_pickup, container, false)
@@ -25,13 +22,15 @@ class CurbsidePickup : ForHomeServiceBaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+
         mCurbsidePickupBackArrow.setOnClickListener { mRecycleByMailServiceBackArrowFunction() }
 
 
         //mainActivity.title_name.text = resources.getString(R.string.signIn)
 
 
-        val viewPagerAdapter = ViewPagerCubsidePickupService(homeServiceActivity)
+        val viewPagerAdapter = ViewPagerCubsidePickupService(mainActivity)
         curbsidePickupViewPager.adapter = viewPagerAdapter
 
         val timer = Timer()
@@ -42,7 +41,7 @@ class CurbsidePickup : ForHomeServiceBaseFragment() {
 
         override fun run() {
 
-            homeServiceActivity.runOnUiThread(java.lang.Runnable {
+            mainActivity.runOnUiThread(java.lang.Runnable {
 
                 if (curbsidePickupViewPager == null) {
                     return@Runnable

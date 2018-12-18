@@ -7,15 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.hp.thekleaners.Adapters.ViewPagerRecyclingService
 import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
-import com.example.hp.thekleaners.BaseClasses.ForHomeServiceBaseFragment
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.ForHomeService
-import com.example.hp.thekleaners.activities.NavigationDrawer
-import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_recycling_service.*
 import java.util.*
 
-class RecyclingService : ForHomeServiceBaseFragment() {
+class RecyclingService : BaseNavigationFragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -28,7 +25,7 @@ class RecyclingService : ForHomeServiceBaseFragment() {
 
         mRecyclingBackArrow.setOnClickListener { mRecycleByMailServiceBackArrowFunction() }
 
-        val viewPagerAdapter = ViewPagerRecyclingService(homeServiceActivity)
+        val viewPagerAdapter = ViewPagerRecyclingService(mainActivity)
         recyclingViewPager.adapter = viewPagerAdapter
 
         val timer = Timer()
@@ -39,7 +36,7 @@ class RecyclingService : ForHomeServiceBaseFragment() {
 
         override fun run() {
 
-            homeServiceActivity.runOnUiThread(java.lang.Runnable {
+            mainActivity.runOnUiThread(java.lang.Runnable {
 
                 if (recyclingViewPager == null) {
                     return@Runnable

@@ -1,22 +1,17 @@
-package com.example.hp.thekleaners.activities
+package com.example.hp.thekleaners.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import com.example.hp.thekleaners.BaseClasses.ForHomeServiceBaseFragment
-import com.example.hp.thekleaners.MainActivity
+import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
-import com.example.hp.thekleaners.VerifiyPhoneActivity
-import com.example.hp.thekleaners.fragments.NumberVerification
-import com.example.hp.thekleaners.fragments.Profile
+import com.example.hp.thekleaners.activities.NavigationDrawer
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_signup_kleaners.*
 
-class SignUpKleaners : ForHomeServiceBaseFragment() {
+class SignUpKleaners : BaseNavigationFragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -26,6 +21,12 @@ class SignUpKleaners : ForHomeServiceBaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        mainActivity = activity as NavigationDrawer
+        mainActivity.toolbar.visibility = View.VISIBLE
+        //mainActivity.title_name.text = resources.getString(R.string.signIn)
+        mainActivity.tabLayout.visibility = View.GONE
+        (activity as NavigationDrawer).setDrawerLocked(true)
         buttonContinue!!.setOnClickListener(View.OnClickListener {
             val number = editTextPhone!!.text.toString().trim()
 
@@ -42,13 +43,14 @@ class SignUpKleaners : ForHomeServiceBaseFragment() {
         })
 
     }
+
     private fun sendToVerification() {
         val args = Bundle()
         args.putString("phonenumber", editTextPhone.text.toString())
         val newFragment = NumberVerification()
         newFragment.arguments = args
-
-        fragmentManager!!.beginTransaction().replace(R.id.mForHomeContainerFrame, newFragment).commit()
+        mRelativeLayoutForGoneSignUp.visibility = View.GONE
+        fragmentManager!!.beginTransaction().addToBackStack("second frag").replace(R.id.mForHomeContainerFrame, newFragment).commit()
 
     }
 
@@ -56,6 +58,7 @@ class SignUpKleaners : ForHomeServiceBaseFragment() {
         super.onStart()
 
         if (FirebaseAuth.getInstance().currentUser != null) {
+            mRelativeLayoutForGoneSignUp.visibility = View.GONE
             fragmentManager!!.beginTransaction().replace(R.id.mForHomeContainerFrame, Profile()).commit()
         }
     }

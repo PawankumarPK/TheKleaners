@@ -7,15 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.hp.thekleaners.Adapters.ViewPagerRecycleByMailService
 import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
-import com.example.hp.thekleaners.BaseClasses.ForHomeServiceBaseFragment
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.ForHomeService
-import com.example.hp.thekleaners.activities.NavigationDrawer
-import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_recyclable_by_mail.*
 import java.util.*
 
-class RecyclableByMail : ForHomeServiceBaseFragment() {
+class RecyclableByMail : BaseNavigationFragment(){
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_recyclable_by_mail, container, false)
@@ -26,7 +23,7 @@ class RecyclableByMail : ForHomeServiceBaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mRecycleByMailServiceBackArrow.setOnClickListener { mRecycleByMailServiceBackArrowFunction() }
-        val viewPagerAdapter = ViewPagerRecycleByMailService(homeServiceActivity)
+        val viewPagerAdapter = ViewPagerRecycleByMailService(mainActivity)
         recycleByMailServiceViewPager.adapter = viewPagerAdapter
         val timer = Timer()
         timer.scheduleAtFixedRate(MyTimerTask(), 2000, 4000)
@@ -36,7 +33,7 @@ class RecyclableByMail : ForHomeServiceBaseFragment() {
 
         override fun run() {
 
-            homeServiceActivity.runOnUiThread(java.lang.Runnable {
+            mainActivity.runOnUiThread(java.lang.Runnable {
 
                 if (recycleByMailServiceViewPager == null) {
                     return@Runnable
