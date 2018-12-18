@@ -51,8 +51,7 @@ class ForHomeService : BaseActivity() {
     }
 
     private fun mForHomeContinueFunction() {
-        val intent = Intent(this, SignUpKleaners::class.java)
-        startActivity(intent)
+        supportFragmentManager.beginTransaction().replace(R.id.mForHomeContainerFrame, SignUpKleaners()).addToBackStack(null).commit()
 
     }
 

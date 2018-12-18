@@ -2,60 +2,61 @@ package com.example.hp.thekleaners.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
-import com.example.hp.thekleaners.BaseClasses.BaseActivity
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import com.example.hp.thekleaners.BaseClasses.ForHomeServiceBaseFragment
+import com.example.hp.thekleaners.MainActivity
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.VerifiyPhoneActivity
 import com.example.hp.thekleaners.fragments.NumberVerification
 import com.example.hp.thekleaners.fragments.Profile
-import com.example.hp.thekleaners.fragments.UserEditProfile
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_signup_kleaners.*
 
+class SignUpKleaners : ForHomeServiceBaseFragment() {
 
-class SignUpKleaners : BaseActivity() {
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_signup_kleaners, container, false)
+    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_signup_kleaners)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        buttonContinue.setOnClickListener(View.OnClickListener {
-            val number = editTextPhone.text.toString().trim()
+        buttonContinue!!.setOnClickListener(View.OnClickListener {
+            val number = editTextPhone!!.text.toString().trim()
 
             if (number.isEmpty() || number.length < 10) {
-                editTextPhone.error = "Valid Number is required"
-                editTextPhone.requestFocus()
+                editTextPhone!!.error = "Valid Number is required"
+                editTextPhone!!.requestFocus()
                 return@OnClickListener
             }
-            sendNumberToProfile()
-
-            /*intent.putExtra("phonenumber", number)
+            sendToVerification()
+/*
+            val intent = Intent(this@AuthActivity, VerifiyPhoneActivity::class.java)
+            intent.putExtra("phonenumber", number)
             startActivity(intent)*/
-
         })
 
+    }
+    private fun sendToVerification() {
+        val args = Bundle()
+        args.putString("phonenumber", editTextPhone.text.toString())
+        val newFragment = NumberVerification()
+        newFragment.arguments = args
+
+        fragmentManager!!.beginTransaction().replace(R.id.mForHomeContainerFrame, newFragment).commit()
 
     }
 
-    private fun sendNumberToProfile(){
-        val bundle = Bundle()
-        bundle.putString("phonenumber",editTextPhone.text.toString())
-        val myFragment = Profile()
-        myFragment.arguments = bundle
-        supportFragmentManager.beginTransaction().addToBackStack(null).replace(R.id.mSignUpFrameContainer, Profile()).commit()
-        // pUserName.setText("")
+    override fun onStart() {
+        super.onStart()
 
-
-    }
-
-    /* override fun onStart() {
-         super.onStart()
-
-         if (FirebaseAuth.getInstance().currentUser != null) {
-             supportFragmentManager.beginTransaction().addToBackStack(null).replace(R.id.mSignUpFrameContainer, Profile()).commit()
-             *//*intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent)*//*
+        if (FirebaseAuth.getInstance().currentUser != null) {
+            fragmentManager!!.beginTransaction().replace(R.id.mForHomeContainerFrame, Profile()).commit()
         }
-    }*/
+    }
 }

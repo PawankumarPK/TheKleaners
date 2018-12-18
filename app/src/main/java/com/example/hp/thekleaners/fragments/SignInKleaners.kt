@@ -38,7 +38,7 @@ class SignInKleaners : HomeBaseFragment() {
     }
 
     private fun mContinueSignInFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.mSignUpFrameContainer, Profile()).commit()
+      //  fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.mSignUpFrameContainer, Profile()).commit()
     }
 
 }

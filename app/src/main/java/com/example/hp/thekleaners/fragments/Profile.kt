@@ -6,9 +6,12 @@ import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import com.example.hp.thekleaners.BaseClasses.ForHomeServiceBaseFragment
 import com.example.hp.thekleaners.BaseClasses.HomeBaseFragment
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
@@ -16,7 +19,8 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.dialog_logout.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 
-class Profile : HomeBaseFragment() {
+class Profile : ForHomeServiceBaseFragment() {
+
 
     private val displayRectangle = Rect()
     private var width = 0
@@ -31,20 +35,19 @@ class Profile : HomeBaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        //var date = findViewById<View>(R.id.mUserNumber) as EditText
+
         metrics = DisplayMetrics()
-        homeActivity.window.decorView.getWindowVisibleDisplayFrame(displayRectangle)
+        homeServiceActivity.window.decorView.getWindowVisibleDisplayFrame(displayRectangle)
         width = (displayRectangle.width() * 0.9f).toInt()
-        homeActivity.windowManager.defaultDisplay.getMetrics(metrics)
-        dialog = Dialog(homeActivity)
+        homeServiceActivity.windowManager.defaultDisplay.getMetrics(metrics)
+        dialog = Dialog(homeServiceActivity)
         mRelativeLayoutMyAddress.setOnClickListener { mRelativeLayoutMyAddressFunction() }
         mRelativeLayoutMyService.setOnClickListener { mRelativeLayoutMyServiceFunction() }
         mEditProfile.setOnClickListener { mEditProfileFunction() }
         mLogout.setOnClickListener { logoutDialog() }
         mProfileBackArrow.setOnClickListener { mProfileBackArrowFunction() }
-
-        val name = this.arguments!!.getString("phonenumber").toString()
-        mUserNumber.text = name
-
     }
 
     private fun mRelativeLayoutMyAddressFunction() {
@@ -74,7 +77,7 @@ class Profile : HomeBaseFragment() {
 
     @SuppressLint("InflateParams")
     private fun logoutDialog() {
-        val layout = LayoutInflater.from(homeActivity).inflate(R.layout.dialog_logout, null, false)
+        val layout = LayoutInflater.from(homeServiceActivity).inflate(R.layout.dialog_logout, null, false)
         layout.minimumWidth = width
         dialog.setContentView(layout)
         dialog.buttonLogout.setOnClickListener { mDialogLogoutFunction() }

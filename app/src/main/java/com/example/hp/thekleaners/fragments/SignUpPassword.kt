@@ -22,7 +22,7 @@ class SignUpPassword : HomeBaseFragment(){
     }
 
     private fun mDoneFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.mSignUpFrameContainer, Profile()).commit()
+       // fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.mSignUpFrameContainer, Profile()).commit()
     }
     /*private fun mPasswordBackArrowFunction(){
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SignUpKleaners()).commit()

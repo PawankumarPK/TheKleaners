@@ -2,9 +2,12 @@ package com.example.hp.thekleaners.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import com.example.hp.thekleaners.BaseClasses.BaseActivity
+import com.example.hp.thekleaners.BaseClasses.ForHomeServiceBaseFragment
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.SignUpKleaners
 import com.google.android.gms.tasks.TaskExecutors
@@ -16,16 +19,20 @@ import kotlinx.android.synthetic.main.fragment_number_verification.*
 
 import java.util.concurrent.TimeUnit
 
-class NumberVerification : BaseActivity() {
+class NumberVerification : ForHomeServiceBaseFragment() {
 
     private var verificationId: String? = null
     private var mAuth: FirebaseAuth? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_number_verification)
 
-        mNumberVerficationBackArrow.setOnClickListener { mPasswordBackArrowFunction() }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_number_verification, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+      //  mNumberVerficationBackArrow.setOnClickListener { mPasswordBackArrowFunction() }
         buttonSignIn.setOnClickListener(View.OnClickListener {
             val code = editTextCode.text.toString().trim()
             if (code.isEmpty() || code.length < 6) {
@@ -38,13 +45,13 @@ class NumberVerification : BaseActivity() {
 
         mAuth = FirebaseAuth.getInstance()
 
-        val phonenumber = intent.getStringExtra("phonenumber")
+        val phonenumber = this.arguments!!.getString("phonenumber").toString()
         sendVerificationCode(phonenumber)
         mGetBundleData.text = phonenumber
 
     }
 
-    private fun sendNumberToProfile(){
+   /* private fun sendNumberToProfile(){
         val bundle = Bundle()
        bundle.putString("phonenumber",mGetBundleData.toString())
         val myFragment = Profile()
@@ -53,7 +60,7 @@ class NumberVerification : BaseActivity() {
 
 
     }
-
+*/
     private fun verifyCode(code: String?) {
         val credential = PhoneAuthProvider.getCredential(verificationId!!, code!!)
         signInWithCredential(credential)
@@ -64,12 +71,12 @@ class NumberVerification : BaseActivity() {
         mAuth!!.signInWithCredential(credential).addOnCompleteListener({ task ->
             if (task.isSuccessful) {
 
-                sendNumberToProfile()
-                supportFragmentManager.beginTransaction().addToBackStack(null).replace(R.id.mSignUpFrameContainer, Profile()).commit()
-                Toast.makeText(this@NumberVerification, "Successfully Verification", Toast.LENGTH_SHORT).show()
+              //  sendNumberToProfile()
+                fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.mForHomeContainerFrame, Profile()).commit()
+                Toast.makeText(context, "Successfully Verification", Toast.LENGTH_SHORT).show()
 
             } else {
-                Toast.makeText(this@NumberVerification, "Something went wrong", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show()
             }
         })
     }
@@ -108,9 +115,9 @@ class NumberVerification : BaseActivity() {
         }
     }
 
-    private fun mPasswordBackArrowFunction() {
+   /* private fun mPasswordBackArrowFunction() {
         val intent = Intent(this@NumberVerification, SignUpKleaners::class.java)
         startActivity(intent)
-    }
+    }*/
 }
 

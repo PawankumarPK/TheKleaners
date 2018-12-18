@@ -1,26 +1,44 @@
 package com.example.hp.thekleaners
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.example.hp.thekleaners.fragments.LanguageHomePage
-import com.example.hp.thekleaners.fragments.SignUpPassword
-import com.google.firebase.auth.PhoneAuthProvider
+import com.example.hp.thekleaners.BaseClasses.BaseActivity
+import com.example.hp.thekleaners.BlankFragment
+import com.example.hp.thekleaners.R
+import kotlinx.android.synthetic.main.activity_main.*
 
-
-class MainActivity : AppCompatActivity() {
-
-    var mCallbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks? = null
+class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        showFragementHome()
+        /*   mSend.setOnClickListener {
+             supportFragmentManager.beginTransaction().addToBackStack(null).replace(R.id.mContainer,BundleFragment()).commit()
+             intent.putExtra("name", pUserName.text.toString())
+            // intent.putExtra("password", pPassword.text.toString())
+             startActivity(intent)
+
+         }*/
+
+        mSend.setOnClickListener { sendInFragment() }
 
     }
 
-    private fun showFragementHome() {
-       /* supportFragmentManager.beginTransaction().replace(R.id.mFrameContainer, SignUpPassword())
-                .commit()*/
+    private fun sendInFragment() {
+
+        val bundle = Bundle()
+        bundle.putString("NAME_KEY", pUserName.text.toString())
+
+        //PASS OVER THE BUNDLE TO OUR FRAGMENT
+        val myFragment = BlankFragment()
+        myFragment.arguments = bundle
+
+        pUserName.setText("")
+
+        //THEN NOW SHOW OUR FRAGMENT
+        supportFragmentManager.beginTransaction().replace(R.id.mFrameContainer, myFragment).commit()
+
     }
 }
