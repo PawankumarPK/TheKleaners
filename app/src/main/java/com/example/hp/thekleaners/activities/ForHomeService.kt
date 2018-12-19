@@ -22,9 +22,9 @@ class ForHomeService : BaseNavigationFragment() {
 
         mainActivity = activity as NavigationDrawer
         mainActivity.toolbar.visibility = View.VISIBLE
-        //mainActivity.title_name.text = resources.getString(R.string.signIn)
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
+
         mHomeServiceBackArrow.setOnClickListener { mHomeServiceBackArrowFunction() }
         mLinearLayoutRecycleByMail.setOnClickListener { mLinearLayoutRecycleByMailFunction() }
         mLinearLayoutCubsidePickup.setOnClickListener { mLinearLayoutCubsidePickupFunction() }
@@ -41,27 +41,27 @@ class ForHomeService : BaseNavigationFragment() {
     }
 
     private fun mLinearLayoutRecycleByMailFunction() {
-        fragmentManager!!.beginTransaction().replace(R.id.mForHomeContainerFrame, RecyclableByMail()).addToBackStack(null).commit()
+        fragmentManager!!.beginTransaction().replace(R.id.containerView, RecyclableByMail()).addToBackStack(null).commit()
     }
 
     private fun mLinearLayoutCubsidePickupFunction() {
-        fragmentManager!!.beginTransaction().replace(R.id.mForHomeContainerFrame, CurbsidePickup()).addToBackStack(null).commit()
+        fragmentManager!!.beginTransaction().replace(R.id.containerView, CurbsidePickup()).addToBackStack(null).commit()
 
     }
 
     private fun mLinearLayoutMedicalFunction() {
-        fragmentManager!!.beginTransaction().replace(R.id.mForHomeContainerFrame, MedicalWaste()).addToBackStack(null).commit()
+        fragmentManager!!.beginTransaction().replace(R.id.containerView, MedicalWaste()).addToBackStack(null).commit()
 
     }
 
     private fun mLinearLayoutRecyclingServiceFunction() {
-        fragmentManager!!.beginTransaction().replace(R.id.mForHomeContainerFrame, RecyclingService()).addToBackStack(null).commit()
+        fragmentManager!!.beginTransaction().replace(R.id.containerView, RecyclingService()).addToBackStack(null).commit()
 
     }
 
     private fun mForHomeContinueFunction() {
         mRelativeLayoutForGone.visibility = View.GONE
-        fragmentManager!!.beginTransaction().replace(R.id.mForHomeContainerFrame, SignUpKleaners()).addToBackStack("first frag").commit()
+        fragmentManager!!.beginTransaction().replace(R.id.containerView, SignUpKleaners()).addToBackStack(null).commit()
 
     }
 

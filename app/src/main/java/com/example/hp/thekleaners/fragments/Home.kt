@@ -23,10 +23,12 @@ class Home : BaseNavigationFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         mainActivity = activity as NavigationDrawer
         mainActivity.toolbar.visibility = View.VISIBLE
         mainActivity.tabLayout.visibility = View.VISIBLE
         (activity as NavigationDrawer).setDrawerLocked(false)
+
         mContinueDailyService.setOnClickListener { mContinueDailyServiceFunction() }
 
         val viewPagerAdapter = ViewPagerAdapter(mainActivity)

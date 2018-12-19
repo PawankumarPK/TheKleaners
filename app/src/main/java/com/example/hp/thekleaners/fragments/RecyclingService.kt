@@ -9,6 +9,8 @@ import com.example.hp.thekleaners.Adapters.ViewPagerRecyclingService
 import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.ForHomeService
+import com.example.hp.thekleaners.activities.NavigationDrawer
+import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_recycling_service.*
 import java.util.*
 
@@ -23,6 +25,10 @@ class RecyclingService : BaseNavigationFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        mainActivity = activity as NavigationDrawer
+        mainActivity.toolbar.visibility = View.VISIBLE
+        mainActivity.tabLayout.visibility = View.GONE
+        (activity as NavigationDrawer).setDrawerLocked(true)
         mRecyclingBackArrow.setOnClickListener { mRecycleByMailServiceBackArrowFunction() }
 
         val viewPagerAdapter = ViewPagerRecyclingService(mainActivity)
@@ -53,8 +59,7 @@ class RecyclingService : BaseNavigationFragment() {
     }
 
     private fun mRecycleByMailServiceBackArrowFunction() {
-        val intent = Intent(context, ForHomeService::class.java)
-        startActivity(intent)
+        fragmentManager!!.beginTransaction().replace(R.id.containerView, ForHomeService()).addToBackStack(null).commit()
     }
 
 

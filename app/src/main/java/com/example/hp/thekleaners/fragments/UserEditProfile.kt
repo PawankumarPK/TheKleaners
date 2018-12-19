@@ -23,12 +23,12 @@ class UserEditProfile : BaseNavigationFragment() {
     }
 
     private fun mSubmitFunction() {
-        //fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, Profile()).commit()
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, Profile()).commit()
     }
 
 
     private fun mEditProfileBackArrowFunction() {
-       // fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, Profile()).commit()
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, Profile()).commit()
     }
 
 }

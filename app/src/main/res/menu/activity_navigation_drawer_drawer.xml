@@ -12,11 +12,6 @@
             android:title="Services" />
 
         <item
-            android:id="@+id/mLanguage"
-            android:icon="@drawable/ic_language"
-            android:title="Language" />
-
-        <item
             android:id="@+id/mPayment"
             android:icon="@drawable/ic_payment"
             android:title="Payment" />
@@ -25,6 +20,12 @@
             android:id="@+id/mAboutUs"
             android:icon="@drawable/ic_help"
             android:title="About Us" />
+
+        <item
+            android:id="@+id/mLanguage"
+            android:icon="@drawable/ic_language"
+            android:title="Privacy policy" />
+
     </group>
 
     <item android:title="">

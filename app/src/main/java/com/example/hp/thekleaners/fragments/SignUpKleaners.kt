@@ -1,5 +1,6 @@
 package com.example.hp.thekleaners.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -27,9 +28,11 @@ class SignUpKleaners : BaseNavigationFragment() {
         //mainActivity.title_name.text = resources.getString(R.string.signIn)
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
+
+        mMobileVerBackButton.setOnClickListener { mMobileVerBackButtonFunction() }
+
         buttonContinue!!.setOnClickListener(View.OnClickListener {
             val number = editTextPhone!!.text.toString().trim()
-
             if (number.isEmpty() || number.length < 10) {
                 editTextPhone!!.error = "Valid Number is required"
                 editTextPhone!!.requestFocus()
@@ -49,8 +52,8 @@ class SignUpKleaners : BaseNavigationFragment() {
         args.putString("phonenumber", editTextPhone.text.toString())
         val newFragment = NumberVerification()
         newFragment.arguments = args
-        mRelativeLayoutForGoneSignUp.visibility = View.GONE
-        fragmentManager!!.beginTransaction().addToBackStack("second frag").replace(R.id.mForHomeContainerFrame, newFragment).commit()
+      //  mRelativeLayoutForGoneSignUp.visibility = View.GONE
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, newFragment).commit()
 
     }
 
@@ -59,7 +62,13 @@ class SignUpKleaners : BaseNavigationFragment() {
 
         if (FirebaseAuth.getInstance().currentUser != null) {
             mRelativeLayoutForGoneSignUp.visibility = View.GONE
-            fragmentManager!!.beginTransaction().replace(R.id.mForHomeContainerFrame, Profile()).commit()
+            fragmentManager!!.beginTransaction().replace(R.id.containerView, PricingGuide()).commit()
         }
     }
+
+    private fun mMobileVerBackButtonFunction() {
+        val intent = Intent(context, NavigationDrawer::class.java)
+        startActivity(intent)
+    }
+
 }

@@ -13,6 +13,7 @@ import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.dialog_logout.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 
@@ -32,8 +33,11 @@ class Profile : BaseNavigationFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        mainActivity = activity as NavigationDrawer
+        mainActivity.toolbar.visibility = View.VISIBLE
+        mainActivity.tabLayout.visibility = View.GONE
+        (activity as NavigationDrawer).setDrawerLocked(true)
 
-        //var date = findViewById<View>(R.id.mUserNumber) as EditText
 
         metrics = DisplayMetrics()
         mainActivity.window.decorView.getWindowVisibleDisplayFrame(displayRectangle)
@@ -62,7 +66,7 @@ class Profile : BaseNavigationFragment() {
     }
 
     private fun mEditProfileFunction() {
-        // fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, UserEditProfile()).commit()
+         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, UserEditProfile()).commit()
     }
 
     private fun mDialogLogoutFunction() {

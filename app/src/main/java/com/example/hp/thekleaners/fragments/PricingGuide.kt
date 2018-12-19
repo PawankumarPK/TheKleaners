@@ -21,7 +21,6 @@ class PricingGuide : BaseNavigationFragment() {
 
         mainActivity = activity as NavigationDrawer
         mainActivity.toolbar.visibility = View.VISIBLE
-        //mainActivity.title_name.text = resources.getString(R.string.signIn)
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
         mProceedNext.setOnClickListener { mProceedNextFunction() }

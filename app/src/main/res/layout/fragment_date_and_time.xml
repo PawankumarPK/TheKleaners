@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/mDateToolbar"
@@ -38,7 +38,8 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/mDateToolbar"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginBottom="20dp"
+            android:scaleX="1.1" />
 
         <Button
             android:id="@+id/mSavedNewAddress"
@@ -46,7 +47,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_margin="10dp"
-            android:layout_below="@+id/date_picker"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/color_gradient"
@@ -55,4 +55,4 @@
 
     </RelativeLayout>
 
-</ScrollView>
+</RelativeLayout>

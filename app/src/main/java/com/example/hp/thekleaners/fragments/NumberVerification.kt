@@ -36,7 +36,9 @@ class NumberVerification : BaseNavigationFragment() {
         //mainActivity.title_name.text = resources.getString(R.string.signIn)
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
-      //  mNumberVerficationBackArrow.setOnClickListener { mPasswordBackArrowFunction() }
+
+        mNumberVerficationBackArrow.setOnClickListener { mPasswordBackArrowFunction() }
+
         buttonSignIn.setOnClickListener(View.OnClickListener {
             val code = editTextCode.text.toString().trim()
             if (code.isEmpty() || code.length < 6) {
@@ -54,16 +56,16 @@ class NumberVerification : BaseNavigationFragment() {
 
     }
 
-   /* private fun sendNumberToProfile(){
-        val bundle = Bundle()
-       bundle.putString("phonenumber",mGetBundleData.toString())
-        val myFragment = Profile()
-        myFragment.arguments = bundle
-       // pUserName.setText("")
+    /* private fun sendNumberToProfile(){
+         val bundle = Bundle()
+        bundle.putString("phonenumber",mGetBundleData.toString())
+         val myFragment = Profile()
+         myFragment.arguments = bundle
+        // pUserName.setText("")
 
 
-    }
-*/
+     }
+ */
     private fun verifyCode(code: String?) {
         val credential = PhoneAuthProvider.getCredential(verificationId!!, code!!)
         signInWithCredential(credential)
@@ -74,8 +76,8 @@ class NumberVerification : BaseNavigationFragment() {
         mAuth!!.signInWithCredential(credential).addOnCompleteListener({ task ->
             if (task.isSuccessful) {
 
-              //  sendNumberToProfile()
-                fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.mForHomeContainerFrame, Profile()).commit()
+                //  sendNumberToProfile()
+                fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, Profile()).commit()
                 Toast.makeText(context, "Successfully Verification", Toast.LENGTH_SHORT).show()
 
             } else {
@@ -114,13 +116,12 @@ class NumberVerification : BaseNavigationFragment() {
 
         override fun onVerificationFailed(e: FirebaseException) {
 
-          //  Toast.makeText(this@NumberVerification, "Failed", Toast.LENGTH_SHORT).show()
+            //  Toast.makeText(this@NumberVerification, "Failed", Toast.LENGTH_SHORT).show()
         }
     }
 
-   /* private fun mPasswordBackArrowFunction() {
-        val intent = Intent(this@NumberVerification, SignUpKleaners::class.java)
-        startActivity(intent)
-    }*/
+    private fun mPasswordBackArrowFunction() {
+        fragmentManager!!.beginTransaction().replace(R.id.containerView, SignUpKleaners()).addToBackStack(null).commit()
+    }
 }
 

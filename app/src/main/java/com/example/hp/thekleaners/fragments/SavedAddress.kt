@@ -23,6 +23,7 @@ class SavedAddress : BaseNavigationFragment() {
         mainActivity.toolbar.visibility = View.VISIBLE
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
+
         mSavedNewAddress.setOnClickListener { mSavedNewAddressFunction() }
         mSavedNewAddressBackArrow.setOnClickListener { mSavedNewAddressBackArrowFunction() }
 

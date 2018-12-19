@@ -9,6 +9,8 @@ import com.example.hp.thekleaners.Adapters.ViewPagerMedical
 import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.ForHomeService
+import com.example.hp.thekleaners.activities.NavigationDrawer
+import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_medical.*
 import java.util.*
 
@@ -22,6 +24,10 @@ class MedicalWaste : BaseNavigationFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        mainActivity = activity as NavigationDrawer
+        mainActivity.toolbar.visibility = View.VISIBLE
+        mainActivity.tabLayout.visibility = View.GONE
+        (activity as NavigationDrawer).setDrawerLocked(true)
         mMedicalBackArrow.setOnClickListener { mRecycleByMailServiceBackArrowFunction() }
         val viewPagerAdapter = ViewPagerMedical(mainActivity)
         medicalWasteViewPager.adapter = viewPagerAdapter
@@ -51,7 +57,6 @@ class MedicalWaste : BaseNavigationFragment() {
     }
 
     private fun mRecycleByMailServiceBackArrowFunction() {
-        val intent = Intent(context, ForHomeService::class.java)
-        startActivity(intent)
+        fragmentManager!!.beginTransaction().replace(R.id.containerView, ForHomeService()).addToBackStack(null).commit()
     }
 }
