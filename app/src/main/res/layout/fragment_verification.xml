@@ -10,7 +10,6 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"
-            android:layout_below="@+id/mSignInToolbar"
             android:text="Wait for the code I sent You"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
             android:textColor="@color/colorAccent" />

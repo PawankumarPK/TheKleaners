@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import com.example.hp.thekleaners.Adapters.ViewPagerCubsidePickupService
 import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
-import com.example.hp.thekleaners.activities.ForHomeService
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_curbside_pickup.*

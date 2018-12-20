@@ -35,7 +35,7 @@
         <activity android:name=".ForgotPassword" />
         <activity android:name=".AuthActivity" />
         <activity android:name=".fragments.SignUpKleaners" />
-        <activity android:name=".activities.ForHomeService" />
+        <activity android:name=".fragments.ForHomeService" />
         <activity android:name=".VerifiyPhoneActivity"></activity>
         <activity android:name=".fragments.NumberVerification"></activity>
 

@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import com.example.hp.thekleaners.Adapters.ViewPagerOtherService
 import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
-import com.example.hp.thekleaners.activities.ForHomeService
 import kotlinx.android.synthetic.main.fragment_other_service.*
 import java.util.*
 
