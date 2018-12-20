@@ -66,5 +66,5 @@ class Home : BaseNavigationFragment() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, UpcomingServices()).commit()
     }
 
-}
+}//home
 
