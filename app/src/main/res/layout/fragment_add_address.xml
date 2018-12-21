@@ -39,6 +39,15 @@
 
             </android.support.v7.widget.Toolbar>
 
+            <ProgressBar
+                android:id="@+id/addAddress_progress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mParentRelativeLayout"
+                android:indeterminate="true"
+                android:visibility="invisible" />
+
 
             <RadioGroup
                 android:id="@+id/mRadioGroupName"
@@ -62,41 +71,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
-                    android:text="Farm House"
-                    android:layout_marginStart="20dp" />
+                    android:layout_marginStart="20dp"
+                    android:text="Farm House" />
 
             </RadioGroup>
-
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/mFullName"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="Full Name"
-                    android:inputType="text"
-                    android:textSize="15sp" />
-            </android.support.design.widget.TextInputLayout>
-
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/mMobileNumber"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="Mobile Number"
-                    android:inputType="number"
-                    android:textSize="15sp" />
-            </android.support.design.widget.TextInputLayout>
-
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"

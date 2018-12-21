@@ -19,13 +19,10 @@ import java.util.*
 
 class UserEditProfile : BaseNavigationFragment() {
 
-
     private var user_id: String? = null
-
     private var storageReference: StorageReference? = null
     private var firebaseAuth: FirebaseAuth? = null
     private var firebaseFirestore: FirebaseFirestore? = null
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_user_edit_profile, container, false)
@@ -33,7 +30,7 @@ class UserEditProfile : BaseNavigationFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // mEditProfileBackArrow.setOnClickListener { mEditProfileBackArrowFunction() }
+        mEditProfileBackArrow.setOnClickListener { mEditProfileBackArrowFunction() }
 
         firebaseAuth = FirebaseAuth.getInstance()
         firebaseFirestore = FirebaseFirestore.getInstance()
@@ -105,8 +102,9 @@ class UserEditProfile : BaseNavigationFragment() {
             }
         }
     }
-}
 
-//setup_name
-//setup_surname
-//setup_number
+
+    private fun mEditProfileBackArrowFunction() {
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, Profile()).commit()
+    }
+}
