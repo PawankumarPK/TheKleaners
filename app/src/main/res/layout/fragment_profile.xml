@@ -119,7 +119,6 @@
                 android:layout_below="@+id/mRelativeLayout"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
-                android:text="Pawan Kumar"
                 android:textColor="#fff"
                 android:textSize="20sp" />
 
@@ -131,7 +130,6 @@
                 android:layout_below="@+id/mUsername"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="7dp"
-                android:text="9910765616"
                 android:textColor="#fff"
                 android:textSize="13sp" />
 
@@ -141,10 +139,19 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/mUserNumber"
                 android:layout_centerHorizontal="true"
-                android:text="pk9910765616@gmail.com"
                 android:textColor="#fff"
                 android:textSize="13sp" />
         </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/profile_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mParentRelativeLayout"
+            android:indeterminate="true"
+            android:visibility="invisible" />
+
 
         <RelativeLayout
             android:layout_width="match_parent"

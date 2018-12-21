@@ -23,8 +23,8 @@ class Home : BaseNavigationFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mainActivity = activity as NavigationDrawer
-        mainActivity.toolbar.visibility = View.VISIBLE
-        mainActivity.tabLayout.visibility = View.VISIBLE
+/*        mainActivity.toolbar.visibility = View.VISIBLE
+        mainActivity.tabLayout.visibility = View.VISIBLE*/
         (activity as NavigationDrawer).setDrawerLocked(false)
 
         mContinueDailyService.setOnClickListener { mContinueDailyServiceFunction() }

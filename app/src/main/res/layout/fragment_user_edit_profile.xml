@@ -88,70 +88,131 @@
 
         </RelativeLayout>
 
-        <View
-            android:id="@+id/mView"
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_below="@+id/mParentRelativeLayout" />
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/mFullName"
+        <ProgressBar
+            android:id="@+id/setup_progress"
+            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/mView"
-            android:layout_margin="10dp">
+            android:layout_below="@+id/mParentRelativeLayout"
+            android:indeterminate="true"
+            android:visibility="invisible" />
 
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/mFirstNameTextInput"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Full name"
-                android:inputType="text"
-                android:textSize="15sp" />
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/mEmailAddress"
+        <LinearLayout
+            android:id="@+id/mLinearLayoutOne"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/mFullName"
+            android:layout_below="@+id/setup_progress"
             android:layout_margin="10dp">
 
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/mEmailAddressTextInput"
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_user_profile" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/setup_nameInputLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Email Id"
-                android:inputType="textEmailAddress"
-                android:textSize="15sp" />
-        </android.support.design.widget.TextInputLayout>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
 
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/setup_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Full Name"
+                    android:inputType="textPersonName"
+                    android:textSize="18sp" />
+            </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/mMobileNumber"
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mLinearLayoutTwo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/mEmailAddress"
+            android:layout_below="@+id/mLinearLayoutOne"
             android:layout_margin="10dp">
 
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/mMobileNumberTextInput"
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_mail_profile" />
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/setup_surname_InputLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="Mobile Number"
-                android:inputType="number"
-                android:textSize="15sp" />
-        </android.support.design.widget.TextInputLayout>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/setup_surname"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="E-mail address (optional)"
+                    android:inputType="textEmailAddress"
+                    android:textSize="18sp" />
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mLinearLayoutThree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mLinearLayoutTwo"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_mobile_profile" />
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/setup_number_InputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/setup_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Mobile No."
+                    android:inputType="number"
+                    android:textSize="18sp" />
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
 
         <Button
-            android:id="@+id/mSubmit"
+            android:id="@+id/setup_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_below="@+id/mMobileNumber"
-            android:layout_margin="10dp"
+            android:layout_below="@+id/mLinearLayoutThree"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/color_gradient"
-            android:text="Submit"
-            android:textColor="#fff" />
+            android:text="Update Changes"
+            android:textColor="@android:color/white" />
+
     </RelativeLayout>
 </ScrollView>

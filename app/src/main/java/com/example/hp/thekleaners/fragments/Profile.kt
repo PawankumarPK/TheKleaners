@@ -9,13 +9,18 @@ import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.dialog_logout.*
 import kotlinx.android.synthetic.main.fragment_profile.*
+import kotlinx.android.synthetic.main.fragment_user_edit_profile.*
 
 class Profile : BaseNavigationFragment() {
 
@@ -25,6 +30,12 @@ class Profile : BaseNavigationFragment() {
     private lateinit var dialog: Dialog
     private lateinit var metrics: DisplayMetrics
 
+    private var user_id: String? = null
+    private var storageReference: StorageReference? = null
+    private var firebaseAuth: FirebaseAuth? = null
+    private var firebaseFirestore: FirebaseFirestore? = null
+
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_profile, container, false)
@@ -32,6 +43,13 @@ class Profile : BaseNavigationFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        firebaseAuth = FirebaseAuth.getInstance()
+        firebaseFirestore = FirebaseFirestore.getInstance()
+        user_id = FirebaseAuth.getInstance().uid
+        storageReference = FirebaseStorage.getInstance().reference
+
 
         mainActivity = activity as NavigationDrawer
         mainActivity.toolbar.visibility = View.VISIBLE
@@ -49,7 +67,42 @@ class Profile : BaseNavigationFragment() {
         mEditProfile.setOnClickListener { mEditProfileFunction() }
         mLogout.setOnClickListener { logoutDialog() }
         mProfileBackArrow.setOnClickListener { mProfileBackArrowFunction() }
+
+
+        profile_progress.visibility = View.VISIBLE
+
+        firebaseFirestore!!.collection("Users").document(user_id!!).get().addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+
+                if (task.result.exists()) {
+
+                    val name = task.result.getString("name")
+                    val surname = task.result.getString("surname")
+                    val number = task.result.getString("number")
+
+                    mUsername.text = name
+                    mUserEmail.text = surname
+                    mUserNumber.text = number
+
+                }
+
+            } else {
+
+                val error = task.exception!!.message
+                Toast.makeText(context, "(FIRESTORE Retrieve Error) : $error", Toast.LENGTH_LONG).show()
+
+            }
+            profile_progress.visibility = View.INVISIBLE
+            //setup_btn.isEnabled = true
+        }
+
     }
+
+
+
+
+
+
 
     private fun mRelativeLayoutMyAddressFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedAddress()).commit()

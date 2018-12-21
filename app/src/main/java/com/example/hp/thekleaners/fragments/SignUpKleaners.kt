@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.hp.thekleaners.AuthActivity
 import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
@@ -57,15 +58,23 @@ class SignUpKleaners : BaseNavigationFragment() {
 
     }
 
+   /* override fun onStart() {
+        super.onStart()
+
+        if (FirebaseAuth.getInstance().currentUser != null) {
+            val intent = Intent(context, AuthActivity::class.java)
+            startActivity(intent)
+        }
+    }*/
+
     override fun onStart() {
         super.onStart()
 
         if (FirebaseAuth.getInstance().currentUser != null) {
             mRelativeLayoutForGoneSignUp.visibility = View.GONE
-            fragmentManager!!.beginTransaction().replace(R.id.containerView, PricingGuide()).commit()
+            fragmentManager!!.beginTransaction().replace(R.id.containerView, Profile()).commit()
         }
     }
-
     private fun mMobileVerBackButtonFunction() {
         val intent = Intent(context, NavigationDrawer::class.java)
         startActivity(intent)
