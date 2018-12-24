@@ -44,7 +44,6 @@
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/mParentRelativeLayout"
                 android:indeterminate="true"
                 android:visibility="invisible" />
 
@@ -86,7 +85,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="Address"
-                    android:inputType="text"
+                    android:inputType="textPostalAddress"
                     android:textSize="15sp" />
             </android.support.design.widget.TextInputLayout>
 
@@ -101,7 +100,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="Landmark"
-                    android:inputType="text"
+                    android:inputType="textPostalAddress"
                     android:textSize="15sp" />
             </android.support.design.widget.TextInputLayout>
 
@@ -131,7 +130,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="Select state"
-                    android:inputType="textCapWords"
+                    android:inputType="textPostalAddress"
                     android:textSize="15sp" />
             </android.support.design.widget.TextInputLayout>
 

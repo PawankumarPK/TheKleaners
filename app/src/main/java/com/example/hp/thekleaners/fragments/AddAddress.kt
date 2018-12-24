@@ -2,6 +2,7 @@ package com.example.hp.thekleaners.fragments
 
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,8 +12,7 @@ import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.CollectionReference
-import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
@@ -20,14 +20,13 @@ import com.google.firebase.storage.UploadTask
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_add_address.*
 
+
 class AddAddress : BaseNavigationFragment() {
 
     private var user_id: String? = null
-
     private var storageReference: StorageReference? = null
     private var firebaseAuth: FirebaseAuth? = null
     private var firebaseFirestore: FirebaseFirestore? = null
-
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -44,84 +43,89 @@ class AddAddress : BaseNavigationFragment() {
         mContinueAddAdress.setOnClickListener { mContinueAddAdressFunction() }
         mAddAddressBackArrow.setOnClickListener { mAddAddressBackArrowFunction() }
 
-
         firebaseAuth = FirebaseAuth.getInstance()
         firebaseFirestore = FirebaseFirestore.getInstance()
         user_id = FirebaseAuth.getInstance().uid
-
         storageReference = FirebaseStorage.getInstance().reference
 
-        addAddress_progress.visibility = View.VISIBLE
-        mContinueAddAdress.isEnabled = false
+         addAddress_progress.visibility = View.VISIBLE
+         mContinueAddAdress.isEnabled = false
 
+        firebaseFirestore!!.collection("Users").addSnapshotListener { documentSnapshots, e ->
+            if (e != null) {
+                //Log.d("", "Error : " + e.message)
+            }
+            for (doc in documentSnapshots.documentChanges) {
+                if (doc.type == DocumentChange.Type.ADDED) {
+                    // Log.d("Brand Name: ", doc.document.id)
+                    doc.document.reference.collection("Address").addSnapshotListener { documentSnapshots, e ->
+                        if (e != null) {
+                            Log.d("", "Error : " + e.message)
+                        }
+                        for (doc in documentSnapshots.documentChanges) {
+                            if (doc.type == DocumentChange.Type.ADDED) {
 
+                                val address = doc.document.getString("Address")
+                                val landmark = doc.document.getString("Landmark")
+                                val pincode = doc.document.getString("Pincode")
+                                val selectState = doc.document.getString("State")
+                                val selectCity = doc.document.getString("City")
 
-        firebaseFirestore!!.collection("Users").document(user_id!!).get().addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-
-                if (task.result.exists()) {
-
-                    val name = task.result.getString("name")
-                    val surname = task.result.getString("surname")
-                    val number = task.result.getString("number")
-
-                    mAddress.setText(name)
-                    mLandmark.setText(surname)
-                    PinCode.setText(number)
+                                mAddress.setText(address)
+                                mLandmark.setText(landmark)
+                                PinCode.setText(pincode)
+                                mSelectState.setText(selectState)
+                                mSelectCity.setText(selectCity)
+                            }
+                        }
+                    }
 
                 }
 
-            } else {
-
-                val error = task.exception!!.message
-                Toast.makeText(context, "(FIRESTORE Retrieve Error) : $error", Toast.LENGTH_LONG).show()
-
             }
-            addAddress_progress.visibility = View.INVISIBLE
-            mContinueAddAdress.isEnabled = true
+
         }
 
+        addAddress_progress.visibility = View.INVISIBLE
+        mContinueAddAdress.isEnabled = true
 
-        mContinueAddAdress.setOnClickListener(View.OnClickListener {
-            val user_name = mAddress.text.toString()
-            val surname_name = mLandmark.text.toString()
-            val number_name = PinCode.text.toString()
-            if (!TextUtils.isEmpty(user_name) || !TextUtils.isEmpty(surname_name) || !TextUtils.isEmpty(number_name)) {
+        mContinueAddAdress.setOnClickListener {
+            val address = mAddress.text.toString()
+            val landmark = mLandmark.text.toString()
+            val pincode = PinCode.text.toString()
+            val selectState = mSelectState.text.toString()
+            val selectCity = mSelectCity.text.toString()
+
+            if (!TextUtils.isEmpty(address) || !TextUtils.isEmpty(landmark) || !TextUtils.isEmpty(pincode) ||
+                    !TextUtils.isEmpty(selectState) || !TextUtils.isEmpty(selectCity)) {
 
                 addAddress_progress.visibility = View.VISIBLE
-
-                storeFirestore(null, user_name, surname_name, number_name)
+                storeFirestore(null, address, landmark, pincode, selectState, selectCity)
             }
-        })
-
-
+        }
     }
 
 
-    private fun storeFirestore(task: Task<UploadTask.TaskSnapshot>?, user_name: String, surname: String, number: String) {
+    private fun storeFirestore(task: Task<UploadTask.TaskSnapshot>?, address: String, landmark: String, pincode: String, state: String, city: String) {
 
         val userMap = HashMap<String, String>()
-        userMap["name"] = user_name
-        userMap["surname"] = surname
-        userMap["number"] = number
+        userMap["Address"] = address
+        userMap["Landmark"] = landmark
+        userMap["Pincode"] = pincode
+        userMap["State"] = state
+        userMap["City"] = city
 
         firebaseFirestore!!.collection("Users").document(user_id!!).collection("Address").add(userMap as Map<String, Any>).addOnCompleteListener { task ->
 
             if (task.isSuccessful) {
-                Toast.makeText(context, "User Settings are updated", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "User Address are updated", Toast.LENGTH_SHORT).show()
 
-                fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, Profile()).commit()
-
+                fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedAddress()).commit()
 
             }
         }
-
-}
-
-
-
-
-private fun mContinueAddAdressFunction() {
+    }
+    private fun mContinueAddAdressFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedAddress()).commit()
     }
 

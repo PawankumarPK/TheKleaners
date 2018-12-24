@@ -11,8 +11,7 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/mDateToolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorAccent">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/mDateBackArrow"
@@ -21,25 +20,66 @@
                 android:layout_marginEnd="13dp"
                 android:layout_marginRight="13dp"
                 android:contentDescription="@null"
-                android:src="@drawable/ic_white_left_arrow" />
+                android:src="@drawable/left_arrow" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Select Date"
-                android:textColor="#fff"
+                android:textColor="#1b1a1a"
                 android:textSize="20sp" />
 
         </android.support.v7.widget.Toolbar>
+
+        <ProgressBar
+            android:id="@+id/timing_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mDateToolbar"
+            android:indeterminate="true"
+            android:visibility="invisible" />
 
         <DatePicker
             android:id="@+id/date_picker"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/mDateToolbar"
-            android:layout_marginBottom="20dp"
+            android:layout_below="@+id/timing_progress"
             android:scaleX="1.1" />
+
+        <TextView
+            android:id="@+id/mDailyServiceTaken"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/date_picker"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:text="Daily Service"
+            android:textColor="#000" />
+
+        <TextView
+            android:id="@+id/mDailyServiceAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/date_picker"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_toEndOf="@+id/mDailyServiceTaken"
+            android:layout_toRightOf="@+id/mDailyServiceTaken"
+            android:text="82Rs"
+            android:textColor="#000" />
+
+        <TextView
+            android:id="@+id/mDailyServiceTiming"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/date_picker"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_toEndOf="@+id/mDailyServiceAmount"
+            android:layout_toRightOf="@+id/mDailyServiceAmount"
+            android:text="20-12-2018"
+            android:textColor="#000" />
 
         <Button
             android:id="@+id/mSavedNewAddress"

@@ -35,8 +35,6 @@ class UserEditProfile : BaseNavigationFragment() {
         firebaseAuth = FirebaseAuth.getInstance()
         firebaseFirestore = FirebaseFirestore.getInstance()
         user_id = FirebaseAuth.getInstance().uid
-
-
         storageReference = FirebaseStorage.getInstance().reference
 
         setup_progress.visibility = View.VISIBLE

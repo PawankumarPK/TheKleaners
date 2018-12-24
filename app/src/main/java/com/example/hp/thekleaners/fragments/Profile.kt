@@ -99,11 +99,6 @@ class Profile : BaseNavigationFragment() {
     }
 
 
-
-
-
-
-
     private fun mRelativeLayoutMyAddressFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedAddress()).commit()
     }

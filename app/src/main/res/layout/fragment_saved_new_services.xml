@@ -37,10 +37,49 @@
             </LinearLayout>
         </android.support.v7.widget.Toolbar>
 
+        <ProgressBar
+            android:id="@+id/savedService_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mToolbarAddress"
+            android:indeterminate="true"
+            android:visibility="invisible" />
+
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/mToolbarAddress">
+            android:layout_below="@+id/savedService_progress">
+
+
+            <TextView
+                android:id="@+id/mServiceTaken"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Saved Services"
+                android:textColor="#1b1a1a"
+                android:textSize="25sp" />
+
+
+            <TextView
+                android:id="@+id/mServiceAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mServiceTaken"
+                android:text="Saved Services"
+                android:textColor="#1b1a1a"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/mServiceTiming"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mServiceAmount"
+                android:text="Saved Services"
+                android:textColor="#1b1a1a"
+                android:textSize="25sp" />
+
 
             <ImageView
                 android:id="@+id/mImageView"
