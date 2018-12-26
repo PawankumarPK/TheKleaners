@@ -50,42 +50,41 @@ class SavedServices: BaseNavigationFragment() {
         mSavedNewService.isEnabled = false
 
 
-        /* firebaseFirestore!!.collection("Users").addSnapshotListener { documentSnapshots, e ->
-            if (e != null) {
-                //Log.d("", "Error : " + e.message)
-            }
-            for (doc in documentSnapshots.documentChanges) {
-                if (doc.type == DocumentChange.Type.ADDED) {
-                    // Log.d("Brand Name: ", doc.document.id)
-                    doc.document.reference.collection("Services").addSnapshotListener { documentSnapshots, e ->
-                        if (e != null) {
-                            Log.d("", "Error : " + e.message)
-                        }
-                        for (doc in documentSnapshots.documentChanges) {
-                            if (doc.type == DocumentChange.Type.ADDED) {
+         firebaseFirestore!!.collection("Users").addSnapshotListener { documentSnapshots, e ->
+             if (e != null) {
+                 //Log.d("", "Error : " + e.message)
+             }
+             for (doc in documentSnapshots.documentChanges) {
+                 if (doc.type == DocumentChange.Type.ADDED) {
+                     // Log.d("Brand Name: ", doc.document.id)
+                     doc.document.reference.collection("Services").addSnapshotListener { documentSnapshots, e ->
+                         if (e != null) {
+                             Log.d("", "Error : " + e.message)
+                         }
+                         for (doc in documentSnapshots.documentChanges) {
+                             if (doc.type == DocumentChange.Type.ADDED) {
 
-                                val address = doc.document.getString("Service Taken")
-                                val landmark = doc.document.getString("Service Amount")
-                                val pincode = doc.document.getString("Service Start Timing")
+                                 val address = doc.document.getString("Service Taken")
+                                 val landmark = doc.document.getString("Service Amount")
+                                 val pincode = doc.document.getString("Service Start Timing")
 
 
-                                mServiceTaken.text = address
-                                mServiceAmount.text = landmark
-                                mServiceTiming.text = pincode
+                                 mServiceTaken.text = address
+                                 mServiceAmount.text = landmark
+                                 mServiceTiming.text = pincode
 
-                            }
-                            else {
+                             } else {
 
-                                Toast.makeText(context, "(FIRESTORE Retrieve Error)", Toast.LENGTH_LONG).show()
+                                 Toast.makeText(context, "(FIRESTORE Retrieve Error)", Toast.LENGTH_LONG).show()
 
-                            }
-                        }
+                             }
+                         }
 
-                    }
-                }
+                     }
+                 }
 
-            }
-*/
+             }
+         }
 
        /* firebaseFirestore!!.collection("Users").document(user_id!!).collection("Services").addSnapshotListener { documentSnapshots, e ->
             if (e != null) {

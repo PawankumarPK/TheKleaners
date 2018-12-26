@@ -40,7 +40,7 @@ class AddAddress : BaseNavigationFragment() {
         mainActivity.toolbar.visibility = View.VISIBLE
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
-        mContinueAddAdress.setOnClickListener { mContinueAddAdressFunction() }
+       // mContinueAddAdress.setOnClickListener { mContinueAddAdressFunction() }
         mAddAddressBackArrow.setOnClickListener { mAddAddressBackArrowFunction() }
 
         firebaseAuth = FirebaseAuth.getInstance()
@@ -49,8 +49,9 @@ class AddAddress : BaseNavigationFragment() {
         storageReference = FirebaseStorage.getInstance().reference
 
          addAddress_progress.visibility = View.VISIBLE
-         mContinueAddAdress.isEnabled = false
+         //mContinueAddAdress.isEnabled = false
 
+/*
         firebaseFirestore!!.collection("Users").addSnapshotListener { documentSnapshots, e ->
             if (e != null) {
                 //Log.d("", "Error : " + e.message)
@@ -64,18 +65,22 @@ class AddAddress : BaseNavigationFragment() {
                         }
                         for (doc in documentSnapshots.documentChanges) {
                             if (doc.type == DocumentChange.Type.ADDED) {
+                                Log.d("SubBrands Name: ", doc.document.id)
 
+                                doc.document.id
                                 val address = doc.document.getString("Address")
                                 val landmark = doc.document.getString("Landmark")
                                 val pincode = doc.document.getString("Pincode")
                                 val selectState = doc.document.getString("State")
                                 val selectCity = doc.document.getString("City")
 
-                                mAddress.setText(address)
+                              */
+/*  mAddress.setText(address)
                                 mLandmark.setText(landmark)
                                 PinCode.setText(pincode)
                                 mSelectState.setText(selectState)
-                                mSelectCity.setText(selectCity)
+                                mSelectCity.setText(selectCity)*//*
+
                             }
                         }
                     }
@@ -88,6 +93,7 @@ class AddAddress : BaseNavigationFragment() {
 
         addAddress_progress.visibility = View.INVISIBLE
         mContinueAddAdress.isEnabled = true
+*/
 
         mContinueAddAdress.setOnClickListener {
             val address = mAddress.text.toString()
@@ -99,7 +105,7 @@ class AddAddress : BaseNavigationFragment() {
             if (!TextUtils.isEmpty(address) || !TextUtils.isEmpty(landmark) || !TextUtils.isEmpty(pincode) ||
                     !TextUtils.isEmpty(selectState) || !TextUtils.isEmpty(selectCity)) {
 
-                addAddress_progress.visibility = View.VISIBLE
+                addAddress_progress.visibility = View.INVISIBLE
                 storeFirestore(null, address, landmark, pincode, selectState, selectCity)
             }
         }
@@ -120,7 +126,8 @@ class AddAddress : BaseNavigationFragment() {
             if (task.isSuccessful) {
                 Toast.makeText(context, "User Address are updated", Toast.LENGTH_SHORT).show()
 
-                fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedAddress()).commit()
+
+                mContinueAddAdressFunction()
 
             }
         }
