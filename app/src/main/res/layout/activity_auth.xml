@@ -1,71 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <EditText
-        android:id="@+id/setup_name"
+        android:id="@+id/edit_text_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
-        android:hint="Enter Name"
-        android:inputType="textPersonName"
-        android:padding="15dp"
-        android:textSize="18sp" />
+        android:hint="Title"
+        android:inputType="text" />
 
     <EditText
-        android:id="@+id/setup_surname"
+        android:id="@+id/edit_text_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/setup_name"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
-        android:hint="Enter Surname"
-        android:inputType="textPersonName"
-        android:padding="15dp"
-        android:textSize="18sp" />
-
-    <EditText
-        android:id="@+id/setup_number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/setup_surname"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
-        android:hint="Enter Number"
-        android:inputType="textPersonName"
-        android:padding="15dp"
-        android:textSize="18sp"
-        tools:ignore="TextFields" />
+        android:hint="Description"
+        android:inputType="text" />
 
     <Button
-        android:id="@+id/setup_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/setup_number"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="18dp"
-        android:backgroundTint="@color/colorAccent"
-        android:padding="15dp"
-        android:text="Send"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="18sp" />
+        android:onClick="addNote"
+        android:text="Add" />
 
-    <ProgressBar
-        android:id="@+id/setup_progress"
-        style="?android:attr/progressBarStyleHorizontal"
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:indeterminate="true"
-        android:visibility="invisible" />
+        android:onClick="loadNotes"
+        android:text="Load" />
 
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/text_view_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp" />
+
+    </android.support.v4.widget.NestedScrollView>
+</LinearLayout>

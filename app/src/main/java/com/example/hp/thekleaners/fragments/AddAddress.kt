@@ -51,49 +51,6 @@ class AddAddress : BaseNavigationFragment() {
          addAddress_progress.visibility = View.VISIBLE
          //mContinueAddAdress.isEnabled = false
 
-/*
-        firebaseFirestore!!.collection("Users").addSnapshotListener { documentSnapshots, e ->
-            if (e != null) {
-                //Log.d("", "Error : " + e.message)
-            }
-            for (doc in documentSnapshots.documentChanges) {
-                if (doc.type == DocumentChange.Type.ADDED) {
-                    // Log.d("Brand Name: ", doc.document.id)
-                    doc.document.reference.collection("Address").addSnapshotListener { documentSnapshots, e ->
-                        if (e != null) {
-                            Log.d("", "Error : " + e.message)
-                        }
-                        for (doc in documentSnapshots.documentChanges) {
-                            if (doc.type == DocumentChange.Type.ADDED) {
-                                Log.d("SubBrands Name: ", doc.document.id)
-
-                                doc.document.id
-                                val address = doc.document.getString("Address")
-                                val landmark = doc.document.getString("Landmark")
-                                val pincode = doc.document.getString("Pincode")
-                                val selectState = doc.document.getString("State")
-                                val selectCity = doc.document.getString("City")
-
-                              */
-/*  mAddress.setText(address)
-                                mLandmark.setText(landmark)
-                                PinCode.setText(pincode)
-                                mSelectState.setText(selectState)
-                                mSelectCity.setText(selectCity)*//*
-
-                            }
-                        }
-                    }
-
-                }
-
-            }
-
-        }
-
-        addAddress_progress.visibility = View.INVISIBLE
-        mContinueAddAdress.isEnabled = true
-*/
 
         mContinueAddAdress.setOnClickListener {
             val address = mAddress.text.toString()
