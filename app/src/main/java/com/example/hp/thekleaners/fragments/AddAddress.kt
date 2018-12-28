@@ -1,32 +1,26 @@
 package com.example.hp.thekleaners.fragments
 
 import android.os.Bundle
-import android.text.TextUtils
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
+import com.example.hp.thekleaners.pojoClass.ForAddress
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
-import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
-import com.google.firebase.storage.UploadTask
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_add_address.*
+import java.util.*
 
 
 class AddAddress : BaseNavigationFragment() {
 
+
     private var user_id: String? = null
-    private var storageReference: StorageReference? = null
-    private var firebaseAuth: FirebaseAuth? = null
-    private var firebaseFirestore: FirebaseFirestore? = null
+    private val db = FirebaseFirestore.getInstance()
+    private val notebookRef = db.collection("Users")
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -40,55 +34,34 @@ class AddAddress : BaseNavigationFragment() {
         mainActivity.toolbar.visibility = View.VISIBLE
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
-       // mContinueAddAdress.setOnClickListener { mContinueAddAdressFunction() }
+        mContinueAddAdress.setOnClickListener { addNote() }
         mAddAddressBackArrow.setOnClickListener { mAddAddressBackArrowFunction() }
 
-        firebaseAuth = FirebaseAuth.getInstance()
-        firebaseFirestore = FirebaseFirestore.getInstance()
         user_id = FirebaseAuth.getInstance().uid
-        storageReference = FirebaseStorage.getInstance().reference
 
-         addAddress_progress.visibility = View.VISIBLE
-         //mContinueAddAdress.isEnabled = false
+        addAddress_progress.visibility = View.VISIBLE
+        //mContinueAddAdress.isEnabled = false
 
-
-        mContinueAddAdress.setOnClickListener {
-            val address = mAddress.text.toString()
-            val landmark = mLandmark.text.toString()
-            val pincode = PinCode.text.toString()
-            val selectState = mSelectState.text.toString()
-            val selectCity = mSelectCity.text.toString()
-
-            if (!TextUtils.isEmpty(address) || !TextUtils.isEmpty(landmark) || !TextUtils.isEmpty(pincode) ||
-                    !TextUtils.isEmpty(selectState) || !TextUtils.isEmpty(selectCity)) {
-
-                addAddress_progress.visibility = View.INVISIBLE
-                storeFirestore(null, address, landmark, pincode, selectState, selectCity)
-            }
-        }
     }
 
 
-    private fun storeFirestore(task: Task<UploadTask.TaskSnapshot>?, address: String, landmark: String, pincode: String, state: String, city: String) {
+    private fun addNote() {
+        val address = mAddress!!.text.toString()
+        val landmark = mLandmark!!.text.toString()
+        val pincode = PinCode!!.text.toString()
+        val selectState = mSelectState!!.text.toString()
+        val selectCity = mSelectCity!!.text.toString()
+        val tags = HashMap<String, Boolean>()
 
-        val userMap = HashMap<String, String>()
-        userMap["Address"] = address
-        userMap["Landmark"] = landmark
-        userMap["Pincode"] = pincode
-        userMap["State"] = state
-        userMap["City"] = city
+        val note = ForAddress(address, landmark, pincode, selectState, selectCity, tags)
 
-        firebaseFirestore!!.collection("Users").document(user_id!!).collection("Address").add(userMap as Map<String, Any>).addOnCompleteListener { task ->
-
-            if (task.isSuccessful) {
-                Toast.makeText(context, "User Address are updated", Toast.LENGTH_SHORT).show()
+        notebookRef.document(user_id!!).collection("Address").add(note)
 
 
-                mContinueAddAdressFunction()
-
-            }
-        }
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedAddress()).commit()
     }
+
+
     private fun mContinueAddAdressFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedAddress()).commit()
     }

@@ -14,6 +14,7 @@ import android.widget.Toast
 import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
+import com.example.hp.thekleaners.pojoClass.ForService
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -32,10 +33,10 @@ class DateAndTime : BaseNavigationFragment() {
     private lateinit var dialog: Dialog
     private lateinit var metrics: DisplayMetrics
 
+
     private var user_id: String? = null
-    private var storageReference: StorageReference? = null
-    private var firebaseAuth: FirebaseAuth? = null
-    private var firebaseFirestore: FirebaseFirestore? = null
+    private val db = FirebaseFirestore.getInstance()
+    private val notebookRef = db.collection("Users")
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -53,74 +54,25 @@ class DateAndTime : BaseNavigationFragment() {
         mainActivity.window.decorView.getWindowVisibleDisplayFrame(displayRectangle)
         width = (displayRectangle.width() * 0.9f).toInt()
         dialog = Dialog(mainActivity)
-        mSavedNewAddress.setOnClickListener { thankuDialog() }
+        mSavedNewService.setOnClickListener { addNote() }
         // mSavedNewService.setOnClickListener { mSavedNewServiceFunction() }
         mDateBackArrow.setOnClickListener { mDateBackArrowFunction() }
 
-
-        firebaseAuth = FirebaseAuth.getInstance()
-        firebaseFirestore = FirebaseFirestore.getInstance()
         user_id = FirebaseAuth.getInstance().uid
-        storageReference = FirebaseStorage.getInstance().reference
-
-        /*  timing_progress.visibility = View.VISIBLE
-          mSavedNewAddress.isEnabled = false*/
-
-
-/*
-
-        mSavedNewAddress.setOnClickListener{
-            val serviceTaken = mDailyServiceTaken.toString()
-            val serviceAmount = mDailyServiceAmount.toString()
-            val serviceTiming = mDailyServiceTiming.toString()
-            if (!TextUtils.isEmpty(serviceTaken) || !TextUtils.isEmpty(serviceAmount) || !TextUtils.isEmpty(serviceTiming)) {
-
-                timing_progress.visibility = View.VISIBLE
-
-                storeFirestore(null, serviceTaken, serviceAmount, serviceTiming)
-            }
-        }
-
 
     }
 
-*/
+    private fun addNote() {
+        val serviceTaken = mDailyServiceTaken!!.text.toString()
+        val amount = mDailyServiceAmount!!.text.toString()
+        val timing = mDailyServiceTiming!!.text.toString()
 
+        val note = ForService(serviceTaken, amount, timing)
 
-        mSavedNewAddress.setOnClickListener {
-            val serviceTaken = mDailyServiceTaken.text.toString()
-            val serviceAmount = mDailyServiceAmount.text.toString()
-            val serviceTiming = mDailyServiceTiming.text.toString()
+        notebookRef.document(user_id!!).collection("Services").add(note)
 
-            if (!TextUtils.isEmpty(serviceTaken) || !TextUtils.isEmpty(serviceAmount) || !TextUtils.isEmpty(serviceTiming)) {
-
-                timing_progress.visibility = View.VISIBLE
-                storeFirestore(null, serviceTaken, serviceAmount, serviceTiming)
-            }
-        }
-        timing_progress.visibility = View.INVISIBLE
+        thankuDialog()
     }
-
-
-    private fun storeFirestore(task: Task<UploadTask.TaskSnapshot>?, serviceTaken: String, serviceAmount: String, serviceTiming: String) {
-
-        val userMap = HashMap<String, String>()
-        userMap["Service Taken"] = serviceTaken
-        userMap["Service Amount"] = serviceAmount
-        userMap["Service Start Timing"] = serviceTiming
-
-        firebaseFirestore!!.collection("Users").document(user_id!!).collection("Services").add(userMap as Map<String, Any>).addOnCompleteListener { task ->
-
-            if (task.isSuccessful) {
-                Toast.makeText(context, "Service settings are updated", Toast.LENGTH_SHORT).show()
-
-                thankuDialog()
-                // fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedAddress()).commit()
-
-            }
-        }
-    }
-
 
     @SuppressLint("InflateParams")
     private fun thankuDialog() {

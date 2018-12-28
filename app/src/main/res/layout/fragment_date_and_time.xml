@@ -82,7 +82,7 @@
             android:textColor="#000" />
 
         <Button
-            android:id="@+id/mSavedNewAddress"
+            android:id="@+id/mSavedNewService"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
