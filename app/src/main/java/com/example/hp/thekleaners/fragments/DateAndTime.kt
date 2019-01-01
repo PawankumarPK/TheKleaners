@@ -4,23 +4,17 @@ import android.annotation.SuppressLint
 import android.app.Dialog
 import android.graphics.Rect
 import android.os.Bundle
-import android.text.TextUtils
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import android.widget.Toast
 import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import com.example.hp.thekleaners.pojoClass.ForService
-import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
-import com.google.firebase.storage.UploadTask
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.dialog_thanku.*
 import kotlinx.android.synthetic.main.fragment_date_and_time.*
@@ -63,6 +57,9 @@ class DateAndTime : BaseNavigationFragment() {
     }
 
     private fun addNote() {
+
+        mDailyServiceTiming.text = getCurrentDate()
+
         val serviceTaken = mDailyServiceTaken!!.text.toString()
         val amount = mDailyServiceAmount!!.text.toString()
         val timing = mDailyServiceTiming!!.text.toString()
@@ -97,4 +94,11 @@ class DateAndTime : BaseNavigationFragment() {
         dialog.dismiss()
     }
 
+    private fun getCurrentDate(): String {
+        val builder = StringBuilder()
+        builder.append((date_picker.dayOfMonth).toString() + "-")
+        builder.append((date_picker.month + 1).toString() + "-")
+        builder.append(date_picker.year)
+        return builder.toString()
+    }
 }
