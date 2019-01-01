@@ -6,12 +6,12 @@ import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.*
 import android.view.ViewGroup
-import android.widget.TextView
 import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
-import com.example.hp.thekleaners.pojoClass.ForAddress
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
+import com.example.hp.thekleaners.pojoClass.ForAddress
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
@@ -41,6 +41,10 @@ class SavedAddress : BaseNavigationFragment() {
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
 
+        mLinearLayout.visibility = INVISIBLE
+        mView.visibility = INVISIBLE
+        savedAddress_progress.visibility = VISIBLE
+
         metrics = DisplayMetrics()
         mainActivity.window.decorView.getWindowVisibleDisplayFrame(displayRectangle)
         width = (displayRectangle.width() * 0.9f).toInt()
@@ -54,7 +58,7 @@ class SavedAddress : BaseNavigationFragment() {
     }
 
 
-    fun loadAddressData() {
+    private fun loadAddressData() {
         notebookRef.document(user_id!!).collection("Address").get().addOnSuccessListener { queryDocumentSnapshots ->
             //var data = ""
 
@@ -62,6 +66,9 @@ class SavedAddress : BaseNavigationFragment() {
                 val note = documentSnapshot.toObject(ForAddress::class.java)
                 note.documentId = documentSnapshot.id
 
+                mLinearLayout.visibility = VISIBLE
+                mView.visibility = VISIBLE
+                mImageView.visibility = GONE
                 val documentaddress = note.address
                 val documentlandmark = note.landmark
                 val documentpincode = note.pincode
@@ -74,8 +81,9 @@ class SavedAddress : BaseNavigationFragment() {
                 mSelectCitySavedAddress.text = documentcity
                 PinCodeSavedAddress.text = documentpincode
 
-               // data += "\n\n"
+                // data += "\n\n"
             }
+            savedAddress_progress.visibility = View.INVISIBLE
             /*mAddressSavedAddress.text = data
             mLandmarkSavedAddress.text = data
             mSelectStateSavedAddress.text = data

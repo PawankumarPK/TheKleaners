@@ -37,7 +37,10 @@ class UserEditProfile : BaseNavigationFragment() {
         user_id = FirebaseAuth.getInstance().uid
         storageReference = FirebaseStorage.getInstance().reference
 
-        setup_progress.visibility = View.VISIBLE
+        if (firebaseFirestore == null)
+            setup_progress.visibility = View.INVISIBLE
+        else
+            setup_progress.visibility = View.VISIBLE
         setup_btn.isEnabled = false
 
 

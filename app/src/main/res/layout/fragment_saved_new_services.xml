@@ -1,109 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff">
 
-    <RelativeLayout
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/mToolbarAddress"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/mToolbarAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/mSavedServiceBackArrow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="13sp"
-                    android:layout_marginRight="13sp"
-                    android:contentDescription="@null"
-                    android:src="@drawable/left_arrow" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Saved Services"
-                    android:textColor="#1b1a1a"
-                    android:textSize="20sp" />
-
-            </LinearLayout>
-        </android.support.v7.widget.Toolbar>
-
-        <ProgressBar
-            android:id="@+id/savedService_progress"
-            style="?android:attr/progressBarStyleHorizontal"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/mToolbarAddress"
-            android:indeterminate="true"
-            android:visibility="invisible" />
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/savedService_progress">
-
-
-            <TextView
-                android:id="@+id/mServiceTaken"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Saved Services"
-                android:textColor="#1b1a1a"
-                android:textSize="25sp" />
-
-
-            <TextView
-                android:id="@+id/mServiceAmount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/mServiceTaken"
-                android:text="Saved Services"
-                android:textColor="#1b1a1a"
-                android:textSize="25sp" />
-
-            <TextView
-                android:id="@+id/mServiceTiming"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/mServiceAmount"
-                android:text="Saved Services"
-                android:textColor="#1b1a1a"
-                android:textSize="25sp" />
-
+            android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/mImageView"
+                android:id="@+id/mSavedServiceBackArrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
+                android:layout_marginEnd="13sp"
+                android:layout_marginRight="13sp"
                 android:contentDescription="@null"
-                android:src="@drawable/ic_search" />
+                android:src="@drawable/left_arrow" />
 
-            <Button
-                android:id="@+id/mSavedNewService"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_margin="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/color_gradient"
-                android:drawableEnd="@drawable/right_arrow"
-                android:drawableRight="@drawable/right_arrow"
-                android:text="Add new services"
-                android:textColor="#fff" />
+                android:text="Saved Services"
+                android:textColor="#1b1a1a"
+                android:textSize="20sp" />
 
-        </RelativeLayout>
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <ProgressBar
+        android:id="@+id/savedService_progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mToolbarAddress"
+        android:indeterminate="true"
+        android:visibility="invisible" />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/mCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/savedService_progress"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_weight="9"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/mServiceTaken"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#2b2b2b"
+                    android:text="Daily Service"
+                    android:textSize="20sp"
+                    android:layout_margin="2dp"
+                    android:fontFamily="sans-serif-condensed"/>
+
+
+                <TextView
+                    android:id="@+id/mServiceAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#2b2b2b"
+                    android:textSize="23sp"
+                    android:text="70"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/mServiceTiming"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#2b2b2b"
+                    android:textSize="14sp"
+                    android:text="12-34-1045"
+                    android:fontFamily="sans-serif-condensed"/>
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_addservice" />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/savedService_progress">
+
+
+         <ImageView
+             android:id="@+id/mImageView"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_centerInParent="true"
+             android:contentDescription="@null"
+             android:src="@drawable/ic_search" />
+        <Button
+            android:id="@+id/mSavedNewService"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/color_gradient"
+            android:drawableEnd="@drawable/right_arrow"
+            android:drawableRight="@drawable/right_arrow"
+            android:text="Add new services"
+            android:textColor="#fff" />
 
     </RelativeLayout>
 </RelativeLayout>

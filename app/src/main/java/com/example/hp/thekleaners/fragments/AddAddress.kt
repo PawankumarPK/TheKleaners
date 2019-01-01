@@ -5,14 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
-import com.example.hp.thekleaners.pojoClass.ForAddress
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
+import com.example.hp.thekleaners.pojoClass.ForAddress
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_add_address.*
-import java.util.*
 
 
 class AddAddress : BaseNavigationFragment() {
@@ -39,7 +38,7 @@ class AddAddress : BaseNavigationFragment() {
 
         user_id = FirebaseAuth.getInstance().uid
 
-        addAddress_progress.visibility = View.VISIBLE
+
         //mContinueAddAdress.isEnabled = false
 
     }
@@ -51,9 +50,10 @@ class AddAddress : BaseNavigationFragment() {
         val pincode = PinCode!!.text.toString()
         val selectState = mSelectState!!.text.toString()
         val selectCity = mSelectCity!!.text.toString()
-        val tags = HashMap<String, Boolean>()
+        addAddress_progress.visibility = View.VISIBLE
 
-        val note = ForAddress(address, landmark, pincode, selectState, selectCity, tags)
+
+        val note = ForAddress(address, landmark, pincode, selectState, selectCity)
 
         notebookRef.document(user_id!!).collection("Address").add(note)
 

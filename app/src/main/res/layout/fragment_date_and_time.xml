@@ -54,6 +54,7 @@
             android:layout_below="@+id/date_picker"
             android:layout_marginLeft="20dp"
             android:layout_marginStart="20dp"
+            android:visibility="invisible"
             android:text="Daily Service"
             android:textColor="#000" />
 
@@ -66,8 +67,9 @@
             android:layout_marginStart="20dp"
             android:layout_toEndOf="@+id/mDailyServiceTaken"
             android:layout_toRightOf="@+id/mDailyServiceTaken"
-            android:text="82Rs"
-            android:textColor="#000" />
+            android:text="70+18% GST"
+            android:textColor="#000"
+            android:visibility="invisible"/>
 
         <TextView
             android:id="@+id/mDailyServiceTiming"

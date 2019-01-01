@@ -1,8 +1,11 @@
 package com.example.hp.thekleaners.fragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
@@ -34,6 +37,10 @@ class SavedServices : BaseNavigationFragment() {
         mSavedNewService.setOnClickListener { mSavedNewServiceFunction() }
         mSavedServiceBackArrow.setOnClickListener { mSavedServiceBackArrowFunction() }
 
+        savedService_progress.visibility = View.VISIBLE
+        mCardView.visibility = View.INVISIBLE
+
+
         user_id = FirebaseAuth.getInstance().uid
 
         loadAddressData()
@@ -41,6 +48,7 @@ class SavedServices : BaseNavigationFragment() {
 
     }
 
+    @SuppressLint("SetTextI18n")
     private fun loadAddressData() {
         notebookRef.document(user_id!!).collection("Services").get().addOnSuccessListener { queryDocumentSnapshots ->
             //var data = ""
@@ -49,18 +57,22 @@ class SavedServices : BaseNavigationFragment() {
                 val note = documentSnapshot.toObject(ForService::class.java)
                 note.documentId = documentSnapshot.id
 
-                val documentServiceTaken= note.serviceTaken
-                val documentamount= note.amount
-                val documentdata= note.date
+                mCardView.visibility = VISIBLE
+                mImageView.visibility = GONE
+
+                val documentServiceTaken = note.serviceTaken
+                val documentamount = note.amount
+                val documentdata = note.date
 
 
                 mServiceTaken.text = documentServiceTaken
-                mServiceAmount.text = documentamount
+                mServiceAmount.text = "₹$documentamount"
                 mServiceTiming.text = documentdata
 
 
                 // data += "\n\n"
             }
+            savedService_progress.visibility = View.INVISIBLE
             /*mAddressSavedAddress.text = data
             mLandmarkSavedAddress.text = data
             mSelectStateSavedAddress.text = data

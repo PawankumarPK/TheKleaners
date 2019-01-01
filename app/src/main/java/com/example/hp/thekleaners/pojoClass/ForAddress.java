@@ -11,20 +11,18 @@ public class ForAddress {
     private String pincode;
     private String selectState;
     private String selectCity;
-    Map<String, Boolean> tags;
 
     public ForAddress() {
         //public no-arg constructor needed
     }
 
-    public ForAddress(String address, String landmark, String pincode, String selectState, String selectCity, Map<String, Boolean> tags) {
+    public ForAddress(String address, String landmark, String pincode, String selectState, String selectCity){
 
         this.address = address;
         this.landmark = landmark;
         this.pincode = pincode;
         this.selectState = selectState;
         this.selectCity = selectCity;
-        this.tags = tags;
     }
 
     @Exclude
@@ -56,7 +54,4 @@ public class ForAddress {
         return selectCity;
     }
 
-    public Map<String, Boolean> getTags() {
-        return tags;
-    }
 }
