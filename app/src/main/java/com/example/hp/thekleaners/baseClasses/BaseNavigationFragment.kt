@@ -1,4 +1,4 @@
-package com.example.hp.thekleaners.BaseClasses
+package com.example.hp.thekleaners.baseClasses
 
 
 

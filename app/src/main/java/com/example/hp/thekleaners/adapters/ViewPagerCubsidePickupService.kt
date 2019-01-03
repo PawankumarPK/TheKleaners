@@ -1,4 +1,4 @@
-package com.example.hp.thekleaners.Adapters
+package com.example.hp.thekleaners.adapters
 
 import android.content.Context
 import android.support.v4.view.PagerAdapter
@@ -9,10 +9,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import com.example.hp.thekleaners.R
 
-class ViewPagerCarWash(val context: Context) : PagerAdapter() {
+class ViewPagerCubsidePickupService(val context: Context) : PagerAdapter() {
     private var layoutInflater: LayoutInflater? = null
-    private val images = arrayOf<Int>(R.drawable.car_wash_1
-            , R.drawable.car_wash_2, R.drawable.car_wash_3)
+    private val images = arrayOf<Int>(R.drawable.organic, R.drawable.food_waste, R.drawable.waste_food)
 
     override fun getCount(): Int {
         return images.size

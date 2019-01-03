@@ -81,7 +81,8 @@
             android:layout_toEndOf="@+id/mDailyServiceAmount"
             android:layout_toRightOf="@+id/mDailyServiceAmount"
             android:text="20-12-2018"
-            android:textColor="#000" />
+            android:textColor="#000"
+            android:visibility="invisible"/>
 
         <Button
             android:id="@+id/mSavedNewService"

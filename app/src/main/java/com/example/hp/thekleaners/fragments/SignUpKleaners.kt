@@ -5,8 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.hp.thekleaners.AuthActivity
-import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
+import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import com.google.firebase.auth.FirebaseAuth

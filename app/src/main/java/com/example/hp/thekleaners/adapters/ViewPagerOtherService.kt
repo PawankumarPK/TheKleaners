@@ -1,4 +1,4 @@
-package com.example.hp.thekleaners.Adapters
+package com.example.hp.thekleaners.adapters
 
 import android.content.Context
 import android.support.v4.view.PagerAdapter
@@ -9,9 +9,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import com.example.hp.thekleaners.R
 
-class ViewPagerAdapter(val context: Context) : PagerAdapter() {
+class ViewPagerOtherService(val context: Context) : PagerAdapter() {
     private var layoutInflater: LayoutInflater? = null
-    private val images = arrayOf<Int>(R.drawable.img_3, R.drawable.img_2, R.drawable.img_5)
+    private val images = arrayOf<Int>(R.drawable.construction_1, R.drawable.construction2, R.drawable.construction_3)
 
     override fun getCount(): Int {
         return images.size

@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.hp.thekleaners.BaseClasses.BaseFragment
+import com.example.hp.thekleaners.baseClasses.BaseFragment
 import com.example.hp.thekleaners.R
 
 class Language : BaseFragment() {

@@ -4,11 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.hp.thekleaners.Adapters.ViewPagerAdapter
-import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
+import com.example.hp.thekleaners.adapters.ViewPagerAdapter
+import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
-import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import java.util.*
 

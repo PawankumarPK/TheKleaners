@@ -5,7 +5,7 @@
 
         <variable
             name="emailDto"
-            type="com.example.hp.thekleaners.Dto.EmailSendDto" />
+            type="com.example.hp.thekleaners.dto.EmailSendDto" />
     </data>
 
 

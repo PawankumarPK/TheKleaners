@@ -7,7 +7,7 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
+import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import com.example.hp.thekleaners.pojoClass.ForService

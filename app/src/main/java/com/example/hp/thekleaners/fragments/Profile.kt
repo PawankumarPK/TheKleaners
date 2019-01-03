@@ -10,7 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
+import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import com.google.firebase.auth.FirebaseAuth
@@ -20,7 +20,6 @@ import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.dialog_logout.*
 import kotlinx.android.synthetic.main.fragment_profile.*
-import kotlinx.android.synthetic.main.fragment_user_edit_profile.*
 
 class Profile : BaseNavigationFragment() {
 

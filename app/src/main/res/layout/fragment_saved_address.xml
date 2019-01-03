@@ -46,30 +46,62 @@
             android:indeterminate="true"
             android:visibility="invisible" />
 
+        <LinearLayout
+            android:id="@+id/mLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#fff"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_below="@+id/savedAddress_progress">
+
+            <TextView
+                android:id="@+id/mHomeSavedAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="10dp"
+                android:text="Home"
+                android:textColor="#000"
+                android:layout_marginTop="10dp"
+                android:textSize="16sp"
+                android:layout_marginStart="20dp" />
+
+            <TextView
+                android:id="@+id/mAddressSavedAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:textSize="14sp"
+                android:layout_marginStart="20dp" />
+
+
+            <TextView
+                android:id="@+id/mLandmarkSavedAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:textSize="14sp"
+                android:layout_marginStart="20dp" />
+
+
+            <TextView
+                android:id="@+id/mSelectStateSavedAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:textSize="14sp"
+                android:layout_marginStart="20dp" />
+
+
             <LinearLayout
-                android:id="@+id/mLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="#fff"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_below="@+id/savedAddress_progress">
+                android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/mHomeSavedAddress"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="Home"
-                    android:textColor="#000"
-                    android:layout_marginTop="10dp"
-                    android:textSize="16sp"
-                    android:layout_marginStart="20dp" />
-
-                <TextView
-                    android:id="@+id/mAddressSavedAddress"
+                    android:id="@+id/mSelectCitySavedAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -78,49 +110,17 @@
 
 
                 <TextView
-                    android:id="@+id/mLandmarkSavedAddress"
+                    android:id="@+id/PinCodeSavedAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="5dp"
                     android:textSize="14sp"
-                    android:layout_marginStart="20dp" />
-
-
-                <TextView
-                    android:id="@+id/mSelectStateSavedAddress"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:textSize="14sp"
-                    android:layout_marginStart="20dp" />
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/mSelectCitySavedAddress"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:textSize="14sp"
-                        android:layout_marginStart="20dp" />
-
-
-                    <TextView
-                        android:id="@+id/PinCodeSavedAddress"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:textSize="14sp"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginBottom="10dp"/>
-
-                </LinearLayout>
+                    android:layout_marginStart="5dp"
+                    android:layout_marginBottom="10dp"/>
 
             </LinearLayout>
+
+        </LinearLayout>
 
         <View
             android:id="@+id/mView"

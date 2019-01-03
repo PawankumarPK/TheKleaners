@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.hp.thekleaners.BaseClasses.BaseNavigationFragment
+import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth

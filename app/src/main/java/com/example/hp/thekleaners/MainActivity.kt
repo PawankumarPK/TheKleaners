@@ -1,11 +1,7 @@
 package com.example.hp.thekleaners
 
-import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import com.example.hp.thekleaners.BaseClasses.BaseActivity
-import com.example.hp.thekleaners.BlankFragment
-import com.example.hp.thekleaners.R
+import com.example.hp.thekleaners.baseClasses.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {

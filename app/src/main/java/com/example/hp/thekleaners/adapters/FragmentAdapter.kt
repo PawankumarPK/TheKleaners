@@ -1,4 +1,4 @@
-package com.example.hp.thekleaners.Adapters
+package com.example.hp.thekleaners.adapters
 
 
 import android.support.v4.app.Fragment

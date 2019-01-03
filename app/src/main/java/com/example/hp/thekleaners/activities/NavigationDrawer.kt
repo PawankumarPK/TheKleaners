@@ -12,8 +12,8 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.RelativeLayout
-import com.example.hp.thekleaners.Adapters.FragmentAdapter
-import com.example.hp.thekleaners.BaseClasses.BaseActivity
+import com.example.hp.thekleaners.adapters.FragmentAdapter
+import com.example.hp.thekleaners.baseClasses.BaseActivity
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.fragments.*
 import com.google.firebase.auth.PhoneAuthProvider

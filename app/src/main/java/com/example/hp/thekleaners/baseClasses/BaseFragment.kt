@@ -1,10 +1,8 @@
-package com.example.hp.thekleaners.BaseClasses
+package com.example.hp.thekleaners.baseClasses
 
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-
-import com.example.hp.thekleaners.MainActivity
 
 
 abstract class BaseFragment : Fragment() {
