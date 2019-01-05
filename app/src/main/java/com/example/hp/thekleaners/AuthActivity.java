@@ -92,5 +92,5 @@ public class AuthActivity extends AppCompatActivity {
         Intent intent = new Intent(AuthActivity.this, ForgotPassword.class);
         startActivity(intent);
 
-    }
+    }//edit
 }
