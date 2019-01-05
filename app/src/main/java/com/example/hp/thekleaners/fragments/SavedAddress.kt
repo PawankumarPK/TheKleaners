@@ -51,6 +51,8 @@ class SavedAddress : BaseNavigationFragment() {
         dialog = Dialog(mainActivity)
         mSavedNewAddress.setOnClickListener { mSavedNewAddressFunction() }
         mSavedNewAddressBackArrow.setOnClickListener { mSavedNewAddressBackArrowFunction() }
+        addNewService.setOnClickListener { addNewServiceFunction() }
+        mEditProfile.setOnClickListener { mEditProfileFunction() }
         user_id = FirebaseAuth.getInstance().uid
 
         loadAddressData()
@@ -69,6 +71,8 @@ class SavedAddress : BaseNavigationFragment() {
                 mLinearLayout.visibility = VISIBLE
                 mView.visibility = VISIBLE
                 mImageView.visibility = GONE
+                addNewService.visibility = VISIBLE
+                mSavedNewAddress.visibility = GONE
                 val documentaddress = note.address
                 val documentlandmark = note.landmark
                 val documentpincode = note.pincode
@@ -102,5 +106,11 @@ class SavedAddress : BaseNavigationFragment() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, Profile()).commit()
     }
 
+    private fun addNewServiceFunction(){
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SelectServices()).commit()
+    }
+    private fun mEditProfileFunction(){
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, EditAddress()).commit()
+    }
 
 }

@@ -20,6 +20,7 @@ class ForHomeService : BaseNavigationFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mainActivity = activity as NavigationDrawer
+       // mainActivity.title_name.text = resources.getString(R.string.signIn)
         mainActivity.toolbar.visibility = View.VISIBLE
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
@@ -59,7 +60,7 @@ class ForHomeService : BaseNavigationFragment() {
     }
 
     private fun mForHomeContinueFunction() {
-        mRelativeLayoutForGone.visibility = View.GONE
+        //mRelativeLayoutForGone.visibility = View.GONE
         fragmentManager!!.beginTransaction().replace(R.id.containerView, SignUpKleaners()).addToBackStack(null).commit()
 
     }

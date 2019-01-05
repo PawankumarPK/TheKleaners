@@ -16,6 +16,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:weightSum="10"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -24,6 +25,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="13sp"
                     android:layout_marginRight="13sp"
+                    android:layout_weight="1"
                     android:contentDescription="@null"
                     android:src="@drawable/left_arrow" />
 
@@ -32,7 +34,20 @@
                     android:layout_height="wrap_content"
                     android:text="Saved Address"
                     android:textColor="#1b1a1a"
+                    android:layout_weight="8"
                     android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/mSavedNewAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@null"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_add"
+                    android:layout_marginEnd="10dp" />
+
 
             </LinearLayout>
         </android.support.v7.widget.Toolbar>
@@ -98,7 +113,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:weightSum="10">
 
                 <TextView
                     android:id="@+id/mSelectCitySavedAddress"
@@ -106,6 +122,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:textSize="14sp"
+                    android:layout_weight="0.5"
+                    android:text="nfkrbrj"
                     android:layout_marginStart="20dp" />
 
 
@@ -113,10 +131,19 @@
                     android:id="@+id/PinCodeSavedAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
                     android:textSize="14sp"
-                    android:layout_marginStart="5dp"
+                    android:text="12234"
+                    android:layout_weight="9"
                     android:layout_marginBottom="10dp"/>
+
+                <ImageView
+                    android:id="@+id/mEditProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_edit_green"
+                    android:layout_gravity="end"/>
 
             </LinearLayout>
 
@@ -146,7 +173,7 @@
                 android:src="@drawable/ic_search" />
 
             <Button
-                android:id="@+id/mSavedNewAddress"
+                android:id="@+id/addNewService"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -156,8 +183,9 @@
                 android:background="@drawable/color_gradient"
                 android:drawableEnd="@drawable/right_arrow"
                 android:drawableRight="@drawable/right_arrow"
-                android:text="Add new address"
-                android:textColor="#fff" />
+                android:text="Add new service"
+                android:textColor="#fff"
+                android:visibility="gone"/>
 
         </RelativeLayout>
 

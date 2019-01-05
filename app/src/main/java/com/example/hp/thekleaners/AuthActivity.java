@@ -32,8 +32,8 @@ public class AuthActivity extends AppCompatActivity {
 
         editTextTitle = findViewById(R.id.edit_text_title);
         editTextDescription = findViewById(R.id.edit_text_description);
-        editTextPriority = findViewById(R.id.edit_text_priority);
-        editTextTags = findViewById(R.id.edit_text_tags);
+       /* editTextPriority = findViewById(R.id.edit_text_priority);
+        editTextTags = findViewById(R.id.edit_text_tags);*/
         textViewData = findViewById(R.id.text_view_data);
         user_id = FirebaseAuth.getInstance().getUid();
     }
