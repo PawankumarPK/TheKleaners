@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
+import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -70,7 +70,7 @@ class UserEditProfile : BaseNavigationFragment() {
         }
 
 
-        setup_btn.setOnClickListener(View.OnClickListener {
+        setup_btn.setOnClickListener {
             val user_name = setup_name.text.toString()
             val surname_name = setup_surname.text.toString()
             val number_name = setup_number.text.toString()
@@ -80,7 +80,7 @@ class UserEditProfile : BaseNavigationFragment() {
 
                 storeFirestore(null, user_name, surname_name, number_name)
             }
-        })
+        }
 
 
     }

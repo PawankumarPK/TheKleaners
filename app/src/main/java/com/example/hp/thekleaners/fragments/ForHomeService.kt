@@ -2,11 +2,14 @@ package com.example.hp.thekleaners.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.design.widget.CoordinatorLayout
+import android.support.v4.view.ViewCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
+import com.example.hp.thekleaners.R.id.scrollView
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_for_home_service.*
@@ -21,9 +24,11 @@ class ForHomeService : BaseNavigationFragment() {
 
         mainActivity = activity as NavigationDrawer
        // mainActivity.title_name.text = resources.getString(R.string.signIn)
-        mainActivity.toolbar.visibility = View.VISIBLE
-        mainActivity.tabLayout.visibility = View.GONE
+        mainActivity.toolbar.visibility = View.GONE
+        mainActivity.tabLayout.visibility = View.INVISIBLE
         (activity as NavigationDrawer).setDrawerLocked(true)
+
+        ViewCompat.setNestedScrollingEnabled(mNestedScrollView, false)
 
         mHomeServiceBackArrow.setOnClickListener { mHomeServiceBackArrowFunction() }
         mLinearLayoutRecycleByMail.setOnClickListener { mLinearLayoutRecycleByMailFunction() }
@@ -31,6 +36,8 @@ class ForHomeService : BaseNavigationFragment() {
         mLinearLayoutMedical.setOnClickListener { mLinearLayoutMedicalFunction() }
         mLinearLayoutRecyclingService.setOnClickListener { mLinearLayoutRecyclingServiceFunction() }
         mForHomeContinue.setOnClickListener { mForHomeContinueFunction() }
+
+
 //n
 
     }
@@ -64,6 +71,7 @@ class ForHomeService : BaseNavigationFragment() {
         fragmentManager!!.beginTransaction().replace(R.id.containerView, SignUpKleaners()).addToBackStack(null).commit()
 
     }
+
 
 /*    override fun onBackPressed() {
         super.onBackPressed()

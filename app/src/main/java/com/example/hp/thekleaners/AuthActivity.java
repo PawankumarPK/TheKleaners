@@ -1,96 +1,148 @@
 package com.example.hp.thekleaners;
 
-import android.content.Intent;
-import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.CollectionReference;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class AuthActivity extends AppCompatActivity {
+    private static final String TAG = "MainActivity";
+
+    private static final String KEY_TITLE = "title";
+    private static final String KEY_DESCRIPTION = "description";
+
     private EditText editTextTitle;
     private EditText editTextDescription;
-    private EditText editTextPriority;
-    private EditText editTextTags;
     private TextView textViewData;
-    private String user_id;
+    private FirebaseDatabase mDatabase;
+    private DatabaseReference mRef;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference notebookRef = db.collection("Users");
+    private DocumentReference noteRef = db.document("Notebook/My First Note");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_auth);
+        setContentView(R.layout.activity_main);
 
         editTextTitle = findViewById(R.id.edit_text_title);
         editTextDescription = findViewById(R.id.edit_text_description);
-       /* editTextPriority = findViewById(R.id.edit_text_priority);
-        editTextTags = findViewById(R.id.edit_text_tags);*/
         textViewData = findViewById(R.id.text_view_data);
-        user_id = FirebaseAuth.getInstance().getUid();
+        mDatabase = FirebaseDatabase.getInstance();
+        mRef = mDatabase.getReference("Users");
+
     }
 
-    public void addNote(View v) {
+    @Override
+    protected void onStart() {
+        super.onStart();
+        noteRef.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(DocumentSnapshot documentSnapshot, FirebaseFirestoreException e) {
+                if (e != null) {
+                    Toast.makeText(AuthActivity.this, "Error while loading!", Toast.LENGTH_SHORT).show();
+                    Log.d(TAG, e.toString());
+                    return;
+                }
+
+                if (documentSnapshot.exists()) {
+                    String title = documentSnapshot.getString(KEY_TITLE);
+                    String description = documentSnapshot.getString(KEY_DESCRIPTION);
+
+                    textViewData.setText("Title: " + title + "\n" + "Description: " + description);
+                }
+            }
+        });
+    }
+
+    public void saveNote(View v) {
         String title = editTextTitle.getText().toString();
         String description = editTextDescription.getText().toString();
 
-        if (editTextPriority.length() == 0) {
-            editTextPriority.setText("0");
-        }
+        Map<String, Object> note = new HashMap<>();
+        note.put(KEY_TITLE, title);
+        note.put(KEY_DESCRIPTION, description);
 
-        int priority = Integer.parseInt(editTextPriority.getText().toString());
-
-        String tagInput = editTextTags.getText().toString();
-        String[] tagArray = tagInput.split("\\s*,\\s*");
-        Map<String, Boolean> tags = new HashMap<>();
-
-        for (String tag : tagArray) {
-            tags.put(tag, true);
-        }
-
-       /* ForAddress note = new ForAddress(title, description, priority, tags);
-
-        notebookRef.document(user_id)
-                .collection("Address").add(note);
-*/
-
-        Intent intent = new Intent(AuthActivity.this, ForgotPassword.class);
-        startActivity(intent);
+        noteRef.set(note)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(AuthActivity.this, "Note saved", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(AuthActivity.this, "Error!", Toast.LENGTH_SHORT).show();
+                        Log.d(TAG, e.toString());
+                    }
+                });
     }
 
-    public void loadNotes(View v) {
-/*        notebookRef.document(user_id)
-                .collection("Address").get()
-                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+    public void updateDescription(View v) {/*
+        String description = editTextDescription.getText().toString();
+
+        Map<String, Object> note = new HashMap<>();
+        note.put(KEY_DESCRIPTION, description);
+
+        noteRef.set(note, SetOptions.merge());
+        //noteRef.update(KEY_DESCRIPTION, description);*/
+
+        String name  = editTextDescription.getText().toString();
+        Map<String, Object> updatedValue = new HashMap<>();
+
+        updatedValue.put("/Users/Address",name);
+
+        noteRef.update(updatedValue);
+
+    }
+
+    public void onChildChanged(DocumentSnapshot documentSnapshot,String s){
+        String key = documentSnapshot.getId();
+
+    }
+    public void loadNote(View v) {
+        noteRef.get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        String data = "";
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if (documentSnapshot.exists()) {
+                            String title = documentSnapshot.getString(KEY_TITLE);
+                            String description = documentSnapshot.getString(KEY_DESCRIPTION);
 
-                        for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                            ForAddress note = documentSnapshot.toObject(ForAddress.class);
-                            note.setDocumentId(documentSnapshot.getId());
+                            //Map<String, Object> note = documentSnapshot.getData();
 
-                            String documentId = note.getTitle();
-
-                            data += "ID: " + documentId;
-
-
-                            data += "\n\n";
+                            textViewData.setText("Title: " + title + "\n" + "Description: " + description);
+                        } else {
+                            Toast.makeText(AuthActivity.this, "Document does not exist", Toast.LENGTH_SHORT).show();
                         }
-                        textViewData.setText(data);
                     }
-                });*/
-
-        Intent intent = new Intent(AuthActivity.this, ForgotPassword.class);
-        startActivity(intent);
-
-    }//edit
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(AuthActivity.this, "Error!", Toast.LENGTH_SHORT).show();
+                        Log.d(TAG, e.toString());
+                    }
+                });
+    }
 }

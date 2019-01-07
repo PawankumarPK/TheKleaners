@@ -28,10 +28,11 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         setContentView(R.layout.activity_navigation_drawer)
         setSupportActionBar(toolbar)
 
-        // tabLayout.visibility = View.VISIBLE
+
         //  supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         //  toolbar.visibility = View.VISIBLE
         belowlayout()
+
 
 
         val navigationView = findViewById<View>(R.id.nav_view) as NavigationView

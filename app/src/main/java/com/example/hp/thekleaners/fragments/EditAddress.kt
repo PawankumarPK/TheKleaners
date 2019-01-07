@@ -10,6 +10,8 @@ import com.example.hp.thekleaners.activities.NavigationDrawer
 import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.pojoClass.ForAddress
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_edit_address.*
@@ -20,8 +22,10 @@ class EditAddress : BaseNavigationFragment() {
 
     private var user_id: String? = null
     private val db = FirebaseFirestore.getInstance()
-    private val notebookRef = db.collection("Users")
-    private val KEY_DESCRIPTION = "address"
+    private val notebookRef = db.document("")
+    private var mDatabase: FirebaseDatabase? = null
+    //private var mRef: DatabaseReference? = null
+    private lateinit var database: DatabaseReference
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -35,6 +39,10 @@ class EditAddress : BaseNavigationFragment() {
         mainActivity.toolbar.visibility = View.VISIBLE
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
+
+        mDatabase = FirebaseDatabase.getInstance()
+        database = FirebaseDatabase.getInstance().reference
+
 
 
         mEditAddress_progress.visibility = VISIBLE
@@ -51,7 +59,7 @@ class EditAddress : BaseNavigationFragment() {
 
 
     private fun loadAddressData() {
-        notebookRef.document(user_id!!).collection("Address").get().addOnSuccessListener { queryDocumentSnapshots ->
+        notebookRef.collection("Users").document(user_id!!).collection("Address").get().addOnSuccessListener { queryDocumentSnapshots ->
             //var data = ""
 
             var dataaddress = ""
@@ -86,50 +94,74 @@ class EditAddress : BaseNavigationFragment() {
             mEditSelectCity.setText(datacity)
             mEditPinCode.setText(datapincode)
 
-
             mEditAddress_progress.visibility = View.INVISIBLE
-            /*mAddressSavedAddress.text = data
-            mLandmarkSavedAddress.text = data
-            mSelectStateSavedAddress.text = data
-            mSelectCitySavedAddress.text = data
-            PinCodeSavedAddress.text = data*/
+
+
+            val mAddAddress  = mEditAddress.setText(dataaddress)
+            val mAddLandmark = mEditLandmark.setText(datalandmark)
+            val mAddSelectState= mEditSelectState.setText(datastate)
+            val mAddSelectCity= mEditSelectCity.setText(datacity)
+            val mAddPinCode= mEditPinCode.setText(datapincode)
+
+
         }
 
 
     }
 
-
     fun updateDescription() {
-        val address = mEditAddress.text.toString()
 
-        val note = HashMap<String, Any>()
-        note[KEY_DESCRIPTION] = address
+        val name = mEditAddress.getText().toString()
+        val updatedValue = HashMap<String, String>()
 
-        notebookRef.document(note.toString())
-        //notebookRef.update(KEY_DESCRIPTION, description);
+        //updatedValue.put("/Address")
+        //noteRef.update(KEY_DESCRIPTION, description);
+
+
+        //  mRef!!.child("Address").child(user_id).child("address").setValue(name)
+        //mRef!!.updateChildren(updatedValue as Map<String, Any>?)
+
+        val result = HashMap<String, String>()
+        result["address"] = "Your Description comes here"
+
+        FirebaseDatabase.getInstance().reference.child("Users").child("Address").child("FfriNnYQCHfPvhRiWmXB").child("landmark").updateChildren(result as Map<String, Any>?)
     }
+/*
 
+    private fun writeNewPost(userId: String, username: String, title: String, body: String) {
+        // Create new post at /user-posts/$userid/$postid and at
+        // /posts/$postid simultaneously
+        val key = database.child("Users").push().key
+        if (key == null) {
 
-    private fun addNote() {
-        val address = mEditAddress!!.text.toString()
-        val landmark = mEditLandmark!!.text.toString()
-        val pincode = mEditPinCode!!.text.toString()
-        val selectState = mEditSelectState!!.text.toString()
-        val selectCity = mEditSelectCity!!.text.toString()
-        mEditAddress_progress.visibility = View.VISIBLE
+            return
+        }
 
+        val post = ForAddress(mAddress, mEditLandmark, mEditSelectState, mEditSelectCity,mEditPinCode)
+        val postValues = post.toMap()
 
-        val note = ForAddress(address, landmark, pincode, selectState, selectCity)
+        val childUpdates = HashMap<String, Any>()
+        childUpdates["/posts/$key"] = postValues
+        childUpdates["/user-posts/$userId/$key"] = postValues
 
-        notebookRef.document(user_id!!).collection("Address").add(note)
-
-
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedAddress()).commit()
+        database.updateChildren(childUpdates)
     }
+*/
+
+/*
+
+    private fun writeNewUser() {
+
+        val name = mEditAddress.text.toString()
+
+         //   val user = ForAddress(address, landmark, pincode, selectState, selectCity)
+        database.child("Users").child(user_id).child("Address").child("FfriNnYQCHfPvhRiWmXB").child("address").setValue(name)
+    }
+*/
 
 
     private fun mSavedNewAddressFunction() {
-        updateDescription()
+
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedAddress()).commit()
     }
 
@@ -139,3 +171,4 @@ class EditAddress : BaseNavigationFragment() {
     }
 
 }
+//https://firebase.google.com/docs/database/android/read-and-write#update_specific_fields
