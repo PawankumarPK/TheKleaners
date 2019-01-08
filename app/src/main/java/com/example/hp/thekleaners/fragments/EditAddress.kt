@@ -10,7 +10,6 @@ import com.example.hp.thekleaners.activities.NavigationDrawer
 import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.pojoClass.ForAddress
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
@@ -25,7 +24,7 @@ class EditAddress : BaseNavigationFragment() {
     private val notebookRef = db.document("")
     private var mDatabase: FirebaseDatabase? = null
     //private var mRef: DatabaseReference? = null
-    private lateinit var database: DatabaseReference
+    // private lateinit var database: DatabaseReference
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -41,8 +40,7 @@ class EditAddress : BaseNavigationFragment() {
         (activity as NavigationDrawer).setDrawerLocked(true)
 
         mDatabase = FirebaseDatabase.getInstance()
-        database = FirebaseDatabase.getInstance().reference
-
+        //database = FirebaseDatabase.getInstance().reference
 
 
         mEditAddress_progress.visibility = VISIBLE
@@ -54,6 +52,7 @@ class EditAddress : BaseNavigationFragment() {
         user_id = FirebaseAuth.getInstance().uid
 
         loadAddressData()
+        radioFunction()
 
     }
 
@@ -95,14 +94,6 @@ class EditAddress : BaseNavigationFragment() {
             mEditPinCode.setText(datapincode)
 
             mEditAddress_progress.visibility = View.INVISIBLE
-
-
-            val mAddAddress  = mEditAddress.setText(dataaddress)
-            val mAddLandmark = mEditLandmark.setText(datalandmark)
-            val mAddSelectState= mEditSelectState.setText(datastate)
-            val mAddSelectCity= mEditSelectCity.setText(datacity)
-            val mAddPinCode= mEditPinCode.setText(datapincode)
-
 
         }
 
@@ -148,23 +139,31 @@ class EditAddress : BaseNavigationFragment() {
     }
 */
 
-/*
+    /*
 
-    private fun writeNewUser() {
+        private fun writeNewUser() {
 
-        val name = mEditAddress.text.toString()
+            val name = mEditAddress.text.toString()
 
-         //   val user = ForAddress(address, landmark, pincode, selectState, selectCity)
-        database.child("Users").child(user_id).child("Address").child("FfriNnYQCHfPvhRiWmXB").child("address").setValue(name)
+             //   val user = ForAddress(address, landmark, pincode, selectState, selectCity)
+            database.child("Users").child(user_id).child("Address").child("FfriNnYQCHfPvhRiWmXB").child("address").setValue(name)
+        }
+    */
+    private fun radioFunction() {
+
+        mRadioGroupName.setOnCheckedChangeListener { _, checkedId ->
+            when (checkedId) {
+                R.id.mAutomaticGenerate -> textview_selected.text = "Home Or Flats"
+                R.id.mAlwaysAsk -> textview_selected.text = "Farm House"
+
+            }
+        }
     }
-*/
 
 
     private fun mSavedNewAddressFunction() {
-
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedAddress()).commit()
+         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedAddress()).commit()
     }
-
 
     private fun mSavedNewAddressBackArrowFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedAddress()).commit()

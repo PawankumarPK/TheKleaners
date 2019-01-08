@@ -2,7 +2,12 @@ package com.example.hp.thekleaners;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.hp.thekleaners.pojoClass.ForAddress;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -14,12 +19,9 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 public class ForgotPassword extends AppCompatActivity {
 
-
-    private TextView textViewData;
-    private String user_id;
-
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference notebookRef = db.collection("Users");
+    RadioGroup radioGroup;
+    RadioButton radioButton;
+    TextView textView;
 
 
     @Override
@@ -28,34 +30,31 @@ public class ForgotPassword extends AppCompatActivity {
         setContentView(R.layout.activity_forgot_password);
 
 
-        textViewData = findViewById(R.id.textview_data);
-        user_id = FirebaseAuth.getInstance().getUid();
+        radioGroup = findViewById(R.id.radioGroup);
+        textView = findViewById(R.id.text_view_selected);
+        Button buttonApply = findViewById(R.id.button_apply);
 
-        loadNotesData();
-    }
+       /* buttonApply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int radioId = radioGroup.getCheckedRadioButtonId();
 
+                radioButton = findViewById(radioId);
 
-    public void loadNotesData() {
-        notebookRef.document(user_id)
-                .collection("Address").get()
-                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        String data = "";
-
-                        for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                            ForAddress forAddress = documentSnapshot.toObject(ForAddress.class);
-                            forAddress.setDocumentId(documentSnapshot.getId());
-
-                          /*//  String documentId = forAddress.getTitle();
-
-                            data += "ID: " + documentId;
+                textView.setText("Your choice: " + radioButton.getText());
+            }
+        });
 */
-
-                            data += "\n\n";
-                        }
-                        textViewData.setText(data);
-                    }
-                });
     }
+    public void checkButton(View v) {
+        int radioId = radioGroup.getCheckedRadioButtonId();
+
+        radioButton = findViewById(radioId);
+
+        Toast.makeText(this, "Selected Radio Button: " + radioButton.getText(),
+                Toast.LENGTH_SHORT).show();
+    }
+
+
+
 }

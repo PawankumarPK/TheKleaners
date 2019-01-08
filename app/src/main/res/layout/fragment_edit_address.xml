@@ -162,5 +162,15 @@
             android:text="Update Address"
             android:textColor="#fff" />
 
+
+        <TextView
+            android:id="@+id/textview_selected"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TEXTVIEW"
+            android:textSize="30dp" />
+
+
     </LinearLayout>
+
 </ScrollView>

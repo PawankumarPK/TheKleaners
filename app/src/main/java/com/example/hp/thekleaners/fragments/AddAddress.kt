@@ -4,14 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
+import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.pojoClass.ForAddress
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_add_address.*
+import kotlinx.android.synthetic.main.fragment_edit_address.*
 
 
 class AddAddress : BaseNavigationFragment() {
@@ -20,6 +21,7 @@ class AddAddress : BaseNavigationFragment() {
     private var user_id: String? = null
     private val db = FirebaseFirestore.getInstance()
     private val notebookRef = db.collection("Users")
+    // private lateinit var radioButton: RadioButton
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -37,7 +39,13 @@ class AddAddress : BaseNavigationFragment() {
         mAddAddressBackArrow.setOnClickListener { mAddAddressBackArrowFunction() }
 
         user_id = FirebaseAuth.getInstance().uid
+        radioGroup.setOnCheckedChangeListener { _, checkedId ->
+            when (checkedId) {
+                R.id.mHomeAndFlatAddAddress -> textview.text = "Home Or Flats"
+                R.id.mFarmHouseAddAddress  -> textview.text = "Farm House"
 
+            }
+        }
 
         //mContinueAddAdress.isEnabled = false
 
@@ -50,17 +58,20 @@ class AddAddress : BaseNavigationFragment() {
         val pincode = PinCode!!.text.toString()
         val selectState = mSelectState!!.text.toString()
         val selectCity = mSelectCity!!.text.toString()
+        val radioButton = textview!!.text.toString()
         addAddress_progress.visibility = View.VISIBLE
 
 
-        val note = ForAddress(address, landmark, pincode, selectState, selectCity)
+        val note = ForAddress(address, landmark, pincode, selectState, selectCity,radioButton)
 
         notebookRef.document(user_id!!).collection("Address").add(note)
-
-
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedAddress()).commit()
     }
 
+    private fun radioFunction() {
+
+
+    }
 
     private fun mContinueAddAdressFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedAddress()).commit()

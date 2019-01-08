@@ -78,12 +78,14 @@ class SavedAddress : BaseNavigationFragment() {
                 val documentpincode = note.pincode
                 val documentstate = note.selectState
                 val documentcity = note.selectCity
+                val houseSelction = note.radioSelection
 
                 mAddressSavedAddress.text = documentaddress
                 mLandmarkSavedAddress.text = documentlandmark
                 mSelectStateSavedAddress.text = documentstate
                 mSelectCitySavedAddress.text = documentcity
                 PinCodeSavedAddress.text = documentpincode
+                mHomeSavedAddress.text = houseSelction
 
                 // data += "\n\n"
             }
