@@ -8,7 +8,8 @@ import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
-import kotlinx.android.synthetic.main.fragment_pricing_guide.*
+import kotlinx.android.synthetic.main.fragment_pricing_guide_farmhouse.*
+
 
 class PricingGuideFarmHouse : BaseNavigationFragment() {
 
@@ -23,18 +24,18 @@ class PricingGuideFarmHouse : BaseNavigationFragment() {
         mainActivity.toolbar.visibility = View.VISIBLE
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
-//        mProceedNext.setOnClickListener { mProceedNextFunction() }
-  //      mPricingGuideBackArrow.setOnClickListener { mPricingGuideBackArrow() }
+        mProceedNextFarmhouse.setOnClickListener { mProceedNextFunction() }
+        mPricingGuideBackArrowFarmhouse.setOnClickListener { mPricingGuideBackArrow() }
 
 
     }
 
-    /*private fun mProceedNextFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, DateAndTime()).commit()
+    private fun mProceedNextFunction() {
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, DateAndTimeFarmHouse()).commit()
     }
 
     private fun mPricingGuideBackArrow() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SelectServices()).commit()
-    }*/
+    }
 
 }

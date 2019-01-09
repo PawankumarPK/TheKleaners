@@ -11,7 +11,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/mDateBackArrow"
+            android:id="@+id/mDateBackArrowFarmhouse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="13dp"
@@ -29,7 +29,7 @@
     </android.support.v7.widget.Toolbar>
 
     <ProgressBar
-        android:id="@+id/timing_progress"
+        android:id="@+id/timing_progressFarmhouse"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,17 +38,17 @@
         android:visibility="invisible" />
 
     <DatePicker
-        android:id="@+id/date_picker"
+        android:id="@+id/date_pickerFarmhouse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/timing_progress"
+        android:layout_below="@+id/timing_progressFarmhouse"
         android:layout_centerInParent="true"/>
 
     <TextView
-        android:id="@+id/mDailyServiceTaken"
+        android:id="@+id/mDailyServiceTakenFarmhouse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/date_picker"
+        android:layout_below="@+id/date_pickerFarmhouse"
         android:layout_marginLeft="20dp"
         android:layout_marginStart="20dp"
         android:text="Daily Service"
@@ -56,33 +56,33 @@
         android:visibility="invisible" />
 
     <TextView
-        android:id="@+id/mDailyServiceAmount"
+        android:id="@+id/mDailyServiceAmountFarmhouse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/date_picker"
+        android:layout_below="@+id/date_pickerFarmhouse"
         android:layout_marginLeft="20dp"
         android:layout_marginStart="20dp"
-        android:layout_toEndOf="@+id/mDailyServiceTaken"
-        android:layout_toRightOf="@+id/mDailyServiceTaken"
-        android:text="70+18% GST"
+        android:layout_toEndOf="@+id/mDailyServiceTakenFarmhouse"
+        android:layout_toRightOf="@+id/mDailyServiceTakenFarmhouse"
+        android:text="300+18% GST"
         android:textColor="#000"
         android:visibility="invisible" />
 
     <TextView
-        android:id="@+id/mDailyServiceTiming"
+        android:id="@+id/mDailyServiceTimingFarmhouse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/date_picker"
+        android:layout_below="@+id/date_pickerFarmhouse"
         android:layout_marginLeft="20dp"
         android:layout_marginStart="20dp"
-        android:layout_toEndOf="@+id/mDailyServiceAmount"
-        android:layout_toRightOf="@+id/mDailyServiceAmount"
+        android:layout_toEndOf="@+id/mDailyServiceAmountFarmhouse"
+        android:layout_toRightOf="@+id/mDailyServiceAmountFarmhouse"
         android:text="20-12-2018"
         android:textColor="#000"
         android:visibility="invisible" />
 
     <Button
-        android:id="@+id/mSavedNewService"
+        android:id="@+id/mSavedNewServiceFarmhouse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

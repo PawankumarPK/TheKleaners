@@ -15,7 +15,7 @@
             android:background="@drawable/color_gradient_toolbar">
 
             <ImageView
-                android:id="@+id/mPricingGuideBackArrow"
+                android:id="@+id/mPricingGuideBackArrowFarmhouse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="13dp"
@@ -76,7 +76,7 @@
                 android:layout_centerInParent="true"
                 android:text="300"
                 android:textColor="#fff"
-                android:textSize="100sp" />
+                android:textSize="90sp" />
 
             <TextView
                 android:id="@+id/mGST"
@@ -92,7 +92,7 @@
         </RelativeLayout>
 
         <Button
-            android:id="@+id/mProceedNext"
+            android:id="@+id/mProceedNextFarmhouse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

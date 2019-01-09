@@ -9,18 +9,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
+import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.pojoClass.ForService
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.dialog_thanku.*
-import kotlinx.android.synthetic.main.fragment_date_and_time.*
+import kotlinx.android.synthetic.main.fragment_date_and_time_farmhouse.*
 
 
-class DateAndTime : BaseNavigationFragment() {
+class DateAndTimeFarmHouse : BaseNavigationFragment() {
 
     private val displayRectangle = Rect()
     private var width = 0
@@ -34,7 +34,7 @@ class DateAndTime : BaseNavigationFragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_date_and_time, container, false)
+        return inflater.inflate(R.layout.fragment_date_and_time_farmhouse, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -48,9 +48,9 @@ class DateAndTime : BaseNavigationFragment() {
         mainActivity.window.decorView.getWindowVisibleDisplayFrame(displayRectangle)
         width = (displayRectangle.width() * 0.9f).toInt()
         dialog = Dialog(mainActivity)
-        mSavedNewService.setOnClickListener { addNote() }
+        mSavedNewServiceFarmhouse.setOnClickListener { addNote() }
         // mSavedNewService.setOnClickListener { mSavedNewServiceFunction() }
-        mDateBackArrow.setOnClickListener { mDateBackArrowFunction() }
+        mDateBackArrowFarmhouse.setOnClickListener { mDateBackArrowFunction() }
 
         user_id = FirebaseAuth.getInstance().uid
 
@@ -58,11 +58,11 @@ class DateAndTime : BaseNavigationFragment() {
 
     private fun addNote() {
 
-        mDailyServiceTiming.text = getCurrentDate()
+        mDailyServiceTimingFarmhouse.text = getCurrentDate()
 
-        val serviceTaken = mDailyServiceTaken!!.text.toString()
-        val amount = mDailyServiceAmount!!.text.toString()
-        val timing = mDailyServiceTiming!!.text.toString()
+        val serviceTaken = mDailyServiceTakenFarmhouse!!.text.toString()
+        val amount = mDailyServiceAmountFarmhouse!!.text.toString()
+        val timing = mDailyServiceTimingFarmhouse!!.text.toString()
 
         val note = ForService(serviceTaken, amount, timing)
 
@@ -91,15 +91,15 @@ class DateAndTime : BaseNavigationFragment() {
     }
 
     private fun mDateBackArrowFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, PricingGuide()).commit()
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, PricingGuideFarmHouse()).commit()
         dialog.dismiss()
     }
 
     private fun getCurrentDate(): String {
         val builder = StringBuilder()
-        builder.append((date_picker.dayOfMonth).toString() + "-")
-        builder.append((date_picker.month + 1).toString() + "-")
-        builder.append(date_picker.year)
+        builder.append((date_pickerFarmhouse.dayOfMonth).toString() + "-")
+        builder.append((date_pickerFarmhouse.month + 1).toString() + "-")
+        builder.append(date_pickerFarmhouse.year)
         return builder.toString()
     }
 }

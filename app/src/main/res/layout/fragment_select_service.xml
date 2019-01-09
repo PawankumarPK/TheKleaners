@@ -36,8 +36,8 @@
             android:id="@+id/mForResidentialBlock"
             android:layout_width="match_parent"
             android:layout_height="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_below="@+id/mSelectServiceToolbar">
+            android:layout_below="@+id/mSelectServiceToolbar"
+            android:layout_marginTop="10dp">
 
             <TextView
                 android:id="@+id/mForResidential"
@@ -70,19 +70,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
                 app:cardElevation="3dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_margin="20dp"
+                    android:fontFamily="serif"
                     android:text="Daily Service"
                     android:textColor="#3d791b"
-                    android:textSize="18sp"
-                    android:layout_gravity="center_vertical"
-                    android:fontFamily="serif"/>
+                    android:textSize="18sp" />
 
 
                 <ImageView
@@ -116,12 +116,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_margin="20dp"
+                    android:fontFamily="serif"
                     android:text="Car Cleaning Service"
                     android:textColor="#3d791b"
-                    android:textSize="18sp"
-                    android:layout_gravity="center_vertical"
-                    android:fontFamily="serif" />
+                    android:textSize="18sp" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -151,12 +151,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_margin="20dp"
+                    android:fontFamily="serif"
                     android:text="Other Service"
                     android:textColor="#3d791b"
-                    android:textSize="18sp"
-                    android:layout_gravity="center_vertical"
-                    android:fontFamily="serif"/>
+                    android:textSize="18sp" />
 
 
                 <ImageView
@@ -177,8 +177,8 @@
             android:id="@+id/mForCommercialBlock"
             android:layout_width="match_parent"
             android:layout_height="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_below="@+id/mRelativeLayoutOtherService">
+            android:layout_below="@+id/mRelativeLayoutOtherService"
+            android:layout_marginTop="20dp">
 
             <TextView
                 android:id="@+id/mForCommercial"
@@ -218,12 +218,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_margin="20dp"
+                    android:fontFamily="serif"
                     android:text="Medical Service"
                     android:textColor="#3d791b"
-                    android:textSize="18sp"
-                    android:layout_gravity="center_vertical"
-                    android:fontFamily="serif"/>
+                    android:textSize="18sp" />
 
 
                 <ImageView
@@ -257,12 +257,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_margin="20dp"
+                    android:fontFamily="serif"
                     android:text="Curbside/Parties Service"
                     android:textColor="#3d791b"
-                    android:textSize="18sp"
-                    android:layout_gravity="center_vertical"
-                    android:fontFamily="serif"/>
+                    android:textSize="18sp" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -292,12 +292,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_margin="20dp"
+                    android:fontFamily="serif"
                     android:text="Construction Service"
                     android:textColor="#3d791b"
-                    android:textSize="18sp"
-                    android:layout_gravity="center_vertical"
-                    android:fontFamily="serif" />
+                    android:textSize="18sp" />
 
 
                 <ImageView
@@ -308,23 +308,10 @@
                     android:src="@drawable/right_arrow_black" />
 
 
-
             </android.support.v7.widget.CardView>
 
 
-
-
         </RelativeLayout>
-
-        <TextView
-            android:id="@+id/textview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:text="HEllo"
-            android:layout_marginLeft="50dp"
-            android:layout_below="@+id/mRelativeLayout"/>
-
 
     </RelativeLayout>
 
