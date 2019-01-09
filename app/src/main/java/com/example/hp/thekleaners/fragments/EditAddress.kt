@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.widget.RadioGroup
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
@@ -23,6 +24,8 @@ class EditAddress : BaseNavigationFragment() {
     private val db = FirebaseFirestore.getInstance()
     private val notebookRef = db.document("")
     private var mDatabase: FirebaseDatabase? = null
+    var name: Boolean = true
+    var farmname: Boolean = true
     //private var mRef: DatabaseReference? = null
     // private lateinit var database: DatabaseReference
 
@@ -39,6 +42,8 @@ class EditAddress : BaseNavigationFragment() {
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
 
+        setDefaultSetting()
+        mRadioGroupName.setOnCheckedChangeListener(radioListener)
         mDatabase = FirebaseDatabase.getInstance()
         //database = FirebaseDatabase.getInstance().reference
 
@@ -52,7 +57,7 @@ class EditAddress : BaseNavigationFragment() {
         user_id = FirebaseAuth.getInstance().uid
 
         loadAddressData()
-        radioFunction()
+       // radioFunction()
 
     }
 
@@ -149,7 +154,7 @@ class EditAddress : BaseNavigationFragment() {
             database.child("Users").child(user_id).child("Address").child("FfriNnYQCHfPvhRiWmXB").child("address").setValue(name)
         }
     */
-    private fun radioFunction() {
+  /*  private fun radioFunction() {
 
         mRadioGroupName.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
@@ -157,12 +162,37 @@ class EditAddress : BaseNavigationFragment() {
                 R.id.mAlwaysAsk -> textview_selected.text = "Farm House"
 
             }
+        }*/
+
+
+    private val radioListener = RadioGroup.OnCheckedChangeListener { group, checkedId ->
+        when (group) {
+            mRadioGroupName -> changeName(checkedId)
+
         }
     }
 
 
+    private fun setDefaultSetting() {
+        name = pref.homeAndFlat
+        //farmname = pref.farmHouse
+
+        if (name) {
+            mAutomaticGenerate.isChecked = true
+        } else {
+            mAlwaysAsk.isChecked = true
+        }
+    }
+
+
+    private fun changeName(checkedId: Int) {
+        name = checkedId == R.id.mAutomaticGenerate
+    }
+
+
     private fun mSavedNewAddressFunction() {
-         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedAddress()).commit()
+        pref.homeAndFlat = name
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedAddress()).commit()
     }
 
     private fun mSavedNewAddressBackArrowFunction() {

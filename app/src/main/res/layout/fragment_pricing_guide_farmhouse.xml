@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/mSelectServiceToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/color_gradient_toolbar">
+
+            <ImageView
+                android:id="@+id/mPricingGuideBackArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="13dp"
+                android:layout_marginRight="13dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_close" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pricing Guide"
+                android:textColor="#fff"
+                android:textSize="20sp" />
+
+        </android.support.v7.widget.Toolbar>
+
+
+        <RelativeLayout
+            android:id="@+id/mParentRelativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_below="@+id/mSelectServiceToolbar"
+            android:background="@drawable/color_gradient_toolbar">
+
+            <TextView
+                android:id="@+id/mPerMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:text="Per Month"
+                android:textColor="#fff"
+                android:textSize="22sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mPerMonth"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="No Hidden Charges"
+                android:textColor="#fff"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toLeftOf="@+id/mSeventy"
+                android:layout_toStartOf="@+id/mSeventy"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_rupee" />
+
+            <TextView
+                android:id="@+id/mSeventy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="300"
+                android:textColor="#fff"
+                android:textSize="100sp" />
+
+            <TextView
+                android:id="@+id/mGST"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toEndOf="@+id/mSeventy"
+                android:layout_toRightOf="@+id/mSeventy"
+                android:text="+ 19% GST"
+                android:textColor="#fff"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/mProceedNext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="20dp"
+            android:background="@drawable/color_gradient"
+            android:text="Proceed"
+            android:textColor="#fff" />
+
+
+    </RelativeLayout>
+</RelativeLayout>

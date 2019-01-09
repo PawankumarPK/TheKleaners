@@ -29,8 +29,16 @@ class SelectServices : BaseNavigationFragment() {
 
     }
 
+    private fun demoFunction(){
+         if (pref.homeAndFlat)
+             fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, PricingGuide()).commit()
+        else
+             fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, PricingGuideFarmHouse()).commit()
+
+    }
+
     private fun mForDailyServiceFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, PricingGuide()).commit()
+        demoFunction()
     }
 
     private fun mSelectServiceBackArrowFunction() {

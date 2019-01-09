@@ -72,13 +72,13 @@ class SavedAddress : BaseNavigationFragment() {
                 mView.visibility = VISIBLE
                 mImageView.visibility = GONE
                 addNewService.visibility = VISIBLE
-                mSavedNewAddress.visibility = GONE
+               // mSavedNewAddress.visibility = GONE
                 val documentaddress = note.address
                 val documentlandmark = note.landmark
                 val documentpincode = note.pincode
                 val documentstate = note.selectState
                 val documentcity = note.selectCity
-                val houseSelction = note.radioSelection
+                val houseSelction = note.house
 
                 mAddressSavedAddress.text = documentaddress
                 mLandmarkSavedAddress.text = documentlandmark

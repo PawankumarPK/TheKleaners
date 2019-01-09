@@ -11,21 +11,21 @@ public class ForAddress {
     private String pincode;
     private String selectState;
     private String selectCity;
-    private String radioSelection;
+    private String house;
 
     public ForAddress() {
         //public no-arg constructor needed
     }
 
     public ForAddress(String address, String landmark, String pincode, String selectState
-            , String selectCity,String radioSelection){
+            , String selectCity,String house){
 
         this.address = address;
         this.landmark = landmark;
         this.pincode = pincode;
         this.selectState = selectState;
         this.selectCity = selectCity;
-        this.radioSelection= radioSelection;
+        this.house= house;
     }
 
     @Exclude
@@ -53,9 +53,7 @@ public class ForAddress {
         return selectState;
     }
 
-    public String getSelectCity() {
-        return selectCity;
-    }
+    public String getSelectCity() { return selectCity; }
 
-    public String getRadioSelection() { return radioSelection; }
+    public String getHouse() { return house; }
 }
