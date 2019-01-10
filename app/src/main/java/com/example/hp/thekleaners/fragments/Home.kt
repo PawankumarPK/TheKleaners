@@ -60,7 +60,7 @@ class Home : BaseNavigationFragment() {
     }
 
     private fun mCarWashButtonServiceFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, UpcomingServices()).commit()
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, CarCleaning()).commit()
     }
 
 }
