@@ -72,8 +72,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#2b2b2b"
-                    android:text="Daily Service"
                     android:textSize="20sp"
+                    android:text="Daily"
                     android:layout_margin="2dp"
                     android:fontFamily="sans-serif-condensed"/>
 
@@ -127,6 +127,19 @@
              android:layout_centerInParent="true"
              android:contentDescription="@null"
              android:src="@drawable/ic_search" />
+
+        <TextView
+            android:id="@+id/mServiceAmountDemo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="Daily"
+            android:layout_marginBottom="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:visibility="invisible" />
+
+
         <Button
             android:id="@+id/mSavedNewService"
             android:layout_width="match_parent"

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/mRelativeLayoutToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/mCarServiceBackArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_margin="10dp"
+                android:contentDescription="@null"
+                android:src="@drawable/car_left_arrow" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="Car Washing Plans"
+                android:textColor="#1b1a1a"
+                android:textSize="18sp" />
+
+
+        </android.support.v7.widget.Toolbar>
+
+
+        <RadioGroup
+            android:id="@+id/radioShifts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mRelativeLayoutToolbar"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/radioButton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp" />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp" />
+
+
+            <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp" />
+
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/txtProgram"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/radioShifts"
+            android:textSize="30dp"
+            android:text="Hello"/>
+
+        <Button
+            android:id="@+id/mDemoButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtProgram"
+            android:background="@drawable/color_button_car_gradient"
+            android:drawableEnd="@drawable/right_arrow"
+            android:drawableRight="@drawable/right_arrow"
+            android:text="Continue"
+            android:textColor="#fff" />
+
+
+    </RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>

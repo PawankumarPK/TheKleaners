@@ -7,9 +7,10 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
+import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
+import com.example.hp.thekleaners.pojoClass.ForAddress
 import com.example.hp.thekleaners.pojoClass.ForService
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -38,11 +39,12 @@ class SavedServices : BaseNavigationFragment() {
         mSavedServiceBackArrow.setOnClickListener { mSavedServiceBackArrowFunction() }
 
         savedService_progress.visibility = View.VISIBLE
-        mCardView.visibility = View.INVISIBLE
+         mCardView.visibility = View.INVISIBLE
 
 
         user_id = FirebaseAuth.getInstance().uid
 
+        addressData()
         loadAddressData()
 
 
@@ -69,9 +71,10 @@ class SavedServices : BaseNavigationFragment() {
                 mServiceAmount.text = "₹$documentamount"
                 mServiceTiming.text = documentdata
 
-
+                //   mServiceTaken.text = documentServiceTaken
                 // data += "\n\n"
             }
+
             savedService_progress.visibility = View.INVISIBLE
             /*mAddressSavedAddress.text = data
             mLandmarkSavedAddress.text = data
@@ -82,13 +85,36 @@ class SavedServices : BaseNavigationFragment() {
     }
 
 
-    private fun mSavedNewServiceFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SelectServices()).commit()
-    }
+    private fun addressData() {
+        notebookRef.document(user_id!!).collection("Address").get().addOnSuccessListener { queryDocumentSnapshots ->
+            //var data = ""
+
+            for (documentSnapshot in queryDocumentSnapshots) {
+                val note = documentSnapshot.toObject(ForAddress::class.java)
+                note.documentId = documentSnapshot.id
+
+                // mSavedNewAddress.visibility = GONE
+                val documentaddress = note.address
+
+                mServiceAmountDemo.text = documentaddress
 
 
-    private fun mSavedServiceBackArrowFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, Profile()).commit()
+            }
+        }
     }
+
+            private fun mSavedNewServiceFunction() {
+                if (mServiceAmountDemo.text == "Daily")
+                    fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, AddAddress()).commit()
+                else
+                fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SelectServices()).commit()
+
+            }
+
+
+            private fun mSavedServiceBackArrowFunction() {
+                fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, Profile()).commit()
+            }
 //saved
-}
+        }
+
