@@ -8,7 +8,7 @@ import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import kotlinx.android.synthetic.main.fragment_car_pricing_details.*
 
-class Car_Pricing_details : BaseNavigationFragment() {
+class CarPricingDetails : BaseNavigationFragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -19,7 +19,19 @@ class Car_Pricing_details : BaseNavigationFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val name = this.arguments!!.getString("doctor_id").toString()
-        demoTextView.text = name
+        mOriginalPricing.text = name
+
+        mProceedNext.setOnClickListener { mProceedNextFunction() }
 
     }
+
+    private fun mProceedNextFunction() {
+        val args = Bundle()
+        args.putString("doctor_id", mOriginalPricing.text.toString())
+        val newFragment = DateAndTimeCarService()
+        newFragment.arguments = args
+
+        fragmentManager!!.beginTransaction().replace(R.id.containerView, newFragment).commit()
+    }
+
 }

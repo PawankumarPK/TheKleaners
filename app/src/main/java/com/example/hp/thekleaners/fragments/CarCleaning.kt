@@ -37,7 +37,7 @@ class CarCleaning : BaseNavigationFragment() {
     }
     private fun mForCarCleaningContinueFunction() {
         //mRelativeLayoutForGone.visibility = View.GONE
-        fragmentManager!!.beginTransaction().replace(R.id.containerView, Car_categories()).addToBackStack(null).commit()
+        fragmentManager!!.beginTransaction().replace(R.id.containerView, CarCategories()).addToBackStack(null).commit()
 
     }
 
