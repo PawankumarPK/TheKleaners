@@ -30,7 +30,6 @@ class DateAndTime : BaseNavigationFragment() {
     private lateinit var dialog: Dialog
     private lateinit var metrics: DisplayMetrics
 
-
     private var user_id: String? = null
     private val db = FirebaseFirestore.getInstance()
     private val notebookRef = db.collection("Users")
@@ -68,9 +67,7 @@ class DateAndTime : BaseNavigationFragment() {
         val timing = mDailyServiceTiming!!.text.toString()
 
         val note = ForService(serviceTaken, amount, timing)
-
-        notebookRef.document(user_id!!).collection("Services").add(note)
-
+        notebookRef.document(user_id!!).collection("Services").document("For Daily Picking").collection("Daily Service").add(note)
         thankuDialog()
     }
 

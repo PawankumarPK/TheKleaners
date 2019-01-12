@@ -39,21 +39,21 @@ class SavedServices : BaseNavigationFragment() {
         mSavedServiceBackArrow.setOnClickListener { mSavedServiceBackArrowFunction() }
 
         savedService_progress.visibility = View.VISIBLE
-         mCardView.visibility = View.INVISIBLE
+        mCardView.visibility = View.GONE
+        mCardViewCar.visibility = View.GONE
 
 
         user_id = FirebaseAuth.getInstance().uid
 
         addressData()
         loadAddressData()
-
+        loadCarServiceData()
 
     }
 
     @SuppressLint("SetTextI18n")
     private fun loadAddressData() {
-        notebookRef.document(user_id!!).collection("Services").get().addOnSuccessListener { queryDocumentSnapshots ->
-            //var data = ""
+        notebookRef.document(user_id!!).collection("Services").document("For Daily Picking").collection("Daily Service").get().addOnSuccessListener { queryDocumentSnapshots ->
 
             for (documentSnapshot in queryDocumentSnapshots) {
                 val note = documentSnapshot.toObject(ForService::class.java)
@@ -70,6 +70,35 @@ class SavedServices : BaseNavigationFragment() {
                 mServiceTaken.text = documentServiceTaken
                 mServiceAmount.text = "₹$documentamount"
                 mServiceTiming.text = documentdata
+
+            }
+
+            savedService_progress.visibility = View.INVISIBLE
+
+        }
+    }
+
+
+    @SuppressLint("SetTextI18n")
+    private fun loadCarServiceData() {
+        notebookRef.document(user_id!!).collection("Services").document("For Car Service").collection("Car Washing").get().addOnSuccessListener { queryDocumentSnapshots ->
+            //var data = ""
+
+            for (documentSnapshot in queryDocumentSnapshots) {
+                val note = documentSnapshot.toObject(ForService::class.java)
+                note.documentId = documentSnapshot.id
+
+                mCardViewCar.visibility = VISIBLE
+                mImageView.visibility = GONE
+
+                val documentServiceTaken = note.serviceTaken
+                val documentamount = note.amount
+                val documentdata = note.date
+
+
+                mServiceTakenCar.text = documentServiceTaken
+                mServiceAmountCar.text = "₹$documentamount"
+                mServiceTimingCar.text = documentdata
 
                 //   mServiceTaken.text = documentServiceTaken
                 // data += "\n\n"
@@ -103,18 +132,19 @@ class SavedServices : BaseNavigationFragment() {
         }
     }
 
-            private fun mSavedNewServiceFunction() {
-                if (mServiceAmountDemo.text == "Daily")
-                    fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, AddAddress()).commit()
-                else
-                fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SelectServices()).commit()
 
-            }
+    private fun mSavedNewServiceFunction() {
+        if (mServiceAmountDemo.text == "Daily")
+            fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, AddAddress()).commit()
+        else
+            fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SelectServices()).commit()
+
+    }
 
 
-            private fun mSavedServiceBackArrowFunction() {
-                fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, Profile()).commit()
-            }
+    private fun mSavedServiceBackArrowFunction() {
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, Profile()).commit()
+    }
 //saved
-        }
+}
 

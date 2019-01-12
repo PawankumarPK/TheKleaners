@@ -23,40 +23,13 @@ class CarCategories : BaseNavigationFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // radioListener()
+
         setDefaultSetting()
         radioShifts.setOnCheckedChangeListener(radioListener)
         mDemoButton.setOnClickListener { demoFun() }
         //radioListener()
-/*
-
-        when (view.id) {
-            R.id.radioButton1 -> str = "button1Text"
-            R.id.radioButton2 -> str = "button2Text"
-            R.id.radioButton3 -> str = "button3Text"
-        }
-*/
-
     }
 
-    /* private fun radioListener() {
-
-         when {
-             radioButton1.isChecked -> {
-                 txtProgram.text = "one"
-                 Toast.makeText(context, "Working", Toast.LENGTH_SHORT).show()
-             }
-             radioButton2.isChecked -> {
-                 txtProgram.text = "Two"
-                 Toast.makeText(context, "Working2", Toast.LENGTH_SHORT).show()
-             }
-             radioButton3.isChecked -> {
-                 txtProgram.text = "Three"
-                 Toast.makeText(context, "Working3", Toast.LENGTH_SHORT).show()
-             }
-         }
-     }
- */
     @SuppressLint("SetTextI18n")
     private val radioListener = RadioGroup.OnCheckedChangeListener { group, checkedId ->
         when (group) {
@@ -100,12 +73,6 @@ class CarCategories : BaseNavigationFragment() {
 
         fragmentManager!!.beginTransaction().replace(R.id.containerView, newFragment).commit()
     }
-
-
-    /*  val args = Bundle()
-      args.putString("doctor_id", str)
-      val newFragment = CarPricingDetails()
-      newFragment.arguments = args*/
 }
 
 

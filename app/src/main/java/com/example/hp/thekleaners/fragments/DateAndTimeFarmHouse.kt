@@ -66,7 +66,7 @@ class DateAndTimeFarmHouse : BaseNavigationFragment() {
 
         val note = ForService(serviceTaken, amount, timing)
 
-        notebookRef.document(user_id!!).collection("Services").add(note)
+        notebookRef.document(user_id!!).collection("Services").document("For Daily Picking").collection("Daily Service").add(note)
 
         thankuDialog()
     }

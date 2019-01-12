@@ -69,8 +69,7 @@ class DateAndTimeCarService : BaseNavigationFragment() {
 
         val note = ForService(serviceTaken, amount, timing)
 
-        notebookRef.document(user_id!!).collection("Services").add(note)
-
+        notebookRef.document(user_id!!).collection("Services").document("For Car Service").collection("Car Washing").add(note)
         thankuDialog()
     }
 
