@@ -33,7 +33,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:text="Car Washing"
-                    android:textColor="#1b1a1a"
+                    android:textColor="#4a6330"
                     android:textSize="18sp" />
 
 

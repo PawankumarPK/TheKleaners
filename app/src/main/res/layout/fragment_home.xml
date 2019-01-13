@@ -135,7 +135,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginTop="20dp"
-            app:cardBackgroundColor="#2d2c2c"
+            app:cardBackgroundColor="#50643b"
             app:cardCornerRadius="5dp">
 
             <TextView
@@ -192,7 +192,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/color_button_gradient"
+                    android:background="@drawable/color_button_other_gradient"
                     android:drawableEnd="@drawable/right_arrow"
                     android:drawableRight="@drawable/right_arrow"
                     android:text="Continue To Our Car Wash Service"
@@ -212,7 +212,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginTop="20dp"
-            app:cardBackgroundColor="#50643b"
+            app:cardBackgroundColor="#2d2c2c"
             app:cardCornerRadius="5dp">
 
             <TextView
@@ -247,7 +247,7 @@
                     android:layout_below="@+id/mOthers_viewPager"
                     android:layout_margin="10dp"
                     android:text="Other Services"
-                    android:textColor="#4a6330"
+                    android:textColor="#1e1d1d"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -269,7 +269,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/color_button_other_gradient"
+                    android:background="@drawable/color_button_gradient"
                     android:drawableEnd="@drawable/right_arrow"
                     android:drawableRight="@drawable/right_arrow"
                     android:text="Check Our Other Service"

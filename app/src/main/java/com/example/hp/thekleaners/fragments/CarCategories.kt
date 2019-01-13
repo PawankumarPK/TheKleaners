@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.RadioGroup
 import com.example.hp.thekleaners.R
+import com.example.hp.thekleaners.activities.NavigationDrawer
 import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
+import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_car_categories.*
 
 
@@ -23,46 +25,38 @@ class CarCategories : BaseNavigationFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        mainActivity = activity as NavigationDrawer
+        mainActivity.toolbar.visibility = View.VISIBLE
+        mainActivity.tabLayout.visibility = View.GONE
+        (activity as NavigationDrawer).setDrawerLocked(true)
 
-        setDefaultSetting()
         radioShifts.setOnCheckedChangeListener(radioListener)
         mDemoButton.setOnClickListener { demoFun() }
-        //radioListener()
+        mCarServiceBackArrow.setOnClickListener { mCarServiceBackArrowFunction() }
+        mDemoButton.visibility = View.GONE
+
     }
 
     @SuppressLint("SetTextI18n")
-    private val radioListener = RadioGroup.OnCheckedChangeListener { group, checkedId ->
-        when (group) {
-            radioShifts -> changeName(checkedId)
-        }
+    private val radioListener = RadioGroup.OnCheckedChangeListener { _, checkedId ->
+
         when (checkedId) {
             R.id.radioButton1 -> {
+                mDemoButton.visibility = View.VISIBLE
                 txtProgram.text = "200"
                 radioButton1.startAnimation(AnimationUtils.loadAnimation(context, R.anim.image_button))
             }
             R.id.radioButton2 -> {
+                mDemoButton.visibility = View.VISIBLE
                 txtProgram.text = "300"
                 radioButton2.startAnimation(AnimationUtils.loadAnimation(context, R.anim.image_button))
             }
             R.id.radioButton3 -> {
+                mDemoButton.visibility = View.VISIBLE
                 txtProgram.text = "400"
                 radioButton3.startAnimation(AnimationUtils.loadAnimation(context, R.anim.image_button))
             }
         }
-    }
-
-    private fun setDefaultSetting() {
-        name = pref.homeAndFlat
-
-        if (name)
-            radioButton1.isChecked = true
-        else
-            radioButton2.isChecked = false
-
-    }
-
-    private fun changeName(checkedId: Int) {
-        name = checkedId == R.id.radioButton1
     }
 
     private fun demoFun() {
@@ -73,6 +67,11 @@ class CarCategories : BaseNavigationFragment() {
 
         fragmentManager!!.beginTransaction().replace(R.id.containerView, newFragment).commit()
     }
+
+    private fun mCarServiceBackArrowFunction() {
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, CarCleaning()).commit()
+    }
+
 }
 
 

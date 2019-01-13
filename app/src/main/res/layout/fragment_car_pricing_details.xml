@@ -15,7 +15,7 @@
             android:background="@drawable/color_button_car_gradient">
 
             <ImageView
-                android:id="@+id/mPricingGuideBackArrow"
+                android:id="@+id/mCarPricingGuideBackArrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="13dp"
@@ -79,13 +79,22 @@
                 android:textSize="100sp" />
 
             <TextView
+                android:id="@+id/mAddPricing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mOriginalPricing"
+                android:layout_centerHorizontal="true"
+                android:text="+"
+                android:textColor="#fff"
+                android:textSize="30sp" />
+
+            <TextView
                 android:id="@+id/mGST"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_toEndOf="@+id/mOriginalPricing"
-                android:layout_toRightOf="@+id/mOriginalPricing"
-                android:text="+ 18% GST"
+                android:layout_below="@+id/mAddPricing"
+                android:layout_centerHorizontal="true"
+                android:text="18% GST"
                 android:textColor="#fff"
                 android:textSize="20sp" />
 

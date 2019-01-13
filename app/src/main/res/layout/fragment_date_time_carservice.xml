@@ -54,7 +54,7 @@
         android:text="Car Washing Service"
         android:layout_marginTop="-20dp"
         android:textColor="#000"
-        android:visibility="visible" />
+        android:visibility="invisible" />
 
     <TextView
         android:id="@+id/mDailyCarServiceAmount"
@@ -68,7 +68,7 @@
         android:text="70+18% GST"
         android:layout_marginTop="-20dp"
         android:textColor="#000"
-        android:visibility="visible" />
+        android:visibility="invisible" />
 
     <TextView
         android:id="@+id/mDailyCarServiceTiming"
@@ -82,7 +82,7 @@
         android:text="20-12-2018"
         android:layout_marginTop="-20dp"
         android:textColor="#000"
-        android:visibility="visible" />
+        android:visibility="invisible" />
 
     <Button
         android:id="@+id/mSavedNewCarService"
@@ -92,7 +92,7 @@
         android:layout_margin="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:background="@drawable/color_button_car_gradient"
+        android:background="@drawable/color_gradient"
         android:text="Done"
         android:textColor="#fff" />
 

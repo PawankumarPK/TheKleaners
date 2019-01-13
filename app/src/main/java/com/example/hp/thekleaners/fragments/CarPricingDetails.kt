@@ -22,6 +22,7 @@ class CarPricingDetails : BaseNavigationFragment() {
         mOriginalPricing.text = name
 
         mProceedNext.setOnClickListener { mProceedNextFunction() }
+        mCarPricingGuideBackArrow.setOnClickListener { mCarPricingGuideBackArrowFunction() }
 
     }
 
@@ -33,5 +34,10 @@ class CarPricingDetails : BaseNavigationFragment() {
 
         fragmentManager!!.beginTransaction().replace(R.id.containerView, newFragment).commit()
     }
+
+    private fun mCarPricingGuideBackArrowFunction() {
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, CarCategories()).commit()
+    }
+
 
 }

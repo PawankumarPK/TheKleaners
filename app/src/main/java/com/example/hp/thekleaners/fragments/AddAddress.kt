@@ -40,20 +40,10 @@ class AddAddress : BaseNavigationFragment() {
         setDefaultSetting()
         radioGroup.setOnCheckedChangeListener(radioListener)
 
-
         mContinueAddAdress.setOnClickListener { addNote() }
         mAddAddressBackArrow.setOnClickListener { mAddAddressBackArrowFunction() }
 
         user_id = FirebaseAuth.getInstance().uid
-        /*radioGroup.setOnCheckedChangeListener { _, checkedId ->
-            when (checkedId) {
-                R.id.mHomeAndFlatAddAddress -> textview.text = "Home Or Flats"
-                R.id.mFarmHouseAddAddress  -> textview.text = "Farm House"
-
-            }
-        }
-*/
-        //mContinueAddAdress.isEnabled = false
 
     }
 

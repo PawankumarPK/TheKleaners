@@ -97,7 +97,7 @@ class SavedServices : BaseNavigationFragment() {
 
 
                 mServiceTakenCar.text = documentServiceTaken
-                mServiceAmountCar.text = "₹$documentamount"
+                mServiceAmountCar.text = "₹$documentamount +18% GST"
                 mServiceTimingCar.text = documentdata
 
                 //   mServiceTaken.text = documentServiceTaken

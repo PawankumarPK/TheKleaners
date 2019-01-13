@@ -31,14 +31,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:text="Car Washing Plans"
-                android:textColor="#1b1a1a"
+                android:textColor="#4a6330"
                 android:textSize="18sp" />
 
 
         </android.support.v7.widget.Toolbar>
 
-
-        <RadioGroup
+            <RadioGroup
             android:id="@+id/radioShifts"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -58,7 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:button="@drawable/carcleaning"/>
+                android:button="@drawable/carcleaning" />
 
 
             <RadioButton
@@ -71,14 +70,14 @@
 
         </RadioGroup>
 
-        <TextView
-            android:id="@+id/txtProgram"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/radioShifts"
-            android:textSize="30dp"
-            android:text="Hello"/>
-
+            <TextView
+                android:id="@+id/txtProgram"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:layout_below="@+id/radioShifts"
+                android:text="Hello"
+                android:visibility="invisible"/>
 
 
         </RelativeLayout>
