@@ -234,6 +234,54 @@
                 android:layout_height="1dp"
                 android:layout_below="@+id/mRelativeLayoutMyService"
                 android:background="#ccc" />
+
+            <View
+                android:id="@+id/mView3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/mRelativeLayoutMyAddress"
+                android:background="#ccc" />
+
+
+            <RelativeLayout
+                android:id="@+id/mRelativeLayoutQuery"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/mRelativeLayoutMyService"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:id="@+id/mQueryIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_cleaning" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_toEndOf="@+id/mQueryIcon"
+                    android:layout_toRightOf="@+id/mQueryIcon"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="My Queries"
+                    android:textColor="#302d2d"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+            <View
+                android:id="@+id/mView4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/mRelativeLayoutQuery"
+                android:background="#ccc" />
+
+
         </RelativeLayout>
 
     </RelativeLayout>

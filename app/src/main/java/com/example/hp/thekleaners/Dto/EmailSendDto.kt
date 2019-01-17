@@ -1,4 +1,4 @@
-package com.example.hp.thekleaners.dto
+package com.example.hp.thekleaners.Dto
 
 /**
  * Created by pawan

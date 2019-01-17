@@ -10,9 +10,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
+import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
@@ -33,7 +33,6 @@ class Profile : BaseNavigationFragment() {
     private var storageReference: StorageReference? = null
     private var firebaseAuth: FirebaseAuth? = null
     private var firebaseFirestore: FirebaseFirestore? = null
-
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -66,6 +65,7 @@ class Profile : BaseNavigationFragment() {
         mEditProfile.setOnClickListener { mEditProfileFunction() }
         mLogout.setOnClickListener { logoutDialog() }
         mProfileBackArrow.setOnClickListener { mProfileBackArrowFunction() }
+        mRelativeLayoutQuery.setOnClickListener { mRelativeLayoutQueryFunction() }
 
 
         profile_progress.visibility = View.VISIBLE
@@ -113,7 +113,11 @@ class Profile : BaseNavigationFragment() {
     }
 
     private fun mEditProfileFunction() {
-         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, UserEditProfile()).commit()
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, UserEditProfile()).commit()
+    }
+
+    private fun mRelativeLayoutQueryFunction() {
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, MyQueries()).commit()
     }
 
     private fun mDialogLogoutFunction() {

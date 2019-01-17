@@ -1,16 +1,20 @@
 package com.example.hp.thekleaners.fragments
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.RadioGroup
+import android.widget.Toast
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.pojoClass.ForAddress
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
@@ -23,11 +27,12 @@ class EditAddress : BaseNavigationFragment() {
     private var user_id: String? = null
     private val db = FirebaseFirestore.getInstance()
     private val notebookRef = db.document("")
-    private var mDatabase: FirebaseDatabase? = null
+    private var firebaseFirestore: FirebaseFirestore? = null
+
     var name: Boolean = true
     var farmname: Boolean = true
-    //private var mRef: DatabaseReference? = null
-    // private lateinit var database: DatabaseReference
+    private var mRef: DatabaseReference? = null
+    private lateinit var database: DatabaseReference
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -44,9 +49,11 @@ class EditAddress : BaseNavigationFragment() {
 
         setDefaultSetting()
         mRadioGroupName.setOnCheckedChangeListener(radioListener)
-        mDatabase = FirebaseDatabase.getInstance()
-        //database = FirebaseDatabase.getInstance().reference
+        firebaseFirestore = FirebaseFirestore.getInstance()
 
+        database = FirebaseDatabase.getInstance().reference
+
+        mRef = FirebaseDatabase.getInstance().reference.child("Users")
 
         mEditAddress_progress.visibility = VISIBLE
 
@@ -57,7 +64,7 @@ class EditAddress : BaseNavigationFragment() {
         user_id = FirebaseAuth.getInstance().uid
 
         loadAddressData()
-       // radioFunction()
+        // radioFunction()
 
     }
 
@@ -101,8 +108,6 @@ class EditAddress : BaseNavigationFragment() {
             mEditAddress_progress.visibility = View.INVISIBLE
 
         }
-
-
     }
 
     fun updateDescription() {
@@ -122,48 +127,39 @@ class EditAddress : BaseNavigationFragment() {
 
         FirebaseDatabase.getInstance().reference.child("Users").child("Address").child("FfriNnYQCHfPvhRiWmXB").child("landmark").updateChildren(result as Map<String, Any>?)
     }
-/*
 
-    private fun writeNewPost(userId: String, username: String, title: String, body: String) {
-        // Create new post at /user-posts/$userid/$postid and at
-        // /posts/$postid simultaneously
-        val key = database.child("Users").push().key
-        if (key == null) {
 
-            return
-        }
+    private fun writeNewPost(address: String, landmark: String, pincode: String, selectCity: String, selectState: String, house: String) {
 
-        val post = ForAddress(mAddress, mEditLandmark, mEditSelectState, mEditSelectCity,mEditPinCode)
-        val postValues = post.toMap()
+        val user_address = mEditAddress.text.toString()
+
+        val key = database.child("Users").push().key ?: return
+
+        //  val userMap dn't get = HashMap<String, String>()
+
+        val post = ForAddress(address, landmark, pincode, selectCity, selectState, house)
+        val postValues = post.address
 
         val childUpdates = HashMap<String, Any>()
-        childUpdates["/posts/$key"] = postValues
-        childUpdates["/user-posts/$userId/$key"] = postValues
-
+        //childUpdates["/Users/$user_id"] = postValues
+        childUpdates["Users/$user_id/Address/$user_id/$address"] = user_address
+        ///database.child("Users").child(user_id).child("Address").child(user_id).child("address").setValue(user_address)
         database.updateChildren(childUpdates)
     }
-*/
 
-    /*
 
-        private fun writeNewUser() {
+    private fun updateVAlue(){
+        val user_address = mEditAddress.text.toString()
+        mRef!!.child("ynpYyrwXxe0wNffapPBG")
+                .child("address").setValue(user_address).addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        Toast.makeText(context, "User  are updated", Toast.LENGTH_SHORT).show()
 
-            val name = mEditAddress.text.toString()
-
-             //   val user = ForAddress(address, landmark, pincode, selectState, selectCity)
-            database.child("Users").child(user_id).child("Address").child("FfriNnYQCHfPvhRiWmXB").child("address").setValue(name)
-        }
-    */
-  /*  private fun radioFunction() {
-
-        mRadioGroupName.setOnCheckedChangeListener { _, checkedId ->
-            when (checkedId) {
-                R.id.mAutomaticGenerate -> textview_selected.text = "Home Or Flats"
-                R.id.mAlwaysAsk -> textview_selected.text = "Farm House"
-
-            }
-        }*/
-
+                    }else{
+                        Toast.makeText(context, "User  not updated", Toast.LENGTH_SHORT).show()
+                    }
+                }
+    }
 
     private val radioListener = RadioGroup.OnCheckedChangeListener { group, checkedId ->
         when (group) {
@@ -191,7 +187,9 @@ class EditAddress : BaseNavigationFragment() {
 
 
     private fun mSavedNewAddressFunction() {
-        pref.homeAndFlat = name
+        updateVAlue()
+
+        // pref.homeAndFlat = name
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedAddress()).commit()
     }
 
