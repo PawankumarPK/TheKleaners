@@ -20,7 +20,7 @@
     <string name="curbsidePickup">Waste Pickup Yard &amp; Food and Organic Waste Pickup Bulk Waste Pickup </string>
     <string name="recycleByMail">Batteries CFLs and Fluorescent Tubes</string>
     <string name="medicalWaste">Syringes and Lancets </string>
-    <string name="otherServices">Construction &amp; Facilities</string>
+    <string name="otherServices">Construction and Facilities</string>
     <string name="recyclingService">Rigid Plastics/Bottles Metals</string>
 
     <string name="recycleByMailDesc">Battery and lightbulb recycling can seem complicated on the surface. Our Recycle-By-Mail
@@ -94,7 +94,7 @@
 
     <string name="otherService">Construction waste is any material on a jobsite from leftover rebar to roofing
     shingles. These materials, and any others used, require special handling to properly dispose of them.
-    If it's used in building, manufacture, or anything in between, TheKleaners is here to help you find
+    If it/s used in building, manufacture, or anything in between, TheKleaners is here to help you find
     the best way to dispose of it.</string>
 
     <string name="forgotPassDesc">Enter your email address and we will send you a link to reset your password</string>

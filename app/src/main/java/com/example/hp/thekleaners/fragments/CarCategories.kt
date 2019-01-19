@@ -31,9 +31,8 @@ class CarCategories : BaseNavigationFragment() {
         (activity as NavigationDrawer).setDrawerLocked(true)
 
         radioShifts.setOnCheckedChangeListener(radioListener)
-        mDemoButton.setOnClickListener { demoFun() }
         mCarServiceBackArrow.setOnClickListener { mCarServiceBackArrowFunction() }
-        mDemoButton.visibility = View.GONE
+        //mDemoButton.visibility = View.GONE
 
     }
 
@@ -41,20 +40,30 @@ class CarCategories : BaseNavigationFragment() {
     private val radioListener = RadioGroup.OnCheckedChangeListener { _, checkedId ->
 
         when (checkedId) {
-            R.id.radioButton1 -> {
-                mDemoButton.visibility = View.VISIBLE
-                txtProgram.text = "200"
-                radioButton1.startAnimation(AnimationUtils.loadAnimation(context, R.anim.image_button))
+            R.id.mHatchback -> {
+                txtProgram.text = "HATCHBACK"
+               // mHatchback.startAnimation(AnimationUtils.loadAnimation(context, R.anim.image_button))
+                demoFun()
             }
-            R.id.radioButton2 -> {
-                mDemoButton.visibility = View.VISIBLE
-                txtProgram.text = "300"
-                radioButton2.startAnimation(AnimationUtils.loadAnimation(context, R.anim.image_button))
+            R.id.mSedan -> {
+                txtProgram.text = "SEDAN"
+               // mSedan.startAnimation(AnimationUtils.loadAnimation(context, R.anim.image_button))
+                demoFun()
             }
-            R.id.radioButton3 -> {
-                mDemoButton.visibility = View.VISIBLE
-                txtProgram.text = "400"
-                radioButton3.startAnimation(AnimationUtils.loadAnimation(context, R.anim.image_button))
+            R.id.mLuv -> {
+                txtProgram.text = "LUV"
+               // mLuv.startAnimation(AnimationUtils.loadAnimation(context, R.anim.image_button))
+                demoFun()
+            }
+            R.id.mSuvMuv -> {
+                txtProgram.text = "SUV/MUV"
+               // mSuvMuv.startAnimation(AnimationUtils.loadAnimation(context, R.anim.image_button))
+                demoFun()
+            }
+            R.id.mPrimieryLuxury -> {
+                txtProgram.text = "LUXURY"
+               // mPrimieryLuxury.startAnimation(AnimationUtils.loadAnimation(context, R.anim.image_button))
+                demoFun()
             }
         }
     }
@@ -62,7 +71,7 @@ class CarCategories : BaseNavigationFragment() {
     private fun demoFun() {
         val args = Bundle()
         args.putString("doctor_id", txtProgram.text.toString())
-        val newFragment = CarPricingDetails()
+        val newFragment = CarDetails()
         newFragment.arguments = args
 
         fragmentManager!!.beginTransaction().replace(R.id.containerView, newFragment).commit()

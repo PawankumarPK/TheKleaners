@@ -12,87 +12,88 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/mRelativeLayoutToolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/mRelativeLayoutToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/mCarServiceBackArrow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_margin="10dp"
-                android:contentDescription="@null"
-                android:src="@drawable/car_left_arrow" />
+                <ImageView
+                    android:id="@+id/mCarServiceBackArrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_margin="10dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/car_left_arrow" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:text="Car Washing Plans"
-                android:textColor="#4a6330"
-                android:textSize="18sp"
-                android:layout_marginStart="15dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
+                    android:text="Car Washing Plans"
+                    android:textColor="#1b1a1a"
+                    android:textSize="18sp" />
 
 
-        </android.support.v7.widget.Toolbar>
+            </android.support.v7.widget.Toolbar>
 
             <RadioGroup
-            android:id="@+id/radioShifts"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mRelativeLayoutToolbar"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical">
-
-            <RadioButton
-                android:id="@+id/radioButton1"
-                android:layout_width="wrap_content"
+                android:id="@+id/radioShifts"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:button="@drawable/carcleaning" />
+                android:layout_below="@+id/mRelativeLayoutToolbar"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
 
-            <RadioButton
-                android:id="@+id/radioButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:button="@drawable/carcleaning" />
+                <RadioButton
+                    android:id="@+id/mHatchback"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:button="@drawable/carcleaning" />
+
+                <RadioButton
+                    android:id="@+id/mSedan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:button="@drawable/carcleaning" />
 
 
-            <RadioButton
-                android:id="@+id/radioButton3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:button="@drawable/carcleaning"/>
+                <RadioButton
+                    android:id="@+id/mLuv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:button="@drawable/carcleaning" />
 
+                <RadioButton
+                    android:id="@+id/mSuvMuv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:button="@drawable/carcleaning" />
 
-        </RadioGroup>
+                <RadioButton
+                    android:id="@+id/mPrimieryLuxury"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:button="@drawable/carcleaning" />
+
+            </RadioGroup>
 
             <TextView
                 android:id="@+id/txtProgram"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
                 android:layout_below="@+id/radioShifts"
                 android:text="Hello"
-                android:visibility="visible"/>
-
+                android:textSize="12sp"
+                android:visibility="invisible" />
 
         </RelativeLayout>
     </ScrollView>
-
-    <Button
-        android:id="@+id/mDemoButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/color_button_car_gradient"
-        android:drawableEnd="@drawable/right_arrow"
-        android:drawableRight="@drawable/right_arrow"
-        android:text="Continue"
-        android:textColor="#fff" />
 
 </RelativeLayout>
