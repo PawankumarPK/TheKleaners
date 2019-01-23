@@ -1,48 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/edit_text_title"
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Title"
-        android:inputType="text" />
+        android:layout_height="200dp"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/edit_text_description"
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/color_button_gradient" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Description"
-        android:inputType="text" />
+        android:layout_height="120dp"
+        android:layout_below="@id/relativeLayout"
+        android:layout_marginTop="-50dp"
+        android:background="@drawable/color_button_car_gradient" />
 
-    <Button
+    <RelativeLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="saveNote"
-        android:text="Save" />
+        android:layout_height="match_parent"
+        android:layout_below="@id/imageView"
+        android:orientation="vertical"
+        android:padding="20dp">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="loadNote"
-        android:text="Load" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:text="May I ask your phone number?"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+            android:textColor="@color/colorPrimary" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="updateDescription"
-        android:text="Update description" />
+        <EditText
+            android:id="@+id/editTextMobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView"
+            android:layout_marginTop="20dp"
+            android:digits="0123456789"
+            android:drawablePadding="10dp"
+            android:hint="enter your mobile number AuthActivty"
+            android:inputType="phone"
+            android:maxLength="10" />
 
-    <TextView
-        android:id="@+id/text_view_data"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp" />
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:visibility="invisible" />
 
-</LinearLayout>
+
+        <EditText
+            android:id="@+id/editTextVerification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextMobile"
+            android:layout_marginTop="20dp"
+            android:digits="0123456789"
+            android:drawablePadding="10dp"
+            android:hint="enter your Verification number"
+            android:inputType="phone"
+            android:maxLength="10"
+            android:visibility="invisible" />
+
+        <ProgressBar
+            android:id="@+id/progressbar2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/progressbar"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:visibility="invisible" />
+
+
+        <Button
+            android:id="@+id/buttonContinue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextVerification"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:background="@color/colorAccent"
+            android:text="Continue"
+            android:textAllCaps="false"
+            android:textColor="#cdd8f1" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,35 +1,35 @@
 {
   "project_info": {
-    "project_number": "683260997563",
-    "firebase_url": "https://thekleaners-fc169.firebaseio.com",
-    "project_id": "thekleaners-fc169",
-    "storage_bucket": "thekleaners-fc169.appspot.com"
+    "project_number": "455244687979",
+    "firebase_url": "https://thekleaners-687b8.firebaseio.com",
+    "project_id": "thekleaners-687b8",
+    "storage_bucket": "thekleaners-687b8.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:683260997563:android:75df185699764136",
+        "mobilesdk_app_id": "1:455244687979:android:75df185699764136",
         "android_client_info": {
           "package_name": "com.example.hp.thekleaners"
         }
       },
       "oauth_client": [
         {
-          "client_id": "683260997563-c60r7evn7stm5rrlpeo7aoe7vtb10n93.apps.googleusercontent.com",
+          "client_id": "455244687979-sm4vr287nhanbhc98hfnbr5f4hpdeloo.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.hp.thekleaners",
-            "certificate_hash": "08978226bf81700a6ce2588537c1ebbd76018645"
+            "certificate_hash": "fcc252dc15f8bfc78317a0ceb38ffbd71c1d156a"
           }
         },
         {
-          "client_id": "683260997563-pai9dur2gks78eh0d160h0lfim4sdrn0.apps.googleusercontent.com",
+          "client_id": "455244687979-tn8vftucgnpto5g8k0dmcvmdku5062cp.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCpqg4PXK1LJlGQOvk8LdR5GNylXQlOJO0"
+          "current_key": "AIzaSyDd1e0GzQ9ZUORrHRN6hg7HOA7DtldBnNo"
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "683260997563-pai9dur2gks78eh0d160h0lfim4sdrn0.apps.googleusercontent.com",
+              "client_id": "455244687979-tn8vftucgnpto5g8k0dmcvmdku5062cp.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

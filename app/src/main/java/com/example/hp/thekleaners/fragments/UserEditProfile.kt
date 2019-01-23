@@ -47,11 +47,11 @@ class UserEditProfile : BaseNavigationFragment() {
         firebaseFirestore!!.collection("Users").document(user_id!!).get().addOnCompleteListener { task ->
             if (task.isSuccessful) {
 
-                if (task.result.exists()) {
+                if (task.result!!.exists()) {
 
-                    val name = task.result.getString("name")
-                    val surname = task.result.getString("surname")
-                    val number = task.result.getString("number")
+                    val name = task.result!!.getString("name")
+                    val surname = task.result!!.getString("surname")
+                    val number = task.result!!.getString("number")
 
                     setup_name.setText(name)
                     setup_surname.setText(surname)

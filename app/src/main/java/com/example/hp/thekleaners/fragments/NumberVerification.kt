@@ -73,7 +73,7 @@ class NumberVerification : BaseNavigationFragment() {
     }
 
     private fun signInWithCredential(credential: PhoneAuthCredential) {
-        mAuth!!.signInWithCredential(credential).addOnCompleteListener({ task ->
+        mAuth!!.signInWithCredential(credential).addOnCompleteListener { task ->
             if (task.isSuccessful) {
 
                 //  sendNumberToProfile()
@@ -83,7 +83,7 @@ class NumberVerification : BaseNavigationFragment() {
             } else {
                 Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show()
             }
-        })
+        }
     }
 
     private fun sendVerificationCode(number: String) {
@@ -116,7 +116,7 @@ class NumberVerification : BaseNavigationFragment() {
 
         override fun onVerificationFailed(e: FirebaseException) {
 
-            //  Toast.makeText(this@NumberVerification, "Failed", Toast.LENGTH_SHORT).show()
+              Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show()
         }
     }
 

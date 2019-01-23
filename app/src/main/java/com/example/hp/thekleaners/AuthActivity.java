@@ -1,148 +1,79 @@
 package com.example.hp.thekleaners;
 
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.ProgressBar;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.SetOptions;
+import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthProvider;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class AuthActivity extends AppCompatActivity {
-    private static final String TAG = "MainActivity";
 
-    private static final String KEY_TITLE = "title";
-    private static final String KEY_DESCRIPTION = "description";
 
-    private EditText editTextTitle;
-    private EditText editTextDescription;
-    private TextView textViewData;
-    private FirebaseDatabase mDatabase;
-    private DatabaseReference mRef;
+    private EditText mPhoneText;
+    private EditText mCodeText;
 
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private DocumentReference noteRef = db.document("Notebook/My First Note");
+    private ProgressBar mPhoneBar;
+    private ProgressBar mCodeBar;
+
+    private Button mSendBtn;
+
+    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallback;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_auth);
 
-        editTextTitle = findViewById(R.id.edit_text_title);
-        editTextDescription = findViewById(R.id.edit_text_description);
-        textViewData = findViewById(R.id.text_view_data);
-        mDatabase = FirebaseDatabase.getInstance();
-        mRef = mDatabase.getReference("Users");
+        mPhoneText = (EditText) findViewById(R.id.editTextMobile);
+        mCodeText = (EditText) findViewById(R.id.editTextVerification);
 
-    }
+        mPhoneBar = (ProgressBar) findViewById(R.id.progressbar);
+        mCodeBar = (ProgressBar) findViewById(R.id.progressbar2);
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        noteRef.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+        mSendBtn = (Button) findViewById(R.id.buttonContinue);
+
+        mSendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onEvent(DocumentSnapshot documentSnapshot, FirebaseFirestoreException e) {
-                if (e != null) {
-                    Toast.makeText(AuthActivity.this, "Error while loading!", Toast.LENGTH_SHORT).show();
-                    Log.d(TAG, e.toString());
-                    return;
-                }
+            public void onClick(View v) {
 
-                if (documentSnapshot.exists()) {
-                    String title = documentSnapshot.getString(KEY_TITLE);
-                    String description = documentSnapshot.getString(KEY_DESCRIPTION);
+                mPhoneBar.setVisibility(View.VISIBLE);
+                mPhoneText.setEnabled(false);
+                mSendBtn.setEnabled(false);
 
-                    textViewData.setText("Title: " + title + "\n" + "Description: " + description);
-                }
+                String phoneNumber = mPhoneText.getText().toString();
+
+                PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                        phoneNumber,
+                        60,
+                        TimeUnit.SECONDS,
+                        AuthActivity.this,
+                        mCallback
+                );
             }
         });
-    }
 
-    public void saveNote(View v) {
-        String title = editTextTitle.getText().toString();
-        String description = editTextDescription.getText().toString();
+        mCallback = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+            @Override
+            public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
 
-        Map<String, Object> note = new HashMap<>();
-        note.put(KEY_TITLE, title);
-        note.put(KEY_DESCRIPTION, description);
+            }
 
-        noteRef.set(note)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(AuthActivity.this, "Note saved", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(AuthActivity.this, "Error!", Toast.LENGTH_SHORT).show();
-                        Log.d(TAG, e.toString());
-                    }
-                });
-    }
+            @Override
+            public void onVerificationFailed(FirebaseException e) {
 
-    public void updateDescription(View v) {/*
-        String description = editTextDescription.getText().toString();
+            }
+        };
 
-        Map<String, Object> note = new HashMap<>();
-        note.put(KEY_DESCRIPTION, description);
-
-        noteRef.set(note, SetOptions.merge());
-        //noteRef.update(KEY_DESCRIPTION, description);*/
-
-        String name  = editTextDescription.getText().toString();
-        Map<String, Object> updatedValue = new HashMap<>();
-
-        updatedValue.put("/Users/Address",name);
-
-        noteRef.update(updatedValue);
 
     }
 
-    public void onChildChanged(DocumentSnapshot documentSnapshot,String s){
-        String key = documentSnapshot.getId();
-
-    }
-    public void loadNote(View v) {
-        noteRef.get()
-                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                    @Override
-                    public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        if (documentSnapshot.exists()) {
-                            String title = documentSnapshot.getString(KEY_TITLE);
-                            String description = documentSnapshot.getString(KEY_DESCRIPTION);
-
-                            //Map<String, Object> note = documentSnapshot.getData();
-
-                            textViewData.setText("Title: " + title + "\n" + "Description: " + description);
-                        } else {
-                            Toast.makeText(AuthActivity.this, "Document does not exist", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(AuthActivity.this, "Error!", Toast.LENGTH_SHORT).show();
-                        Log.d(TAG, e.toString());
-                    }
-                });
-    }
 }
+

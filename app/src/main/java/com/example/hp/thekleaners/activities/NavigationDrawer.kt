@@ -98,7 +98,7 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.action_feedback -> supportFragmentManager.beginTransaction().addToBackStack(null).replace(R.id.containerView, Feedback()).commit()
+           // R.id.action_feedback -> supportFragmentManager.beginTransaction().addToBackStack(null).replace(R.id.containerView, Feedback()).commit()
 
         }
         return super.onOptionsItemSelected(item)

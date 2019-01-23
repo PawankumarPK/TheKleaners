@@ -73,11 +73,11 @@ class Profile : BaseNavigationFragment() {
         firebaseFirestore!!.collection("Users").document(user_id!!).get().addOnCompleteListener { task ->
             if (task.isSuccessful) {
 
-                if (task.result.exists()) {
+                if (task.result!!.exists()) {
 
-                    val name = task.result.getString("name")
-                    val surname = task.result.getString("surname")
-                    val number = task.result.getString("number")
+                    val name = task.result!!.getString("name")
+                    val surname = task.result!!.getString("surname")
+                    val number = task.result!!.getString("number")
 
                     mUsername.text = name
                     mUserEmail.text = surname
@@ -117,7 +117,7 @@ class Profile : BaseNavigationFragment() {
     }
 
     private fun mRelativeLayoutQueryFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, MyQueries()).commit()
+       // fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, MyQueries()).commit()
     }
 
     private fun mDialogLogoutFunction() {

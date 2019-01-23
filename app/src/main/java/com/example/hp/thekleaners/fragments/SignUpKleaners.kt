@@ -31,19 +31,21 @@ class SignUpKleaners : BaseNavigationFragment() {
 
         mMobileVerBackButton.setOnClickListener { mMobileVerBackButtonFunction() }
 
-        buttonContinue!!.setOnClickListener(View.OnClickListener {
+        buttonContinue!!.setOnClickListener{
             val number = editTextPhone!!.text.toString().trim()
-            if (number.isEmpty() || number.length < 10) {
+            /*if (number.isEmpty() || number.length < 17) {
                 editTextPhone!!.error = "Valid Number is required"
                 editTextPhone!!.requestFocus()
                 return@OnClickListener
-            }
-            sendToVerification()
+            }*/
+
 /*
             val intent = Intent(this@AuthActivity, VerifiyPhoneActivity::class.java)
             intent.putExtra("phonenumber", number)
             startActivity(intent)*/
-        })
+
+            sendToVerification()
+        }
 
     }
 

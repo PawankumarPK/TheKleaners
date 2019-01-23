@@ -125,7 +125,7 @@ class EditAddress : BaseNavigationFragment() {
         val result = HashMap<String, String>()
         result["address"] = "Your Description comes here"
 
-        FirebaseDatabase.getInstance().reference.child("Users").child("Address").child("FfriNnYQCHfPvhRiWmXB").child("landmark").updateChildren(result as Map<String, Any>?)
+        FirebaseDatabase.getInstance().reference.child("Users").child("Address").child("FfriNnYQCHfPvhRiWmXB").child("landmark").updateChildren((result as Map<String, Any>?)!!)
     }
 
 
