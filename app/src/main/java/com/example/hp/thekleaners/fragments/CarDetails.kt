@@ -39,7 +39,9 @@ class CarDetails : BaseNavigationFragment() {
         user_id = FirebaseAuth.getInstance().uid
 
         val name = this.arguments!!.getString("doctor_id").toString()
+        val carNum = this.arguments!!.getString("doctor_carAmount").toString()
         mCarType.text = name
+        mCarAmt.text = carNum
 
         cardetail_progress.visibility = View.INVISIBLE
 
@@ -64,20 +66,22 @@ class CarDetails : BaseNavigationFragment() {
                 val carname = mCarNameEditext!!.text.toString()
                 val carnumber = mCarNumberEditext!!.text.toString()
                 val cartype = mCarType!!.text.toString()
+                val caramount = mCarAmt!!.text.toString().toInt()
 
                 cardetail_progress.visibility = View.VISIBLE
 
-                val note = ForCarService(carname, carnumber, cartype)
+                val note = ForCarService(carname, carnumber, cartype, caramount)
 
                 notebookRef.document(user_id!!).collection("Services").document("For Car Service").collection("Car Washing").add(note)
                 Toast.makeText(context, "Detail Saved", Toast.LENGTH_SHORT).show()
+                mCarNameEditext.setText("")
+                mCarNumberEditext.setText("")
                 fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, CarCategories()).commit()
             }
         }
     }
 
     private fun addNoteForConfirm() {
-/*
 
         when {
             mCarNameEditext.text.toString().isEmpty() -> {
@@ -89,19 +93,23 @@ class CarDetails : BaseNavigationFragment() {
                 return
             }
             else -> {
-*/
                 val carname = mCarNameEditext!!.text.toString()
                 val carnumber = mCarNumberEditext!!.text.toString()
                 val cartype = mCarType!!.text.toString()
+                val caramount = mCarAmt!!.text.toString().toInt()
 
                 cardetail_progress.visibility = View.VISIBLE
 
-                val note = ForCarService(carname, carnumber, cartype)
+                val note = ForCarService(carname, carnumber, cartype, caramount)
 
                 notebookRef.document(user_id!!).collection("Services").document("For Car Service").collection("Car Washing").add(note)
-                fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, CarServiceDetailsList()).commit()
+
+                mCarNameEditext.setText("")
+                mCarNumberEditext.setText("")
+
+                fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, CarServiceDetails()).commit()
             }
-
-
+        }
+    }
 
 }

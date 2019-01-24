@@ -25,7 +25,7 @@
             android:layout_gravity="center_horizontal"
             android:gravity="center"
             android:padding="15dp"
-            android:text="Thank You !"
+            android:text="Successful !"
             android:textColor="#fff"
             android:textSize="20sp" />
 
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:gravity="center_horizontal"
-        android:text="You are now a new member"
+        android:text="You have successfully done"
         android:textColor="#000"
         android:textSize="16sp"
         android:textStyle="bold" />

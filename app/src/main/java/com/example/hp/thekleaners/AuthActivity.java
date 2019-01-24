@@ -1,79 +1,73 @@
 package com.example.hp.thekleaners;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
-import com.google.firebase.FirebaseException;
-import com.google.firebase.auth.PhoneAuthCredential;
-import com.google.firebase.auth.PhoneAuthProvider;
+import com.example.hp.thekleaners.pojoClass.ForCarService;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
-import java.util.concurrent.TimeUnit;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AuthActivity extends AppCompatActivity {
 
-
-    private EditText mPhoneText;
-    private EditText mCodeText;
-
-    private ProgressBar mPhoneBar;
-    private ProgressBar mCodeBar;
-
-    private Button mSendBtn;
-
-    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallback;
-
+    private RecyclerView recyclerView;
+    private DatabaseReference reference;
+    private MyAdapter adapter;
+    private String user_id;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    CollectionReference notebookRef = db.collection("Users");
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
 
-        mPhoneText = (EditText) findViewById(R.id.editTextMobile);
-        mCodeText = (EditText) findViewById(R.id.editTextVerification);
-
-        mPhoneBar = (ProgressBar) findViewById(R.id.progressbar);
-        mCodeBar = (ProgressBar) findViewById(R.id.progressbar2);
-
-        mSendBtn = (Button) findViewById(R.id.buttonContinue);
-
-        mSendBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                mPhoneBar.setVisibility(View.VISIBLE);
-                mPhoneText.setEnabled(false);
-                mSendBtn.setEnabled(false);
-
-                String phoneNumber = mPhoneText.getText().toString();
-
-                PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                        phoneNumber,
-                        60,
-                        TimeUnit.SECONDS,
-                        AuthActivity.this,
-                        mCallback
-                );
-            }
-        });
-
-        mCallback = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-            @Override
-            public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
-
-            }
-
-            @Override
-            public void onVerificationFailed(FirebaseException e) {
-
-            }
-        };
+        user_id = FirebaseAuth.getInstance().getUid();
+        //mDatabase = FirebaseDatabase.getInstance().getReference().child("");
 
 
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        notebookRef.document(user_id).collection("Services").document("For Car Service").collection("Car Washing")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+
+                            List<ForCarService> notesList = new ArrayList<>();
+
+                            for (DocumentSnapshot document : task.getResult()) {
+                                ForCarService p = document.toObject(ForCarService.class);
+                                if (p != null) {
+                                    p.setDocumentId(document.getId());
+                                }
+                                notesList.add(p);
+                            }
+                            adapter = new MyAdapter(AuthActivity.this, (ArrayList<ForCarService>) notesList);
+                            recyclerView.setAdapter(adapter);
+                        } else {
+                            Toast.makeText(AuthActivity.this, "Something Wrong", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
-
 }
 
+
+//https://grokonez.com/android/cloud-firestore-android-example-crud-operations-with-recyclerview

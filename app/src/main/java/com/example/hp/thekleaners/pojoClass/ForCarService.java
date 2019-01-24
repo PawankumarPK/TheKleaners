@@ -7,6 +7,7 @@ public class ForCarService {
     private String carName;
     private String carNumber;
     private String carType;
+    private int carAmount;
 
 
     public ForCarService() {
@@ -14,10 +15,11 @@ public class ForCarService {
     }
 
 
-    public ForCarService(String carName, String carNumber, String carType) {
+    public ForCarService(String carName, String carNumber, String carType,int carAmount) {
         this.carName = carName;
         this.carNumber = carNumber;
         this.carType = carType;
+        this.carAmount= carAmount;
 
     }
 
@@ -42,4 +44,6 @@ public class ForCarService {
     public String getCarType() {
         return carType;
     }
+
+    public int getCarAmount() { return carAmount; }
 }

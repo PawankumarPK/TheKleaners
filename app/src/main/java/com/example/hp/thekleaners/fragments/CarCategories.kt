@@ -42,26 +42,31 @@ class CarCategories : BaseNavigationFragment() {
         when (checkedId) {
             R.id.mHatchback -> {
                 txtProgram.text = "HATCHBACK"
+                carAmountData.text = "200"
                // mHatchback.startAnimation(AnimationUtils.loadAnimation(context, R.anim.image_button))
                 demoFun()
             }
             R.id.mSedan -> {
                 txtProgram.text = "SEDAN"
+                carAmountData.text = "300"
                // mSedan.startAnimation(AnimationUtils.loadAnimation(context, R.anim.image_button))
                 demoFun()
             }
             R.id.mLuv -> {
                 txtProgram.text = "LUV"
+                carAmountData.text = "400"
                // mLuv.startAnimation(AnimationUtils.loadAnimation(context, R.anim.image_button))
                 demoFun()
             }
             R.id.mSuvMuv -> {
                 txtProgram.text = "SUV/MUV"
+                carAmountData.text = "500"
                // mSuvMuv.startAnimation(AnimationUtils.loadAnimation(context, R.anim.image_button))
                 demoFun()
             }
             R.id.mPrimieryLuxury -> {
                 txtProgram.text = "LUXURY"
+                carAmountData.text = "700"
                // mPrimieryLuxury.startAnimation(AnimationUtils.loadAnimation(context, R.anim.image_button))
                 demoFun()
             }
@@ -71,6 +76,7 @@ class CarCategories : BaseNavigationFragment() {
     private fun demoFun() {
         val args = Bundle()
         args.putString("doctor_id", txtProgram.text.toString())
+        args.putString("doctor_carAmount", carAmountData.text.toString())
         val newFragment = CarDetails()
         newFragment.arguments = args
 

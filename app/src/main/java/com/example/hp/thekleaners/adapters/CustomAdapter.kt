@@ -1,39 +1,46 @@
 package com.example.hp.thekleaners.adapters
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.hp.thekleaners.R
-import com.example.hp.thekleaners.utils.User
+import com.example.hp.thekleaners.pojoClass.ForCarService
+import java.util.*
 
-class CustomAdapter(val userList: ArrayList<User>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+class CustomAdapter(internal var context: Context, private var profiles: ArrayList<ForCarService>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
-    //this method is returning the view for each item in the list
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomAdapter.ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.list_layout, parent, false)
-        return ViewHolder(v)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        return ViewHolder(LayoutInflater.from(context).inflate(R.layout.list_layout, parent, false))
     }
 
-    //this method is binding the data on the list
-    override fun onBindViewHolder(holder: CustomAdapter.ViewHolder, position: Int) {
-        holder.bindItems(userList[position])
-    }
-
-    //this method is giving the size of the list
     override fun getItemCount(): Int {
-        return userList.size
+        return profiles.size
     }
 
-    //the class is hodling the list view
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bindItems(user: User) {
-            val textViewName = itemView.findViewById(R.id.textViewUsername) as TextView
-            val textViewAddress = itemView.findViewById(R.id.textViewAddress) as TextView
-            textViewName.text = user.name
-            textViewAddress.text = user.address
+    override fun onBindViewHolder(holder: CustomAdapter.ViewHolder, position: Int) {
+        holder.name.text = profiles[position].carName
+        holder.email.text = profiles[position].carNumber
+        holder.amount.text =  "Bill Amount : ₹" + profiles[position].carAmount.toString()
+
+    }
+
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+        var name: TextView
+        var email: TextView
+        var amount: TextView
+
+
+        init {
+
+            name = itemView.findViewById<View>(R.id.post_title) as TextView
+            email = itemView.findViewById<View>(R.id.post_desc) as TextView
+            amount = itemView.findViewById<View>(R.id.post_amount) as TextView
         }
     }
 }
