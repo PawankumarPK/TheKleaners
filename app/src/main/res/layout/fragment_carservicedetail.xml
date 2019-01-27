@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mNestedScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="fill_vertical"
     android:background="#fff">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <RelativeLayout
-            android:id="@+id/mRelativeLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -47,26 +48,36 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/mRelativeLayoutToolbar"
                 android:indeterminate="true"
-                android:visibility="invisible" />
+                android:visibility="visible" />
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerView"
+            <RelativeLayout
+                android:id="@+id/mRelativeLayoutTwo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/forConfirm_progress" />
+                android:layout_below="@+id/forConfirm_progress">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </android.support.v7.widget.RecyclerView>
+            </RelativeLayout>
+
 
         </RelativeLayout>
+    </ScrollView>
 
         <Button
             android:id="@+id/mAddMore"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/mRelativeLayout"
             android:layout_marginStart="8dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/color_button_car_gradient"
             android:text="Add More CAR"
+            android:layout_alignParentBottom="true"
             android:textColor="@android:color/white" />
 
         <Button
@@ -74,6 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/mAddMore"
+            android:layout_alignParentBottom="true"
             android:layout_marginStart="8dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="8dp"
@@ -81,7 +93,4 @@
             android:text="Done"
             android:textColor="@android:color/white" />
 
-
-    </RelativeLayout>
-
-</ScrollView>
+</RelativeLayout>
