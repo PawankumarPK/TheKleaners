@@ -7,6 +7,7 @@ public class ForCarService {
     private String carName;
     private String carNumber;
     private String carType;
+    private String carDate;
     private int carAmount;
 
 
@@ -15,10 +16,11 @@ public class ForCarService {
     }
 
 
-    public ForCarService(String carName, String carNumber, String carType,int carAmount) {
+    public ForCarService(String carName, String carNumber, String carType,String carDate,int carAmount) {
         this.carName = carName;
         this.carNumber = carNumber;
         this.carType = carType;
+        this.carDate= carDate;
         this.carAmount= carAmount;
 
     }
@@ -46,4 +48,6 @@ public class ForCarService {
     }
 
     public int getCarAmount() { return carAmount; }
+
+    public String getCarDate() { return carDate; }
 }

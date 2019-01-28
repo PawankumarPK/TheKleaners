@@ -21,6 +21,7 @@ import com.example.hp.thekleaners.pojoClass.ForCarService
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
+import kotlinx.android.synthetic.main.dialog_thanku_car.*
 import kotlinx.android.synthetic.main.fragment_carservicedetail.*
 import java.util.*
 
@@ -52,7 +53,8 @@ class CarServiceDetails : BaseNavigationFragment() {
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
 
-        forConfirm_progress.visibility = VISIBLE
+        mCarServiceBackArrow.setOnClickListener { mCarServiceBackArrowFunction() }
+
 
         metrics = DisplayMetrics()
         mainActivity.window.decorView.getWindowVisibleDisplayFrame(displayRectangle)
@@ -64,9 +66,9 @@ class CarServiceDetails : BaseNavigationFragment() {
         mAddMore.setOnClickListener { mAddMoreFunction() }
         mConfirmCar.setOnClickListener { thankuDialog() }
         user_id = FirebaseAuth.getInstance().uid
-        //  recyclerView!!.setHasFixedSize(true)
         recyclerView!!.layoutManager = LinearLayoutManager(mainActivity)
 
+        forConfirm_progress.visibility = VISIBLE
         notebookRef.document(user_id!!).collection("Services").document("For Car Service").collection("Car Washing")
                 .get()
                 .addOnCompleteListener { task ->
@@ -84,8 +86,9 @@ class CarServiceDetails : BaseNavigationFragment() {
                     } else {
                         Toast.makeText(mainActivity, "Something Wrong", Toast.LENGTH_SHORT).show()
                     }
+                    forConfirm_progress.visibility = INVISIBLE
                 }
-        forConfirm_progress.visibility = INVISIBLE
+
 
     }
 
@@ -96,7 +99,7 @@ class CarServiceDetails : BaseNavigationFragment() {
         val lp = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
         lp.setMargins(0, 20, 0, 0)
         dialog.setContentView(layout)
-        dialog.mConfirmCar.setOnClickListener { mConfirmCarFunction() }
+        dialog.mContinueDialogCar.setOnClickListener { mConfirmCarFunction() }
         dialog.setCanceledOnTouchOutside(false)
         dialog.show()
 
@@ -109,5 +112,11 @@ class CarServiceDetails : BaseNavigationFragment() {
 
     private fun mConfirmCarFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedServices()).commit()
+        dialog.dismiss()
+    }
+
+    private fun mCarServiceBackArrowFunction() {
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, CarCategories()).commit()
+
     }
 }

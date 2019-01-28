@@ -13,25 +13,39 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/mCurbsidePickupBackArrow"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:contentDescription="@null"
-                android:src="@drawable/car_left_arrow" />
+                android:gravity="center_vertical"
+                android:weightSum="10">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginStart="15dp"
-                android:text="Car Detail"
-                android:textColor="#1b1a1a"
-                android:textSize="18sp" />
+                <ImageView
+                    android:id="@+id/mCurbsidePickupBackArrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginRight="15dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/car_left_arrow" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:text="Car Detail"
+                    android:textColor="#1b1a1a"
+                    android:textSize="18sp" />
+
+
+                <ImageView
+                    android:id="@+id/mAddmore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:contentDescription="@null"
+                    android:src="@drawable/car_add" />
+
+            </LinearLayout>
         </android.support.v7.widget.Toolbar>
 
         <ProgressBar
@@ -43,9 +57,8 @@
             android:indeterminate="true"
             android:visibility="invisible" />
 
-
         <LinearLayout
-            android:id="@+id/mLinearLayoutTwo"
+            android:id="@+id/mLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/cardetail_progress"
@@ -55,8 +68,79 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:contentDescription="@null"
+                android:src="@drawable/car_type" />
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/setup_type_InputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/mCarType"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Car Type"
+                    android:textSize="18sp" />
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/mLinearLayoutOne"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mLinearLayout"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:contentDescription="@null"
+                android:src="@drawable/car_amount" />
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/setup_Amount_InputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/mCarAmt"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Service Amount"
+                    android:inputType="textEmailAddress"
+                    android:textSize="18sp" />
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/mLinearLayoutTwo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mLinearLayoutOne"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
                 android:contentDescription="@null"
                 android:src="@drawable/car_name" />
 
@@ -90,8 +174,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
                 android:contentDescription="@null"
                 android:src="@drawable/car_number" />
 
@@ -108,56 +192,72 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="Car Number"
-                    android:inputType="number"
+                    android:textSize="18sp" />
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mLinearLayoutFour"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mLinearLayoutThree"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:id="@+id/mDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:contentDescription="@null"
+                android:src="@drawable/car_calender" />
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/setup_date_InputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/mCaDateEditext"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Date"
                     android:textSize="18sp" />
             </android.support.design.widget.TextInputLayout>
 
         </LinearLayout>
 
 
-        <Button
+        <!--<Button
             android:id="@+id/mAddmore"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/mLinearLayoutThree"
+            android:layout_below="@+id/mLinearLayoutFour"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="40dp"
             android:background="@drawable/color_button_car_gradient"
             android:text="Add More Car"
             android:textColor="@android:color/white" />
-
+-->
 
         <Button
             android:id="@+id/mDoneToDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/mAddmore"
-            android:layout_marginEnd="8dp"
+            android:layout_below="@+id/mLinearLayoutFour"
             android:layout_marginStart="8dp"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="8dp"
             android:background="@drawable/color_button_car_gradient"
             android:text="Confirm"
             android:textColor="@android:color/white" />
 
-
-        <TextView
-            android:id="@+id/mCarType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mDoneToDate"
-            android:textSize="12sp"
-            android:text="nfekjbekfe"
-            android:visibility="invisible" />
-
-        <TextView
-            android:id="@+id/mCarAmt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mCarType"
-            android:textSize="12sp"
-            android:text="nfekjbekfe"
-            android:visibility="invisible" />
 
     </RelativeLayout>
 </ScrollView>

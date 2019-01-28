@@ -29,6 +29,7 @@ class CustomAdapter(internal var context: Context, private var profiles: ArrayLi
         holder.email.text = profiles[position].carNumber
         holder.amount.text = "Bill Amount : ₹" + profiles[position].carAmount.toString()
         holder.type.text = profiles[position].carType
+        holder.date.text = "Service Date : " +profiles[position].carDate
 
     }
 
@@ -38,6 +39,7 @@ class CustomAdapter(internal var context: Context, private var profiles: ArrayLi
         var email: TextView
         var amount: TextView
         var type: TextView
+        var date: TextView
 
 
         init {
@@ -46,6 +48,7 @@ class CustomAdapter(internal var context: Context, private var profiles: ArrayLi
             email = itemView.findViewById<View>(R.id.post_desc) as TextView
             amount = itemView.findViewById<View>(R.id.post_amount) as TextView
             type = itemView.findViewById<View>(R.id.post_carType) as TextView
+            date= itemView.findViewById<View>(R.id.post_date) as TextView
         }
     }
 }
