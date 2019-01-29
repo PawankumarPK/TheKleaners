@@ -66,6 +66,7 @@ class Profile : BaseNavigationFragment() {
         mLogout.setOnClickListener { logoutDialog() }
         mProfileBackArrow.setOnClickListener { mProfileBackArrowFunction() }
         mRelativeLayoutQuery.setOnClickListener { mRelativeLayoutQueryFunction() }
+        mRelativeLayoutMyInvoice.setOnClickListener { mRelativeLayoutMyInvoiceFunction() }
 
 
         profile_progress.visibility = View.VISIBLE
@@ -116,8 +117,12 @@ class Profile : BaseNavigationFragment() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, UserEditProfile()).commit()
     }
 
+    private fun mRelativeLayoutMyInvoiceFunction() {
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, MyInvoice()).commit()
+    }
+
     private fun mRelativeLayoutQueryFunction() {
-       // fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, MyQueries()).commit()
+        // fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, MyQueries()).commit()
     }
 
     private fun mDialogLogoutFunction() {

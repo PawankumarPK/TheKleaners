@@ -233,19 +233,6 @@
         </LinearLayout>
 
 
-        <!--<Button
-            android:id="@+id/mAddmore"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mLinearLayoutFour"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/color_button_car_gradient"
-            android:text="Add More Car"
-            android:textColor="@android:color/white" />
--->
-
         <Button
             android:id="@+id/mDoneToDate"
             android:layout_width="match_parent"
@@ -257,6 +244,27 @@
             android:background="@drawable/color_button_car_gradient"
             android:text="Confirm"
             android:textColor="@android:color/white" />
+
+
+        <LinearLayout
+            android:id="@+id/mLinearLayoutFive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mDoneToDate"
+            android:layout_margin="10dp">
+
+
+            <TextView
+                android:id="@+id/mCarDemoEditext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:hint="Date"
+                android:textSize="30sp" />
+
+
+        </LinearLayout>
 
 
     </RelativeLayout>

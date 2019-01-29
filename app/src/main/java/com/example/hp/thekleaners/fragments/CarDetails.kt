@@ -77,6 +77,8 @@ class CarDetails : BaseNavigationFragment() {
         //mCaDateEditext.setText("$day + / + $month + / + $year")
         mDate.setOnClickListener { mCaDateEditextFunction() }
         mCaDateEditext.setOnClickListener { mCaDateEditextFunction() }
+
+
     }
 
 
@@ -166,5 +168,6 @@ class CarDetails : BaseNavigationFragment() {
     private fun mCurbsidePickupBackArrowFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, CarCategories()).commit()
     }
+
 
 }
