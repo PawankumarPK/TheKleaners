@@ -10,6 +10,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class ForgotPassword extends AppCompatActivity {
@@ -32,6 +33,16 @@ public class ForgotPassword extends AppCompatActivity {
 
 
         mCurrentDate = Calendar.getInstance();
+
+        SimpleDateFormat df = new SimpleDateFormat("dd:mm:yy");
+        String formattedDate = df.format(mCurrentDate.getTime());
+
+   /*     if (formattedDate.contains("dd")) {
+            textView.setText("Good Morning");
+        } else {
+            textView.setText("Good Evening");
+        }
+*/
         day = mCurrentDate.get(Calendar.DAY_OF_MONTH);
         month = mCurrentDate.get(Calendar.MONTH);
         year = mCurrentDate.get(Calendar.YEAR);
@@ -44,7 +55,9 @@ public class ForgotPassword extends AppCompatActivity {
         int getAmountSum = sum* 16;
 
 
-        resultTextView.setText(String.valueOf(getAmountSum));
+
+
+        resultTextView.setText(String.valueOf(day));
 
         tv.setOnClickListener(new View.OnClickListener() {
             @Override

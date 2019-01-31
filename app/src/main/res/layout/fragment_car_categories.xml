@@ -85,7 +85,7 @@
             </RadioGroup>
 
             <TextView
-                android:id="@+id/txtProgram"
+                android:id="@+id/carType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/radioShifts"
@@ -99,10 +99,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/radioShifts"
-
                 android:textSize="12sp"
                 android:visibility="invisible" />
 
+            <TextView
+                android:id="@+id/carSingleAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/radioShifts"
+                android:textSize="12sp"
+                android:visibility="invisible" />
         </RelativeLayout>
     </ScrollView>
 

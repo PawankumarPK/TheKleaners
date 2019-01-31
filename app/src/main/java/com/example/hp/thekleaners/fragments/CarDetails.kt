@@ -55,8 +55,10 @@ class CarDetails : BaseNavigationFragment() {
 
         val name = this.arguments!!.getString("doctor_id").toString()
         val carNum = this.arguments!!.getString("doctor_carAmount").toString()
+        val carSingleNum = this.arguments!!.getDouble("doctor_carSingleAmount").toDouble()
         mCarAmt?.setText(carNum)
         mCarType?.setText(name)
+        mCarPerDayAmt?.setText(carSingleNum)
 
         cardetail_progress.visibility = View.INVISIBLE
 
@@ -77,6 +79,14 @@ class CarDetails : BaseNavigationFragment() {
         //mCaDateEditext.setText("$day + / + $month + / + $year")
         mDate.setOnClickListener { mCaDateEditextFunction() }
         mCaDateEditext.setOnClickListener { mCaDateEditextFunction() }
+
+        demoImage.setOnClickListener { Function() }
+        demoImage.performClick()
+
+
+        val sum = 30 - day
+        val getAmountSum = sum * carSingleNum.toInt()
+        //mCalculate.setText(getAmountSum)
 
 
     }
@@ -105,10 +115,11 @@ class CarDetails : BaseNavigationFragment() {
                 val cartype = mCarType!!.text.toString()
                 val cardate = mCaDateEditext!!.text.toString()
                 val caramount = mCarAmt!!.text.toString().toInt()
+                val carsingleamount = mCarPerDayAmt!!.text.toString().toDouble()
 
                 cardetail_progress.visibility = View.VISIBLE
 
-                val note = ForCarService(carname, carnumber, cartype, cardate, caramount)
+                val note = ForCarService(carname, carnumber, cartype, cardate, caramount,carsingleamount)
 
                 notebookRef.document(user_id!!).collection("Services").document("For Car Service").collection("Car Washing").add(note)
                 Toast.makeText(context, "Detail Saved", Toast.LENGTH_SHORT).show()
@@ -140,10 +151,11 @@ class CarDetails : BaseNavigationFragment() {
                 val cartype = mCarType!!.text.toString()
                 val cardate = mCaDateEditext!!.text.toString()
                 val caramount = mCarAmt!!.text.toString().toInt()
+                val carsingleamount = mCarPerDayAmt!!.text.toString().toDouble()
 
                 cardetail_progress.visibility = View.VISIBLE
 
-                val note = ForCarService(carname, carnumber, cartype, cardate, caramount)
+                val note = ForCarService(carname, carnumber, cartype, cardate, caramount,carsingleamount)
 
                 notebookRef.document(user_id!!).collection("Services").document("For Car Service").collection("Car Washing").add(note)
 
@@ -169,5 +181,8 @@ class CarDetails : BaseNavigationFragment() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, CarCategories()).commit()
     }
 
+    private fun Function() {
+        Toast.makeText(context,"DEMO",Toast.LENGTH_LONG).show()
+    }
 
 }

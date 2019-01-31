@@ -120,7 +120,7 @@
                     android:id="@+id/mCarAmt"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Service Amount"
+                    android:hint="Service Amount₹"
                     android:inputType="textEmailAddress"
                     android:textSize="18sp" />
             </android.support.design.widget.TextInputLayout>
@@ -246,7 +246,7 @@
             android:textColor="@android:color/white" />
 
 
-        <LinearLayout
+        <!--<LinearLayout
             android:id="@+id/mLinearLayoutFive"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -265,7 +265,52 @@
 
 
         </LinearLayout>
+-->
 
+
+        <LinearLayout
+            android:id="@+id/mLinearLayoutPerDay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mDoneToDate"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:id="@+id/demoImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:contentDescription="@null"
+                android:src="@drawable/car_amount" />
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/setup_PerAmount_InputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/mCarPerDayAmt"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Single Day Service Amount₹"
+                    android:inputType="textEmailAddress"
+                    android:textSize="18sp" />
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/mCalculate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Demo"
+            android:layout_below="@+id/mLinearLayoutPerDay"
+            android:textSize="30sp"/>
 
     </RelativeLayout>
 </ScrollView>
