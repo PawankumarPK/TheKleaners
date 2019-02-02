@@ -10,6 +10,7 @@ public class ForCarService {
     private String carDate;
     private int carAmount;
     private double carSingleAmount;
+    private double carAmountCalculate;
 
 
     public ForCarService() {
@@ -17,13 +18,14 @@ public class ForCarService {
     }
 
 
-    public ForCarService(String carName, String carNumber, String carType,String carDate,int carAmount,double carSingleAmount) {
+    public ForCarService(String carName, String carNumber, String carType,String carDate,int carAmount,double carSingleAmount,double carAmountCalculate) {
         this.carName = carName;
         this.carNumber = carNumber;
         this.carType = carType;
         this.carDate= carDate;
         this.carAmount= carAmount;
         this.carSingleAmount= carSingleAmount;
+        this.carAmountCalculate= carAmountCalculate;
 
     }
 
@@ -54,4 +56,6 @@ public class ForCarService {
     public String getCarDate() { return carDate; }
 
     public double getCarSingleAmount() { return carSingleAmount; }
+
+    public double getCarAmountCalculate() { return carAmountCalculate; }
 }

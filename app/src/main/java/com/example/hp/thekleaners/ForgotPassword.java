@@ -34,9 +34,9 @@ public class ForgotPassword extends AppCompatActivity {
 
         mCurrentDate = Calendar.getInstance();
 
-        SimpleDateFormat df = new SimpleDateFormat("dd:mm:yy");
+      /*  SimpleDateFormat df = new SimpleDateFormat("dd:mm:yy");
         String formattedDate = df.format(mCurrentDate.getTime());
-
+*/
    /*     if (formattedDate.contains("dd")) {
             textView.setText("Good Morning");
         } else {

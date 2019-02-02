@@ -16,9 +16,14 @@ import kotlinx.android.synthetic.main.fragment_car_categories.*
 
 
 
+
+
+
 class CarCategories : BaseNavigationFragment() {
 
     var name: Boolean = true
+    var value: Double = 0.toDouble()
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_car_categories, container, false)
@@ -81,13 +86,13 @@ class CarCategories : BaseNavigationFragment() {
     }
 
     private fun demoFun() {
-        val singleAmount = Integer.parseInt(carSingleAmount.text.toString())
+       // val singleAmount = Integer.parseInt(carSingleAmount.text.toString())
 
 
         val args = Bundle()
         args.putString("doctor_id", carType.text.toString())
         args.putString("doctor_carAmount", carAmountData.text.toString())
-        args.putDouble("doctor_carSingleAmount", singleAmount.toDouble())
+        args.putDouble("doctor_carSingleAmount", carSingleAmount.text.toString().toDouble())
        // args.putExtra("MY_KEY", 15);
 
         val newFragment = CarDetails()

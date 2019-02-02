@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_cardetails.*
+import java.text.DecimalFormat
 import java.util.*
 
 
@@ -55,10 +56,15 @@ class CarDetails : BaseNavigationFragment() {
 
         val name = this.arguments!!.getString("doctor_id").toString()
         val carNum = this.arguments!!.getString("doctor_carAmount").toString()
-        val carSingleNum = this.arguments!!.getDouble("doctor_carSingleAmount").toDouble()
+        val carSingleNum = this.arguments!!.getDouble("doctor_carSingleAmount")
         mCarAmt?.setText(carNum)
         mCarType?.setText(name)
-        mCarPerDayAmt?.setText(carSingleNum)
+        mCarPerDayAmt.setText("$carSingleNum")
+
+        val sum = 30 - day
+        val getAmountSum = sum * carSingleNum.toDouble()
+        roundTwoDecimals(getAmountSum)
+        mCalculate.text = "$getAmountSum"
 
         cardetail_progress.visibility = View.INVISIBLE
 
@@ -84,13 +90,7 @@ class CarDetails : BaseNavigationFragment() {
         demoImage.performClick()
 
 
-        val sum = 30 - day
-        val getAmountSum = sum * carSingleNum.toInt()
-        //mCalculate.setText(getAmountSum)
-
-
     }
-
 
     private fun addNote() {
 
@@ -116,10 +116,11 @@ class CarDetails : BaseNavigationFragment() {
                 val cardate = mCaDateEditext!!.text.toString()
                 val caramount = mCarAmt!!.text.toString().toInt()
                 val carsingleamount = mCarPerDayAmt!!.text.toString().toDouble()
+                val caramountcalc = mCalculate!!.text.toString().toDouble()
 
                 cardetail_progress.visibility = View.VISIBLE
 
-                val note = ForCarService(carname, carnumber, cartype, cardate, caramount,carsingleamount)
+                val note = ForCarService(carname, carnumber, cartype, cardate, caramount, carsingleamount, caramountcalc)
 
                 notebookRef.document(user_id!!).collection("Services").document("For Car Service").collection("Car Washing").add(note)
                 Toast.makeText(context, "Detail Saved", Toast.LENGTH_SHORT).show()
@@ -152,15 +153,17 @@ class CarDetails : BaseNavigationFragment() {
                 val cardate = mCaDateEditext!!.text.toString()
                 val caramount = mCarAmt!!.text.toString().toInt()
                 val carsingleamount = mCarPerDayAmt!!.text.toString().toDouble()
+                val caramountcalc = mCalculate!!.text.toString().toDouble()
 
                 cardetail_progress.visibility = View.VISIBLE
 
-                val note = ForCarService(carname, carnumber, cartype, cardate, caramount,carsingleamount)
+                val note = ForCarService(carname, carnumber, cartype, cardate, caramount, carsingleamount, caramountcalc)
 
                 notebookRef.document(user_id!!).collection("Services").document("For Car Service").collection("Car Washing").add(note)
 
                 mCarNameEditext.setText("")
                 mCarNumberEditext.setText("")
+                //mCaDateEditext.setText("")
 
                 fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, CarServiceDetails()).commit()
             }
@@ -177,12 +180,18 @@ class CarDetails : BaseNavigationFragment() {
         datePickerDialog.show()
     }
 
+    fun roundTwoDecimals(d: Double): Double {
+        val twoDForm = DecimalFormat("#.##")
+        return java.lang.Double.valueOf(twoDForm.format(d))
+    }
+
+
     private fun mCurbsidePickupBackArrowFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, CarCategories()).commit()
     }
 
     private fun Function() {
-        Toast.makeText(context,"DEMO",Toast.LENGTH_LONG).show()
+        Toast.makeText(context, "DEMO", Toast.LENGTH_LONG).show()
     }
 
 }

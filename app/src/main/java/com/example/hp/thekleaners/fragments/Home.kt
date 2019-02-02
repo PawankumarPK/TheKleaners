@@ -1,9 +1,11 @@
 package com.example.hp.thekleaners.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.hp.thekleaners.ForgotPassword
 import com.example.hp.thekleaners.adapters.ViewPagerAdapter
 import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
@@ -36,6 +38,7 @@ class Home : BaseNavigationFragment() {
 
         mCarWashButton.setOnClickListener { mCarWashButtonServiceFunction() }
         mOthersButton.setOnClickListener { mCarWashButtonServiceFunction() }
+        mOthersButton.setOnClickListener { mOthersButtonFunction() }
 
     }
 
@@ -61,6 +64,10 @@ class Home : BaseNavigationFragment() {
 
     private fun mCarWashButtonServiceFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, CarCleaning()).commit()
+    }
+    private fun mOthersButtonFunction(){
+        val intent = Intent(context, ForgotPassword::class.java)
+        startActivity(intent)
     }
 
 }
