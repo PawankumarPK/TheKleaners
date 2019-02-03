@@ -56,21 +56,23 @@ class CarDetails : BaseNavigationFragment() {
 
         val name = this.arguments!!.getString("doctor_id").toString()
         val carNum = this.arguments!!.getString("doctor_carAmount").toString()
-        val carSingleNum = this.arguments!!.getDouble("doctor_carSingleAmount")
+      //  val carSingleNum = this.arguments!!.getDouble("doctor_carSingleAmount")
         mCarAmt?.setText(carNum)
         mCarType?.setText(name)
-        mCarPerDayAmt.setText("$carSingleNum")
+      //  mCarPerDayAmt.setText("$carSingleNum")
 
-        val sum = 30 - day
-        val getAmountSum = sum * carSingleNum.toDouble()
-        roundTwoDecimals(getAmountSum)
-        mCalculate.text = "$getAmountSum"
-
+        //val sum = 30 - day
+      //  val getAmountSum = sum * carSingleNum
+       // roundTwoDecimals(getAmountSum)
+       // mCalculate.text = "$getAmountSum"
         cardetail_progress.visibility = View.INVISIBLE
 
 
         // mDate.setOnClickListener { mDateFunction() }
-        mAddmore.setOnClickListener { addNote() }
+        mAddmore.setOnClickListener {
+            // mCalculate.text = "$getAmountSum"
+            addNote()
+        }
         mDoneToDate.setOnClickListener { addNoteForConfirm() }
         mCurbsidePickupBackArrow.setOnClickListener { mCurbsidePickupBackArrowFunction() }
 
@@ -87,7 +89,7 @@ class CarDetails : BaseNavigationFragment() {
         mCaDateEditext.setOnClickListener { mCaDateEditextFunction() }
 
         demoImage.setOnClickListener { Function() }
-        demoImage.performClick()
+       // demoImage.performClick()
 
 
     }
@@ -171,11 +173,23 @@ class CarDetails : BaseNavigationFragment() {
     }
 
     private fun mCaDateEditextFunction() {
+        val carSingleNum = this.arguments!!.getDouble("doctor_carSingleAmount")
+        mCarPerDayAmt.setText("$carSingleNum")
         val datePickerDialog = DatePickerDialog(mainActivity, DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
             var monthOfYear = monthOfYear
 
             monthOfYear += 1
             mCaDateEditext.setText(dayOfMonth.toString() + "-" + monthOfYear + "-" + year)
+            if (dayOfMonth == 31){
+                Toast.makeText(context, "Choose Another Day", Toast.LENGTH_LONG).show()
+                mCaDateEditext.setText("")
+                mCalculate.text = ""
+                return@OnDateSetListener
+            }
+            val sum = 30 - dayOfMonth
+            val getAmountSum = sum * carSingleNum
+            roundTwoDecimals(carSingleNum)
+            mCalculate.text = "$getAmountSum"
         }, year, month, day)
         datePickerDialog.show()
     }
@@ -193,5 +207,4 @@ class CarDetails : BaseNavigationFragment() {
     private fun Function() {
         Toast.makeText(context, "DEMO", Toast.LENGTH_LONG).show()
     }
-
 }

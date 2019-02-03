@@ -92,6 +92,8 @@ class CarServiceDetails : BaseNavigationFragment() {
 
     }
 
+
+
     @SuppressLint("InflateParams")
     private fun thankuDialog() {
         val layout = LayoutInflater.from(mainActivity).inflate(R.layout.dialog_thanku_car, null)

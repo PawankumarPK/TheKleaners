@@ -96,6 +96,7 @@
                 android:textColor="#045336"
                 android:layout_marginLeft="20dp"
                 android:textSize="12sp"
+                android:visibility="gone"
                 android:layout_marginStart="20dp" />
 
             <TextView
@@ -104,6 +105,7 @@
                 android:layout_height="wrap_content"
                 android:padding="2dp"
                 android:text="amount"
+                android:visibility="gone"
                 android:textColor="#045336"
                 android:layout_marginLeft="20dp"
                 android:textSize="12sp"

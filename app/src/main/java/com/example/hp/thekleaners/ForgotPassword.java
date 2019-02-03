@@ -16,7 +16,7 @@ import java.util.Calendar;
 public class ForgotPassword extends AppCompatActivity {
 
     private EditText tv,tv2;
-    private TextView resultTextView;
+    private TextView resultTextView,dayText;
     private Calendar mCurrentDate;
     private Button button;
     int day, month, year;
@@ -27,6 +27,7 @@ public class ForgotPassword extends AppCompatActivity {
         setContentView(R.layout.activity_forgot_password);
 
         tv = (EditText) findViewById(R.id.textView1);
+        dayText = (TextView) findViewById(R.id.mDayTextview);
         tv2 = (EditText) findViewById(R.id.textView2);
         resultTextView= (TextView) findViewById(R.id.mResultTextview);
         button= (Button) findViewById(R.id.buttonContinue);
@@ -50,14 +51,14 @@ public class ForgotPassword extends AppCompatActivity {
         tv.setInputType(InputType.TYPE_NULL);
         month = month + 1;
         tv.setText(day + "/" + month + "/" + year );
-
-        int sum = 30 - day;
-        int getAmountSum = sum* 16;
+        //dayText.setText(day+ "/" + month + "/" + year );
 
 
 
 
-        resultTextView.setText(String.valueOf(day));
+
+
+
 
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +70,12 @@ public class ForgotPassword extends AppCompatActivity {
 
                         monthOfYear = monthOfYear + 1;
                         tv.setText(dayOfMonth + "/" + monthOfYear + "/" + year);
+                        //dayText.setText(dayOfMonth+ "/" + monthOfYear + "/" + year);
+                        dayText.setText(String.valueOf(dayOfMonth));
+                        int sum = 30 - dayOfMonth;
+                        int getAmountSum = sum* 16;
+                        resultTextView.setText(String.valueOf(getAmountSum));
+
                     }
                 }, year, month, day);
                 datePickerDialog.show();

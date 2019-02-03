@@ -273,7 +273,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/mDoneToDate"
-            android:layout_margin="10dp">
+            android:layout_margin="10dp"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/demoImage"
@@ -310,7 +311,8 @@
             android:layout_height="wrap_content"
             android:text="Demo"
             android:layout_below="@+id/mLinearLayoutPerDay"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:visibility="gone"/>
 
     </RelativeLayout>
 </ScrollView>
