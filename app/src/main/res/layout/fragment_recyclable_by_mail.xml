@@ -43,6 +43,7 @@
             android:background="#fff" />
 
         <TextView
+            android:id="@+id/mRecycMail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/recycleByMailDesc"
@@ -50,6 +51,42 @@
             android:textSize="16sp"
             android:fontFamily="sans-serif-condensed"
             android:layout_margin="15dp"/>
+
+        <TextView
+            android:id="@+id/mRecycleByMainPoints"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/recyleByMailPoints"
+            android:layout_below="@+id/mRecycMail"
+            android:textSize="13sp"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_margin="11dp"/>
+
+        <TextView
+            android:id="@+id/mWhatCanRecycle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mRecycleByMainPoints"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/recycleDesc"
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+
+        <TextView
+            android:id="@+id/mRecycMailDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/recycleMailDesc"
+            android:layout_below="@+id/mWhatCanRecycle"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_margin="15dp"/>
+
+
+
     </RelativeLayout>
 
 </ScrollView>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ededed"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#fff"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/post_carType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sedan"
+                    android:textColor="@color/colorToolbarText"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/post_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:text="Creta"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/post_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:text="DL 24 MC 1632"
+                    android:textSize="15sp" />
+
+
+            </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/post_totalAmt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="300"
+                    android:layout_marginRight="20dp"
+                    android:layout_gravity="bottom"
+                    android:textSize="18sp"
+                    android:textColor="#000"
+                    android:layout_marginEnd="20dp" />
+
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/totalAmtCalculation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="Total "
+            android:layout_marginRight="20dp"
+            android:layout_gravity="bottom"
+            android:textSize="18sp"
+            android:textColor="#000"
+            android:layout_marginEnd="20dp" />
+
+
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

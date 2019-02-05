@@ -42,21 +42,84 @@
             android:layout_centerInParent="true"
             android:background="#fff" />
 
+
         <TextView
-            android:id="@+id/mTextDesc"
+            android:id="@+id/mTextPoints"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/curbsidePickupViewPager"
             android:layout_margin="15dp"
             android:fontFamily="sans-serif-condensed"
+            android:text="@string/curbsPoints"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:id="@+id/mTextDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mTextPoints"
+            android:layout_margin="15dp"
+            android:fontFamily="sans-serif-condensed"
             android:text="@string/curbsideDesc"
             android:textSize="16sp" />
+
+
+        <TextView
+            android:id="@+id/mWhatisCurbside"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mTextDesc"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/whatisCurbside"
+            android:textColor="#000"
+            android:textSize="12sp" />
+
+
+        <TextView
+            android:id="@+id/mWhatisDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mWhatisCurbside"
+            android:layout_margin="13dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/whatisDesc"
+            android:textSize="14sp" />
+
+
+
+        <TextView
+            android:id="@+id/mWhatCanRecycle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mWhatisDesc"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/whatcanrecycle"
+            android:textColor="#000"
+            android:textSize="12sp" />
+
+
+        <TextView
+            android:id="@+id/mWhatRecycleDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mWhatCanRecycle"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/whatcanpoints"
+            android:textSize="12sp" />
+
 
         <TextView
             android:id="@+id/mPrductsDes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/mTextDesc"
+            android:layout_below="@+id/mWhatRecycleDesc"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:fontFamily="sans-serif-condensed"

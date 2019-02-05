@@ -52,11 +52,52 @@
             android:text="@string/medicalDesc"
             android:textSize="16sp" />
 
+
+        <TextView
+            android:id="@+id/mMedicalType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mMedicalDesc"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/medicalType"
+            android:textSize="12sp"
+            android:layout_marginBottom="20dp"/>
+
+
+
+        <TextView
+            android:id="@+id/mMedicalWasteIntegrated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mMedicalType"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/medicalWasteIntegrated"
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+
+        <TextView
+            android:id="@+id/mMedicalWasteIntegratedDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mMedicalWasteIntegrated"
+            android:layout_margin="15dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/medicalWasteIntegratedDesc"
+            android:textSize="14sp" />
+
+
+
+
         <TextView
             android:id="@+id/mMedicalWasteColl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/mMedicalDesc"
+            android:layout_below="@+id/mMedicalWasteIntegratedDesc"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:fontFamily="sans-serif-condensed"
@@ -64,7 +105,9 @@
             android:textColor="#000"
             android:textSize="12sp" />
 
+
         <TextView
+            android:id="@+id/mMedical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/mMedicalWasteColl"
@@ -74,6 +117,10 @@
             android:text="@string/medicalItems"
             android:textSize="12sp"
             android:layout_marginBottom="20dp"/>
+
+
+
+
     </RelativeLayout>
 
 </ScrollView>

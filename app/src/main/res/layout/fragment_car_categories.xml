@@ -51,14 +51,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:button="@drawable/carcleaning" />
+                    android:button="@drawable/hatchback" />
 
                 <RadioButton
                     android:id="@+id/mSedan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:button="@drawable/carcleaning" />
+                    android:button="@drawable/sedan" />
 
 
                 <RadioButton
@@ -73,14 +73,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:button="@drawable/carcleaning" />
+                    android:button="@drawable/suv" />
 
                 <RadioButton
                     android:id="@+id/mPrimieryLuxury"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:button="@drawable/carcleaning" />
+                    android:button="@drawable/luxery" />
 
             </RadioGroup>
 

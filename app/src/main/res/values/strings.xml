@@ -23,12 +23,35 @@
     <string name="otherServices">Construction and Facilities</string>
     <string name="recyclingService">Rigid Plastics/Bottles Metals</string>
 
+
+    <string name="recyleByMailPoints">
+                •	 Batteries\n
+•	CFLs and Fluorescent Tubes\n
+•	Syringes and Lancets\n
+•	Electronic Recycling\n
+</string>
+    
+    <string name="recycleDesc">Recycle bulbs, batteries and electronics responsibly. From home.</string>
     <string name="recycleByMailDesc">Battery and lightbulb recycling can seem complicated on the surface. Our Recycle-By-Mail
     program provide simple, safe ways to recycle.</string>
+    <string name="recycleMailDesc">Every day you do little things to help the environment like turning off the lights and recycling aluminum cans, paper products and plastic. Did you know that you can also recycle batteries, compact fluorescent bulbs and printer cartridges? And that you can recycle all these materials without leaving your house?\n\n
+Our Recycle by Mail program makes it easy for you to recycle many household items and keep harmful materials, like mercury, out of the environment. Best of all, it's easy.
+</string>
 
     <string name="medicalDesc">Disposing of medical waste properly is a huge concern for all communities,large and small.
     For simple,convenient product to help you safely dcaispose of used syringes and lancets. Trust TheKleaners.</string>
+    <string name="medicalWasteIntegrated">Our integrated healthcare solutions help you balance environmental, economic and regulatory demands.</string>
+
+    <string name="medicalWasteIntegratedDesc">Our medical waste service start with safe medical waste practices. At TheKleaners, we collaborate with healthcare facilities of all sizes and types to handle their medical waste safely and responsibly. We understand the complexities of treating and disposing of these materials, and we deliver seamless, convenient solutions that protect the environment.\n\n
+Disposing of medical waste properly is a huge concern for all communities, large and small. For simple, convenient products to help you safely dispose of used syringes and lancets, trust TheKleaners.
+</string>
     <string name="medicalWasteCollectionSer">If you prefer disposal option only, we can help:</string>
+    
+    <string name="medicalType">•	Syringes\n
+•	Lancets\n
+•	LEARN MORE
+</string>
+    
     <string name="medicalItems">\n
         -Medical waste\n
         -Biohazardous waste\n
@@ -40,10 +63,35 @@
 
     </string>
 
+    <string name="curbsPoints">•	Recycling Pickup \n
+•	Waste Pickup\n
+•	Yard &amp; Food Waste Pickup\n
+•	Food and Organic Waste Pickup\n
+•	Bulk Waste Pickup\n
+
+</string>
     <string name="curbsideDesc">These items include waste pickup yard &amp; food, organic waste and more. The at Your Door
-        Special collection program can easily collect these items at your home.</string>
+        Special collection program can easily collect these items at your home. \n\n
+    Help your communities keep garbage out of landfills and help the environment easily with Residential Curbside Pickup services from TheKleaners. </string>
+
+
+    <string name="whatisCurbside">What is Curbside Recycling?</string>
+    <string name="whatcanrecycle">What can I recycle?</string>
+
+    <string name="whatisDesc">Curbside pickup is just like your regular curbside garbage pickup service. We’ll provide your residents with a large recycle bin that they can fill with place on their curb once a week for easy pickup. In many communities we offer single-stream recycling, allowing residents to put all recyclables into one bin.</string>
     <string name="acceptableItemFood">Acceptable items for Food &amp; Organic Waste Recycling can include: </string>
-    <string name="itemsFood">\n
+
+    <string name="whatcanpoints">Residents can recycle a wide variety of household items, including:\n
+•	Paper products\n
+•	Plastic bottles\n
+•	Glass\n
+•	Metal\n
+•	Aluminum cans\n
+…And more\n
+
+</string>
+
+    <string name="itemsFood">
         -Fruits and vegetables\n
         -Meat,poultry,seafood(bones and shells)\n
         -Bakery items and ingredient\n
@@ -53,6 +101,8 @@
         -Paper product(napkin,paper towels)\n
         -Ice cream,yogurt,cottage cheese
     </string>
+
+
 
     <string name="recyclingServiceDesc"> Plastics are effectively being recycled at a rate of 2.4 billion pounds per
     year in INDIA. Doing so helps conserve fossil resources and saves landfill space. Plastic bottles are shred
