@@ -212,10 +212,11 @@
             android:layout_height="wrap_content"
             android:textSize="12sp"
             android:text="Daily"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="80dp"
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
-            android:visibility="invisible" />
+            android:visibility="gone"
+            android:textColor="#000"/>
 
 
         <Button

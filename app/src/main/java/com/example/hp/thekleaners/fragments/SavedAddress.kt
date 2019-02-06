@@ -8,14 +8,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.*
 import android.view.ViewGroup
-import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
+import android.widget.Toast
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
+import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.pojoClass.ForAddress
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_saved_address.*
+
 
 class SavedAddress : BaseNavigationFragment() {
 
@@ -28,6 +34,11 @@ class SavedAddress : BaseNavigationFragment() {
     private val db = FirebaseFirestore.getInstance()
     private val notebookRef = db.collection("Users")
 
+    var ref = FirebaseDatabase.getInstance().reference
+    var dbNode = FirebaseDatabase.getInstance().reference.root.child("Users").child(user_id!!).child("Address")
+
+
+    // notebookRef.document(user_id!!).collection("Address").get().addOnSuccessListener
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_saved_address, container, false)
@@ -68,11 +79,15 @@ class SavedAddress : BaseNavigationFragment() {
                 val note = documentSnapshot.toObject(ForAddress::class.java)
                 note.documentId = documentSnapshot.id
 
-                mLinearLayout.visibility = VISIBLE
-                mView.visibility = VISIBLE
-                mImageView.visibility = GONE
-                addNewService.visibility = VISIBLE
-                //mSavedNewAddress.visibility = GONE
+                if (mLinearLayout == null)
+                    return@addOnSuccessListener
+                else {
+                    mLinearLayout.visibility = VISIBLE
+                    mView.visibility = VISIBLE
+                    mImageView.visibility = GONE
+                    addNewService.visibility = VISIBLE
+                    mSavedNewAddress.visibility = GONE
+                }
 
                 val documentaddress = note.address
                 val documentlandmark = note.landmark
@@ -109,11 +124,31 @@ class SavedAddress : BaseNavigationFragment() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, Profile()).commit()
     }
 
-    private fun addNewServiceFunction(){
+    private fun addNewServiceFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SelectServices()).commit()
     }
-    private fun mEditProfileFunction(){
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, EditAddress()).commit()
+
+    private fun mEditProfileFunction() {
+        //dbNode.setValue(null)
+        //fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, EditAddress()).commit()
+          delete()
+    }
+
+    private fun delete() {
+        val applesQuery = ref.child(user_id!!).child("Address")
+
+
+        applesQuery.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                for (appleSnapshot in dataSnapshot.children) {
+                    //applesQuery.child(id).removeValue();
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Toast.makeText(mainActivity, "Error", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
 }

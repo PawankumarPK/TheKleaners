@@ -20,22 +20,28 @@
                 android:layout_height="wrap_content"
                 android:weightSum="10">
 
-                <ImageView
+                <LinearLayout
                     android:id="@+id/mProfileBackArrow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:contentDescription="@null"
-                    android:src="@drawable/ic_close" />
+                    android:gravity="center"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_close" />
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/mMyAccount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="10dp"
                     android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_weight="9"
                     android:text="My Account"
                     android:textColor="#fff"
@@ -64,16 +70,23 @@
             android:layout_below="@+id/mToolBarProfile"
             android:background="@drawable/color_gradient_toolbar">
 
-            <ImageView
+            <RelativeLayout
                 android:id="@+id/mEditProfile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_margin="10dp"
-                android:contentDescription="@null"
-                android:src="@drawable/ic_edit" />
+                android:layout_alignParentBottom="true"
+                android:layout_margin="10dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_edit" />
+
+            </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/mRelativeLayout"
@@ -169,8 +182,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="20dp"
                     android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
                     android:contentDescription="@null"
                     android:src="@drawable/ic_address" />
 
@@ -178,8 +191,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="20dp"
                     android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_toEndOf="@+id/mAddressIcon"
                     android:layout_toRightOf="@+id/mAddressIcon"
                     android:fontFamily="sans-serif-condensed"
@@ -209,8 +222,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="20dp"
                     android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
                     android:contentDescription="@null"
                     android:src="@drawable/ic_cleaning" />
 
@@ -218,8 +231,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="20dp"
                     android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_toEndOf="@+id/mServicesIcon"
                     android:layout_toRightOf="@+id/mServicesIcon"
                     android:fontFamily="sans-serif-condensed"
@@ -248,8 +261,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="20dp"
                     android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
                     android:contentDescription="@null"
                     android:src="@drawable/ic_invoice" />
 
@@ -257,8 +270,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="20dp"
                     android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_toEndOf="@+id/mServicesInvoice"
                     android:layout_toRightOf="@+id/mServicesInvoice"
                     android:fontFamily="sans-serif-condensed"
@@ -267,8 +280,6 @@
                     android:textSize="16sp" />
 
             </RelativeLayout>
-
-
 
 
             <View
@@ -291,8 +302,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="20dp"
                     android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
                     android:contentDescription="@null"
                     android:src="@drawable/ic_query" />
 
@@ -300,8 +311,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="20dp"
                     android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_toEndOf="@+id/mQueryIcon"
                     android:layout_toRightOf="@+id/mQueryIcon"
                     android:fontFamily="sans-serif-condensed"
@@ -310,6 +321,7 @@
                     android:textSize="16sp" />
 
             </RelativeLayout>
+
             <View
                 android:id="@+id/mView4"
                 android:layout_width="match_parent"

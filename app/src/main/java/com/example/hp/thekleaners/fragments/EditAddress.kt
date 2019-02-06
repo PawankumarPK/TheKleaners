@@ -1,8 +1,6 @@
 package com.example.hp.thekleaners.fragments
 
-import android.content.ContentValues.TAG
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.VISIBLE
@@ -148,14 +146,14 @@ class EditAddress : BaseNavigationFragment() {
     }
 
 
-    private fun updateVAlue(){
+    private fun updateVAlue() {
         val user_address = mEditAddress.text.toString()
         mRef!!.child("ynpYyrwXxe0wNffapPBG")
                 .child("address").setValue(user_address).addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         Toast.makeText(context, "User  are updated", Toast.LENGTH_SHORT).show()
 
-                    }else{
+                    } else {
                         Toast.makeText(context, "User  not updated", Toast.LENGTH_SHORT).show()
                     }
                 }

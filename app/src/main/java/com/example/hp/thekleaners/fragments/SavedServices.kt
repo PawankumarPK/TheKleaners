@@ -59,9 +59,12 @@ class SavedServices : BaseNavigationFragment() {
                 val note = documentSnapshot.toObject(ForService::class.java)
                 note.documentId = documentSnapshot.id
 
-                mCardView.visibility = VISIBLE
-                mImageView.visibility = GONE
-
+                if (mCardView == null)
+                    return@addOnSuccessListener
+                else {
+                    mCardView.visibility = VISIBLE
+                    mImageView.visibility = GONE
+                }
                 val documentServiceTaken = note.serviceTaken
                 val documentamount = note.amount
                 val documentdata = note.date
@@ -88,8 +91,12 @@ class SavedServices : BaseNavigationFragment() {
                 val note = documentSnapshot.toObject(ForService::class.java)
                 note.documentId = documentSnapshot.id
 
-                mCardViewCar.visibility = VISIBLE
-                mImageView.visibility = GONE
+                if (mCardViewCar == null)
+                    return@addOnSuccessListener
+                else {
+                    mCardViewCar.visibility = VISIBLE
+                    mImageView.visibility = GONE
+                }
 
                 val documentServiceTaken = note.serviceTaken
                 val documentamount = note.amount
@@ -125,7 +132,10 @@ class SavedServices : BaseNavigationFragment() {
                 // mSavedNewAddress.visibility = GONE
                 val documentaddress = note.address
 
-                mServiceAmountDemo.text = documentaddress
+                if (mServiceAmountDemo == null)
+                    return@addOnSuccessListener
+                else
+                    mServiceAmountDemo.text = documentaddress
 
 
             }

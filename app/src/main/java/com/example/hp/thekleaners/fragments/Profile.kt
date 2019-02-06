@@ -70,6 +70,11 @@ class Profile : BaseNavigationFragment() {
 
 
         profile_progress.visibility = View.VISIBLE
+        mRelativeLayoutMyAddress.isEnabled = false
+        mRelativeLayoutMyService.isEnabled = false
+        mRelativeLayoutMyInvoice.isEnabled = false
+        mRelativeLayoutQuery.isEnabled = false
+
 
         firebaseFirestore!!.collection("Users").document(user_id!!).get().addOnCompleteListener { task ->
             if (task.isSuccessful) {
@@ -80,68 +85,80 @@ class Profile : BaseNavigationFragment() {
                     val surname = task.result!!.getString("surname")
                     val number = task.result!!.getString("number")
 
-                    mUsername.text = name
-                    mUserEmail.text = surname
-                    mUserNumber.text = number
+                    when {
+                        mUsername == null -> return@addOnCompleteListener
+                        mUserEmail == null -> return@addOnCompleteListener
+                        mUserNumber == null -> return@addOnCompleteListener
+                        else -> {
 
+                            mUsername.text = name
+                            mUserEmail.text = surname
+                            mUserNumber.text = number
+                        }
+                    }
                 }
 
-            } else {
+                } else {
 
-                val error = task.exception!!.message
-                Toast.makeText(context, "(FIRESTORE Retrieve Error) : $error", Toast.LENGTH_LONG).show()
+                    val error = task.exception!!.message
+                    Toast.makeText(context, "(FIRESTORE Retrieve Error) : $error", Toast.LENGTH_LONG).show()
 
+                }
+                profile_progress.visibility = View.INVISIBLE
+                mRelativeLayoutMyAddress.isEnabled = true
+                mRelativeLayoutMyService.isEnabled = true
+                mRelativeLayoutMyInvoice.isEnabled = true
+                mRelativeLayoutQuery.isEnabled = true
+
+                //setup_btn.isEnabled = true
             }
-            profile_progress.visibility = View.INVISIBLE
-            //setup_btn.isEnabled = true
+
+        }
+
+
+        private fun mRelativeLayoutMyAddressFunction() {
+            fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedAddress()).commit()
+        }
+
+
+        private fun mProfileBackArrowFunction() {
+            val intent = Intent(mainActivity, NavigationDrawer::class.java)
+            startActivity(intent)
+        }
+
+        private fun mRelativeLayoutMyServiceFunction() {
+            fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedServices()).commit()
+        }
+
+        private fun mEditProfileFunction() {
+            fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, UserEditProfile()).commit()
+        }
+
+        private fun mRelativeLayoutMyInvoiceFunction() {
+            fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, MyInvoice()).commit()
+        }
+
+        private fun mRelativeLayoutQueryFunction() {
+             fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, MyQueries()).commit()
+        }
+
+        private fun mDialogLogoutFunction() {
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(mainActivity, NavigationDrawer::class.java)
+            startActivity(intent)
+            dialog.dismiss()
+        }
+
+        @SuppressLint("InflateParams")
+        private fun logoutDialog() {
+            val layout = LayoutInflater.from(mainActivity).inflate(R.layout.dialog_logout, null, false)
+            layout.minimumWidth = width
+            dialog.setContentView(layout)
+            dialog.buttonLogout.setOnClickListener { mDialogLogoutFunction() }
+            dialog.mCancelDialog.setOnClickListener { dialog.dismiss() }
+            dialog.setCanceledOnTouchOutside(false)
+            dialog.show()
+
         }
 
     }
-
-
-    private fun mRelativeLayoutMyAddressFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedAddress()).commit()
-    }
-
-
-    private fun mProfileBackArrowFunction() {
-        val intent = Intent(mainActivity, NavigationDrawer::class.java)
-        startActivity(intent)
-    }
-
-    private fun mRelativeLayoutMyServiceFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedServices()).commit()
-    }
-
-    private fun mEditProfileFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, UserEditProfile()).commit()
-    }
-
-    private fun mRelativeLayoutMyInvoiceFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, MyInvoice()).commit()
-    }
-
-    private fun mRelativeLayoutQueryFunction() {
-        // fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, MyQueries()).commit()
-    }
-
-    private fun mDialogLogoutFunction() {
-        FirebaseAuth.getInstance().signOut()
-        val intent = Intent(mainActivity, NavigationDrawer::class.java)
-        startActivity(intent)
-        dialog.dismiss()
-    }
-
-    @SuppressLint("InflateParams")
-    private fun logoutDialog() {
-        val layout = LayoutInflater.from(mainActivity).inflate(R.layout.dialog_logout, null, false)
-        layout.minimumWidth = width
-        dialog.setContentView(layout)
-        dialog.buttonLogout.setOnClickListener { mDialogLogoutFunction() }
-        dialog.mCancelDialog.setOnClickListener { dialog.dismiss() }
-        dialog.setCanceledOnTouchOutside(false)
-        dialog.show()
-
-    }
-
-}

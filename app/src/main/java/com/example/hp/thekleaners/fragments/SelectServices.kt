@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.hp.thekleaners.R
@@ -39,7 +41,9 @@ class SelectServices : BaseNavigationFragment() {
         mOtherService.setOnClickListener { Toast.makeText(context, "Upcoming Service", Toast.LENGTH_SHORT).show() }
         mForMedicalService.setOnClickListener { Toast.makeText(context, "Upcoming Service", Toast.LENGTH_SHORT).show() }
         mForParties.setOnClickListener { Toast.makeText(context, "Upcoming Service", Toast.LENGTH_SHORT).show() }
+        mRelativeLayout.setOnClickListener { Toast.makeText(context, "Upcoming Service", Toast.LENGTH_SHORT).show() }
 
+        selectService_progress.visibility = VISIBLE
         user_id = FirebaseAuth.getInstance().uid
         loadAddressData()
     }
@@ -53,27 +57,29 @@ class SelectServices : BaseNavigationFragment() {
                 note.documentId = documentSnapshot.id
 
                 val documentServiceTaken = note.serviceTaken
+
+                if (mDemoText == null)
+                    return@addOnSuccessListener
+                else
                 mDemoText.text = documentServiceTaken
 
             }
 
+            selectService_progress.visibility = INVISIBLE
         }
     }
 
 
     private fun mForDailyServiceFunction() {
-        when {
-           // mDemoText.text == "Demo" -> Toast.makeText(context, "Already taken this service", Toast.LENGTH_SHORT).show()
-            pref.homeAndFlat -> fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, PricingGuide()).commit()
-            else -> fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, PricingGuideFarmHouse()).commit()
-        }
+
+        if (mDemoText.text == "Daily Service")
+            Toast.makeText(context, "Already taken this service", Toast.LENGTH_SHORT).show()
+        else
+            fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, PricingGuide()).commit()
     }
 
     private fun mForCarCleaningFunction() {
-        if (mDemoTextTwo.text == "DemoTwo")
-            Toast.makeText(context, "Already taken this service", Toast.LENGTH_SHORT).show()
-        else
-            fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, CarCleaning()).commit()
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, CarCategories()).commit()
     }
 
     private fun mSelectServiceBackArrowFunction() {

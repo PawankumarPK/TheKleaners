@@ -53,9 +53,16 @@ class UserEditProfile : BaseNavigationFragment() {
                     val surname = task.result!!.getString("surname")
                     val number = task.result!!.getString("number")
 
-                    setup_name.setText(name)
-                    setup_surname.setText(surname)
-                    setup_number.setText(number)
+                    when {
+                        setup_name == null -> return@addOnCompleteListener
+                        setup_surname == null -> return@addOnCompleteListener
+                        setup_number == null -> return@addOnCompleteListener
+                        else -> {
+                            setup_name.setText(name)
+                            setup_surname.setText(surname)
+                            setup_number.setText(number)
+                        }
+                    }
 
                 }
 
