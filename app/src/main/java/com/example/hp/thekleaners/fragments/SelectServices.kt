@@ -35,7 +35,7 @@ class SelectServices : BaseNavigationFragment() {
         // mainActivity.title_name.text = resources.getString(R.string.signIn)
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
-        mForDailyService.setOnClickListener { mForDailyServiceFunction() }
+        mForDailyService.setOnClickListener { fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, PricingGuide()).commit()}
         mSelectServiceBackArrow.setOnClickListener { mSelectServiceBackArrowFunction() }
         mForCarCleaning.setOnClickListener { mForCarCleaningFunction() }
         mOtherService.setOnClickListener { Toast.makeText(context, "Upcoming Service", Toast.LENGTH_SHORT).show() }
@@ -70,14 +70,14 @@ class SelectServices : BaseNavigationFragment() {
     }
 
 
-    private fun mForDailyServiceFunction() {
+    /*private fun mForDailyServiceFunction() {
 
         if (mDemoText.text == "Daily Service")
             Toast.makeText(context, "Already taken this service", Toast.LENGTH_SHORT).show()
         else
             fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, PricingGuide()).commit()
     }
-
+*/
     private fun mForCarCleaningFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, CarCategories()).commit()
     }

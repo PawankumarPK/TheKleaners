@@ -1,6 +1,7 @@
 package com.example.hp.thekleaners.fragments
 
 import android.annotation.SuppressLint
+import android.app.DatePickerDialog
 import android.app.Dialog
 import android.graphics.Rect
 import android.os.Bundle
@@ -9,18 +10,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
+import android.widget.Toast
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
+import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.pojoClass.ForService
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.dialog_thanku.*
 import kotlinx.android.synthetic.main.fragment_date_and_time.*
-import android.app.TimePickerDialog
-
-
+import java.util.*
 
 
 class DateAndTime : BaseNavigationFragment() {
@@ -33,6 +33,7 @@ class DateAndTime : BaseNavigationFragment() {
     private var user_id: String? = null
     private val db = FirebaseFirestore.getInstance()
     private val notebookRef = db.collection("Users")
+
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -100,6 +101,10 @@ class DateAndTime : BaseNavigationFragment() {
         builder.append((date_picker.dayOfMonth).toString() + "-")
         builder.append((date_picker.month + 1).toString() + "-")
         builder.append(date_picker.year)
+
+
         return builder.toString()
     }
+
+
 }

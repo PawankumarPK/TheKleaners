@@ -44,20 +44,22 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/mRelativeLayoutToolbar"
                 android:layout_marginTop="10dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
 
                 <RadioButton
                     android:id="@+id/mHatchback"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:button="@drawable/hatchback" />
+                    android:button="@drawable/ic_hatchback" />
 
                 <RadioButton
                     android:id="@+id/mSedan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
+
                     android:button="@drawable/sedan" />
 
 

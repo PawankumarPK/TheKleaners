@@ -150,6 +150,7 @@
                     android:textSize="20sp"
                     android:text="Car Daily"
                     android:layout_margin="2dp"
+                    android:visibility="invisible"
                     android:fontFamily="sans-serif-condensed"/>
 
 
@@ -159,7 +160,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#2b2b2b"
                     android:textSize="23sp"
-                    android:text="300"
+                    android:text="Car Service"
                     android:fontFamily="sans-serif-condensed"
                     android:textStyle="bold" />
 
@@ -169,6 +170,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#2b2b2b"
                     android:textSize="14sp"
+                    android:visibility="invisible"
                     android:text="12-34-1045"
                     android:fontFamily="sans-serif-condensed"/>
 
@@ -183,6 +185,15 @@
                 android:layout_marginStart="20dp"
                 android:contentDescription="@null"
                 android:src="@drawable/ic_addservice" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:contentDescription="@null"
+                android:src="@drawable/right_arrow_black" />
 
         </LinearLayout>
 

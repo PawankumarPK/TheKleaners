@@ -61,8 +61,6 @@ class CarServiceDetails : BaseNavigationFragment() {
         width = (displayRectangle.width() * 0.9f).toInt()
         dialog = Dialog(mainActivity)
 
-
-
         mAddMore.setOnClickListener { mAddMoreFunction() }
         mConfirmCar.setOnClickListener { thankuDialog() }
         user_id = FirebaseAuth.getInstance().uid

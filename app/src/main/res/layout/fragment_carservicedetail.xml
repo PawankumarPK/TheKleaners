@@ -6,9 +6,16 @@
     android:layout_gravity="fill_vertical"
     android:background="#fff">
 
+    <View
+        android:id="@+id/mView"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"/>
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_above="@+id/mConfirmCar"
+        android:layout_below="@+id/mView">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -68,13 +75,13 @@
             <RelativeLayout
                 android:id="@+id/mRelativeLayoutTwo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_below="@+id/forConfirm_progress">
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recyclerView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                 </android.support.v7.widget.RecyclerView>
             </RelativeLayout>
@@ -83,18 +90,6 @@
         </RelativeLayout>
     </ScrollView>
 
-    <!--<Button
-        android:id="@+id/mAddMore"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/color_button_car_gradient"
-        android:text="Add More CAR"
-        android:textColor="@android:color/white" />
--->
     <Button
         android:id="@+id/mConfirmCar"
         android:layout_width="match_parent"

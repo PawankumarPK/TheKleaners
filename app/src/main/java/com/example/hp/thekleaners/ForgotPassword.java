@@ -35,15 +35,7 @@ public class ForgotPassword extends AppCompatActivity {
 
         mCurrentDate = Calendar.getInstance();
 
-      /*  SimpleDateFormat df = new SimpleDateFormat("dd:mm:yy");
-        String formattedDate = df.format(mCurrentDate.getTime());
-*/
-   /*     if (formattedDate.contains("dd")) {
-            textView.setText("Good Morning");
-        } else {
-            textView.setText("Good Evening");
-        }
-*/
+
         day = mCurrentDate.get(Calendar.DAY_OF_MONTH);
         month = mCurrentDate.get(Calendar.MONTH);
         year = mCurrentDate.get(Calendar.YEAR);
@@ -70,7 +62,7 @@ public class ForgotPassword extends AppCompatActivity {
 
                         monthOfYear = monthOfYear + 1;
                         tv.setText(dayOfMonth + "/" + monthOfYear + "/" + year);
-                        //dayText.setText(dayOfMonth+ "/" + monthOfYear + "/" + year);
+                        dayText.setText(dayOfMonth+ "/" + monthOfYear + "/" + year);
                         dayText.setText(String.valueOf(dayOfMonth));
                         int sum = 30 - dayOfMonth;
                         int getAmountSum = sum* 16;

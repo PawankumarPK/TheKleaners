@@ -11,6 +11,7 @@ import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.pojoClass.ForAddress
+import com.example.hp.thekleaners.pojoClass.ForCarService
 import com.example.hp.thekleaners.pojoClass.ForService
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -37,10 +38,11 @@ class SavedServices : BaseNavigationFragment() {
         (activity as NavigationDrawer).setDrawerLocked(true)
         mSavedNewService.setOnClickListener { mSavedNewServiceFunction() }
         mSavedServiceBackArrow.setOnClickListener { mSavedServiceBackArrowFunction() }
+        mCardViewCar.setOnClickListener { fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, CarServiceDetails()).commit() }
 
         savedService_progress.visibility = View.VISIBLE
         mCardView.visibility = View.GONE
-        mCardViewCar.visibility = View.GONE
+       // mCardViewCar.visibility = View.GONE
 
 
         user_id = FirebaseAuth.getInstance().uid
@@ -49,10 +51,16 @@ class SavedServices : BaseNavigationFragment() {
         loadAddressData()
         loadCarServiceData()
 
+        if (mServiceAmountCar.text == "Car Service")
+            mCardViewCar.visibility = GONE
+        else
+            mCardViewCar.visibility = VISIBLE
+
     }
 
     @SuppressLint("SetTextI18n")
     private fun loadAddressData() {
+
         notebookRef.document(user_id!!).collection("Services").document("For Daily Picking").collection("Daily Service").get().addOnSuccessListener { queryDocumentSnapshots ->
 
             for (documentSnapshot in queryDocumentSnapshots) {
@@ -84,40 +92,39 @@ class SavedServices : BaseNavigationFragment() {
 
     @SuppressLint("SetTextI18n")
     private fun loadCarServiceData() {
-        notebookRef.document(user_id!!).collection("Services").document("For Car Service").collection("Car Washing").get().addOnSuccessListener { queryDocumentSnapshots ->
-            //var data = ""
+        notebookRef.document(user_id!!).collection("Services").document("For Car Service").collection("Car Washing")
+                .get().addOnSuccessListener { queryDocumentSnapshots ->
+                    //var data = ""
 
-            for (documentSnapshot in queryDocumentSnapshots) {
-                val note = documentSnapshot.toObject(ForService::class.java)
-                note.documentId = documentSnapshot.id
+                    for (documentSnapshot in queryDocumentSnapshots) {
+                        val note = documentSnapshot.toObject(ForCarService::class.java)
+                        note.documentId = documentSnapshot.id
 
-                if (mCardViewCar == null)
-                    return@addOnSuccessListener
-                else {
-                    mCardViewCar.visibility = VISIBLE
-                    mImageView.visibility = GONE
+                        if (mCardViewCar == null)
+                            return@addOnSuccessListener
+                        else {
+                            mCardViewCar.visibility = VISIBLE
+                            mImageView.visibility = GONE
+                        }
+
+
+                        val documentServiceTaken = note.carType
+                        mServiceTakenCar.text = documentServiceTaken
+
+
+                    }
+
+                    savedService_progress.visibility = View.INVISIBLE
+
+
+                    /*mAddressSavedAddress.text = data
+                    mLandmarkSavedAddress.text = data
+                    mSelectStateSavedAddress.text = data
+                    mSelectCitySavedAddress.text = data
+                    PinCodeSavedAddress.text = data*/
                 }
 
-                val documentServiceTaken = note.serviceTaken
-                val documentamount = note.amount
-                val documentdata = note.date
 
-
-                mServiceTakenCar.text = documentServiceTaken
-                mServiceAmountCar.text = "₹$documentamount +18% GST"
-                mServiceTimingCar.text = documentdata
-
-                //   mServiceTaken.text = documentServiceTaken
-                // data += "\n\n"
-            }
-
-            savedService_progress.visibility = View.INVISIBLE
-            /*mAddressSavedAddress.text = data
-            mLandmarkSavedAddress.text = data
-            mSelectStateSavedAddress.text = data
-            mSelectCitySavedAddress.text = data
-            PinCodeSavedAddress.text = data*/
-        }
     }
 
 
