@@ -167,6 +167,7 @@ Disposing of medical waste properly is a huge concern for all communities, large
 
     <string name="verificationDesc">It will detected automatically ,but if it is not detected you can put it below manually as well </string>
 
+    <string name="cancel">CANCEL</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

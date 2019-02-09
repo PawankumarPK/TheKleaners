@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+    <data>
+
+
+
+        <variable
+
+            name="emailDto"
+
+            type="com.example.hp.thekleaners.dto.EmailSendDto" />
+
+    </data>
+
+
+
+
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
+
+        android:background="#fff">
+
+
+
+        <android.support.v7.widget.Toolbar
+
+            android:id="@+id/mToolBarFeedback"
+
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:id="@+id/mFeedbackBackArrow"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:gravity="center">
+
+                <ImageView
+
+                    android:layout_width="wrap_content"
+
+                    android:layout_height="wrap_content"
+
+                    android:contentDescription="@null"
+
+                    android:src="@drawable/ic_close_green" />
+
+
+            </LinearLayout>
+
+            <TextView
+
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+
+                android:text="Feedback"
+
+                android:textColor="#1b1a1a"
+
+                android:textSize="18sp" />
+
+
+
+        </android.support.v7.widget.Toolbar>
+
+
+
+
+
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+
+            android:layout_height="match_parent"
+
+            android:layout_below="@+id/mToolBarFeedback"
+
+            android:layout_marginTop="30dp"
+
+            android:orientation="vertical"
+
+            android:padding="10dp">
+
+
+
+            <android.support.design.widget.TextInputLayout
+
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content">
+
+
+
+                <android.support.design.widget.TextInputEditText
+
+                    android:id="@+id/fullName"
+
+                    android:layout_width="match_parent"
+
+                    android:layout_height="match_parent"
+
+                    android:hint="Full Name"
+
+                    android:inputType="textPersonName"
+
+                    android:text="@={emailDto.fullNameDto}"
+
+                    android:textSize="15sp" />
+
+            </android.support.design.widget.TextInputLayout>
+
+
+
+            <android.support.design.widget.TextInputLayout
+
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content">
+
+
+
+                <android.support.design.widget.TextInputEditText
+
+                    android:id="@+id/emailAddress"
+
+                    android:layout_width="match_parent"
+
+                    android:layout_height="match_parent"
+
+                    android:hint="Mobile No."
+
+                    android:inputType="number"
+
+                    android:text="@={emailDto.emailIDDto}"
+
+                    android:textSize="15sp" />
+
+            </android.support.design.widget.TextInputLayout>
+
+
+
+            <android.support.design.widget.TextInputLayout
+
+                android:layout_width="match_parent"
+
+                android:layout_height="200dp"
+
+                android:textColorHint="#205008">
+
+
+
+                <android.support.design.widget.TextInputEditText
+
+                    android:id="@+id/mFeedback"
+
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+
+                    android:hint="Your Feedback"
+
+                    android:inputType="textMultiLine"
+
+                    android:singleLine="false"
+
+                    android:text="@={emailDto.appTitleDto}"
+
+                    android:textSize="15sp" />
+
+            </android.support.design.widget.TextInputLayout>
+
+
+
+        </LinearLayout>
+
+
+
+
+
+        <RelativeLayout
+
+            android:id="@+id/bottomBtn"
+
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentBottom="true">
+
+
+
+            <Button
+
+                android:id="@+id/submit"
+
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+
+                android:layout_margin="20dp"
+
+                android:background="@drawable/color_gradient"
+
+                android:text="send"
+
+                android:textColor="#fff"
+
+                android:textSize="15sp" />
+
+
+
+
+
+            <TextView
+
+                android:id="@+id/reset"
+
+                android:layout_width="match_parent"
+
+                android:layout_height="40dp"
+
+                android:layout_below="@+id/submit"
+
+                android:layout_marginBottom="30dp"
+
+                android:gravity="center"
+
+                android:text="Reset All"
+
+                android:textColor="#205008"
+
+                android:textSize="15sp"
+
+                android:textStyle="bold" />
+
+
+
+
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+</layout>

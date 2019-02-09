@@ -64,8 +64,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:layout_toLeftOf="@+id/mSeventy"
                 android:layout_toStartOf="@+id/mSeventy"
+                android:layout_toLeftOf="@+id/mSeventy"
                 android:contentDescription="@null"
                 android:src="@drawable/ic_rupee" />
 
@@ -77,19 +77,19 @@
                 android:text="70"
                 android:textColor="#fff"
                 android:textSize="100sp" />
-<!--
+            <!--
 
-            <TextView
-                android:id="@+id/mGST"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_toEndOf="@+id/mSeventy"
-                android:layout_toRightOf="@+id/mSeventy"
-                android:text="+ 19% GST"
-                android:textColor="#fff"
-                android:textSize="20sp" />
--->
+                        <TextView
+                            android:id="@+id/mGST"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_toEndOf="@+id/mSeventy"
+                            android:layout_toRightOf="@+id/mSeventy"
+                            android:text="+ 19% GST"
+                            android:textColor="#fff"
+                            android:textSize="20sp" />
+            -->
 
         </RelativeLayout>
 
@@ -98,60 +98,71 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/mParentRelativeLayout"
-            android:layout_marginLeft="20dp"
             android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
             android:text="Daily Service"
             android:textColor="#000"
-            android:visibility="visible" />
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/mDailyServiceAmount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/mParentRelativeLayout"
-            android:layout_marginLeft="20dp"
             android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
             android:layout_toEndOf="@+id/mDailyServiceTaken"
             android:layout_toRightOf="@+id/mDailyServiceTaken"
             android:text="70"
             android:textColor="#000"
-            android:visibility="visible" />
+            android:visibility="gone" />
 
-        <TextView
+      <!--  <TextView
             android:id="@+id/mDailyServiceTiming"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/mParentRelativeLayout"
-            android:layout_marginLeft="20dp"
             android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
             android:layout_toEndOf="@+id/mDailyServiceAmount"
             android:layout_toRightOf="@+id/mDailyServiceAmount"
             android:text="Date"
             android:textColor="#000"
             android:visibility="visible" />
-
-
-        <Button
-            android:id="@+id/mDateButton"
+-->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/mProceedNext"
-            android:layout_margin="20dp"
-            android:background="@drawable/color_gradient"
-            android:text="Select Date"
-            android:textColor="#fff" />
-
-
-        <Button
-            android:id="@+id/mProceedNext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_alignParentBottom="true"
-            android:layout_margin="20dp"
-            android:background="@drawable/color_gradient"
-            android:text="Proceed"
-            android:textColor="#fff" />
+            android:weightSum="10">
 
+            <TextView
+                android:id="@+id/mDailyServiceTiming"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="5"
+                android:background="#5FAB34"
+                android:text="Select Date"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:textColor="#fff"
+                android:textSize="20sp"/>
+
+
+            <TextView
+                android:id="@+id/mProceedNext"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#fff"
+                android:text="Done"
+                android:gravity="center"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="20sp"
+                android:layout_weight="5"
+                android:textColor="#fff" />
+
+        </LinearLayout>
 
     </RelativeLayout>
 </RelativeLayout>

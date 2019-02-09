@@ -60,7 +60,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
 
-                    android:button="@drawable/sedan" />
+                    android:button="@drawable/ic_sedan" />
 
 
                 <RadioButton
@@ -75,14 +75,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:button="@drawable/suv" />
+                    android:button="@drawable/ic_suv" />
 
                 <RadioButton
                     android:id="@+id/mPrimieryLuxury"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:button="@drawable/luxery" />
+                    android:button="@drawable/ic_luxury" />
 
             </RadioGroup>
 

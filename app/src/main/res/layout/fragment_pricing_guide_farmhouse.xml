@@ -91,6 +91,56 @@
 -->
         </RelativeLayout>
 
+
+        <TextView
+            android:id="@+id/mDailyServiceTaken"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mParentRelativeLayout"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:text="Daily Service"
+            android:textColor="#000"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/mDailyServiceAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mParentRelativeLayout"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_toEndOf="@+id/mDailyServiceTaken"
+            android:layout_toRightOf="@+id/mDailyServiceTaken"
+            android:text="300"
+            android:textColor="#000"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/mDailyServiceTiming"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mParentRelativeLayout"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_toEndOf="@+id/mDailyServiceAmount"
+            android:layout_toRightOf="@+id/mDailyServiceAmount"
+            android:text="Date"
+            android:textColor="#000"
+            android:visibility="visible" />
+
+
+        <Button
+            android:id="@+id/mDateButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/mProceedNextFarmhouse"
+            android:layout_margin="20dp"
+            android:background="@drawable/color_gradient"
+            android:text="Select Date"
+            android:textColor="#fff" />
+
+
         <Button
             android:id="@+id/mProceedNextFarmhouse"
             android:layout_width="match_parent"

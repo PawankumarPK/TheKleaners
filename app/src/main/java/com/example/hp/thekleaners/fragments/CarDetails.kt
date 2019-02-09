@@ -188,17 +188,11 @@ class CarDetails : BaseNavigationFragment() {
             }
             val sum = 30 - dayOfMonth
             val getAmountSum = sum * carSingleNum
-            roundTwoDecimals(carSingleNum)
-            mCalculate.text = "$getAmountSum"
+            mCalculate.text = String.format("%.2f", getAmountSum)
+            //mCalculate.text = "$getAmountSum"
         }, year, month, day)
         datePickerDialog.show()
     }
-
-    fun roundTwoDecimals(d: Double): Double {
-        val twoDForm = DecimalFormat("#.##")
-        return java.lang.Double.valueOf(twoDForm.format(d))
-    }
-
 
     private fun mCurbsidePickupBackArrowFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, CarCategories()).commit()

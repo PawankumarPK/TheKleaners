@@ -3,9 +3,10 @@ package com.example.hp.thekleaners.fragments
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.Dialog
+import android.content.DialogInterface
+import android.graphics.Color
 import android.graphics.Rect
 import android.os.Bundle
-import android.text.InputType
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
@@ -21,8 +22,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.dialog_thanku.*
 import kotlinx.android.synthetic.main.fragment_pricing_guide.*
-import java.text.DecimalFormat
 import java.util.*
+
 
 class PricingGuide : BaseNavigationFragment() {
 
@@ -41,7 +42,6 @@ class PricingGuide : BaseNavigationFragment() {
     private val notebookRef = db.collection("Users")
 
 
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_pricing_guide, container, false)
     }
@@ -53,8 +53,11 @@ class PricingGuide : BaseNavigationFragment() {
         mainActivity.toolbar.visibility = View.VISIBLE
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
-        mProceedNext.setOnClickListener { addNote()  }
-        mDateButton.setOnClickListener { mCaDateEditextFunction() }
+        mProceedNext.setOnClickListener { addNote() }
+        mDailyServiceTiming.setOnClickListener {
+
+            mCaDateEditextFunction()
+        }
         mPricingGuideBackArrow.setOnClickListener { mPricingGuideBackArrow() }
 
         metrics = DisplayMetrics()
@@ -63,62 +66,51 @@ class PricingGuide : BaseNavigationFragment() {
         dialog = Dialog(mainActivity)
         user_id = FirebaseAuth.getInstance().uid
 
-
         mCurrentDate = Calendar.getInstance()
 
         day = mCurrentDate!!.get(Calendar.DAY_OF_MONTH)
         month = mCurrentDate!!.get(Calendar.MONTH)
         year = mCurrentDate!!.get(Calendar.YEAR)
 
-        /*tv.setInputType(InputType.TYPE_NULL)
-        month = month + 1
-        tv.setText(day.toString() + "/" + month + "/" + year)
-*/
-
-
-        mProceedNext.visibility = View.INVISIBLE
+        mProceedNext.isEnabled = false
 
     }
 
-    /*private fun mProceedNextFunction() {
-        addNote()
-    }*/
-
     private fun mPricingGuideBackArrow() {
-
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SelectServices()).commit()
     }
 
     private fun mCaDateEditextFunction() {
-        //  val carSingleNum = this.arguments!!.getDouble("doctor_carSingleAmount")
+        mDailyServiceTiming.setBackgroundColor(Color.WHITE)
         val datePickerDialog = DatePickerDialog(mainActivity, DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
             var monthOfYear = monthOfYear
 
             monthOfYear += 1
-            //mDailyServiceTiming.text = dayOfMonth.toString() + "/" + monthOfYear + "/" + year
             mDailyServiceTiming.text = dayOfMonth.toString() + "/" + monthOfYear + "/" + year
-           // mDailyServiceTiming.text = dayOfMonth.toString()
             if (dayOfMonth == 31) {
                 Toast.makeText(context, "Choose Another Day", Toast.LENGTH_LONG).show()
+                mDailyServiceTiming.text = "Select Date"
                 return@OnDateSetListener
             }
 
             val sum = 30 - dayOfMonth
             val getAmountSum = sum * 2.34
-            roundTwoDecimals(getAmountSum)
-            mDailyServiceAmount.text = getAmountSum.toString()
-           // mDailyServiceTiming.text = day.toString() + "/" + month + "/" + year
-            //mDailyServiceTiming.text = dayOfMonth.toString() + "/" + monthOfYear + "/" + year
-            mProceedNext.visibility = View.VISIBLE
-
+            mDailyServiceAmount.text = String.format("%.2f", getAmountSum);
+            //roundTwoDecimals(getAmountSum)
+            // mDailyServiceAmount.text = getAmountSum.toString()
+            mDailyServiceTiming.setTextColor(Color.BLACK)
+            mProceedNext.setBackgroundColor(Color.parseColor("#5FAB34"))
+            mProceedNext.isEnabled = true
 
         }, year, month, day)
-        datePickerDialog.show()
-    }
 
-    fun roundTwoDecimals(d: Double): Double {
-        val twoDForm = DecimalFormat("#.##")
-        return java.lang.Double.valueOf(twoDForm.format(d))
+        datePickerDialog.setButton(DialogInterface.BUTTON_NEGATIVE, getString(R.string.cancel)) { dialog, which ->
+            if (which == DialogInterface.BUTTON_NEGATIVE) {
+                mDailyServiceTiming.setBackgroundColor(Color.parseColor("#5FAB34"))
+                mDailyServiceTiming.setTextColor(Color.WHITE)
+            }
+        }
+        datePickerDialog.show()
     }
 
     private fun addNote() {
@@ -129,7 +121,11 @@ class PricingGuide : BaseNavigationFragment() {
 
         val note = ForService(serviceTaken, amount, timing)
         notebookRef.document(user_id!!).collection("Services").document("For Daily Picking").collection("Daily Service").add(note)
-        thankuDialog()
+
+        if (mDailyServiceTiming.text == "Select Date")
+            Toast.makeText(context, "Select Valid Date", Toast.LENGTH_LONG).show()
+        else
+            thankuDialog()
     }
 
     @SuppressLint("InflateParams")
@@ -149,6 +145,5 @@ class PricingGuide : BaseNavigationFragment() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedServices()).commit()
         dialog.dismiss()
     }
-
 
 }
