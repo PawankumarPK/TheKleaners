@@ -1,5 +1,6 @@
 package com.example.hp.thekleaners.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.AppBarLayout
 import android.support.design.widget.CoordinatorLayout
@@ -12,21 +13,47 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.RelativeLayout
+import android.widget.Toast
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.adapters.FragmentAdapter
 import com.example.hp.thekleaners.baseClasses.BaseActivity
 import com.example.hp.thekleaners.fragments.*
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_navigation_drawer.*
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
+import kotlinx.android.synthetic.main.nav_header_navigation_drawer.*
 
 
 class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelectedListener, DrawerLocker {
+
+    private var user_id: String? = null
+    private var storageReference: StorageReference? = null
+    private var firebaseAuth: FirebaseAuth? = null
+    private var firebaseFirestore: FirebaseFirestore? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_navigation_drawer)
         setSupportActionBar(toolbar)
+
+        if (!isTaskRoot
+                && intent.hasCategory(Intent.CATEGORY_LAUNCHER)
+                && intent.action != null
+                && intent.action.equals(Intent.ACTION_MAIN)) {
+
+            finish()
+            return
+        }
+
+
+        firebaseAuth = FirebaseAuth.getInstance()
+        firebaseFirestore = FirebaseFirestore.getInstance()
+        user_id = FirebaseAuth.getInstance().uid
+        storageReference = FirebaseStorage.getInstance().reference
 
 
         //  supportActionBar!!.setDisplayHomeAsUpEnabled(true)
@@ -46,6 +73,7 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         /// setupTabIcons()
 
         header.setOnClickListener { signInListener() }
+        getUserNameData()
 
         val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
@@ -107,10 +135,10 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
-            R.id.mPayment -> {
+            R.id.mPolicy -> {
                 supportFragmentManager.beginTransaction().replace(R.id.containerView, Payment()).addToBackStack(null).commit()
             }
-            R.id.mLanguage -> {
+            R.id.mVisitSite -> {
                 supportFragmentManager.beginTransaction().replace(R.id.containerView, Language()).addToBackStack(null).commit()
             }
             R.id.mServices -> {
@@ -118,8 +146,6 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
             }
             R.id.mAboutUs -> {
                 supportFragmentManager.beginTransaction().replace(R.id.containerView, Help()).commit()
-            }
-            R.id.mShare -> {
             }
         }
         drawer_layout.closeDrawer(GravityCompat.START)
@@ -147,4 +173,40 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         containerView.requestLayout()
     }
 
+    private fun getUserNameData(){
+        firebaseFirestore!!.collection("Users").document(user_id!!).get().addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+
+                if (task.result!!.exists()) {
+
+                    val name = task.result!!.getString("name")
+                    val number = task.result!!.getString("number")
+
+                    when {
+                        mSignInTheKleaner == null -> return@addOnCompleteListener
+                        mWhereHygieneMatters == null -> return@addOnCompleteListener
+
+                        else -> {
+
+                            mSignInTheKleaner.text = name
+                            mWhereHygieneMatters.text = number
+                        }
+                    }
+                }
+
+            } else {
+
+                val error = task.exception!!.message
+                Toast.makeText(this, "(FIRESTORE Retrieve Error) : $error", Toast.LENGTH_LONG).show()
+
+            }
+           // profile_progress.visibility = View.INVISIBLE
+
+
+            //setup_btn.isEnabled = true
+        }
+
+    }
+
 }
+
