@@ -53,10 +53,10 @@ class BillAdapter(internal var context: Context, private var profiles: ArrayList
 
         holder.name.text = profiles[position].carName
         holder.email.text = profiles[position].carNumber
-        holder.amount.text = "Bill Amount : ₹" + profiles[position].carAmount.toString()
+        holder.amount.text = "VisitWebsite Amount : ₹" + profiles[position].carAmount.toString()
         holder.type.text = profiles[position].carType
         holder.date.text = "Service Date : " + profiles[position].carDate
-        holder.singleAmt.text = "Bill Single Day Amount : ₹" + profiles[position].carSingleAmount.toString()
+        holder.singleAmt.text = "VisitWebsite Single Day Amount : ₹" + profiles[position].carSingleAmount.toString()
         holder.totalAmt.text = "₹" + profiles[position].carAmountCalculate.toString()
         holder.totalCalculation.text = tsum.toString()
 

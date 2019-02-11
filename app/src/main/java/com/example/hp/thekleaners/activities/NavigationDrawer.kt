@@ -61,7 +61,6 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         belowlayout()
 
 
-
         val navigationView = findViewById<View>(R.id.nav_view) as NavigationView
         val headerview = navigationView.getHeaderView(0)
         val header = headerview.findViewById(R.id.mLinearLayout) as RelativeLayout
@@ -135,16 +134,22 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
+            R.id.mServices -> {
+                supportFragmentManager.beginTransaction().replace(R.id.containerView, SelectServices()).commit()
+            }
+            R.id.mVisitSite -> {
+                supportFragmentManager.beginTransaction().replace(R.id.containerView, VisitWebsite()).addToBackStack(null).commit()
+            }
+            R.id.mAboutUs -> {
+                supportFragmentManager.beginTransaction().replace(R.id.containerView, Help()).commit()
+            }
             R.id.mPolicy -> {
                 supportFragmentManager.beginTransaction().replace(R.id.containerView, Payment()).addToBackStack(null).commit()
             }
-            R.id.mVisitSite -> {
-                supportFragmentManager.beginTransaction().replace(R.id.containerView, Language()).addToBackStack(null).commit()
+            R.id.mHelp -> {
+                supportFragmentManager.beginTransaction().replace(R.id.containerView, Help()).commit()
             }
-            R.id.mServices -> {
-                supportFragmentManager.beginTransaction().replace(R.id.containerView, Home()).commit()
-            }
-            R.id.mAboutUs -> {
+            R.id.mVersion -> {
                 supportFragmentManager.beginTransaction().replace(R.id.containerView, Help()).commit()
             }
         }
@@ -173,7 +178,7 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         containerView.requestLayout()
     }
 
-    private fun getUserNameData(){
+    private fun getUserNameData() {
         firebaseFirestore!!.collection("Users").document(user_id!!).get().addOnCompleteListener { task ->
             if (task.isSuccessful) {
 
@@ -200,7 +205,7 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
                 Toast.makeText(this, "(FIRESTORE Retrieve Error) : $error", Toast.LENGTH_LONG).show()
 
             }
-           // profile_progress.visibility = View.INVISIBLE
+            // profile_progress.visibility = View.INVISIBLE
 
 
             //setup_btn.isEnabled = true

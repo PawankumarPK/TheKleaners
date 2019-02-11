@@ -28,7 +28,7 @@ class MonthlyInvoice : BaseNavigationFragment() {
 
 
     private fun mRelativeLayoutOneFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, Bill()).commit()
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, VisitWebsite()).commit()
     }
 
     private fun mRelativeLayoutTwoFunction() {

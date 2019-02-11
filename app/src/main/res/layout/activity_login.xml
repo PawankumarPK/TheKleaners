@@ -4,10 +4,6 @@
     android:layout_height="match_parent"
     android:background="#fff">
 
-    <RelativeLayout
-        android:id="@+id/mRelativeLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/mToolBarProfile"
@@ -25,40 +21,11 @@
         </android.support.v7.widget.Toolbar>
 
 
-        <EditText
-            android:id="@+id/mMobileNumber"
+        <WebView
+            android:id="@+id/webView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mToolBarProfile"
-            android:layout_margin="20dp"
-            android:layout_toRightOf="@+id/mProgressBarForMobileNumber"
-            android:layout_marginTop="50dp"
-            android:hint="Mobile Number"
-            android:inputType="number" />
-
-        <ProgressBar
-            android:id="@+id/mProgressBarForMobileNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="80dp" />
+            android:layout_height="match_parent"
+            android:layout_below="@+id/mToolBarProfile"/>
 
 
-        <EditText
-            android:id="@+id/mNumberVerfication"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mMobileNumber"
-            android:layout_margin="20dp"
-
-            android:layout_marginTop="50dp"
-            android:hint="Enter Code"
-            android:inputType="number" />
-
-        <ProgressBar
-            android:id="@+id/mProgressBarForNumberVerfication"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="150dp" />
-
-    </RelativeLayout>
-    </RelativeLayout>
+</RelativeLayout>

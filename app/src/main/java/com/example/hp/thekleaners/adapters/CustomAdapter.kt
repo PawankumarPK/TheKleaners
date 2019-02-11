@@ -30,11 +30,11 @@ class CustomAdapter(internal var context: Context, private var profiles: ArrayLi
     override fun onBindViewHolder(holder: CustomAdapter.ViewHolder, position: Int) {
         holder.name.text = profiles[position].carName
         holder.email.text = profiles[position].carNumber
-        holder.amount.text = "Bill Amount : ₹" + profiles[position].carAmountCalculate.toString()
+        holder.amount.text = "VisitWebsite Amount : ₹" + profiles[position].carAmountCalculate.toString()
         holder.type.text = profiles[position].carType
         holder.date.text = "Service Date : " + profiles[position].carDate
-        holder.singleAmt.text = "Bill Single Day Amount : ₹" + profiles[position].carSingleAmount.toString()
-        holder.calcAmt.text = "Bill Amount : ₹" + profiles[position].carAmount.toString()
+        holder.singleAmt.text = "VisitWebsite Single Day Amount : ₹" + profiles[position].carSingleAmount.toString()
+        holder.calcAmt.text = "VisitWebsite Amount : ₹" + profiles[position].carAmount.toString()
         holder.delete.setOnClickListener { submitDetails() }
 
     }
