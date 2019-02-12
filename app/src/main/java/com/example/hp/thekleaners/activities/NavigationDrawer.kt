@@ -1,6 +1,8 @@
 package com.example.hp.thekleaners.activities
 
-import android.content.Intent
+import android.annotation.SuppressLint
+import android.app.Dialog
+import android.graphics.Rect
 import android.os.Bundle
 import android.support.design.widget.AppBarLayout
 import android.support.design.widget.CoordinatorLayout
@@ -9,9 +11,12 @@ import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AlertDialog
+import android.util.DisplayMetrics
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.Toast
 import com.example.hp.thekleaners.R
@@ -34,20 +39,21 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
     private var firebaseAuth: FirebaseAuth? = null
     private var firebaseFirestore: FirebaseFirestore? = null
 
+    private val displayRectangle = Rect()
+    private var width = 0
+    private lateinit var dialog: Dialog
+    private lateinit var metrics: DisplayMetrics
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_navigation_drawer)
         setSupportActionBar(toolbar)
 
-        if (!isTaskRoot
-                && intent.hasCategory(Intent.CATEGORY_LAUNCHER)
-                && intent.action != null
-                && intent.action.equals(Intent.ACTION_MAIN)) {
-
-            finish()
-            return
-        }
+        metrics = DisplayMetrics()
+        this.window.decorView.getWindowVisibleDisplayFrame(displayRectangle)
+        width = (displayRectangle.width() * 0.9f).toInt()
+        dialog = Dialog(this)
 
 
         firebaseAuth = FirebaseAuth.getInstance()
@@ -141,16 +147,16 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
                 supportFragmentManager.beginTransaction().replace(R.id.containerView, VisitWebsite()).addToBackStack(null).commit()
             }
             R.id.mAboutUs -> {
-                supportFragmentManager.beginTransaction().replace(R.id.containerView, Help()).commit()
+                supportFragmentManager.beginTransaction().replace(R.id.containerView, AboutUs()).commit()
             }
             R.id.mPolicy -> {
                 supportFragmentManager.beginTransaction().replace(R.id.containerView, Payment()).addToBackStack(null).commit()
             }
             R.id.mHelp -> {
-                supportFragmentManager.beginTransaction().replace(R.id.containerView, Help()).commit()
+                supportFragmentManager.beginTransaction().replace(R.id.containerView, HelpCenter()).commit()
             }
             R.id.mVersion -> {
-                supportFragmentManager.beginTransaction().replace(R.id.containerView, Help()).commit()
+                versionDialog()
             }
         }
         drawer_layout.closeDrawer(GravityCompat.START)
@@ -212,6 +218,19 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         }
 
     }
+
+    @SuppressLint("InflateParams")
+    private fun versionDialog() {
+        val layout = LayoutInflater.from(this).inflate(R.layout.dialog_version, null)
+        layout.minimumWidth = width
+        val lp = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+        lp.setMargins(0, 20, 0, 0)
+        dialog.setContentView(layout)
+        dialog.setCanceledOnTouchOutside(true)
+        dialog.show()
+
+    }
+
 
 }
 

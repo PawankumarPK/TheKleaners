@@ -1,6 +1,5 @@
 package com.example.hp.thekleaners.fragments
 
-import android.annotation.SuppressLint
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
@@ -13,30 +12,31 @@ import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
-import kotlinx.android.synthetic.main.fragment_visitwebsite.*
+import kotlinx.android.synthetic.main.fragment_about.*
 
-class VisitWebsite : BaseNavigationFragment() {
 
-    private val urlSearch = "http://thekleaners.com/index.html"
+class AboutUs : BaseNavigationFragment() {
+
+    private val urlSearch = "http://thekleaners.com/about.html"
     //private var webView: WebView? = null
     private var progressDialog: ProgressDialog? = null
 
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_visitwebsite, container, false)
+        return inflater.inflate(R.layout.fragment_about, container, false)
 
     }
 
-    @SuppressLint("SetJavaScriptEnabled")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
         mainActivity = activity as NavigationDrawer
         mainActivity.toolbar.visibility = View.VISIBLE
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
 
-        mVisitSiteBackButton.setOnClickListener { mVisitSiteBackButtonFunction() }
+
+        mAboutBackButton.setOnClickListener { mAboutBackButtonFunction() }
 
 
         //   val webView = findViewById(R.id.webView) as WebView
@@ -54,10 +54,10 @@ class VisitWebsite : BaseNavigationFragment() {
         webView!!.isHorizontalScrollBarEnabled = true
 
         //for Zoom in of webpage
-       /* webView!!.settings.setSupportZoom(true)
-        webView!!.settings.builtInZoomControls = true
-        webView!!.settings.displayZoomControls = true
-*/
+        /* webView!!.settings.setSupportZoom(true)
+         webView!!.settings.builtInZoomControls = true
+         webView!!.settings.displayZoomControls = true
+ */
         //for the progress dialog to appear
         webView!!.webChromeClient = object : WebChromeClient() {
 
@@ -74,7 +74,7 @@ class VisitWebsite : BaseNavigationFragment() {
 
     }
 
-    private fun mVisitSiteBackButtonFunction(){
+    private fun mAboutBackButtonFunction() {
         val intent = Intent(context, NavigationDrawer::class.java)
         startActivity(intent)
     }

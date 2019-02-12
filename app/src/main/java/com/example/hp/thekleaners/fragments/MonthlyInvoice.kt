@@ -32,11 +32,11 @@ class MonthlyInvoice : BaseNavigationFragment() {
     }
 
     private fun mRelativeLayoutTwoFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, AprilBill()).commit()
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, AboutUs()).commit()
     }
 
     private fun mRelativeLayoutThreeFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, MayBill()).commit()
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, HelpCenter()).commit()
     }
 
     private fun mRelativeLayoutFourFunction() {

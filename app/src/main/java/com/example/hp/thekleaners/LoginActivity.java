@@ -2,6 +2,7 @@ package com.example.hp.thekleaners;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -22,48 +23,24 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private String urlSearch = "http://thekleaners.com/index.html";
-    WebView webView;
-    private ProgressDialog progressDialog;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        WebView webView = (WebView)findViewById(R.id.webView);
+        Button btn = (Button)findViewById(R.id.button);
 
-        progressDialog = new ProgressDialog(LoginActivity.this);
-        progressDialog.setMax(100);
-        progressDialog.setMessage("Please Wait");
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        progressDialog.setProgress(0);
-        progressDialog.setCancelable(false);
-
-        //loading webview
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl(urlSearch);
-        webView.setHorizontalScrollBarEnabled(true);
-
-        //for Zoom in of webpage
-        webView.getSettings().setSupportZoom(true);
-        webView.getSettings().setBuiltInZoomControls(true);
-        webView.getSettings().setDisplayZoomControls(true);
-
-        //for the progress dialog to appear
-        webView.setWebChromeClient(new WebChromeClient(){
-
-            public void onProgressChanged(WebView View, int progress){
-
-                progressDialog.setProgress(progress);
-                if (progress == 100){
-                    progressDialog.dismiss();
-                }else {
-                    progressDialog.show();
-                }
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW,Uri.fromParts("sms","9910765616",null));
+                intent.putExtra("sms_body","TheKleaners:  ");
+                startActivity(intent);
             }
         });
-
     }
 }
 

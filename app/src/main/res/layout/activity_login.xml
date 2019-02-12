@@ -20,12 +20,13 @@
                 android:src="@drawable/ic_white_left_arrow" />
         </android.support.v7.widget.Toolbar>
 
-
-        <WebView
-            android:id="@+id/webView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/mToolBarProfile"/>
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mToolBarProfile"
+        android:text="Call"
+        />
 
 
 </RelativeLayout>

@@ -16,7 +16,7 @@
             android:layout_height="wrap_content">
 
             <RelativeLayout
-                android:id="@+id/mVisitSiteBackButton"
+                android:id="@+id/mAboutBackButton"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:gravity="center">

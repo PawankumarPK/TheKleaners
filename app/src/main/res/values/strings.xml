@@ -167,6 +167,15 @@ Disposing of medical waste properly is a huge concern for all communities, large
 
     <string name="verificationDesc">It will detected automatically ,but if it is not detected you can put it below manually as well </string>
 
+    <string name="helpDesc">Your TheKleaners Customer ID is a unique number on your invoice that is used to reference your account.
+        With your Customer ID, your account will receive faster service from TheKleaners by:</string>
+    <string name="helpDescPoint">
+    -Expediting your request and account lookup when working with a customer representative, whether on the phone or via email, chat. \n
+    -Making it easier to register your online account\n
+    -Setting up online payments through your financial institution\n
+    -Making an online payment through our mobile app\n
+
+</string>
     <string name="cancel">CANCEL</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
