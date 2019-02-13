@@ -3,6 +3,8 @@ package com.example.hp.thekleaners.fragments
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.Dialog
+import android.content.DialogInterface
+import android.graphics.Color
 import android.graphics.Rect
 import android.os.Bundle
 import android.util.DisplayMetrics
@@ -51,8 +53,8 @@ class PricingGuideFarmHouse : BaseNavigationFragment() {
         mainActivity.toolbar.visibility = View.VISIBLE
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
-        mProceedNextFarmhouse.setOnClickListener { addNote() }
-        mDateButton.setOnClickListener { mCaDateEditextFunction() }
+        mProceedNext.setOnClickListener { addNote() }
+        mDailyServiceTiming.setOnClickListener { mCaDateEditextFunction() }
         mPricingGuideBackArrowFarmhouse.setOnClickListener { mPricingGuideBackArrow() }
 
 
@@ -68,7 +70,7 @@ class PricingGuideFarmHouse : BaseNavigationFragment() {
         month = mCurrentDate!!.get(Calendar.MONTH)
         year = mCurrentDate!!.get(Calendar.YEAR)
 
-        mProceedNextFarmhouse.visibility = View.INVISIBLE
+        mProceedNext.isEnabled = false
 
     }
 
@@ -78,6 +80,7 @@ class PricingGuideFarmHouse : BaseNavigationFragment() {
 
 
     private fun mCaDateEditextFunction() {
+        mDailyServiceTiming.setBackgroundColor(Color.WHITE)
         val datePickerDialog = DatePickerDialog(mainActivity, DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
             var monthOfYear = monthOfYear
 
@@ -85,17 +88,24 @@ class PricingGuideFarmHouse : BaseNavigationFragment() {
             mDailyServiceTiming.text = dayOfMonth.toString() + "/" + monthOfYear + "/" + year
             if (dayOfMonth == 31) {
                 Toast.makeText(context, "Choose Another Day", Toast.LENGTH_LONG).show()
-                mDailyServiceTiming.text = "Date"
+                mDailyServiceTiming.text = "Select Date"
                 return@OnDateSetListener
-            } else {
-                val sum = 30 - dayOfMonth
-                val getAmountSum = sum * 10
-                mDailyServiceAmount.text = getAmountSum.toString()
-                mProceedNextFarmhouse.visibility = View.VISIBLE
-
             }
+            val sum = 30 - dayOfMonth
+            val getAmountSum = sum * 10
+            mDailyServiceAmount.text = getAmountSum.toString()
+            mDailyServiceTiming.setTextColor(Color.BLACK)
+            mProceedNext.setBackgroundColor(Color.parseColor("#5FAB34"))
+            mProceedNext.isEnabled = true
+
 
         }, year, month, day)
+        datePickerDialog.setButton(DialogInterface.BUTTON_NEGATIVE, getString(R.string.cancel)) { dialog, which ->
+            if (which == DialogInterface.BUTTON_NEGATIVE) {
+                mDailyServiceTiming.setBackgroundColor(Color.WHITE)
+                mDailyServiceTiming.setTextColor(Color.BLACK)
+            }
+        }
         datePickerDialog.show()
     }
 

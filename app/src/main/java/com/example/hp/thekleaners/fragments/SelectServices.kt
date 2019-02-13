@@ -35,7 +35,7 @@ class SelectServices : BaseNavigationFragment() {
         // mainActivity.title_name.text = resources.getString(R.string.signIn)
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
-        mForDailyService.setOnClickListener { fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, PricingGuide()).commit()}
+        mForDailyService.setOnClickListener { mForDailyServiceFunction() }
         mSelectServiceBackArrow.setOnClickListener { mSelectServiceBackArrowFunction() }
         mForCarCleaning.setOnClickListener { mForCarCleaningFunction() }
         mOtherService.setOnClickListener { Toast.makeText(context, "Upcoming Service", Toast.LENGTH_SHORT).show() }
@@ -61,7 +61,7 @@ class SelectServices : BaseNavigationFragment() {
                 if (mDemoText == null)
                     return@addOnSuccessListener
                 else
-                mDemoText.text = documentServiceTaken
+                    mDemoText.text = documentServiceTaken
 
             }
 
@@ -69,15 +69,25 @@ class SelectServices : BaseNavigationFragment() {
         }
     }
 
+    private fun homePricingFunction() {
 
-    /*private fun mForDailyServiceFunction() {
-
-        if (mDemoText.text == "Daily Service")
-            Toast.makeText(context, "Already taken this service", Toast.LENGTH_SHORT).show()
-        else
+        if (pref.homeAndFlat) {
             fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, PricingGuide()).commit()
+        } else
+
+            fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, PricingGuideFarmHouse()).commit()
+
+
     }
-*/
+
+    private fun mForDailyServiceFunction() {
+
+        if (mDemoText.text == "Daily Service") {
+            Toast.makeText(context, "Already taken this service", Toast.LENGTH_SHORT).show()
+        } else
+            homePricingFunction()
+    }
+
     private fun mForCarCleaningFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, CarCategories()).commit()
     }

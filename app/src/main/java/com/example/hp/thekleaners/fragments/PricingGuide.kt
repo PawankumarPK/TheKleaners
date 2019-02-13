@@ -95,9 +95,7 @@ class PricingGuide : BaseNavigationFragment() {
 
             val sum = 30 - dayOfMonth
             val getAmountSum = sum * 2.34
-            mDailyServiceAmount.text = String.format("%.2f", getAmountSum);
-            //roundTwoDecimals(getAmountSum)
-            // mDailyServiceAmount.text = getAmountSum.toString()
+            mDailyServiceAmount.text = String.format("%.2f", getAmountSum)
             mDailyServiceTiming.setTextColor(Color.BLACK)
             mProceedNext.setBackgroundColor(Color.parseColor("#5FAB34"))
             mProceedNext.isEnabled = true
@@ -106,8 +104,8 @@ class PricingGuide : BaseNavigationFragment() {
 
         datePickerDialog.setButton(DialogInterface.BUTTON_NEGATIVE, getString(R.string.cancel)) { dialog, which ->
             if (which == DialogInterface.BUTTON_NEGATIVE) {
-                mDailyServiceTiming.setBackgroundColor(Color.parseColor("#5FAB34"))
-                mDailyServiceTiming.setTextColor(Color.WHITE)
+                mDailyServiceTiming.setBackgroundColor(Color.WHITE)
+                mDailyServiceTiming.setTextColor(Color.BLACK)
             }
         }
         datePickerDialog.show()

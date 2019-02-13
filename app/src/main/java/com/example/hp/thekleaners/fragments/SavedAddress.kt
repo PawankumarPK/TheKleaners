@@ -35,7 +35,7 @@ class SavedAddress : BaseNavigationFragment() {
     private val notebookRef = db.collection("Users")
 
     var ref = FirebaseDatabase.getInstance().reference
-    var dbNode = FirebaseDatabase.getInstance().reference.root.child("Users").child(user_id!!).child("Address")
+//    var dbNode = FirebaseDatabase.getInstance().reference.root.child("Users").child(user_id!!).child("Address")
 
 
     // notebookRef.document(user_id!!).collection("Address").get().addOnSuccessListener
@@ -106,11 +106,6 @@ class SavedAddress : BaseNavigationFragment() {
                 // data += "\n\n"
             }
             savedAddress_progress.visibility = View.INVISIBLE
-            /*mAddressSavedAddress.text = data
-            mLandmarkSavedAddress.text = data
-            mSelectStateSavedAddress.text = data
-            mSelectCitySavedAddress.text = data
-            PinCodeSavedAddress.text = data*/
         }
     }
 
