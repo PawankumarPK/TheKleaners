@@ -5,9 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
+import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.google.android.gms.tasks.TaskExecutors
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
@@ -15,7 +15,6 @@ import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_number_verification.*
-
 import java.util.concurrent.TimeUnit
 
 class NumberVerification : BaseNavigationFragment() {
@@ -67,8 +66,10 @@ class NumberVerification : BaseNavigationFragment() {
      }
  */
     private fun verifyCode(code: String?) {
-        val credential = PhoneAuthProvider.getCredential(verificationId!!, code!!)
-        signInWithCredential(credential)
+
+            val credential = PhoneAuthProvider.getCredential(verificationId!!, code!!)
+            signInWithCredential(credential)
+
 
     }
 
@@ -89,7 +90,7 @@ class NumberVerification : BaseNavigationFragment() {
     private fun sendVerificationCode(number: String) {
         progressbar.visibility = View.VISIBLE
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                number,
+                "+91$number",
                 60,
                 TimeUnit.SECONDS,
                 TaskExecutors.MAIN_THREAD,
@@ -116,7 +117,7 @@ class NumberVerification : BaseNavigationFragment() {
 
         override fun onVerificationFailed(e: FirebaseException) {
 
-              Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show()
         }
     }
 

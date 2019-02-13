@@ -2,19 +2,19 @@ package com.example.hp.thekleaners.fragments
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.CoordinatorLayout
 import android.support.v4.view.ViewCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
-import com.example.hp.thekleaners.R.id.scrollView
 import com.example.hp.thekleaners.activities.NavigationDrawer
+import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_for_home_service.*
 
-class ForHomeService : BaseNavigationFragment() {
+
+class ForHomeService : BaseNavigationFragment(), IOnBackPressed {
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_for_home_service, container, false)
     }
@@ -23,12 +23,15 @@ class ForHomeService : BaseNavigationFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mainActivity = activity as NavigationDrawer
-       // mainActivity.title_name.text = resources.getString(R.string.signIn)
+        // mainActivity.title_name.text = resources.getString(R.string.signIn)
         mainActivity.toolbar.visibility = View.GONE
-        mainActivity.tabLayout.visibility = View.INVISIBLE
+        mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
 
-        ViewCompat.setNestedScrollingEnabled(mNestedScrollView, false)
+
+
+
+        ViewCompat.setNestedScrollingEnabled(mNestedScrollView, true)
 
         mHomeServiceBackArrow.setOnClickListener { mHomeServiceBackArrowFunction() }
         mLinearLayoutRecycleByMail.setOnClickListener { mLinearLayoutRecycleByMailFunction() }
@@ -37,8 +40,6 @@ class ForHomeService : BaseNavigationFragment() {
         mLinearLayoutRecyclingService.setOnClickListener { mLinearLayoutRecyclingServiceFunction() }
         mForHomeContinue.setOnClickListener { mForHomeContinueFunction() }
 
-
-//n
 
     }
 
@@ -72,6 +73,19 @@ class ForHomeService : BaseNavigationFragment() {
 
     }
 
+    override fun onBackPressed(): Boolean {
+        return if (true) {
+            val intent = Intent(context, NavigationDrawer::class.java)
+            startActivity(intent)
+            true
+        } else {
+            false
+        }
+
+    }
+
+}
+
 
 /*    override fun onBackPressed() {
         super.onBackPressed()
@@ -80,4 +94,3 @@ class ForHomeService : BaseNavigationFragment() {
         startActivity(i)
         finish()
     }*/
-}

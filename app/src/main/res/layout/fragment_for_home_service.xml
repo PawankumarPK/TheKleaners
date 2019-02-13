@@ -4,8 +4,7 @@
     android:id="@+id/mNestedScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e6e4e4"
-    android:layout_gravity="fill_vertical">
+    android:background="#e6e4e4">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -78,8 +77,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
                 android:background="#fff"
                 app:cardCornerRadius="3dp"
                 app:cardElevation="3dp">
@@ -142,8 +141,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
                 android:background="#fff"
                 app:cardCornerRadius="3dp"
                 app:cardElevation="3dp">
@@ -208,8 +207,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
                 android:background="#fff"
                 app:cardCornerRadius="3dp"
                 app:cardElevation="3dp">
@@ -273,8 +272,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
                 android:background="#fff"
                 app:cardCornerRadius="3dp"
                 app:cardElevation="3dp">
@@ -338,10 +337,10 @@
                 android:id="@+id/mForHomeContinue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/color_gradient"
                 android:drawableEnd="@drawable/right_arrow"
                 android:drawableRight="@drawable/right_arrow"
@@ -350,5 +349,5 @@
 
         </LinearLayout>
     </RelativeLayout>
-
 </android.support.v4.widget.NestedScrollView>
+

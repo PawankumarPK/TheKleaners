@@ -23,4 +23,5 @@ abstract class BaseNavigationFragment : Fragment() {
 //        homeActivity = activity as MainActivity
 
     }
+
 }

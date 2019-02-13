@@ -37,8 +37,8 @@ class Home : BaseNavigationFragment() {
         timer.scheduleAtFixedRate(MyTimerTask(), 2000, 4000)
 
         mCarWashButton.setOnClickListener { mCarWashButtonServiceFunction() }
-        mOthersButton.setOnClickListener { mCarWashButtonServiceFunction() }
-        mOthersButton.setOnClickListener { mOthersButtonFunction() }
+      /*  mOthersButton.setOnClickListener { mCarWashButtonServiceFunction() }
+        mOthersButton.setOnClickListener { mOthersButtonFunction() }*/
 
     }
 

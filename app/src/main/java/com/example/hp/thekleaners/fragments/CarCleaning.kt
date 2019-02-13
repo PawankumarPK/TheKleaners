@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_car_cleaning.*
 
@@ -31,13 +32,18 @@ class CarCleaning : BaseNavigationFragment() {
 
 
     }
+
     private fun mCarServiceBackArrowFunction() {
         val intent = Intent(context, NavigationDrawer::class.java)
         startActivity(intent)
     }
+
     private fun mForCarCleaningContinueFunction() {
+        if (FirebaseAuth.getInstance().currentUser == null)
+            fragmentManager!!.beginTransaction().replace(R.id.containerView, SignUpKleaners()).commit()
+        else
         //mRelativeLayoutForGone.visibility = View.GONE
-        fragmentManager!!.beginTransaction().replace(R.id.containerView, CarCategories()).addToBackStack(null).commit()
+            fragmentManager!!.beginTransaction().replace(R.id.containerView, CarCategories()).addToBackStack(null).commit()
 
     }
 

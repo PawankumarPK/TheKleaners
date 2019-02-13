@@ -204,7 +204,7 @@
 
         </android.support.v7.widget.CardView>
 
-        <android.support.v7.widget.CardView
+     <!--   <android.support.v7.widget.CardView
             android:id="@+id/mOthersCardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -280,13 +280,13 @@
 
 
         </android.support.v7.widget.CardView>
-
+-->
 
         <RelativeLayout
             android:id="@+id/mRelativeLayoutThereMore"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:layout_below="@+id/mOthersCardView"
+            android:layout_below="@+id/mCarCardView"
             android:layout_marginTop="20sp"
             android:background="#31790d">
 

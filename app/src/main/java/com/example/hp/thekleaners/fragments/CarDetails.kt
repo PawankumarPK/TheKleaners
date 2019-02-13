@@ -136,6 +136,9 @@ class CarDetails : BaseNavigationFragment() {
     private fun addNoteForConfirm() {
 
         when {
+
+
+
             mCarNameEditext.text.toString().isEmpty() -> {
                 mCarNameEditext.error = "Empty"
                 return

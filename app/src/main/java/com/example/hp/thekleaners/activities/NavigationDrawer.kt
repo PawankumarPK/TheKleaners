@@ -111,10 +111,23 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         } else if (fragmentManager.backStackEntryCount == 0) {
             fragmentManager.popBackStack()
             tabLayout.visibility = View.VISIBLE
+            toolbar.visibility = View.VISIBLE
             setDrawerLocked(false)
             super.onBackPressed()
 
+
         }
+
+
+        /*  override fun onBackPressed() {
+              val fragment =
+                      this.supportFragmentManager.findFragmentById(R.id.containerView)
+              (fragment as? IOnBackPressed)?.onBackPressed()?.not()?.let {
+                  super.onBackPressed()
+              }
+  */
+
+
     }
 
 
@@ -141,7 +154,10 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.mServices -> {
-                supportFragmentManager.beginTransaction().replace(R.id.containerView, SelectServices()).commit()
+                if (FirebaseAuth.getInstance().currentUser == null)
+                    supportFragmentManager.beginTransaction().replace(R.id.containerView, SignUpKleaners()).commit()
+                else
+                    supportFragmentManager.beginTransaction().replace(R.id.containerView, SelectServices()).commit()
             }
             R.id.mVisitSite -> {
                 supportFragmentManager.beginTransaction().replace(R.id.containerView, VisitWebsite()).addToBackStack(null).commit()
@@ -185,36 +201,43 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
     }
 
     private fun getUserNameData() {
-        firebaseFirestore!!.collection("Users").document(user_id!!).get().addOnCompleteListener { task ->
-            if (task.isSuccessful) {
 
-                if (task.result!!.exists()) {
+        if (FirebaseAuth.getInstance().currentUser == null) {
+            //fragmentManager!!.beginTransaction().replace(R.id.containerView, Profile()).commit()
+            return
 
-                    val name = task.result!!.getString("name")
-                    val number = task.result!!.getString("number")
+        } else {
 
-                    when {
-                        mSignInTheKleaner == null -> return@addOnCompleteListener
-                        mWhereHygieneMatters == null -> return@addOnCompleteListener
+            firebaseFirestore!!.collection("Users").document(user_id!!).get().addOnCompleteListener { task ->
+                if (task.isSuccessful) {
 
-                        else -> {
+                    if (task.result!!.exists()) {
 
-                            mSignInTheKleaner.text = name
-                            mWhereHygieneMatters.text = number
+                        val name = task.result!!.getString("name")
+                        val number = task.result!!.getString("number")
+
+                        when {
+                            mSignInTheKleaner == null -> return@addOnCompleteListener
+                            mWhereHygieneMatters == null -> return@addOnCompleteListener
+
+                            else -> {
+                                mSignInTheKleaner.text = name
+                                mWhereHygieneMatters.text = number
+                            }
                         }
                     }
+
+                } else {
+
+                    val error = task.exception!!.message
+                    Toast.makeText(this, "(FIRESTORE Retrieve Error) : $error", Toast.LENGTH_LONG).show()
+
                 }
+                // profile_progress.visibility = View.INVISIBLE
 
-            } else {
 
-                val error = task.exception!!.message
-                Toast.makeText(this, "(FIRESTORE Retrieve Error) : $error", Toast.LENGTH_LONG).show()
-
+                //setup_btn.isEnabled = true
             }
-            // profile_progress.visibility = View.INVISIBLE
-
-
-            //setup_btn.isEnabled = true
         }
 
     }
