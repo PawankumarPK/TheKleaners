@@ -33,9 +33,11 @@ class SavedAddress : BaseNavigationFragment() {
     private var user_id: String? = null
     private val db = FirebaseFirestore.getInstance()
     private val notebookRef = db.collection("Users")
+    private var firebaseAuth: FirebaseAuth? = null
 
     var ref = FirebaseDatabase.getInstance().reference
-//    var dbNode = FirebaseDatabase.getInstance().reference.root.child("Users").child(user_id!!).child("Address")
+    val docRef = db.collection("Users").document("Address")
+    // var dbNode = FirebaseDatabase.getInstance().reference.root.child("Users").child(user_id!!).child("Address")
 
 
     // notebookRef.document(user_id!!).collection("Address").get().addOnSuccessListener
@@ -48,7 +50,7 @@ class SavedAddress : BaseNavigationFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mainActivity = activity as NavigationDrawer
-        mainActivity.toolbar.visibility = View.VISIBLE
+        mainActivity.toolbar.visibility = View.GONE
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
 
@@ -124,19 +126,22 @@ class SavedAddress : BaseNavigationFragment() {
     }
 
     private fun mEditProfileFunction() {
-        //dbNode.setValue(null)
-        //fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, EditAddress()).commit()
-          delete()
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, EditAddress()).commit()
+
     }
 
     private fun delete() {
-        val applesQuery = ref.child(user_id!!).child("Address")
+    //    val artist = ForAddress()
+        val applesQuery = ref.child("Users").child(firebaseAuth!!.currentUser!!.uid).child("Address")
 
-
+        ref.child(user_id!!).removeValue();
         applesQuery.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (appleSnapshot in dataSnapshot.children) {
-                    //applesQuery.child(id).removeValue();
+                    applesQuery.ref.removeValue()
+
+                    //val note = dataSnapshot.toObject(ForAddress::class.java)
+                    //note.documentId = documentSnapshot.id
                 }
             }
 
@@ -144,6 +149,27 @@ class SavedAddress : BaseNavigationFragment() {
                 Toast.makeText(mainActivity, "Error", Toast.LENGTH_SHORT).show()
             }
         })
+
+
+    }
+
+    private fun deleteArtist(artistid: String): Boolean {
+        //getting the specified artist reference
+
+        val dR = FirebaseDatabase.getInstance().getReference("Users").child(user_id!!).child("Address").child(artistid)
+        dR.removeValue()
+
+
+        //removing artist
+
+        //getting the tracks reference for the specified artist
+        //val drTracks = FirebaseDatabase.getInstance().getReference("tracks").child(id)
+
+        //removing all tracks
+        // drTracks.removeValue()
+        Toast.makeText(mainActivity, "Artist Deleted", Toast.LENGTH_LONG).show()
+
+        return true
     }
 
 }

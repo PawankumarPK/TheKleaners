@@ -33,7 +33,7 @@ class AddAddress : BaseNavigationFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mainActivity = activity as NavigationDrawer
-        mainActivity.toolbar.visibility = View.VISIBLE
+        mainActivity.toolbar.visibility = View.GONE
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
 

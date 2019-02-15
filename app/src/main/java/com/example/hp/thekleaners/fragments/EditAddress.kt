@@ -12,12 +12,11 @@ import com.example.hp.thekleaners.activities.NavigationDrawer
 import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.pojoClass.ForAddress
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_edit_address.*
-import java.util.*
+
+import com.google.firebase.database.*
 
 
 class EditAddress : BaseNavigationFragment() {
@@ -31,6 +30,8 @@ class EditAddress : BaseNavigationFragment() {
     var farmname: Boolean = true
     private var mRef: DatabaseReference? = null
     private lateinit var database: DatabaseReference
+
+     val updateData = FirebaseDatabase.getInstance().getReference("Users").child(user_id!!).child("Address")
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -108,56 +109,6 @@ class EditAddress : BaseNavigationFragment() {
         }
     }
 
-    fun updateDescription() {
-
-        val name = mEditAddress.getText().toString()
-        val updatedValue = HashMap<String, String>()
-
-        //updatedValue.put("/Address")
-        //noteRef.update(KEY_DESCRIPTION, description);
-
-
-        //  mRef!!.child("Address").child(user_id).child("address").setValue(name)
-        //mRef!!.updateChildren(updatedValue as Map<String, Any>?)
-
-        val result = HashMap<String, String>()
-        result["address"] = "Your Description comes here"
-
-        FirebaseDatabase.getInstance().reference.child("Users").child("Address").child("FfriNnYQCHfPvhRiWmXB").child("landmark").updateChildren((result as Map<String, Any>?)!!)
-    }
-
-
-    private fun writeNewPost(address: String, landmark: String, pincode: String, selectCity: String, selectState: String, house: String) {
-
-        val user_address = mEditAddress.text.toString()
-
-        val key = database.child("Users").push().key ?: return
-
-        //  val userMap dn't get = HashMap<String, String>()
-
-        val post = ForAddress(address, landmark, pincode, selectCity, selectState, house)
-        val postValues = post.address
-
-        val childUpdates = HashMap<String, Any>()
-        //childUpdates["/Users/$user_id"] = postValues
-        childUpdates["Users/$user_id/Address/$user_id/$address"] = user_address
-        ///database.child("Users").child(user_id).child("Address").child(user_id).child("address").setValue(user_address)
-        database.updateChildren(childUpdates)
-    }
-
-
-    private fun updateVAlue() {
-        val user_address = mEditAddress.text.toString()
-        mRef!!.child("ynpYyrwXxe0wNffapPBG")
-                .child("address").setValue(user_address).addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        Toast.makeText(context, "User  are updated", Toast.LENGTH_SHORT).show()
-
-                    } else {
-                        Toast.makeText(context, "User  not updated", Toast.LENGTH_SHORT).show()
-                    }
-                }
-    }
 
     private val radioListener = RadioGroup.OnCheckedChangeListener { group, checkedId ->
         when (group) {
@@ -184,8 +135,36 @@ class EditAddress : BaseNavigationFragment() {
     }
 
 
+    private fun updateArtist(documentId: String, address: String, landmark: String,
+                             pincode: String,selectState : String,selectCity: String): Boolean {
+        //getting the specified artist reference
+        val dR = FirebaseDatabase.getInstance().getReference("Users").child(user_id!!).child("Address").child(documentId)
+
+        //updating artist
+        val artist = ForAddress(documentId,address,landmark,pincode,selectState,selectCity)
+        dR.setValue(artist)
+        Toast.makeText(mainActivity, "Artist Updated", Toast.LENGTH_LONG).show()
+        return true
+    }
+
     private fun mSavedNewAddressFunction() {
-        updateVAlue()
+
+        updateData.child("address").setValue("Pawan YAdav");
+
+        val address = mEditAddress!!.text.toString()
+        val landmark = mEditLandmark!!.text.toString()
+        val pincode = mEditPinCode!!.text.toString()
+        val selectState = mEditSelectState!!.text.toString()
+        val selectCity = mEditSelectCity!!.text.toString()
+        val radioButton = textview_selected!!.text.toString()
+        //addAddress_progress.visibility = View.VISIBLE
+
+        /*val dR = FirebaseDatabase.getInstance().getReference("Users").child(user_id!!).child("Address").child("r4anBLVT358navSiQk13")
+        val note = ForAddress(address, landmark, pincode, selectState, selectCity, radioButton)
+        dR.setValue(note)*/
+        Toast.makeText(mainActivity, "Artist Updated", Toast.LENGTH_LONG).show()
+        //updateArtist().document(user_id!!).collection("Address").add(note)
+        updateArtist(radioButton,address,landmark,pincode,selectState,selectCity)
 
         // pref.homeAndFlat = name
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedAddress()).commit()

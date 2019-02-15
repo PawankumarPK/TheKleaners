@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.hp.thekleaners.R
+import com.example.hp.thekleaners.activities.NavigationDrawer
 import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
@@ -14,6 +15,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
+import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_user_edit_profile.*
 import java.util.*
 
@@ -36,6 +38,12 @@ class UserEditProfile : BaseNavigationFragment() {
         firebaseFirestore = FirebaseFirestore.getInstance()
         user_id = FirebaseAuth.getInstance().uid
         storageReference = FirebaseStorage.getInstance().reference
+
+
+        mainActivity = activity as NavigationDrawer
+        mainActivity.toolbar.visibility = View.GONE
+        mainActivity.tabLayout.visibility = View.GONE
+        (activity as NavigationDrawer).setDrawerLocked(true)
 
         if (firebaseFirestore == null)
             setup_progress.visibility = View.INVISIBLE

@@ -26,6 +26,11 @@ class CurbsidePickup : BaseNavigationFragment() {
 
         //mainActivity.title_name.text = resources.getString(R.string.signIn)
 
+        mainActivity = activity as NavigationDrawer
+        mainActivity.toolbar.visibility = View.GONE
+        mainActivity.tabLayout.visibility = View.GONE
+        (activity as NavigationDrawer).setDrawerLocked(true)
+
 
         val viewPagerAdapter = ViewPagerCubsidePickupService(mainActivity)
         curbsidePickupViewPager.adapter = viewPagerAdapter

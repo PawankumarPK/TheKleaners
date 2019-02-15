@@ -50,6 +50,8 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         setContentView(R.layout.activity_navigation_drawer)
         setSupportActionBar(toolbar)
 
+        //supportFragmentManager.beginTransaction().replace(R.id.containerView, Home()).commit()
+
         metrics = DisplayMetrics()
         this.window.decorView.getWindowVisibleDisplayFrame(displayRectangle)
         width = (displayRectangle.width() * 0.9f).toInt()
@@ -103,21 +105,30 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
 
     }
 
+
     override fun onBackPressed() {
 
+        /*val fm = fragmentManager;
+
+        for (  i in fm.backStackEntryCount() - 1; i > 0; i--)
+            if (!fm.getBackStackEntryAt(i).getName().equalsIgnoreCase(tagname)) {
+                fm.popBackStack();
+
+            else
+
+                break;
+*/
         if (drawer_layout.isDrawerOpen(nav_view)) {
             drawer_layout.closeDrawer(GravityCompat.START)
             return
         } else if (fragmentManager.backStackEntryCount == 0) {
-            fragmentManager.popBackStack()
+            fragmentManager.popBackStack("HomeFragment", 0)
             tabLayout.visibility = View.VISIBLE
             toolbar.visibility = View.VISIBLE
             setDrawerLocked(false)
             super.onBackPressed()
 
-
         }
-
 
         /*  override fun onBackPressed() {
               val fragment =
@@ -251,6 +262,12 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         dialog.setContentView(layout)
         dialog.setCanceledOnTouchOutside(true)
         dialog.show()
+
+    }
+
+    private fun demoBack() {
+
+
 
     }
 
