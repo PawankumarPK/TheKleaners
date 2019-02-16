@@ -65,26 +65,47 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/post_totalAmt"
+            <RelativeLayout
+                android:id="@+id/mRelativeLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
-                android:padding="2dp"
-                android:text="300"
-                android:textSize="15sp" />
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/post_date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
-                android:padding="2dp"
-                android:text="date"
-                android:textColor="#045336"
-                android:textSize="12sp" />
+                <TextView
+                    android:id="@+id/post_totalAmt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:padding="2dp"
+                    android:text="300"
+                    android:textSize="15sp" />
+
+
+                <ImageView
+                    android:id="@+id/mDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginRight="20dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_delete" />
+            </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/post_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:padding="2dp"
+                    android:text="date"
+                    android:textColor="#045336"
+                    android:textSize="12sp" />
+
 
 
             <TextView

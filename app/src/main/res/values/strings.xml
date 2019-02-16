@@ -30,7 +30,7 @@
 •	Syringes and Lancets\n
 •	Electronic Recycling\n
 </string>
-    
+
     <string name="recycleDesc">Recycle bulbs, batteries and electronics responsibly. From home.</string>
     <string name="recycleByMailDesc">Battery and lightbulb recycling can seem complicated on the surface. Our Recycle-By-Mail
     program provide simple, safe ways to recycle.</string>
@@ -46,12 +46,12 @@ Our Recycle by Mail program makes it easy for you to recycle many household item
 Disposing of medical waste properly is a huge concern for all communities, large and small. For simple, convenient products to help you safely dispose of used syringes and lancets, trust TheKleaners.
 </string>
     <string name="medicalWasteCollectionSer">If you prefer disposal option only, we can help:</string>
-    
+
     <string name="medicalType">•	Syringes\n
 •	Lancets\n
 •	LEARN MORE
 </string>
-    
+
     <string name="medicalItems">\n
         -Medical waste\n
         -Biohazardous waste\n
@@ -101,7 +101,6 @@ Disposing of medical waste properly is a huge concern for all communities, large
         -Paper product(napkin,paper towels)\n
         -Ice cream,yogurt,cottage cheese
     </string>
-
 
 
     <string name="recyclingServiceDesc"> Plastics are effectively being recycled at a rate of 2.4 billion pounds per

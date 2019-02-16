@@ -2,11 +2,15 @@ package com.example.hp.thekleaners.adapters
 
 import android.app.DatePickerDialog
 import android.content.Context
+import android.content.Intent
+import android.content.pm.ResolveInfo
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.pojoClass.ForCarService
@@ -36,12 +40,13 @@ class InvoiceAdapter(internal var context: Context, private var profiles: ArrayL
 
         holder.name.text = profiles[position].carName
         holder.email.text = profiles[position].carNumber
-        holder.amount.text = "VisitWebsite Amount : ₹" + profiles[position].carAmount.toString()
+        holder.amount.text = "Service Amount : ₹" + profiles[position].carAmount.toString()
         holder.type.text = profiles[position].carType
         holder.date.text = "Service Date : " + profiles[position].carDate
-        holder.singleAmt.text = "VisitWebsite Single Day Amount : ₹" + profiles[position].carSingleAmount.toString()
-        holder.totalAmt.text = "VisitWebsite Amount : ₹" + profiles[position].carAmountCalculate.toString()
+        holder.singleAmt.text = "Service Single Day Amount : ₹" + profiles[position].carSingleAmount.toString()
+        holder.totalAmt.text = "Service Amount : ₹" + profiles[position].carAmountCalculate.toString()
 
+        holder.delete.setOnClickListener { submitDetails() }
 
         mCurrentDate = Calendar.getInstance()
         day = mCurrentDate!!.get(Calendar.DAY_OF_MONTH)
@@ -56,7 +61,7 @@ class InvoiceAdapter(internal var context: Context, private var profiles: ArrayL
         holder.datepicker.text = day.toString()
         holder.datepicker.setOnClickListener { holder.mCaDateEditextFunction() }
 
-        if (day == 1) {
+        if (day == 17) {
             holder.amt.text = profiles[position].carAmount.toString()
         } else {
             holder.amt.text = profiles[position].carAmountCalculate.toString()
@@ -77,6 +82,7 @@ class InvoiceAdapter(internal var context: Context, private var profiles: ArrayL
         var totalAmt: TextView
         var datepicker: TextView
         var amt: TextView
+        var delete: ImageView
 
 
 
@@ -91,6 +97,7 @@ class InvoiceAdapter(internal var context: Context, private var profiles: ArrayL
             totalAmt = itemView.findViewById<View>(R.id.post_totalAmt) as TextView
             datepicker = itemView.findViewById<View>(R.id.mDatepicker) as TextView
             amt = itemView.findViewById<View>(R.id.mAmt) as TextView
+            delete = itemView.findViewById<View>(R.id.mDelete) as ImageView
 
         }
 
@@ -107,4 +114,36 @@ class InvoiceAdapter(internal var context: Context, private var profiles: ArrayL
 
 
     }
+
+    private fun submitDetails() {
+
+
+        val emailIntent = Intent(Intent.ACTION_SEND)
+
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Reason For Remove this service")
+
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf("info@thekleaners.com"))
+
+        // emailIntent.putExtra(Intent.EXTRA_TEXT, emailData())
+
+        emailIntent.type = "text/plain"
+
+        val matches = context.packageManager.queryIntentActivities(emailIntent, 0)
+
+        var best: ResolveInfo? = null
+
+        for (info in matches)
+
+            if (info.activityInfo.packageName.endsWith(".gm") || info.activityInfo.name.toLowerCase().contains("gmail"))
+
+                best = info
+
+        if (best != null)
+
+            emailIntent.setClassName(best.activityInfo.packageName, best.activityInfo.name)
+
+        ContextCompat.startActivity(context, emailIntent, null)
+
+    }
+
 }

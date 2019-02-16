@@ -1,12 +1,15 @@
 package com.example.hp.thekleaners.fragments
 
 import android.annotation.SuppressLint
+import android.app.DatePickerDialog
 import android.os.Bundle
+import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
@@ -17,12 +20,18 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_saved_new_services.*
+import java.util.*
 
 class SavedServices : BaseNavigationFragment() {
 
     private var user_id: String? = null
     private val db = FirebaseFirestore.getInstance()
     private val notebookRef = db.collection("Users")
+
+    var mCurrentDate: Calendar? = null
+    var day: Int = 0
+    var month: Int = 0
+    var year: Int = 0
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -38,12 +47,23 @@ class SavedServices : BaseNavigationFragment() {
         (activity as NavigationDrawer).setDrawerLocked(true)
         mSavedNewService.setOnClickListener { mSavedNewServiceFunction() }
         mSavedServiceBackArrow.setOnClickListener { mSavedServiceBackArrowFunction() }
-        mCardViewCar.setOnClickListener { fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, CarServiceDetails()).commit() }
+        mCardViewCar.setOnClickListener { fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, MyInvoice()).commit() }
+        //mRelativeLayoutMain.setOnClickListener {  }
+        mDate.setOnClickListener { mCaDateEditextFunction() }
 
         savedService_progress.visibility = View.VISIBLE
         mCardView.visibility = View.GONE
-       // mCardViewCar.visibility = View.GONE
+        // mCardViewCar.visibility = View.GONE
 
+        mCurrentDate = Calendar.getInstance()
+        day = mCurrentDate!!.get(Calendar.DAY_OF_MONTH)
+        month = mCurrentDate!!.get(Calendar.MONTH)
+        year = mCurrentDate!!.get(Calendar.YEAR)
+
+
+        mDate.inputType = InputType.TYPE_NULL
+        month += 1
+        mDate.text = "$day  / $month / $year"
 
         user_id = FirebaseAuth.getInstance().uid
 
@@ -79,14 +99,25 @@ class SavedServices : BaseNavigationFragment() {
 
 
                 mServiceTaken.text = documentServiceTaken
-                mServiceAmount.text = "₹$documentamount"
-                mServiceTiming.text = documentdata
+
+                if (day == 16) {
+                    mServiceAmount.text = "70"
+                    mServiceTiming.text = "$day /$month/ $year"
+                } else {
+                    mServiceAmount.text = "₹$documentamount"
+                    mServiceTiming.text = documentdata
+                }
+
+                //mServiceAmount.text = "₹$documentamount"
+
 
             }
 
             savedService_progress.visibility = View.INVISIBLE
 
         }
+
+
     }
 
 
@@ -162,6 +193,37 @@ class SavedServices : BaseNavigationFragment() {
     private fun mSavedServiceBackArrowFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, Profile()).commit()
     }
+
+
+    private fun mCaDateEditextFunction() {
+
+        val datePickerDialog = DatePickerDialog(mainActivity, DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+            var monthOfYear = monthOfYear
+
+            monthOfYear += 1
+            mDate.text = dayOfMonth.toString() + "-" + monthOfYear + "-" + year
+            if (dayOfMonth == 31) {
+                Toast.makeText(context, "Choose Another Day", Toast.LENGTH_LONG).show()
+                mDate.text = ""
+                return@OnDateSetListener
+            }
+
+            //mCalculate.text = "$getAmountSum"
+        }, year, month, day)
+        datePickerDialog.show()
+    }
+
+    private fun homePricingFunction() {
+
+        if (pref.homeAndFlat) {
+            fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, PricingGuide()).commit()
+        } else
+
+            fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, PricingGuideFarmHouse()).commit()
+
+
+    }
+
 //saved
 }
 

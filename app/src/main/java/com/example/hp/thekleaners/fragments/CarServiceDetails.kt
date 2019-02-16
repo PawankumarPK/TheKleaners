@@ -111,12 +111,12 @@ class CarServiceDetails : BaseNavigationFragment() {
     }
 
     private fun mConfirmCarFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, MonthlyInvoice()).commit()
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, MyInvoice()).commit()
         dialog.dismiss()
     }
 
     private fun mCarServiceBackArrowFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, CarCategories()).commit()
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, Profile()).commit()
 
     }
 }

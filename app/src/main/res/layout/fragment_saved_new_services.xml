@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff">
+    android:background="#fff"
+    android:id="@+id/mRelativeLayoutMain">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/mToolbarAddress"
@@ -84,7 +85,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#2b2b2b"
                     android:textSize="23sp"
-                    android:text="70"
+                    android:text="700"
                     android:fontFamily="sans-serif-condensed"
                     android:textStyle="bold" />
 
@@ -127,6 +128,7 @@
         app:cardCornerRadius="20dp">
 
         <LinearLayout
+            android:id="@+id/mLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -228,6 +230,17 @@
             android:layout_alignParentBottom="true"
             android:visibility="gone"
             android:textColor="#000"/>
+
+
+
+        <TextView
+            android:id="@+id/mDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Date"
+           android:layout_above="@+id/mSavedNewService"
+            android:textColor="#1b1a1a"
+            android:textSize="30sp" />
 
 
         <Button

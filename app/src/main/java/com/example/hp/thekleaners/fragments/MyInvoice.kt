@@ -49,6 +49,7 @@ class MyInvoice : BaseNavigationFragment() {
 
 
         mInvoiceBackArrow.setOnClickListener { mCarServiceBackArrowFunction() }
+        mRelativeLayoutMain.setOnClickListener {  }
 
 
         metrics = DisplayMetrics()

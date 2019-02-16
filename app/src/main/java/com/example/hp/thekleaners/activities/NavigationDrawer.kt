@@ -50,23 +50,20 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         setContentView(R.layout.activity_navigation_drawer)
         setSupportActionBar(toolbar)
 
-        //supportFragmentManager.beginTransaction().replace(R.id.containerView, Home()).commit()
-
         metrics = DisplayMetrics()
         this.window.decorView.getWindowVisibleDisplayFrame(displayRectangle)
         width = (displayRectangle.width() * 0.9f).toInt()
         dialog = Dialog(this)
-
 
         firebaseAuth = FirebaseAuth.getInstance()
         firebaseFirestore = FirebaseFirestore.getInstance()
         user_id = FirebaseAuth.getInstance().uid
         storageReference = FirebaseStorage.getInstance().reference
 
-
         //  supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         //  toolbar.visibility = View.VISIBLE
         belowlayout()
+
 
 
         val navigationView = findViewById<View>(R.id.nav_view) as NavigationView
@@ -88,6 +85,12 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
+
+
+        /*toolbar.visibility = View.VISIBLE
+        tabLayout.visibility = View.VISIBLE
+        supportFragmentManager.beginTransaction().addToBackStack(null).replace(R.id.containerView, Home()).commit()*/
+
     }
 
     /*private fun setupTabIcons() {
@@ -108,27 +111,26 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
 
     override fun onBackPressed() {
 
-        /*val fm = fragmentManager;
-
-        for (  i in fm.backStackEntryCount() - 1; i > 0; i--)
-            if (!fm.getBackStackEntryAt(i).getName().equalsIgnoreCase(tagname)) {
-                fm.popBackStack();
-
-            else
-
-                break;
-*/
         if (drawer_layout.isDrawerOpen(nav_view)) {
             drawer_layout.closeDrawer(GravityCompat.START)
             return
         } else if (fragmentManager.backStackEntryCount == 0) {
-            fragmentManager.popBackStack("HomeFragment", 0)
+           /* tabLayout.visibility = View.VISIBLE
+            toolbar.visibility = View.VISIBLE
+            setDrawerLocked(false)
+            supportFragmentManager.beginTransaction().addToBackStack(null).replace(R.id.containerView, Home()).commit()*/
+            //fragmentManager.popBackStack("HomeFragment", 0)
+            belowlayout()
             tabLayout.visibility = View.VISIBLE
             toolbar.visibility = View.VISIBLE
             setDrawerLocked(false)
             super.onBackPressed()
-
+            //exitApp(false)
         }
+            /*else
+            super.onBackPressed()*/
+
+
 
         /*  override fun onBackPressed() {
               val fragment =

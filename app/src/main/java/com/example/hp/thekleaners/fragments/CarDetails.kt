@@ -59,12 +59,7 @@ class CarDetails : BaseNavigationFragment() {
       //  val carSingleNum = this.arguments!!.getDouble("doctor_carSingleAmount")
         mCarAmt?.setText(carNum)
         mCarType?.setText(name)
-      //  mCarPerDayAmt.setText("$carSingleNum")
 
-        //val sum = 30 - day
-      //  val getAmountSum = sum * carSingleNum
-       // roundTwoDecimals(getAmountSum)
-       // mCalculate.text = "$getAmountSum"
         cardetail_progress.visibility = View.INVISIBLE
 
 

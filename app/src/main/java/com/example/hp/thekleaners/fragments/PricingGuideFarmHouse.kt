@@ -137,7 +137,7 @@ class PricingGuideFarmHouse : BaseNavigationFragment() {
     }
 
     private fun mDialogContinueFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedServices()).commit()
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedServiceForFarms()).commit()
         dialog.dismiss()
     }
 
