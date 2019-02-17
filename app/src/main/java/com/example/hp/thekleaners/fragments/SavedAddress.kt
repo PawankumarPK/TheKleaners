@@ -6,18 +6,14 @@ import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.*
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
-import com.example.hp.thekleaners.pojoClass.ForAddress
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_saved_address.*
@@ -32,15 +28,9 @@ class SavedAddress : BaseNavigationFragment() {
 
     private var user_id: String? = null
     private val db = FirebaseFirestore.getInstance()
-    private val notebookRef = db.collection("Users")
+    // private val notebookRef = db.collection("Users")
     private var firebaseAuth: FirebaseAuth? = null
-
-    var ref = FirebaseDatabase.getInstance().reference
-    val docRef = db.collection("Users").document("Address")
-    // var dbNode = FirebaseDatabase.getInstance().reference.root.child("Users").child(user_id!!).child("Address")
-
-
-    // notebookRef.document(user_id!!).collection("Address").get().addOnSuccessListener
+    private var firebaseFirestore: FirebaseFirestore? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_saved_address, container, false)
@@ -57,6 +47,7 @@ class SavedAddress : BaseNavigationFragment() {
         mLinearLayout.visibility = INVISIBLE
         mView.visibility = INVISIBLE
         savedAddress_progress.visibility = VISIBLE
+        firebaseFirestore = FirebaseFirestore.getInstance()
 
         metrics = DisplayMetrics()
         mainActivity.window.decorView.getWindowVisibleDisplayFrame(displayRectangle)
@@ -68,11 +59,55 @@ class SavedAddress : BaseNavigationFragment() {
         mEditProfile.setOnClickListener { mEditProfileFunction() }
         user_id = FirebaseAuth.getInstance().uid
 
-        loadAddressData()
+//        addAddress()
+
+
+        firebaseFirestore!!.collection("Users").document(user_id!!).collection("Address").document("$id").get().addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+
+                if (task.result!!.exists()) {
+
+                    val address = task.result!!.getString("address")
+                    val landmark = task.result!!.getString("landmark")
+                    val pincode = task.result!!.getString("pincode")
+                    val state = task.result!!.getString("state")
+                    val city = task.result!!.getString("city")
+                    val type= task.result!!.getString("type")
+
+
+                    mHomeSavedAddress.text = type
+                    mAddressSavedAddress.text = address
+                    mLandmarkSavedAddress.text = landmark
+                    PinCodeSavedAddress.text = pincode
+                    mSelectStateSavedAddress.text = state
+                    mSelectCitySavedAddress.text = city
+
+                }
+
+            } else {
+
+                val error = task.exception!!.message
+                Toast.makeText(context, "(FIRESTORE Retrieve Error) : $error", Toast.LENGTH_LONG).show()
+
+            }
+            savedAddress_progress.visibility = INVISIBLE
+            mImageView.visibility = INVISIBLE
+            //mSavedNewAddress.visibility = INVISIBLE
+            mLinearLayout.visibility = VISIBLE
+            mView.visibility = VISIBLE
+            addNewService.visibility = VISIBLE
+
+
+            /* setup_progress.visibility = View.INVISIBLE
+             setup_btn.isEnabled = true*/
+        }
+
 
     }
 
-
+    private fun getAddressData() {
+    }
+/*
     private fun loadAddressData() {
         notebookRef.document(user_id!!).collection("Address").get().addOnSuccessListener { queryDocumentSnapshots ->
             //var data = ""
@@ -109,7 +144,7 @@ class SavedAddress : BaseNavigationFragment() {
             }
             savedAddress_progress.visibility = View.INVISIBLE
         }
-    }
+    }*/
 
 
     private fun mSavedNewAddressFunction() {
@@ -129,47 +164,4 @@ class SavedAddress : BaseNavigationFragment() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, EditAddress()).commit()
 
     }
-
-    private fun delete() {
-    //    val artist = ForAddress()
-        val applesQuery = ref.child("Users").child(firebaseAuth!!.currentUser!!.uid).child("Address")
-
-        ref.child(user_id!!).removeValue();
-        applesQuery.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                for (appleSnapshot in dataSnapshot.children) {
-                    applesQuery.ref.removeValue()
-
-                    //val note = dataSnapshot.toObject(ForAddress::class.java)
-                    //note.documentId = documentSnapshot.id
-                }
-            }
-
-            override fun onCancelled(databaseError: DatabaseError) {
-                Toast.makeText(mainActivity, "Error", Toast.LENGTH_SHORT).show()
-            }
-        })
-
-
-    }
-
-    private fun deleteArtist(artistid: String): Boolean {
-        //getting the specified artist reference
-
-        val dR = FirebaseDatabase.getInstance().getReference("Users").child(user_id!!).child("Address").child(artistid)
-        dR.removeValue()
-
-
-        //removing artist
-
-        //getting the tracks reference for the specified artist
-        //val drTracks = FirebaseDatabase.getInstance().getReference("tracks").child(id)
-
-        //removing all tracks
-        // drTracks.removeValue()
-        Toast.makeText(mainActivity, "Artist Deleted", Toast.LENGTH_LONG).show()
-
-        return true
-    }
-
 }

@@ -3,6 +3,7 @@ package com.example.hp.thekleaners.fragments
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.RadioGroup
@@ -10,29 +11,22 @@ import android.widget.Toast
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
 import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
-import com.example.hp.thekleaners.pojoClass.ForAddress
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.UploadTask
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_edit_address.*
-
-import com.google.firebase.database.*
+import java.util.*
 
 
 class EditAddress : BaseNavigationFragment() {
 
     private var user_id: String? = null
     private val db = FirebaseFirestore.getInstance()
-    private val notebookRef = db.document("")
     private var firebaseFirestore: FirebaseFirestore? = null
 
     var name: Boolean = true
-    var farmname: Boolean = true
-    private var mRef: DatabaseReference? = null
-    private lateinit var database: DatabaseReference
-
-     val updateData = FirebaseDatabase.getInstance().getReference("Users").child(user_id!!).child("Address")
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_edit_address, container, false)
@@ -50,62 +44,99 @@ class EditAddress : BaseNavigationFragment() {
         mRadioGroupName.setOnCheckedChangeListener(radioListener)
         firebaseFirestore = FirebaseFirestore.getInstance()
 
-        database = FirebaseDatabase.getInstance().reference
-
-        mRef = FirebaseDatabase.getInstance().reference.child("Users")
-
         mEditAddress_progress.visibility = VISIBLE
 
-        mContinuEditAdress.setOnClickListener { mSavedNewAddressFunction() }
+        mContinuEditAdress.setOnClickListener {addAddress()}
         mEditAddressBackArrow.setOnClickListener { mSavedNewAddressBackArrowFunction() }
-
-
         user_id = FirebaseAuth.getInstance().uid
 
-        loadAddressData()
+
+        firebaseFirestore!!.collection("Users").document(user_id!!).collection("Address").document("$id").get().addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+
+                if (task.result!!.exists()) {
+
+                    val address = task.result!!.getString("address")
+                    val landmark = task.result!!.getString("landmark")
+                    val pincode = task.result!!.getString("pincode")
+                    val state = task.result!!.getString("state")
+                    val city = task.result!!.getString("city")
+                    val type = task.result!!.getString("type")
+
+
+                    when {
+                        mEditAddress == null -> return@addOnCompleteListener
+                        mEditLandmark == null -> return@addOnCompleteListener
+                        mEditPinCode == null -> return@addOnCompleteListener
+                        mEditSelectState == null -> return@addOnCompleteListener
+                        mEditSelectCity == null -> return@addOnCompleteListener
+                        else -> {
+                            mEditAddress.setText(address)
+                            mEditLandmark.setText(landmark)
+                            mEditPinCode.setText(pincode)
+                            mEditSelectState.setText(state)
+                            mEditSelectCity.setText(city)
+                            mType.setText(type)
+                        }
+
+                    }
+                    mEditAddress_progress.visibility = INVISIBLE
+
+
+                }
+
+            } else {
+
+                val error = task.exception!!.message
+                Toast.makeText(context, "(FIRESTORE Retrieve Error) : $error", Toast.LENGTH_LONG).show()
+
+            }
+           /* setup_progress.visibility = View.INVISIBLE
+            setup_btn.isEnabled = true*/
+        }
+
+
+        //  loadAddressData()
         // radioFunction()
 
     }
 
 
-    private fun loadAddressData() {
-        notebookRef.collection("Users").document(user_id!!).collection("Address").get().addOnSuccessListener { queryDocumentSnapshots ->
-            //var data = ""
-
-            var dataaddress = ""
-            var datalandmark = ""
-            var datapincode = ""
-            var datastate = ""
-            var datacity = ""
 
 
-            for (documentSnapshot in queryDocumentSnapshots) {
-                val note = documentSnapshot.toObject(ForAddress::class.java)
-                note.documentId = documentSnapshot.id
 
 
-                val documentaddress = note.address
-                val documentlandmark = note.landmark
-                val documentpincode = note.pincode
-                val documentstate = note.selectState
-                val documentcity = note.selectCity
+    private fun addAddress(){
 
-                dataaddress += documentaddress
-                datalandmark += documentlandmark
-                datapincode += documentpincode
-                datastate += documentstate
-                datacity += documentcity
+        mEditAddress_progress.visibility = View.VISIBLE
 
-                // data += "\n\n"
+        val address = mEditAddress.text.toString()
+        val landmark = mEditLandmark.text.toString()
+        val pincode = mEditPinCode.text.toString()
+        val state = mEditSelectState.text.toString()
+        val city = mEditSelectCity.text.toString()
+        val type = mType.text.toString()
+        storeFirestore(null, address, landmark, pincode, state, city,type)
+    }
+
+    private fun storeFirestore(task: Task<UploadTask.TaskSnapshot>?, address: String, landmark: String, pincode: String, state: String, city: String,type: String) {
+
+        val userMap = HashMap<String, String>()
+        userMap["address"] = address
+        userMap["landmark"] = landmark
+        userMap["pincode"] = pincode
+        userMap["state"] = state
+        userMap["city"] = city
+        userMap["type"] = type
+
+        firebaseFirestore!!.collection("Users").document(user_id!!).collection("Address").document("$id").set(userMap as Map<String, Any>).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                Toast.makeText(context, "Update Address", Toast.LENGTH_SHORT).show()
+
+                fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedAddress()).commit()
+
+
             }
-            mEditAddress.setText(dataaddress)
-            mEditLandmark.setText(datalandmark)
-            mEditSelectState.setText(datastate)
-            mEditSelectCity.setText(datacity)
-            mEditPinCode.setText(datapincode)
-
-            mEditAddress_progress.visibility = View.INVISIBLE
-
         }
     }
 
@@ -113,66 +144,91 @@ class EditAddress : BaseNavigationFragment() {
     private val radioListener = RadioGroup.OnCheckedChangeListener { group, checkedId ->
         when (group) {
             mRadioGroupName -> changeName(checkedId)
-
+        }
+        when (checkedId) {
+            R.id.mHomeFlat -> mType.text = "Home Or Flats"
+            R.id.mFarmHouse -> mType.text = "Farm House"
         }
     }
 
 
     private fun setDefaultSetting() {
-        name = pref.homeAndFlat
+      //  name = pref.homeAndFlat
         //farmname = pref.farmHouse
 
-        if (name) {
-            mAutomaticGenerate.isChecked = true
+        if (mType.text == "Farm House") {
+            mFarmHouse.isChecked = true
         } else {
-            mAlwaysAsk.isChecked = true
+            mHomeFlat.isChecked = true
         }
     }
 
 
     private fun changeName(checkedId: Int) {
-        name = checkedId == R.id.mAutomaticGenerate
+        if (pref.farmHouse) {
+            name = checkedId == R.id.mFarmHouse
+        }else{
+            name = checkedId == R.id.mHomeFlat
+        }
+    }
+    private fun homePricingFunction() {
+
+        if (pref.homeAndFlat) {
+            mHomeFlat.isChecked = true
+        } else
+            mFarmHouse.isChecked = true
+
+
     }
 
-
-    private fun updateArtist(documentId: String, address: String, landmark: String,
-                             pincode: String,selectState : String,selectCity: String): Boolean {
-        //getting the specified artist reference
-        val dR = FirebaseDatabase.getInstance().getReference("Users").child(user_id!!).child("Address").child(documentId)
-
-        //updating artist
-        val artist = ForAddress(documentId,address,landmark,pincode,selectState,selectCity)
-        dR.setValue(artist)
-        Toast.makeText(mainActivity, "Artist Updated", Toast.LENGTH_LONG).show()
-        return true
-    }
-
-    private fun mSavedNewAddressFunction() {
-
-        updateData.child("address").setValue("Pawan YAdav");
-
-        val address = mEditAddress!!.text.toString()
-        val landmark = mEditLandmark!!.text.toString()
-        val pincode = mEditPinCode!!.text.toString()
-        val selectState = mEditSelectState!!.text.toString()
-        val selectCity = mEditSelectCity!!.text.toString()
-        val radioButton = textview_selected!!.text.toString()
-        //addAddress_progress.visibility = View.VISIBLE
-
-        /*val dR = FirebaseDatabase.getInstance().getReference("Users").child(user_id!!).child("Address").child("r4anBLVT358navSiQk13")
-        val note = ForAddress(address, landmark, pincode, selectState, selectCity, radioButton)
-        dR.setValue(note)*/
-        Toast.makeText(mainActivity, "Artist Updated", Toast.LENGTH_LONG).show()
-        //updateArtist().document(user_id!!).collection("Address").add(note)
-        updateArtist(radioButton,address,landmark,pincode,selectState,selectCity)
-
-        // pref.homeAndFlat = name
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedAddress()).commit()
-    }
 
     private fun mSavedNewAddressBackArrowFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedAddress()).commit()
     }
 
 }
+
+/*private fun loadAddressData() {
+    notebookRef.collection("Users").document(user_id!!).collection("Address").get().addOnSuccessListener { queryDocumentSnapshots ->
+        //var data = ""
+
+        var dataaddress = ""
+        var datalandmark = ""
+        var datapincode = ""
+        var datastate = ""
+        var datacity = ""
+
+
+        for (documentSnapshot in queryDocumentSnapshots) {
+            val note = documentSnapshot.toObject(ForAddress::class.java)
+            note.documentId = documentSnapshot.id
+
+
+            val documentaddress = note.address
+            val documentlandmark = note.landmark
+            val documentpincode = note.pincode
+            val documentstate = note.selectState
+            val documentcity = note.selectCity
+
+            dataaddress += documentaddress
+            datalandmark += documentlandmark
+            datapincode += documentpincode
+            datastate += documentstate
+            datacity += documentcity
+
+            // data += "\n\n"
+        }
+        mEditAddress.setText(dataaddress)
+        mEditLandmark.setText(datalandmark)
+        mEditSelectState.setText(datastate)
+        mEditSelectCity.setText(datacity)
+        mEditPinCode.setText(datapincode)
+
+        mEditAddress_progress.visibility = View.INVISIBLE
+
+    }
+}
+
+*/
+
 //https://firebase.google.com/docs/database/android/read-and-write#update_specific_fields

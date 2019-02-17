@@ -57,7 +57,7 @@
 
 
                 <RadioButton
-                    android:id="@+id/mAutomaticGenerate"
+                    android:id="@+id/mHomeFlat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -66,7 +66,7 @@
 
 
                 <RadioButton
-                    android:id="@+id/mAlwaysAsk"
+                    android:id="@+id/mFarmHouse"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -164,7 +164,7 @@
 
 
         <TextView
-            android:id="@+id/textview_selected"
+            android:id="@+id/mType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TEXTVIEW"

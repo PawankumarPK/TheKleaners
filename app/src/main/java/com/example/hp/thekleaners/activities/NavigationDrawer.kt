@@ -62,7 +62,7 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
 
         //  supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         //  toolbar.visibility = View.VISIBLE
-        belowlayout()
+       // belowlayout()
 
 
 
@@ -120,7 +120,7 @@ class NavigationDrawer : BaseActivity(), NavigationView.OnNavigationItemSelected
             setDrawerLocked(false)
             supportFragmentManager.beginTransaction().addToBackStack(null).replace(R.id.containerView, Home()).commit()*/
             //fragmentManager.popBackStack("HomeFragment", 0)
-            belowlayout()
+           // belowlayout()
             tabLayout.visibility = View.VISIBLE
             toolbar.visibility = View.VISIBLE
             setDrawerLocked(false)
