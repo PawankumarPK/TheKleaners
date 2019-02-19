@@ -43,13 +43,13 @@ class MyInvoice : BaseNavigationFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mainActivity = activity as NavigationDrawer
-        mainActivity.toolbar.visibility = View.VISIBLE
+        mainActivity.toolbar.visibility = View.GONE
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
 
 
         mInvoiceBackArrow.setOnClickListener { mCarServiceBackArrowFunction() }
-        mRelativeLayoutMain.setOnClickListener {  }
+        mInvoiceProfile.setOnClickListener { mInvoiceProfileFunction() }
 
 
         metrics = DisplayMetrics()
@@ -84,8 +84,8 @@ class MyInvoice : BaseNavigationFragment() {
 
     }
 
-    private fun mAddMoreFunction() {
-        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, CarCategories()).commit()
+    private fun mInvoiceProfileFunction() {
+        fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, Profile()).commit()
     }
 
     private fun mConfirmCarFunction() {

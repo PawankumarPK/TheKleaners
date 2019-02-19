@@ -1,102 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/mNestedScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="fill_vertical"
     android:background="#fff">
 
-    <View
-        android:id="@+id/mView"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/mRelativeLayoutToolbar"
         android:layout_width="match_parent"
-        android:layout_height="5dp"/>
+        android:layout_height="wrap_content">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/mConfirmCar"
-        android:layout_below="@+id/mView">
-
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:weightSum="10">
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/mRelativeLayoutToolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:weightSum="10">
-
-                    <ImageView
-                        android:id="@+id/mCarServiceBackArrow"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="15dp"
-                        android:layout_marginRight="15dp"
-                        android:contentDescription="@null"
-                        android:src="@drawable/car_left_arrow" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="8"
-                        android:text="Confirmation"
-                        android:textColor="#1b1a1a"
-                        android:textSize="18sp" />
-
-
-                    <ImageView
-                        android:id="@+id/mAddMore"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:contentDescription="@null"
-                        android:src="@drawable/car_add" />
-
-                </LinearLayout>
-
-            </android.support.v7.widget.Toolbar>
-
-
-            <ProgressBar
-                android:id="@+id/forConfirm_progress"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/mCarServiceBackArrow"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/mRelativeLayoutToolbar"
-                android:indeterminate="true"
-                android:visibility="visible" />
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="15dp"
+                android:contentDescription="@null"
+                android:src="@drawable/car_left_arrow" />
 
-            <RelativeLayout
-                android:id="@+id/mRelativeLayoutTwo"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@+id/forConfirm_progress">
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/recyclerView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                </android.support.v7.widget.RecyclerView>
-            </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="8"
+                android:text="Confirmation"
+                android:textColor="#1b1a1a"
+                android:textSize="18sp" />
 
 
-        </RelativeLayout>
-    </ScrollView>
+            <ImageView
+                android:id="@+id/mAddMore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="2"
+                android:contentDescription="@null"
+                android:src="@drawable/car_add" />
 
-    <Button
-        android:id="@+id/mConfirmCar"
+
+            <TextView
+                android:id="@+id/mConfirmCar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:text="Done"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <ProgressBar
+        android:id="@+id/forConfirm_progress"
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/color_button_car_gradient"
-        android:text="Done"
-        android:textColor="@android:color/white" />
+        android:layout_below="@+id/mRelativeLayoutToolbar"
+        android:indeterminate="true"
+        android:visibility="visible" />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/forConfirm_progress" />
 
 </RelativeLayout>
+

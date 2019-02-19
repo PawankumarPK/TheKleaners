@@ -40,7 +40,7 @@ class Feedback  : BaseNavigationFragment() {
         mainActivity = activity as NavigationDrawer
         // mainActivity.title_name.text = resources.getString(R.string.signIn)
         mainActivity.toolbar.visibility = View.GONE
-        mainActivity.tabLayout.visibility = View.INVISIBLE
+        mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
 
 

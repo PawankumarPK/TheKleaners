@@ -37,7 +37,7 @@ class MyQueries : BaseNavigationFragment() {
 
         mainActivity = activity as NavigationDrawer
         mainActivity.toolbar.visibility = View.GONE
-        mainActivity.tabLayout.visibility = View.INVISIBLE
+        mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
 
 

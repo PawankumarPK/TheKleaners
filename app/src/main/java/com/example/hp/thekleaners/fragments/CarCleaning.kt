@@ -26,6 +26,7 @@ class CarCleaning : BaseNavigationFragment() {
         mainActivity = activity as NavigationDrawer
         mainActivity.toolbar.visibility = View.GONE
         mainActivity.tabLayout.visibility = View.GONE
+        mainActivity.title_name.text = resources.getString(R.string.signIn)
         (activity as NavigationDrawer).setDrawerLocked(true)
         mCarServiceBackArrow.setOnClickListener { mCarServiceBackArrowFunction() }
         mForCarCleaningContinue.setOnClickListener { mForCarCleaningContinueFunction() }

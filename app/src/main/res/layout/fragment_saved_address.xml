@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:background="#ededed">
 
-
     <android.support.v7.widget.Toolbar
         android:id="@+id/mToolbarAddress"
         android:layout_width="match_parent"
@@ -66,7 +65,8 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:background="#fff"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="visible">
 
         <TextView
             android:id="@+id/mHomeSavedAddress"
@@ -76,7 +76,6 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:text="Home"
             android:textColor="#000"
             android:textSize="16sp" />
 
@@ -154,28 +153,30 @@
         android:layout_marginRight="20dp"
         android:background="#ccc" />
 
-    <ImageView
-        android:id="@+id/mImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:contentDescription="@null"
-        android:src="@drawable/ic_search" />
 
     <Button
         android:id="@+id/addNewService"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:background="@drawable/color_gradient"
         android:drawableEnd="@drawable/right_arrow"
         android:drawableRight="@drawable/right_arrow"
+        android:layout_below="@+id/mView"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+
         android:text="Add new service"
         android:textColor="#fff"
         android:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/mImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_search"
+        android:layout_centerInParent="true"/>
 
 
 </RelativeLayout>

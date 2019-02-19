@@ -1,12 +1,15 @@
 package com.example.hp.thekleaners.fragments
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.app.DatePickerDialog
+import android.content.Context
 import android.os.Bundle
 import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
@@ -16,7 +19,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
 import kotlinx.android.synthetic.main.fragment_cardetails.*
-import java.text.DecimalFormat
 import java.util.*
 
 
@@ -43,7 +45,7 @@ class CarDetails : BaseNavigationFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mainActivity = activity as NavigationDrawer
-        mainActivity.toolbar.visibility = View.VISIBLE
+        mainActivity.toolbar.visibility = View.GONE
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
 
@@ -52,11 +54,12 @@ class CarDetails : BaseNavigationFragment() {
 
         mCarType.isEnabled = false
         mCarAmt.isEnabled = false
+        mCaDateEditext.isEnabled = false
         //mCarType.inputType = InputType.TYPE_NULL
 
         val name = this.arguments!!.getString("doctor_id").toString()
         val carNum = this.arguments!!.getString("doctor_carAmount").toString()
-      //  val carSingleNum = this.arguments!!.getDouble("doctor_carSingleAmount")
+        //  val carSingleNum = this.arguments!!.getDouble("doctor_carSingleAmount")
         mCarAmt?.setText(carNum)
         mCarType?.setText(name)
 
@@ -64,10 +67,8 @@ class CarDetails : BaseNavigationFragment() {
 
 
         // mDate.setOnClickListener { mDateFunction() }
-        mAddmore.setOnClickListener {
-            // mCalculate.text = "$getAmountSum"
-            addNote()
-        }
+        mAddmore.setOnClickListener { addNote() }
+        setup_date_InputLayout.setOnClickListener {hideKeyboard(mainActivity,getView()!!) }
         mDoneToDate.setOnClickListener { addNoteForConfirm() }
         mCurbsidePickupBackArrow.setOnClickListener { mCurbsidePickupBackArrowFunction() }
 
@@ -81,15 +82,23 @@ class CarDetails : BaseNavigationFragment() {
         month += 1
         //mCaDateEditext.setText("$day + / + $month + / + $year")
         mDate.setOnClickListener { mCaDateEditextFunction() }
+        mDateSecond.setOnClickListener { mCaDateEditextFunction() }
         mCaDateEditext.setOnClickListener { mCaDateEditextFunction() }
 
         demoImage.setOnClickListener { Function() }
-       // demoImage.performClick()
+        // demoImage.performClick()
 
 
     }
 
+    fun hideKeyboard(activity: Activity, viewToHide: View) {
+        val imm = activity
+                .getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(viewToHide.windowToken, 0)
+    }
+
     private fun addNote() {
+
 
         when {
             mCarNameEditext.text.toString().isEmpty() -> {
@@ -133,7 +142,6 @@ class CarDetails : BaseNavigationFragment() {
         when {
 
 
-
             mCarNameEditext.text.toString().isEmpty() -> {
                 mCarNameEditext.error = "Empty"
                 return
@@ -163,7 +171,7 @@ class CarDetails : BaseNavigationFragment() {
 
                 mCarNameEditext.setText("")
                 mCarNumberEditext.setText("")
-                //mCaDateEditext.setText("")
+                mCaDateEditext.setText("")
 
                 fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, CarServiceDetails()).commit()
             }
@@ -178,7 +186,7 @@ class CarDetails : BaseNavigationFragment() {
 
             monthOfYear += 1
             mCaDateEditext.setText(dayOfMonth.toString() + "-" + monthOfYear + "-" + year)
-            if (dayOfMonth == 31){
+            if (dayOfMonth == 31) {
                 Toast.makeText(context, "Choose Another Day", Toast.LENGTH_LONG).show()
                 mCaDateEditext.setText("")
                 mCalculate.text = ""

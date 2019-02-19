@@ -10,6 +10,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
 
+
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
@@ -25,6 +26,12 @@
     <style name="tabLayoutTitles">
         <item name="android:textSize">18sp</item>
 
+    </style>
+
+    <style name="textInputColor">
+        <item name="colorAccent">@color/carThemeColor</item>
+        <item name="counterTextAppearance">@style/TextAppearance.Design.Counter</item>
+        <item name="android:textColor">@color/carThemeColor</item>
     </style>
 
 

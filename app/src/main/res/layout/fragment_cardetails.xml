@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#fff">
 
     <RelativeLayout
@@ -79,6 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:textColorHint="#c1c2c4"
                 android:layout_marginRight="10dp">
 
                 <android.support.design.widget.TextInputEditText
@@ -114,6 +116,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:textColorHint="#c1c2c4"
                 android:layout_marginRight="10dp">
 
                 <android.support.design.widget.TextInputEditText
@@ -149,6 +152,8 @@
                 android:id="@+id/setup_surname_InputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:hintTextAppearance="@style/textInputColor"
+                android:textColorHint="#c1c2c4"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp">
 
@@ -185,6 +190,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                app:hintTextAppearance="@style/textInputColor"
+                android:textColorHint="#c1c2c4"
                 android:layout_marginRight="10dp">
 
                 <android.support.design.widget.TextInputEditText
@@ -201,8 +208,10 @@
             android:id="@+id/mLinearLayoutFour"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_below="@+id/mLinearLayoutThree"
-            android:layout_margin="10dp">
+            android:layout_margin="10dp"
+            android:weightSum="10">
 
             <ImageView
                 android:id="@+id/mDate"
@@ -217,10 +226,13 @@
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/setup_date_InputLayout"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="9"
+                app:hintTextAppearance="@style/textInputColor"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp">
+                android:layout_marginRight="10dp"
+                android:windowSoftInputMode="adjustResize|stateHidden">
 
                 <android.support.design.widget.TextInputEditText
                     android:id="@+id/mCaDateEditext"
@@ -228,7 +240,17 @@
                     android:layout_height="match_parent"
                     android:hint="Date"
                     android:textSize="18sp" />
+
             </android.support.design.widget.TextInputLayout>
+
+            <ImageView
+                android:id="@+id/mDateSecond"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_calender"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"/>
 
         </LinearLayout>
 
@@ -241,7 +263,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/color_button_car_gradient"
+            android:background="@drawable/color_button_other_gradient"
             android:text="Confirm"
             android:textColor="@android:color/white" />
 
