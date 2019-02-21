@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:targetApi="jelly_bean">
 
 
         <LinearLayout
@@ -29,7 +31,7 @@
                     android:id="@+id/post_carType"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TheKleaners"
+                    android:text="@string/thekleaners"
                     android:fontFamily="sans-serif-condensed-medium"
                     android:textColor="@color/colorToolbarText"
                     android:textSize="20sp" />
@@ -39,7 +41,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="2dp"
-                    android:text="Version 1.0.0.1"
+                    android:text="@string/version_1_0_0_1"
                     android:textSize="15sp" />
 
                 <LinearLayout
@@ -52,15 +54,15 @@
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_copyright"
                         android:contentDescription="@null"
-                        android:layout_gravity="center"/>
+                        android:layout_gravity="center_vertical"/>
 
                     <TextView
                         android:id="@+id/post_desc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
+                        android:gravity="center_vertical"
                         android:textColor="#000"
-                        android:text="TheKleaners.All Rights Reserved"
+                        android:text="@string/thekleaners_all_rights_reserved"
                         android:textSize="12sp" />
 
                 </LinearLayout>

@@ -58,7 +58,7 @@ class UserEditProfile : BaseNavigationFragment() {
                 if (task.result!!.exists()) {
 
                     val name = task.result!!.getString("name")
-                    val surname = task.result!!.getString("surname")
+                    val surname = task.result!!.getString("email")
                     val number = task.result!!.getString("number")
 
                     when {
@@ -105,7 +105,7 @@ class UserEditProfile : BaseNavigationFragment() {
 
         val userMap = HashMap<String, String>()
         userMap["name"] = user_name
-        userMap["surname"] = surname
+        userMap["email"] = surname
         userMap["number"] = number
 
         firebaseFirestore!!.collection("Users").document(user_id!!).set(userMap as Map<String, Any>).addOnCompleteListener { task ->

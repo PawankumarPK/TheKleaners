@@ -64,7 +64,7 @@
 
                 android:layout_height="wrap_content"
 
-                android:text="Feedback"
+                android:text="@string/feedback"
 
                 android:textColor="#1b1a1a"
 
@@ -111,7 +111,7 @@
 
                     android:layout_height="match_parent"
 
-                    android:hint="Full Name"
+                    android:hint="@string/full_name"
 
                     android:inputType="textPersonName"
 
@@ -139,7 +139,7 @@
 
                     android:layout_height="match_parent"
 
-                    android:hint="Mobile No."
+                    android:hint="@string/mobile_no"
 
                     android:inputType="number"
 
@@ -169,7 +169,7 @@
 
                     android:layout_height="wrap_content"
 
-                    android:hint="Your Feedback"
+                    android:hint="@string/your_feedback"
 
                     android:inputType="textMultiLine"
 
@@ -213,7 +213,7 @@
 
                 android:background="@drawable/color_gradient"
 
-                android:text="send"
+                android:text="@string/send"
 
                 android:textColor="#fff"
 
@@ -237,7 +237,7 @@
 
                 android:gravity="center"
 
-                android:text="Reset All"
+                android:text="@string/reset_all"
 
                 android:textColor="#205008"
 

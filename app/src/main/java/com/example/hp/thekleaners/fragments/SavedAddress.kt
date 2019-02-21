@@ -18,9 +18,8 @@ import kotlinx.android.synthetic.main.fragment_saved_address.*
 class SavedAddress : BaseNavigationFragment() {
 
     private var user_id: String? = null
-    private val db = FirebaseFirestore.getInstance()
-    private var firebaseAuth: FirebaseAuth? = null
     private var firebaseFirestore: FirebaseFirestore? = null
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_saved_address, container, false)
@@ -34,8 +33,8 @@ class SavedAddress : BaseNavigationFragment() {
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
 
-        mLinearLayout.visibility = GONE
-        mView.visibility = GONE
+        mLinearLayout.visibility = INVISIBLE
+        mView.visibility = INVISIBLE
         savedAddress_progress.visibility = VISIBLE
         addNewService.visibility = GONE
         firebaseFirestore = FirebaseFirestore.getInstance()
@@ -49,6 +48,7 @@ class SavedAddress : BaseNavigationFragment() {
 
 
         firebaseFirestore!!.collection("Users").document(user_id!!).collection("Address").document("$id").get().addOnCompleteListener { task ->
+
             if (task.isSuccessful) {
 
                 if (task.result!!.exists()) {
@@ -68,24 +68,27 @@ class SavedAddress : BaseNavigationFragment() {
                     mSelectStateSavedAddress.text = state
                     mSelectCitySavedAddress.text = city
 
+
+                    mLinearLayout.visibility = VISIBLE
+                    mView.visibility = VISIBLE
+                    mImageView.visibility = GONE
+                    addNewService.visibility = VISIBLE
+                    mSavedNewAddress.visibility = GONE
+
+
                 }
 
-            } else {
 
+            } else {
                 val error = task.exception!!.message
-                Toast.makeText(context, "(FIRESTORE Retrieve Error) : $error", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "$error", Toast.LENGTH_LONG).show()
+
 
             }
 
             savedAddress_progress.visibility = INVISIBLE
-            mImageView.visibility = INVISIBLE
-            mSavedNewAddress.visibility = INVISIBLE
-            mLinearLayout.visibility = VISIBLE
-            mView.visibility = VISIBLE
-            addNewService.visibility = VISIBLE
 
         }
-
 
     }
 
@@ -105,4 +108,7 @@ class SavedAddress : BaseNavigationFragment() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, EditAddress()).commit()
 
     }
+
+
 }
+

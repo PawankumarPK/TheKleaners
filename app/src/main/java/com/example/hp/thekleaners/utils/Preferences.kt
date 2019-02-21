@@ -20,7 +20,6 @@ class Preferences {
         set(value) = sharedPreferences.edit().putBoolean(FARMHOUSE, value).apply()
 
 
-
     private fun initialize(context: Context): Preferences {
         this.sharedPreferences = context.getSharedPreferences(context.resources.getString(R.string.app_name), Context.MODE_PRIVATE)
         return this

@@ -33,7 +33,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="8"
-                    android:text="Car Detail"
+                    android:text="@string/car_detail"
                     android:textColor="#1b1a1a"
                     android:textSize="18sp" />
 
@@ -87,7 +87,7 @@
                     android:id="@+id/mCarType"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Car Type"
+                    android:hint="@string/car_type"
                     android:textSize="18sp" />
             </android.support.design.widget.TextInputLayout>
 
@@ -123,7 +123,7 @@
                     android:id="@+id/mCarAmt"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Service Amount₹"
+                    android:hint="@string/service_amount"
                     android:inputType="textEmailAddress"
                     android:textSize="18sp" />
             </android.support.design.widget.TextInputLayout>
@@ -161,7 +161,7 @@
                     android:id="@+id/mCarNameEditext"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Car Name"
+                    android:hint="@string/car_name"
                     android:inputType="textEmailAddress"
                     android:textSize="18sp" />
             </android.support.design.widget.TextInputLayout>
@@ -198,7 +198,7 @@
                     android:id="@+id/mCarNumberEditext"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Car Number"
+                    android:hint="@string/car_number"
                     android:textSize="18sp" />
             </android.support.design.widget.TextInputLayout>
 
@@ -238,7 +238,7 @@
                     android:id="@+id/mCaDateEditext"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Date"
+                    android:hint="@string/date"
                     android:textSize="18sp" />
 
             </android.support.design.widget.TextInputLayout>
@@ -264,7 +264,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/color_button_other_gradient"
-            android:text="Confirm"
+            android:text="@string/confirm"
             android:textColor="@android:color/white" />
 
 
@@ -320,7 +320,7 @@
                     android:id="@+id/mCarPerDayAmt"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Single Day Service Amount₹"
+                    android:hint="@string/single_day_service_amount"
                     android:inputType="textEmailAddress"
                     android:textSize="18sp" />
             </android.support.design.widget.TextInputLayout>
@@ -331,7 +331,7 @@
             android:id="@+id/mCalculate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Demo"
+            android:text="@string/demo"
             android:layout_below="@+id/mLinearLayoutPerDay"
             android:textSize="30sp"
             android:visibility="gone"/>

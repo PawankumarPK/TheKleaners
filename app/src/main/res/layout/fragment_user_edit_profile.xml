@@ -35,7 +35,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_toEndOf="@+id/mEditProfileBackArrow"
                 android:layout_toRightOf="@+id/mEditProfileBackArrow"
-                android:text="Edit Details"
+                android:text="@string/edit_details"
                 android:textColor="#fff"
                 android:textSize="18sp" />
 
@@ -71,7 +71,7 @@
                     android:layout_margin="10dp"
                     android:layout_toEndOf="@+id/mMen"
                     android:layout_toRightOf="@+id/mMen"
-                    android:text="or"
+                    android:text="@string/or"
                     android:textColor="#fff"
                     android:textSize="22sp" />
 
@@ -124,7 +124,7 @@
                     android:id="@+id/setup_name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Full Name"
+                    android:hint="@string/full_name"
                     android:inputType="textPersonName"
                     android:textSize="18sp" />
             </android.support.design.widget.TextInputLayout>
@@ -159,7 +159,7 @@
                     android:id="@+id/setup_surname"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="E-mail address (optional)"
+                    android:hint="@string/e_mail_address_optional"
                     android:inputType="textEmailAddress"
                     android:textSize="18sp" />
             </android.support.design.widget.TextInputLayout>
@@ -194,7 +194,7 @@
                     android:id="@+id/setup_number"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Mobile No."
+                    android:hint="@string/mobile_no"
                     android:inputType="number"
                     android:textSize="18sp" />
             </android.support.design.widget.TextInputLayout>
@@ -211,7 +211,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/color_gradient"
-            android:text="Update Changes"
+            android:text="@string/update_changes"
             android:textColor="@android:color/white" />
 
     </RelativeLayout>

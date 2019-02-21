@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff">
@@ -33,7 +33,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Add Address"
+                    android:text="@string/add_address"
                     android:textColor="#1b1a1a"
                     android:textSize="20sp" />
 
@@ -62,7 +62,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginStart="10dp"
-                    android:text="Home or Flat" />
+                    android:text="@string/home_or_flat" />
 
 
                 <RadioButton
@@ -71,7 +71,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginStart="20dp"
-                    android:text="Farm House" />
+                    android:text="@string/farm_house" />
 
             </RadioGroup>
 
@@ -84,7 +84,7 @@
                     android:id="@+id/mAddress"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Address"
+                    android:hint="@string/address"
                     android:inputType="textPostalAddress"
                     android:textSize="15sp" />
             </android.support.design.widget.TextInputLayout>
@@ -99,7 +99,7 @@
                     android:id="@+id/mLandmark"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Landmark"
+                    android:hint="@string/landmark"
                     android:inputType="textPostalAddress"
                     android:textSize="15sp" />
             </android.support.design.widget.TextInputLayout>
@@ -114,7 +114,7 @@
                     android:id="@+id/PinCode"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Pincode"
+                    android:hint="@string/pincode"
                     android:inputType="number"
                     android:textSize="15sp" />
             </android.support.design.widget.TextInputLayout>
@@ -129,7 +129,7 @@
                     android:id="@+id/mSelectState"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Select state"
+                    android:hint="@string/state"
                     android:inputType="textPostalAddress"
                     android:textSize="15sp" />
             </android.support.design.widget.TextInputLayout>
@@ -144,7 +144,7 @@
                     android:id="@+id/mSelectCity"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Select city"
+                    android:hint="@string/city"
                     android:inputType="textCapWords"
                     android:textSize="15sp" />
             </android.support.design.widget.TextInputLayout>
@@ -159,7 +159,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/color_gradient"
-            android:text="Add Address"
+            android:text="@string/add_address"
             android:textColor="#fff" />
 
         <TextView
@@ -167,9 +167,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="30sp"
-            android:visibility="visible"
-            android:text="Home Or Flats"/>
+            android:visibility="gone"
+            android:text="@string/home_or_flats"/>
 
 
     </LinearLayout>
-</android.support.v4.widget.NestedScrollView>
+</ScrollView>

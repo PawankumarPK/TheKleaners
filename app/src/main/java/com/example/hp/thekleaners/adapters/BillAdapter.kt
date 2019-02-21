@@ -4,7 +4,6 @@ import android.app.DatePickerDialog
 import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.text.InputType
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,12 +11,6 @@ import android.widget.TextView
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.pojoClass.ForCarService
 import java.util.*
-
-
-
-
-
-
 
 
 class BillAdapter(internal var context: Context, private var profiles: ArrayList<ForCarService>) : RecyclerView.Adapter<BillAdapter.ViewHolder>() {
@@ -102,7 +95,6 @@ class BillAdapter(internal var context: Context, private var profiles: ArrayList
         var totalCalculation: TextView
 
 
-
         init {
 
             name = itemView.findViewById<View>(R.id.post_title) as TextView
@@ -115,9 +107,6 @@ class BillAdapter(internal var context: Context, private var profiles: ArrayList
             datepicker = itemView.findViewById<View>(R.id.mDatepicker) as TextView
             amt = itemView.findViewById<View>(R.id.mAmt) as TextView
             totalCalculation = itemView.findViewById<View>(R.id.totalAmtCalculation) as TextView
-
-
-
 
 
         }

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:tag="HomeFragment"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:targetApi="jelly_bean">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -35,9 +36,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:fontFamily="sans-serif-condensed"
-                android:text="Daily Services"
+                android:text="@string/daily_services"
                 android:textColor="#fff"
-                android:textSize="22sp" />
+                android:textSize="22sp"/>
 
 
             <LinearLayout
@@ -70,7 +71,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="For Starters, we have an amazing"
+                    android:text="@string/for_starters_we_have_an_amazing"
                     android:textColor="#31790d"
                     android:textSize="15sp" />
 
@@ -81,7 +82,7 @@
                     android:layout_gravity="center"
                     android:layout_margin="5dp"
                     android:fontFamily="serif"
-                    android:text="99.9%"
+                    android:text="@string/_99_9"
                     android:textColor="#31790d"
                     android:textSize="48sp" />
 
@@ -92,7 +93,7 @@
                     android:layout_marginBottom="10dp"
                     android:gravity="center"
                     android:layout_marginRight="0dp"
-                    android:text="pickup accuracy"
+                    android:text="@string/pickup_accuracy"
                     android:textColor="#31790d"
                     android:textSize="16sp"
                     android:layout_marginEnd="15dp" />
@@ -120,7 +121,7 @@
                     android:background="@drawable/color_gradient"
                     android:drawableEnd="@drawable/right_arrow"
                     android:drawableRight="@drawable/right_arrow"
-                    android:text="Continue To Our Daily Service"
+                    android:text="@string/continue_to_our_daily_service"
                     android:textAllCaps="false"
                     android:textColor="#fff" />
 
@@ -144,7 +145,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:fontFamily="sans-serif-condensed"
-                android:text="Car Wash Service"
+                android:text="@string/car_wash_service"
                 android:textColor="#fff"
                 android:textSize="22sp" />
 
@@ -162,7 +163,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:contentDescription="@null"
-                    android:src="@drawable/car_wash_3" />
+                    android:src="@drawable/ic_carwash"/>
 
                 <TextView
                     android:id="@+id/mCarDesc"
@@ -196,7 +197,7 @@
                     android:background="@drawable/color_button_other_gradient"
                     android:drawableEnd="@drawable/right_arrow"
                     android:drawableRight="@drawable/right_arrow"
-                    android:text="Continue To Our Car Wash Service"
+                    android:text="@string/continue_to_our_car_wash_service"
                     android:textAllCaps="false"
                     android:textColor="#fff" />
 
@@ -289,14 +290,14 @@
             android:layout_height="80dp"
             android:layout_below="@+id/mCarCardView"
             android:layout_marginTop="20sp"
-            android:background="#31790d">
+            android:background="#818380">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:fontFamily="sans-serif-smallcaps"
-                android:text="There's more to our"
+                android:text="@string/there_s_more_to_our"
                 android:textColor="#fff"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -342,7 +343,7 @@
             android:layout_below="@+id/mMonitor"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"
-            android:text="Convenient Online Tools"
+            android:text="@string/convenient_online_tools"
             android:textColor="#255c0a"
             android:textSize="14sp" />
 
@@ -354,7 +355,8 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:text="@string/onlineToolsDesc"
-            android:textSize="10sp" />
+            android:textSize="10sp"
+            tools:ignore="SmallSp" />
 
 
         <TextView
@@ -364,7 +366,8 @@
             android:layout_below="@+id/mPaymentSch"
             android:layout_centerHorizontal="true"
             android:text="@string/allAvailable"
-            android:textSize="10sp" />
+            android:textSize="10sp"
+            tools:ignore="SmallSp" />
 
 
         <ImageView
@@ -384,7 +387,7 @@
             android:layout_below="@+id/mAward"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
-            android:text="Industry Leading Service Guarantee"
+            android:text="@string/industry_leading_service_guarantee"
             android:textColor="#255c0a"
             android:textSize="14sp" />
 
@@ -396,7 +399,8 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:text="@string/notSatisfied"
-            android:textSize="10sp" />
+            android:textSize="10sp"
+            tools:ignore="SmallSp" />
 
 
         <TextView
@@ -409,16 +413,16 @@
             android:textSize="10sp"
             tools:ignore="SmallSp" />
 
-        <android.support.v4.view.ViewPager
+        <!--<android.support.v4.view.ViewPager
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_below="@+id/mMakeRight" />
-
+-->
         <View
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_below="@+id/viewPager" />
+            android:layout_height="80dp"
+            android:layout_below="@+id/mMakeRight" />
 
 
     </RelativeLayout>

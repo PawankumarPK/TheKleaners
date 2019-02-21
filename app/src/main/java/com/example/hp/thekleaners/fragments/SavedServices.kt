@@ -100,7 +100,7 @@ class SavedServices : BaseNavigationFragment() {
 
                 mServiceTaken.text = documentServiceTaken
 
-                if (day == 16) {
+                if (day == 1) {
                     mServiceAmount.text = "70"
                     mServiceTiming.text = "$day /$month/ $year"
                 } else {
@@ -213,7 +213,7 @@ class SavedServices : BaseNavigationFragment() {
         datePickerDialog.show()
     }
 
-    private fun homePricingFunction() {
+    /*private fun homePricingFunction() {
 
         if (pref.homeAndFlat) {
             fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, PricingGuide()).commit()
@@ -223,7 +223,7 @@ class SavedServices : BaseNavigationFragment() {
 
 
     }
-
+*/
 //saved
 }
 

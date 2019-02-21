@@ -88,10 +88,10 @@ class MyInvoice : BaseNavigationFragment() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, Profile()).commit()
     }
 
-    private fun mConfirmCarFunction() {
+    /*private fun mConfirmCarFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, SavedServices()).commit()
         dialog.dismiss()
-    }
+    }*/
 
     private fun mCarServiceBackArrowFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, CarCategories()).commit()

@@ -3,21 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:targetApi="jelly_bean">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:ignore="UseCompoundDrawables"
-        android:background="#fff">
+        android:background="#fff"
+        tools:ignore="UseCompoundDrawables">
 
         <android.support.v7.widget.CardView
             android:id="@+id/mMedicalCardView"
             android:layout_width="match_parent"
             android:layout_height="220dp"
-            android:layout_marginTop="30dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             app:cardBackgroundColor="#f2f0f0"
@@ -33,22 +34,22 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Medical"
-                    android:textColor="#295e0f"
-                    android:textSize="18sp"
-                    android:fontFamily="serif"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
-                    android:textStyle="bold"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginLeft="10dp" />
+                    android:fontFamily="serif"
+                    android:text="@string/medical"
+                    android:textColor="#295e0f"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginRight="10dp"
                     android:layout_marginLeft="10dp"
-                    android:background="#232222"/>
+                    android:layout_marginRight="10dp"
+                    android:background="#232222" />
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -66,12 +67,12 @@
             android:layout_width="match_parent"
             android:layout_height="215dp"
             android:layout_below="@+id/mMedicalCardView"
-            app:cardCornerRadius="5dp"
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             app:cardBackgroundColor="#f2f0f0"
+            app:cardCornerRadius="5dp"
             app:cardElevation="3dp">
 
 
@@ -83,29 +84,28 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Curbside/Parties "
-                    android:textColor="#295e0f"
-                    android:fontFamily="serif"
-                    android:textSize="18sp"
                     android:layout_marginStart="15dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
-                    android:textStyle="bold"/>
+                    android:fontFamily="serif"
+                    android:text="@string/curbside_parties"
+                    android:textColor="#295e0f"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginRight="10dp"
                     android:layout_marginLeft="10dp"
-                    android:background="#232222"/>
+                    android:layout_marginRight="10dp"
+                    android:background="#232222" />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:contentDescription="@null"
                     android:src="@drawable/party" />
-
 
 
             </LinearLayout>
@@ -118,8 +118,8 @@
             android:layout_width="match_parent"
             android:layout_height="220dp"
             android:layout_below="@+id/mPartyCardView"
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
             app:cardBackgroundColor="#f2f0f0"
             app:cardCornerRadius="5dp"
@@ -135,22 +135,22 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Construction"
-                    android:textColor="#295e0f"
-                    android:fontFamily="serif"
-                    android:textSize="18sp"
                     android:layout_marginStart="15dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
-                    android:textStyle="bold"/>
+                    android:fontFamily="serif"
+                    android:text="@string/construction"
+                    android:textColor="#295e0f"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginRight="10dp"
                     android:layout_marginLeft="10dp"
-                    android:background="#232222"/>
+                    android:layout_marginRight="10dp"
+                    android:background="#232222" />
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -165,9 +165,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_below="@+id/mConstructionCardView"/>
+            android:layout_below="@+id/mConstructionCardView" />
     </RelativeLayout>
 
 </ScrollView>

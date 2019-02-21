@@ -84,7 +84,7 @@ class MyQueries : BaseNavigationFragment() {
 
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Query For : ${resources.getString(R.string.app_name)}")
 
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf("pk9910765616@gmail.com"))
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf("info@thekleaners.com"))
 
         emailIntent.putExtra(Intent.EXTRA_TEXT, emailData())
 

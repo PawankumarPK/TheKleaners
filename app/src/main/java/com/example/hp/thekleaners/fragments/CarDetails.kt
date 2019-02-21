@@ -68,7 +68,7 @@ class CarDetails : BaseNavigationFragment() {
 
         // mDate.setOnClickListener { mDateFunction() }
         mAddmore.setOnClickListener { addNote() }
-        setup_date_InputLayout.setOnClickListener {hideKeyboard(mainActivity,getView()!!) }
+        setup_date_InputLayout.setOnClickListener { hideKeyboard(mainActivity, getView()!!) }
         mDoneToDate.setOnClickListener { addNoteForConfirm() }
         mCurbsidePickupBackArrow.setOnClickListener { mCurbsidePickupBackArrowFunction() }
 
@@ -186,7 +186,7 @@ class CarDetails : BaseNavigationFragment() {
 
             monthOfYear += 1
             mCaDateEditext.setText(dayOfMonth.toString() + "-" + monthOfYear + "-" + year)
-            if (dayOfMonth == 31) {
+            if (dayOfMonth == 31 || dayOfMonth == 30) {
                 Toast.makeText(context, "Choose Another Day", Toast.LENGTH_LONG).show()
                 mCaDateEditext.setText("")
                 mCalculate.text = ""
@@ -195,7 +195,7 @@ class CarDetails : BaseNavigationFragment() {
             val sum = 30 - dayOfMonth
             val getAmountSum = sum * carSingleNum
             mCalculate.text = String.format("%.2f", getAmountSum)
-            //mCalculate.text = "$getAmountSum"
+            mCalculate.text = "$getAmountSum"
         }, year, month, day)
         datePickerDialog.show()
     }

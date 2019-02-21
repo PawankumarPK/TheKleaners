@@ -11,14 +11,14 @@ import com.example.hp.thekleaners.R
 
 class ViewPagerMedical(val context: Context) : PagerAdapter() {
     private var layoutInflater: LayoutInflater? = null
-    private val images = arrayOf<Int>(R.drawable.syringes, R.drawable.medical_waste, R.drawable.medical_waste2)
+    private val images = arrayOf<Int>(R.drawable.medical_one, R.drawable.medical_two, R.drawable.medical_three)
 
     override fun getCount(): Int {
         return images.size
     }
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
-        return view === `object`
+        return view == `object`
     }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {

@@ -32,7 +32,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Invoice"
+                android:text="@string/invoice"
                 android:textColor="#1b1a1a"
                 android:textSize="18sp"
                 android:layout_weight="9"/>

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff">
+    android:background="#fff"
+    tools:targetApi="jelly_bean" >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -28,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginStart="15dp"
-                android:text="Recycling Service"
+                android:text="@string/recycling_service"
                 android:textColor="#1b1a1a"
                 android:textSize="18sp" />
 

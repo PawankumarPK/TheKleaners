@@ -50,7 +50,7 @@ class PricingGuide : BaseNavigationFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mainActivity = activity as NavigationDrawer
-        mainActivity.toolbar.visibility = View.VISIBLE
+        mainActivity.toolbar.visibility = View.GONE
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
         mProceedNext.setOnClickListener { addNote() }
@@ -90,6 +90,8 @@ class PricingGuide : BaseNavigationFragment() {
             if (dayOfMonth == 31) {
                 Toast.makeText(context, "Choose Another Day", Toast.LENGTH_LONG).show()
                 mDailyServiceTiming.text = "Select Date"
+                mDailyServiceTiming.setBackgroundColor(Color.parseColor("#5FAB34"))
+                mDailyServiceTiming.setTextColor(Color.WHITE)
                 return@OnDateSetListener
             }
 
@@ -104,8 +106,16 @@ class PricingGuide : BaseNavigationFragment() {
 
         datePickerDialog.setButton(DialogInterface.BUTTON_NEGATIVE, getString(R.string.cancel)) { dialog, which ->
             if (which == DialogInterface.BUTTON_NEGATIVE) {
-                mDailyServiceTiming.setBackgroundColor(Color.WHITE)
-                mDailyServiceTiming.setTextColor(Color.BLACK)
+
+
+                if (mDailyServiceTiming.text == "Select Date") {
+                    mDailyServiceTiming.setBackgroundColor(Color.parseColor("#5FAB34"))
+                    mDailyServiceTiming.setTextColor(Color.WHITE)
+                    mProceedNext.setBackgroundColor(Color.WHITE)
+                } else {
+                    mDailyServiceTiming.setBackgroundColor(Color.WHITE)
+                    mDailyServiceTiming.setTextColor(Color.BLACK)
+                }
             }
         }
         datePickerDialog.show()

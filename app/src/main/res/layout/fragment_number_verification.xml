@@ -59,7 +59,7 @@
             android:layout_below="@+id/progressbar"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
-            android:text="Wait for the code we send you.."
+            android:text="@string/wait_for_the_code_we_send_you"
             android:textColor="@color/colorAccent"
             android:textSize="19sp" />
 
@@ -89,7 +89,7 @@
                 android:id="@+id/editTextCode"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Enter Code here"
+                android:hint="@string/enter_code_here"
                 android:inputType="number"
                 android:maxLength="6"
                 android:textSize="15sp" />
@@ -106,7 +106,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/color_gradient"
-            android:text="Done"
+            android:text="@string/done"
             android:textColor="#fff" />
 
     </RelativeLayout>

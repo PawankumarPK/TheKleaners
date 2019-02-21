@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/mSelectServiceToolbar"
@@ -26,7 +27,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pricing Guide"
+                android:text="@string/pricing_guide"
                 android:textColor="#fff"
                 android:textSize="20sp" />
 
@@ -46,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="30dp"
-                android:text="Per Month"
+                android:text="@string/per_month"
                 android:textColor="#fff"
                 android:textSize="22sp" />
 
@@ -56,7 +57,7 @@
                 android:layout_below="@+id/mPerMonth"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
-                android:text="No Hidden Charges"
+                android:text="@string/no_hidden_charges"
                 android:textColor="#fff"
                 android:textSize="16sp" />
 
@@ -74,7 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="70"
+                android:text="@string/_70"
                 android:textColor="#fff"
                 android:textSize="100sp" />
             <!--
@@ -100,7 +101,7 @@
             android:layout_below="@+id/mParentRelativeLayout"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
-            android:text="Daily Service"
+            android:text="@string/daily_service"
             android:textColor="#000"
             android:visibility="gone" />
 
@@ -113,7 +114,7 @@
             android:layout_marginLeft="20dp"
             android:layout_toEndOf="@+id/mDailyServiceTaken"
             android:layout_toRightOf="@+id/mDailyServiceTaken"
-            android:text="70"
+            android:text="@string/_70"
             android:textColor="#000"
             android:visibility="gone" />
 
@@ -134,7 +135,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/mParentRelativeLayout"
+            android:layout_marginTop="20dp"
             android:weightSum="10">
 
             <TextView
@@ -143,11 +145,12 @@
                 android:layout_height="50dp"
                 android:layout_weight="5"
                 android:background="#5FAB34"
-                android:text="Select Date"
+                android:text="@string/select_date"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center"
                 android:textColor="#fff"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                tools:targetApi="jelly_bean" />
 
 
             <TextView
@@ -155,14 +158,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="#fff"
-                android:text="Done"
+                android:text="@string/done"
                 android:gravity="center"
                 android:fontFamily="sans-serif-condensed"
                 android:textSize="20sp"
                 android:layout_weight="5"
-                android:textColor="#fff" />
+                android:textColor="#fff"
+                tools:targetApi="jelly_bean" />
 
         </LinearLayout>
 
     </RelativeLayout>
-</RelativeLayout>
+</ScrollView>

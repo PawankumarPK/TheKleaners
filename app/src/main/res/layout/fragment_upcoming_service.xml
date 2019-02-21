@@ -1,70 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f4cf93">
+    android:background="#FFFFFF"
+    tools:targetApi="jelly_bean">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#f4cf93">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FFF1B4"
-        android:id="@+id/mRelativeLayout">
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="400dp"
-        android:src="@drawable/potato3"
-        android:contentDescription="@null"/>
+        android:background="#000">
 
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/mRelativeLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/mRelativeLayout"
-        android:background="#f4cf93">
-
-        <TextView
-            android:id="@+id/mPotato"
+        <RelativeLayout
+            android:id="@+id/mRelativeLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="POTATO"
-            android:textSize="50sp"
-            android:gravity="center_horizontal"
-            android:textStyle="bold"
-            android:textColor="#FFF1B4"/>
+            android:background="#FFFFFF">
 
-        <TextView
-            android:id="@+id/mServicesDesc"
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="400dp"
+                android:contentDescription="@null"
+                android:src="@drawable/potato3" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/mRelativeLayout2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mPotato"
-            android:text="@string/upcomingService"
-            android:textSize="30sp"
-            android:layout_margin="20dp"
-            android:textStyle="bold"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center_horizontal"/>
+            android:layout_height="match_parent"
+            android:layout_below="@+id/mRelativeLayout"
+            android:background="#F5D5A2">
 
-        <Button
-            android:id="@+id/mUpcomingButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="potato home"
-            android:layout_marginRight="50dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
-            android:layout_below="@+id/mServicesDesc"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/potato_color_gradient"
-            android:textStyle="bold"
-            android:fontFamily="sans-serif-condensed" />
+            <TextView
+                android:id="@+id/mPotato"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/potato"
+                android:textColor="#FFFFFF"
+                android:textSize="50sp"
+                android:textStyle="bold" />
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/mServicesDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mPotato"
+                android:layout_margin="20dp"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center_horizontal"
+                android:text="@string/upcomingService"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/mUpcomingButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mServicesDesc"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="50dp"
+                android:background="@drawable/potato_color_gradient"
+                android:fontFamily="sans-serif-condensed"
+                android:text="@string/potato_home"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
 
 
     </RelativeLayout>

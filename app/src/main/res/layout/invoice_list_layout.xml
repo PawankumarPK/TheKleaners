@@ -40,7 +40,6 @@
                         android:id="@+id/post_carType"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Sedan"
                         android:textColor="@color/colorToolbarText"
                         android:textSize="18sp" />
 
@@ -49,7 +48,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="2dp"
-                        android:text="Creta"
                         android:textSize="15sp" />
 
                     <TextView
@@ -57,7 +55,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="2dp"
-                        android:text="DL 24 MC 1632"
                         android:textSize="15sp" />
 
 
@@ -79,7 +76,6 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginLeft="20dp"
                     android:padding="2dp"
-                    android:text="300"
                     android:textSize="15sp" />
 
 
@@ -102,7 +98,6 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginLeft="20dp"
                     android:padding="2dp"
-                    android:text="date"
                     android:textColor="#045336"
                     android:textSize="12sp" />
 
@@ -115,7 +110,6 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
                 android:padding="2dp"
-                android:text="amount"
                 android:textColor="#045336"
                 android:textSize="12sp"
                 android:visibility="gone" />
@@ -128,7 +122,6 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
                 android:padding="2dp"
-                android:text="Total Amount"
                 android:textColor="#000"
                 android:textSize="12sp"
                 android:visibility="gone" />
@@ -141,7 +134,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
                 android:padding="2dp"
-                android:text="Date Picker"
+                android:text="@string/date_picker"
                 android:textColor="#000"
                 android:textSize="22sp"
                 android:visibility="gone" />
@@ -154,7 +147,6 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
                 android:padding="2dp"
-                android:text="AMT"
                 android:textColor="#000"
                 android:textSize="22sp"
                 android:visibility="gone" />

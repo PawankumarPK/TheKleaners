@@ -207,7 +207,7 @@ class SavedServiceForFarms : BaseNavigationFragment() {
         datePickerDialog.show()
     }
 
-    private fun homePricingFunction() {
+    /*private fun homePricingFunction() {
 
         if (pref.homeAndFlat) {
             fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, PricingGuide()).commit()
@@ -217,7 +217,7 @@ class SavedServiceForFarms : BaseNavigationFragment() {
 
 
     }
-
+*/
 //saved
 }
 

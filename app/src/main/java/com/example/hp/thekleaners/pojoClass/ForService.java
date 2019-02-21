@@ -2,20 +2,18 @@ package com.example.hp.thekleaners.pojoClass;
 
 import com.google.firebase.firestore.Exclude;
 
-import java.util.Map;
-
 public class ForService {
     private String documentId;
     private String serviceTaken;
     private String amount;
-     String date;
+    String date;
 
     public ForService() {
         //public no-arg constructor needed
     }
 
 
-    public ForService( String serviceTaken, String amount, String date) {
+    public ForService(String serviceTaken, String amount, String date) {
         this.serviceTaken = serviceTaken;
         this.amount = amount;
         this.date = date;
@@ -54,7 +52,6 @@ public class ForService {
     public void setDate(String data) {
         this.date = data;
     }
-
 
 
 }

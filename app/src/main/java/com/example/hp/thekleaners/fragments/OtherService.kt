@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.hp.thekleaners.adapters.ViewPagerOtherService
 import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
 import kotlinx.android.synthetic.main.fragment_other_service.*
@@ -24,8 +23,8 @@ class OtherService : BaseNavigationFragment()  {
 
         mOtherServiceBackArrow.setOnClickListener { mRecycleByMailServiceBackArrowFunction() }
 
-        val viewPagerAdapter = ViewPagerOtherService(mainActivity)
-        otherServiceViewPager.adapter = viewPagerAdapter
+       // val viewPagerAdapter = ViewPagerOtherService(mainActivity)
+       // otherServiceViewPager.adapter = viewPagerAdapter
 
         val timer = Timer()
         timer.scheduleAtFixedRate(MyTimerTask(), 2000, 4000)

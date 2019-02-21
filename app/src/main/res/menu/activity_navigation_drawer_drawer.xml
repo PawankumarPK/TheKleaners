@@ -22,11 +22,6 @@
             android:title="@string/about_us" />
 
         <item
-            android:id="@+id/mPolicy"
-            android:icon="@drawable/ic_language"
-            android:title="@string/privacy_policy" />
-
-        <item
             android:id="@+id/mHelp"
             android:icon="@drawable/ic_help"
             android:title="@string/help_center" />
@@ -35,6 +30,12 @@
             android:id="@+id/mVersion"
             android:icon="@drawable/ic_version"
             android:title="@string/version" />
+
+        <item
+            android:id="@+id/mPolicy"
+            android:icon="@drawable/ic_policy"
+            android:title="@string/privacy_policy" />
+
     </group>
 
     <item android:title="">

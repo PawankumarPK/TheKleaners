@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/mNestedScrollView"
@@ -44,7 +45,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_weight="9"
-                    android:text="My Account"
+                    android:text="@string/my_account"
                     android:textColor="#fff"
                     android:textSize="18sp" />
 
@@ -55,7 +56,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
-                    android:text="LOGOUT"
+                    android:text="@string/logout"
                     android:textColor="#fff"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -111,7 +112,7 @@
                     android:layout_margin="10dp"
                     android:layout_toEndOf="@+id/mMen"
                     android:layout_toRightOf="@+id/mMen"
-                    android:text="or"
+                    android:text="@string/or"
                     android:textColor="#fff"
                     android:textSize="22sp" />
 
@@ -197,9 +198,10 @@
                     android:layout_toEndOf="@+id/mAddressIcon"
                     android:layout_toRightOf="@+id/mAddressIcon"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="My Address"
+                    android:text="@string/my_address"
                     android:textColor="#302d2d"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    tools:targetApi="jelly_bean" />
 
             </RelativeLayout>
 
@@ -237,9 +239,10 @@
                     android:layout_toEndOf="@+id/mServicesIcon"
                     android:layout_toRightOf="@+id/mServicesIcon"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="My Services"
+                    android:text="@string/my_services"
                     android:textColor="#302d2d"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    tools:targetApi="jelly_bean" />
 
             </RelativeLayout>
 
@@ -276,9 +279,10 @@
                     android:layout_toEndOf="@+id/mServicesInvoice"
                     android:layout_toRightOf="@+id/mServicesInvoice"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="My Invoice"
+                    android:text="@string/my_invoice"
                     android:textColor="#302d2d"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    tools:targetApi="jelly_bean" />
 
             </RelativeLayout>
 
@@ -317,9 +321,10 @@
                     android:layout_toEndOf="@+id/mQueryIcon"
                     android:layout_toRightOf="@+id/mQueryIcon"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="My Queries"
+                    android:text="@string/my_queries"
                     android:textColor="#302d2d"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    tools:targetApi="jelly_bean" />
 
             </RelativeLayout>
 

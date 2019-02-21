@@ -69,7 +69,7 @@
 
                     android:layout_gravity="center_vertical"
                     android:layout_weight="8"
-                    android:text="Any Queries"
+                    android:text="@string/any_queries"
 
                     android:textColor="#1b1a1a"
 
@@ -82,7 +82,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="Send"
+                    android:text="@string/send"
                     android:textColor="#205008"
                     android:textSize="20sp" />
 
@@ -114,7 +114,7 @@
 
                     android:layout_height="wrap_content"
 
-                    android:hint="Write here..."
+                    android:hint="@string/write_here"
 
                     android:inputType="textMultiLine"
 

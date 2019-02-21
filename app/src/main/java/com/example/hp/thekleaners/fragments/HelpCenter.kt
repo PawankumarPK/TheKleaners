@@ -31,12 +31,12 @@ class HelpCenter : BaseNavigationFragment() {
 
         mCall.setOnClickListener {
             val intent = Intent(Intent.ACTION_DIAL)
-            intent.data = Uri.parse("tel:9910765616")
+            intent.data = Uri.parse("tel:9891426426")
             startActivity(intent)
         }
 
         mChat.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", "9910765616", null))
+            val intent = Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", "9891426426", null))
             intent.putExtra("sms_body", "TheKleaners:  ")
             startActivity(intent)
         }

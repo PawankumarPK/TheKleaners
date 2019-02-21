@@ -1,5 +1,6 @@
 package com.example.hp.thekleaners.adapters
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
@@ -18,7 +19,7 @@ import java.util.*
 
 class InvoiceAdapter(internal var context: Context, private var profiles: ArrayList<ForCarService>) : RecyclerView.Adapter<InvoiceAdapter.ViewHolder>() {
 
-    var mCurrentDate: Calendar? = null
+    //var mCurrentDate: Calendar? = null
     var day: Int = 0
     var month: Int = 0
     var year: Int = 0
@@ -35,6 +36,7 @@ class InvoiceAdapter(internal var context: Context, private var profiles: ArrayL
     }
 
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
 
@@ -48,7 +50,7 @@ class InvoiceAdapter(internal var context: Context, private var profiles: ArrayL
 
         holder.delete.setOnClickListener { submitDetails() }
 
-        mCurrentDate = Calendar.getInstance()
+      /*  mCurrentDate = Calendar.getInstance()
         day = mCurrentDate!!.get(Calendar.DAY_OF_MONTH)
         month = mCurrentDate!!.get(Calendar.MONTH)
         year = mCurrentDate!!.get(Calendar.YEAR)
@@ -60,12 +62,7 @@ class InvoiceAdapter(internal var context: Context, private var profiles: ArrayL
 
         holder.datepicker.text = day.toString()
         holder.datepicker.setOnClickListener { holder.mCaDateEditextFunction() }
-
-        if (day == 17) {
-            holder.amt.text = profiles[position].carAmount.toString()
-        } else {
-            holder.amt.text = profiles[position].carAmountCalculate.toString()
-        }
+*/
 
 
     }
@@ -102,7 +99,7 @@ class InvoiceAdapter(internal var context: Context, private var profiles: ArrayL
         }
 
 
-        fun mCaDateEditextFunction() {
+       /* fun mCaDateEditextFunction() {
             val datePickerDialog = DatePickerDialog(context, DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
                 var monthOfYear = monthOfYear
 
@@ -111,7 +108,7 @@ class InvoiceAdapter(internal var context: Context, private var profiles: ArrayL
             }, year, month, day)
             datePickerDialog.show()
         }
-
+*/
 
     }
 

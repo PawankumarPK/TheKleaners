@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mNestedScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="fill_vertical"
-    android:background="#fff">
+    android:background="#fff"
+    tools:targetApi="jelly_bean">
 
 
     <RelativeLayout
@@ -37,7 +39,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_toEndOf="@+id/mCarServiceBackArrow"
                     android:layout_toRightOf="@+id/mCarServiceBackArrow"
-                    android:text="Car Washing"
+                    android:text="@string/car_washing"
                     android:textColor="#1b1a1a"
                     android:textSize="18sp" />
 
@@ -68,7 +70,7 @@
             android:layout_centerInParent="true"
             android:layout_marginTop="20dp"
             android:fontFamily="casual"
-            android:text="Car wash service at your doorstep! "
+            android:text="@string/car_wash_service_at_your_doorstep"
             android:textColor="#2d2c2c"
             android:textSize="20sp" />
 
@@ -101,7 +103,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginLeft="15dp"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="Daily Car Shine"
+                    android:text="@string/daily_car_shine"
                     android:textColor="#2d2c2c"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -130,7 +132,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginLeft="15dp"
                     android:fontFamily="sans-serif"
-                    android:text="•	Water Wash"
+                    android:text="@string/water_wash"
                     android:textColor="#2d2c2c"
                     android:textSize="15sp" />
 
@@ -141,7 +143,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginLeft="15dp"
                     android:fontFamily="sans-serif"
-                    android:text="•	Dry Cleaning"
+                    android:text="@string/dry_cleaning"
                     android:textColor="#2d2c2c"
                     android:textSize="15sp" />
 
@@ -152,7 +154,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginLeft="15dp"
                     android:fontFamily="sans-serif"
-                    android:text="•	Sprinkler Technology Car Wash"
+                    android:text="@string/sprinkler_technology_car_wash"
                     android:textColor="#2d2c2c"
                     android:textSize="15sp" />
 
@@ -163,7 +165,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginLeft="15dp"
                     android:fontFamily="sans-serif"
-                    android:text="•	Wheels and Rims"
+                    android:text="@string/wheels_and_rims"
                     android:textColor="#2d2c2c"
                     android:textSize="15sp" />
 
@@ -173,7 +175,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginLeft="15dp"
                     android:fontFamily="sans-serif"
-                    android:text="•	Windows Cleaning"
+                    android:text="@string/windows_cleaning"
                     android:textColor="#2d2c2c"
                     android:textSize="15sp" />
 
@@ -197,7 +199,7 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginLeft="15dp"
                 android:fontFamily="sans-serif-condensed"
-                android:text="Weekly Interior Wash"
+                android:text="@string/weekly_interior_wash"
                 android:textColor="#2d2c2c"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -227,7 +229,7 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginLeft="15dp"
                 android:fontFamily="sans-serif"
-                android:text="•	Interior Seat Dusting"
+                android:text="@string/interior_seat_dusting"
                 android:textColor="#2d2c2c"
                 android:textSize="15sp" />
 
@@ -238,7 +240,7 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginLeft="15dp"
                 android:fontFamily="sans-serif"
-                android:text="•	Interior Mat Cleaning"
+                android:text="@string/interior_mat_cleaning"
                 android:textColor="#2d2c2c"
                 android:textSize="15sp" />
 
@@ -249,7 +251,7 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginLeft="15dp"
                 android:fontFamily="sans-serif"
-                android:text="•	Dashboard Dusting"
+                android:text="@string/dashboard_dusting"
                 android:textColor="#2d2c2c"
                 android:textSize="15sp" />
 
@@ -260,7 +262,7 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginLeft="15dp"
                 android:fontFamily="sans-serif"
-                android:text="•	Interior Sanitising"
+                android:text="@string/interior_sanitising"
                 android:textColor="#2d2c2c"
                 android:textSize="15sp" />
 
@@ -270,7 +272,7 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginLeft="15dp"
                 android:fontFamily="sans-serif"
-                android:text="•	Intensive Internal Cleaning"
+                android:text="@string/intensive_internal_cleaning"
                 android:textColor="#2d2c2c"
                 android:textSize="15sp" />
 
@@ -297,7 +299,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginLeft="15dp"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="Complete Dry Cleaning"
+                    android:text="@string/complete_dry_cleaning"
                     android:textColor="#2d2c2c"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -327,7 +329,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginLeft="15dp"
                     android:fontFamily="sans-serif"
-                    android:text="•	Seats, roof, mats and boot"
+                    android:text="@string/seats_roof_mats_and_boot"
                     android:textColor="#2d2c2c"
                     android:textSize="15sp" />
 
@@ -338,7 +340,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginLeft="15dp"
                     android:fontFamily="sans-serif"
-                    android:text="•	Door and windows cleaning."
+                    android:text="@string/door_and_windows_cleaning"
                     android:textColor="#2d2c2c"
                     android:textSize="15sp" />
 
@@ -349,7 +351,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginLeft="15dp"
                     android:fontFamily="sans-serif"
-                    android:text="•	Total hygiene and spotless shine."
+                    android:text="@string/total_hygiene_and_spotless_shine"
                     android:textColor="#2d2c2c"
                     android:textSize="15sp" />
 
@@ -380,7 +382,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginLeft="15dp"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="Security Guaranteed!"
+                    android:text="@string/security_guaranteed"
                     android:textColor="#2d2c2c"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -410,7 +412,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginLeft="15dp"
                     android:fontFamily="sans-serif"
-                    android:text="•	Background Checked"
+                    android:text="@string/background_checked"
                     android:textColor="#2d2c2c"
                     android:textSize="15sp" />
 
@@ -421,7 +423,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginLeft="15dp"
                     android:fontFamily="sans-serif"
-                    android:text="•	No absenteeism"
+                    android:text="@string/no_absenteeism"
                     android:textColor="#2d2c2c"
                     android:textSize="15sp" />
 
@@ -432,7 +434,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginLeft="15dp"
                     android:fontFamily="sans-serif"
-                    android:text="•	80% less water usage "
+                    android:text="@string/_80_less_water_usage"
                     android:textColor="#2d2c2c"
                     android:textSize="15sp" />
 
@@ -463,7 +465,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginLeft="15dp"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="India’s Leading Home Car Wash Service"
+                    android:text="@string/india_s_leading_home_car_wash_service"
                     android:textColor="#2d2c2c"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -493,7 +495,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginLeft="15dp"
                     android:fontFamily="sans-serif"
-                    android:text="•	Door Step Car Washing"
+                    android:text="@string/door_step_car_washing"
                     android:textColor="#2d2c2c"
                     android:textSize="15sp" />
 
@@ -504,7 +506,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginLeft="15dp"
                     android:fontFamily="sans-serif"
-                    android:text="•	On-time Service"
+                    android:text="@string/on_time_service"
                     android:textColor="#2d2c2c"
                     android:textSize="15sp" />
 
@@ -515,7 +517,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginLeft="15dp"
                     android:fontFamily="sans-serif"
-                    android:text="•	Value for Money"
+                    android:text="@string/value_for_money"
                     android:textColor="#2d2c2c"
                     android:textSize="15sp" />
 
@@ -526,7 +528,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginBottom="30dp"
                     android:fontFamily="sans-serif"
-                    android:text="•	Neat, Clean and Hygienic Service "
+                    android:text="@string/neat_clean_and_hygienic_service"
                     android:textColor="#2d2c2c"
                     android:textSize="15sp" />
 

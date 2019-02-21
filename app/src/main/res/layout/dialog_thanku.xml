@@ -16,7 +16,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:src="@drawable/ic_checkmark" />
+            android:src="@drawable/ic_checkmark"
+            android:contentDescription="@null"/>
 
         <TextView
             android:id="@+id/chooseAction"
@@ -25,7 +26,7 @@
             android:layout_gravity="center_horizontal"
             android:gravity="center"
             android:padding="15dp"
-            android:text="Thank You !"
+            android:text="@string/thank_you"
             android:textColor="#fff"
             android:textSize="20sp" />
 
@@ -36,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:gravity="center_horizontal"
-        android:text="You are now a new member"
+        android:text="@string/you_are_now_a_new_member"
         android:textColor="#000"
         android:textSize="16sp"
         android:textStyle="bold" />
@@ -50,7 +51,7 @@
             android:layout_marginBottom="20dp"
             android:layout_marginRight="50dp"
             android:background="@drawable/color_dialog_gradient"
-            android:text="Continue !"
+            android:text="@string/continueDone"
             android:textAllCaps="false"
             android:textColor="#fff"
             android:textSize="16sp" />

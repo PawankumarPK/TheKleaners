@@ -1,15 +1,13 @@
 package com.example.hp.thekleaners.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.hp.thekleaners.ForgotPassword
-import com.example.hp.thekleaners.adapters.ViewPagerAdapter
-import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
+import com.example.hp.thekleaners.adapters.ViewPagerAdapter
+import com.example.hp.thekleaners.baseClasses.BaseNavigationFragment
 import kotlinx.android.synthetic.main.fragment_home.*
 import java.util.*
 
@@ -31,18 +29,18 @@ class Home : BaseNavigationFragment() {
         mContinueDailyService.setOnClickListener { mContinueDailyServiceFunction() }
 
         val viewPagerAdapter = ViewPagerAdapter(mainActivity)
-        viewPager.adapter = viewPagerAdapter
+        //viewPager.adapter = viewPagerAdapter
 
         val timer = Timer()
-        timer.scheduleAtFixedRate(MyTimerTask(), 2000, 4000)
+       // timer.scheduleAtFixedRate(MyTimerTask(), 2000, 4000)
 
         mCarWashButton.setOnClickListener { mCarWashButtonServiceFunction() }
-      /*  mOthersButton.setOnClickListener { mCarWashButtonServiceFunction() }
-        mOthersButton.setOnClickListener { mOthersButtonFunction() }*/
+        /*  mOthersButton.setOnClickListener { mCarWashButtonServiceFunction() }
+          mOthersButton.setOnClickListener { mOthersButtonFunction() }*/
 
     }
 
-    inner class MyTimerTask : TimerTask() {
+    /*inner class MyTimerTask : TimerTask() {
 
         override fun run() {
             mainActivity.runOnUiThread(java.lang.Runnable {
@@ -57,7 +55,7 @@ class Home : BaseNavigationFragment() {
             })
         }
     }
-
+*/
     private fun mContinueDailyServiceFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, ForHomeService()).commit()
     }
@@ -65,10 +63,7 @@ class Home : BaseNavigationFragment() {
     private fun mCarWashButtonServiceFunction() {
         fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, CarCleaning()).commit()
     }
-    private fun mOthersButtonFunction(){
-        val intent = Intent(context, ForgotPassword::class.java)
-        startActivity(intent)
-    }
+
 
 }
 

@@ -33,11 +33,11 @@ class SignUpKleaners : BaseNavigationFragment() {
 
         buttonContinue!!.setOnClickListener{
             val number = editTextPhone!!.text.toString().trim()
-            /*if (number.isEmpty() || number.length < 17) {
+            if (number.isEmpty() || number.length < 10) {
                 editTextPhone!!.error = "Valid Number is required"
                 editTextPhone!!.requestFocus()
-                return@OnClickListener
-            }*/
+                return@setOnClickListener
+            }
 
 /*
             val intent = Intent(this@AuthActivity, VerifiyPhoneActivity::class.java)

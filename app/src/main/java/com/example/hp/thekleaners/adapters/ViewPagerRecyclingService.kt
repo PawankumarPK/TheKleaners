@@ -11,8 +11,8 @@ import com.example.hp.thekleaners.R
 
 class ViewPagerRecyclingService(val context: Context) : PagerAdapter() {
     private var layoutInflater: LayoutInflater? = null
-    private val images = arrayOf<Int>(R.drawable.recycling_waste
-            , R.drawable.bottles, R.drawable.bottles_waste)
+    private val images = arrayOf<Int>(R.drawable.recycling_one
+            , R.drawable.recycling_two, R.drawable.bottles_waste)
 
     override fun getCount(): Int {
         return images.size

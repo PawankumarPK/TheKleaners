@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mRelativeLayoutMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff">
+    android:background="#fff"
+    tools:targetApi="jelly_bean" >
 
 
     <android.support.v7.widget.Toolbar
@@ -32,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="7"
-                android:text="Saved Services"
+                android:text="@string/saved_services"
                 android:textColor="#1b1a1a"
                 android:textSize="20sp" />
 
@@ -44,7 +46,6 @@
                 android:layout_weight="2"
                 android:contentDescription="@null"
                 android:src="@drawable/ic_add"
-                android:text="Add new services"
                 android:textColor="#fff" />
 
 
@@ -90,9 +91,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="2dp"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="Daily"
                     android:textColor="#2b2b2b"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"/>
 
 
                 <TextView
@@ -100,7 +100,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="700"
                     android:textColor="#2b2b2b"
                     android:textSize="23sp"
                     android:textStyle="bold" />
@@ -110,7 +109,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="12-34-1045"
                     android:textColor="#2b2b2b"
                     android:textSize="14sp" />
 
@@ -162,7 +160,6 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="2dp"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="Car Daily"
                     android:textColor="#2b2b2b"
                     android:textSize="20sp"
                     android:visibility="invisible" />
@@ -173,9 +170,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="Car Service"
                     android:textColor="#2b2b2b"
                     android:textSize="23sp"
+                    android:text="Car Service"
                     android:textStyle="bold" />
 
                 <TextView
@@ -183,7 +180,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="12-34-1045"
                     android:textColor="#2b2b2b"
                     android:textSize="14sp"
                     android:visibility="invisible" />
@@ -236,7 +232,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="80dp"
-            android:text="Daily"
+            android:text="@string/daily"
             android:textColor="#000"
             android:textSize="12sp"
             android:visibility="gone" />
@@ -246,7 +242,7 @@
             android:id="@+id/mDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Select Date"
+            android:text="@string/select_date"
             android:textColor="#1b1a1a"
             android:textSize="30sp"
             android:visibility="gone" />

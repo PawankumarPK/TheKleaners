@@ -38,7 +38,6 @@ class SelectServices : BaseNavigationFragment() {
         mForDailyService.setOnClickListener { mForDailyServiceFunction() }
         mSelectServiceBackArrow.setOnClickListener { mSelectServiceBackArrowFunction() }
         mForCarCleaning.setOnClickListener { mForCarCleaningFunction() }
-        mOtherService.setOnClickListener { Toast.makeText(context, "Upcoming Service", Toast.LENGTH_SHORT).show() }
         mForMedicalService.setOnClickListener { Toast.makeText(context, "Upcoming Service", Toast.LENGTH_SHORT).show() }
         mForParties.setOnClickListener { Toast.makeText(context, "Upcoming Service", Toast.LENGTH_SHORT).show() }
         mRelativeLayout.setOnClickListener { Toast.makeText(context, "Upcoming Service", Toast.LENGTH_SHORT).show() }

@@ -5,7 +5,6 @@ import android.app.Dialog
 import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
-import android.support.v4.view.ViewCompat
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
@@ -55,7 +54,7 @@ class Profile : BaseNavigationFragment() {
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
 
-       // ViewCompat.setNestedScrollingEnabled(mNestedScrollView, true)
+        // ViewCompat.setNestedScrollingEnabled(mNestedScrollView, true)
 
         metrics = DisplayMetrics()
         mainActivity.window.decorView.getWindowVisibleDisplayFrame(displayRectangle)

@@ -1,5 +1,6 @@
 package com.example.hp.thekleaners.adapters
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.support.v4.view.PagerAdapter
 import android.support.v4.view.ViewPager
@@ -21,6 +22,7 @@ class ViewPagerAdapter(val context: Context) : PagerAdapter() {
         return view === `object`
     }
 
+    @SuppressLint("InflateParams")
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
 
         layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mNestedScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="fill_vertical"
-    android:background="#fff">
+    android:background="#fff"
+    tools:targetApi="jelly_bean" >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -41,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginLeft="20dp"
-                    android:text="Help"
+                    android:text="@string/help"
                     android:textColor="#1b1a1a"
                     android:textSize="18sp" />
 
@@ -61,7 +63,7 @@
             android:fontFamily="sans-serif-medium"
             android:text="@string/helpDesc"
             android:textColor="#757070"
-            android:textSize="18sp" />
+            android:textSize="18sp"/>
 
 
         <TextView
@@ -95,7 +97,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginLeft="20dp"
-                    android:text="Contact Us"
+                    android:text="@string/contact_us"
                     android:textColor="#1b1a1a"
                     android:textSize="18sp" />
 
@@ -123,7 +125,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Chat"
+                            android:text="@string/chat"
                             android:textColor="#1b1a1a"
                             android:textSize="18sp" />
 
@@ -150,7 +152,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Call"
+                            android:text="@string/call"
                             android:textColor="#1b1a1a"
                             android:textSize="18sp" />
 
@@ -190,7 +192,7 @@
                     android:id="@+id/mMailID"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="info@thekleaners.com"
+                    android:text="@string/info_thekleaners_com"
                     android:textColor="#0909E2"
                     android:layout_marginStart="20dp"
                     android:layout_marginLeft="20dp"
@@ -229,7 +231,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginLeft="20dp"
-                    android:text="Send feedback"
+                    android:text="@string/send_feedback"
                     android:textColor="#1b1a1a"
                     android:textSize="18sp" />
 

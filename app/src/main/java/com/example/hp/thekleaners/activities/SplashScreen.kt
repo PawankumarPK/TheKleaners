@@ -4,8 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.animation.AnimationUtils
-import android.widget.ImageView
-import com.example.hp.thekleaners.MainActivity
 import com.example.hp.thekleaners.R
 import kotlinx.android.synthetic.main.activity_splash_screen.*
 
@@ -42,9 +40,4 @@ class SplashScreen : AppCompatActivity() {
 
     }
 
-    companion object {
-
-
-        private val SPLASH_TIME_OUT = 4000
-    }
 }

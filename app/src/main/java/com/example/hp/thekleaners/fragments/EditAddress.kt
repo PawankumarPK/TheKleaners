@@ -6,7 +6,6 @@ import android.view.View
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
-import android.widget.RadioGroup
 import android.widget.Toast
 import com.example.hp.thekleaners.R
 import com.example.hp.thekleaners.activities.NavigationDrawer
@@ -23,7 +22,7 @@ import java.util.*
 class EditAddress : BaseNavigationFragment() {
 
     private var user_id: String? = null
-    private val db = FirebaseFirestore.getInstance()
+    //private val db = FirebaseFirestore.getInstance()
     private var firebaseFirestore: FirebaseFirestore? = null
 
     var name: Boolean = true
@@ -36,17 +35,16 @@ class EditAddress : BaseNavigationFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mainActivity = activity as NavigationDrawer
-        mainActivity.toolbar.visibility = View.VISIBLE
+        mainActivity.toolbar.visibility = View.GONE
         mainActivity.tabLayout.visibility = View.GONE
         (activity as NavigationDrawer).setDrawerLocked(true)
 
-        setDefaultSetting()
-        mRadioGroupName.setOnCheckedChangeListener(radioListener)
+        //setDefaultSetting()
         firebaseFirestore = FirebaseFirestore.getInstance()
 
         mEditAddress_progress.visibility = VISIBLE
 
-        mContinuEditAdress.setOnClickListener {addAddress()}
+        mContinuEditAdress.setOnClickListener { addAddress() }
         mEditAddressBackArrow.setOnClickListener { mSavedNewAddressBackArrowFunction() }
         user_id = FirebaseAuth.getInstance().uid
 
@@ -91,8 +89,8 @@ class EditAddress : BaseNavigationFragment() {
                 Toast.makeText(context, "(FIRESTORE Retrieve Error) : $error", Toast.LENGTH_LONG).show()
 
             }
-           /* setup_progress.visibility = View.INVISIBLE
-            setup_btn.isEnabled = true*/
+            /* setup_progress.visibility = View.INVISIBLE
+             setup_btn.isEnabled = true*/
         }
 
 
@@ -102,11 +100,7 @@ class EditAddress : BaseNavigationFragment() {
     }
 
 
-
-
-
-
-    private fun addAddress(){
+    private fun addAddress() {
 
         mEditAddress_progress.visibility = View.VISIBLE
 
@@ -116,10 +110,10 @@ class EditAddress : BaseNavigationFragment() {
         val state = mEditSelectState.text.toString()
         val city = mEditSelectCity.text.toString()
         val type = mType.text.toString()
-        storeFirestore(null, address, landmark, pincode, state, city,type)
+        storeFirestore(null, address, landmark, pincode, state, city, type)
     }
 
-    private fun storeFirestore(task: Task<UploadTask.TaskSnapshot>?, address: String, landmark: String, pincode: String, state: String, city: String,type: String) {
+    private fun storeFirestore(task: Task<UploadTask.TaskSnapshot>?, address: String, landmark: String, pincode: String, state: String, city: String, type: String) {
 
         val userMap = HashMap<String, String>()
         userMap["address"] = address
@@ -138,47 +132,6 @@ class EditAddress : BaseNavigationFragment() {
 
             }
         }
-    }
-
-
-    private val radioListener = RadioGroup.OnCheckedChangeListener { group, checkedId ->
-        when (group) {
-            mRadioGroupName -> changeName(checkedId)
-        }
-        when (checkedId) {
-            R.id.mHomeFlat -> mType.text = "Home Or Flats"
-            R.id.mFarmHouse -> mType.text = "Farm House"
-        }
-    }
-
-
-    private fun setDefaultSetting() {
-      //  name = pref.homeAndFlat
-        //farmname = pref.farmHouse
-
-        if (mType.text == "Farm House") {
-            mFarmHouse.isChecked = true
-        } else {
-            mHomeFlat.isChecked = true
-        }
-    }
-
-
-    private fun changeName(checkedId: Int) {
-        if (pref.farmHouse) {
-            name = checkedId == R.id.mFarmHouse
-        }else{
-            name = checkedId == R.id.mHomeFlat
-        }
-    }
-    private fun homePricingFunction() {
-
-        if (pref.homeAndFlat) {
-            mHomeFlat.isChecked = true
-        } else
-            mFarmHouse.isChecked = true
-
-
     }
 
 

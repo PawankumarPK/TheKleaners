@@ -1,5 +1,6 @@
 package com.example.hp.thekleaners.adapters
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ResolveInfo
@@ -27,6 +28,7 @@ class CustomAdapter(internal var context: Context, private var profiles: ArrayLi
     }
 
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: CustomAdapter.ViewHolder, position: Int) {
         holder.name.text = profiles[position].carName
         holder.email.text = profiles[position].carNumber
