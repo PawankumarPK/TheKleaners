@@ -122,7 +122,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="@string/mobile_no"
-                    android:maxLength="17"
+                    android:maxLength="10"
+                    android:inputType="number"
                     android:textSize="15sp" />
             </android.support.design.widget.TextInputLayout>
 

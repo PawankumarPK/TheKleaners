@@ -214,5 +214,20 @@
             android:text="@string/update_changes"
             android:textColor="@android:color/white" />
 
+
+        <Button
+            android:id="@+id/setup_btnDemo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/setup_btn"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:visibility="invisible"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/color_gradient"
+            android:text="@string/update_changes"
+            android:textColor="@android:color/white" />
+
     </RelativeLayout>
 </ScrollView>

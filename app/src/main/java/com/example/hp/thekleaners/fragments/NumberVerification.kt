@@ -78,7 +78,7 @@ class NumberVerification : BaseNavigationFragment() {
             if (task.isSuccessful) {
 
                 //  sendNumberToProfile()
-                fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, AddAddress()).commit()
+                fragmentManager!!.beginTransaction().addToBackStack(null).replace(R.id.containerView, Profile()).commit()
                 Toast.makeText(context, "Successfully Verification", Toast.LENGTH_SHORT).show()
 
             } else {

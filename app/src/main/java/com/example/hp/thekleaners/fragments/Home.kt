@@ -28,7 +28,7 @@ class Home : BaseNavigationFragment() {
 
         mContinueDailyService.setOnClickListener { mContinueDailyServiceFunction() }
 
-        val viewPagerAdapter = ViewPagerAdapter(mainActivity)
+        val viewPagerAdapter = ViewPagerAdapter(mainActivity) 
         //viewPager.adapter = viewPagerAdapter
 
         val timer = Timer()

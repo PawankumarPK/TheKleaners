@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:targetApi="jelly_bean">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_add_alert_" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/alert"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="#3F3D3D"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            tools:targetApi="jelly_bean" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="#000" />
+
+
+    <TextView
+        android:id="@+id/mPrivacyPolicy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/warningNote"
+        android:textColor="#3F3D3D"
+        android:textSize="18sp" />
+
+
+
+    <Button
+        android:id="@+id/mContinueDialog"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/color_dialog_gradient"
+        android:text="Continue !"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="16sp" />
+
+
+
+</LinearLayout>
